@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/form-handler" method="post" novalidate>
+      {{ govukInput({
+        label: {
+          text: "Find a referrer",
+          isPageHeading: true,
+          classes: "govuk-label--l"
+        },
+        hint: {
+          text: "Enter some kind of key to find an individual referrer's details within the relevant system."
+        },
+        classes: "govuk-input--width-10",
+        id: "referrer-number",
+        name: "referrer"
+      }) }}
+
+      {{ govukButton({
+        text: "Search"
+      }) }}
+    </form>
+
+    <a href="#" class="govuk-link govuk-link--no-visited-state">I do not have a XX number.</a>
+
+  </div>
+</div>
+
+{% endblock %}
