@@ -1,20 +1,40 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
+{% block pageTitle %}
+  CAS2 Prototypes
+{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        CAS-2 Referral Hub Prototypes
+      </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+      <h2 class="govuk-heading-l">About this page</h2>
 
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
+      <p>An initial page linking to various prototypes created for the MoJ <strong>Community Accommodation Service - Tier 2</strong> project.</p>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+      <h2 class="govuk-heading-l" id="dpl-exercises">Prototypes</h2> 
+
+      <p class="govuk-body-m">The section contains a list of our prototyping exercises:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-body-m">
+        <li><a href="exercises/apply-renew-passport">Task list dashboard</a></li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l">Other information</h2>
+
+      <p>Additional links to project artifacts.</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="https://www.google.com">Discovery Deck</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 
 {% endblock %}
