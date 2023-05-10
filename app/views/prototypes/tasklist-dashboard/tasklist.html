@@ -1,5 +1,7 @@
 {% extends "layouts/main.html" %}
 
+{% from "components/widgets/macro.njk" import widgets %}
+
 {% block pageTitle %}
   Task list template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -14,6 +16,8 @@
 {% block content %}
 
   <div class="govuk-grid-row">
+
+    <!-- Left hand side -->
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
@@ -169,6 +173,15 @@
       </form>
 
     </div>
+
+    <!-- Right hand side -->
+
+    <div class="risk-information">
+      <div class="govuk-grid-column-one-third">
+        {{ widgets(widgetData) }}
+      </div>
+    </div>
+
   </div>
 
 {% endblock %}
