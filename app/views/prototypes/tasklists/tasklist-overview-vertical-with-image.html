@@ -1,0 +1,218 @@
+{% extends "layouts/main.html" %}
+
+{% from "components/widgets/macro.njk" import widgets %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <!-- Left hand side -->
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Apply for a CAS-2 placement
+      </h1>
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 8 sections.</p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+
+    <div class="flexbox">
+      <div class="govuk-grid-column-two-thirds">
+
+        <ol class="govuk-prototype-kit-task-list">
+
+          <li>
+
+            <h2 class="govuk-prototype-kit-task-list__section">
+              Information about Joe Bloggs
+            </h2>
+
+            <p class="govuk-body govuk-!-margin-bottom-5">To be completed by the <strong>referrer</strong>.</p>
+
+            <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0">
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <a href="#" aria-describedby="eligibility-status">
+                    Risk of harm
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--blue" id="eligibility-status">In progress</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <a href="../health-questions/health-needs-communication" aria-describedby="read-declaration-status">
+                    Health needs
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey" id="read-declaration-status">Not started</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <p class="govuk-!-margin-0">
+                    Current convictions or alleged offences
+                  </p>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--blue" id="eligibility-status">In progress</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <p class="govuk-!-margin-0">
+                    Offending history
+                  </p>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--blue" id="eligibility-status">In progress</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <p class="govuk-!-margin-0">
+                    Community supervision and HDC license conditions
+                  </p>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--blue" id="eligibility-status">In progress</strong>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <li>
+
+            <h2 class="govuk-prototype-kit-task-list__section">
+              Information from Joe Bloggs
+            </h2>
+
+            <p class="govuk-body govuk-!-margin-bottom-5">To be completed by the <strong>applicant</strong> with the referrer's help.</p>
+
+            <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0 govuk-!-margin-bottom-6">
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <a href="#" aria-describedby="eligibility-status">
+                    Applicant consent
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey" id="read-declaration-status">Not started</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <p class="govuk-!-margin-0">
+                    Funding your CAS-2 placement
+                  </p>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Complete</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <p class="govuk-!-margin-0">
+                    Address before custody
+                  </p>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Complete</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <a href="#" aria-describedby="read-declaration-status">
+                    CAS-2 area
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey" id="read-declaration-status">Not started</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <a href="#" aria-describedby="read-declaration-status">
+                    Identification documents
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey" id="read-declaration-status">Not started</strong>
+              </li>
+
+              <li class="govuk-prototype-kit-task-list__item">
+                <span class="govuk-prototype-kit-task-list__task-name">
+                  <p class="govuk-!-margin-0">
+                    Nacro CAS-2 Equality and Diversity Monitoring Form
+                  </p>
+                </span>
+                <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey" id="read-declaration-status">Cannot start yet</strong>
+              </li>
+
+            </ul>
+            
+            {{ govukButton({
+              text: "Download the Applicant Information sheet"
+            }) }}
+
+          </li>
+
+        </ol>
+
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        <form action="confirm-com" method="post" novalidate class="govuk-!-margin-top-9">
+
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+
+        </form>
+
+      </div>
+
+      <!-- Right hand side overview - Applicant details, without image -->
+      <div class="govuk-grid-column-one-quarter applicant-details-overview">
+
+          <img src="/public/images/joe-bloggs.png" alt="" width="100%" height="auto">
+
+          <h3 class="govuk-heading-s govuk-!-margin-top-4">Applicant details</h3>
+          
+          <ul class="govuk-list govuk-!-margin-bottom-0">
+            <li>
+              <p class="govuk-body-s"><strong>Date of birth:</strong> 3 October 1991</p>
+            </li>
+
+            <li>
+              <p class="govuk-body-s"><strong>Gender:</strong> May</p>
+            </li>
+
+            <li>
+              <p class="govuk-body-s"><strong>NOMIS:</strong> A1234CR</p>
+            </li>
+
+            <li>
+              <p class="govuk-body-s"><strong>CRN:</strong> E554419</p>
+            </li>
+
+            <li>
+              <p class="govuk-body-s"><strong>Status:</strong> In custody</p>
+            </li>
+          </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

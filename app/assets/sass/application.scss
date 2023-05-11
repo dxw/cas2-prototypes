@@ -6,3 +6,23 @@
 // Add extra styles here
 
 @import "risk/widgets";
+
+.flexbox {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.border--top {
+    border-top: 2px solid red;
+    padding-top: 1em;
+}
+
+.border--blue {
+    border-color: govuk-colour("blue");
+}
+
+.applicant-details-overview {
+    align-self: baseline;
+    border: 1px solid $govuk-border-colour;
+    padding: 1em;
+}
