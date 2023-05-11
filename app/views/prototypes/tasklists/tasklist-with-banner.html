@@ -2,6 +2,7 @@
 
 {% from "components/widgets/macro.njk" import widgets %}
 {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block pageTitle %}
   Task list template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -28,7 +29,11 @@
       {% set html %}
         <p class="govuk-notification-banner__heading govuk-body govuk-!-font-size-19 govuk-body govuk-!-font-weight-regular">
           You are applying on behalf of <strong>Joe Bloggs</strong>.<br>
-          <a class="govuk-notification-banner__link" href="#">Start again</a>.
+          To start again, search for a different applicant.<br>
+          {{ govukButton({
+            text: "Start again",
+            classes: "govuk-button--secondary govuk-!-margin-top-3 govuk-!-margin-bottom-0"
+          }) }}
         </p>
       {% endset %}
 
