@@ -26,3 +26,16 @@
     border: 1px solid $govuk-border-colour;
     padding: 1em;
 }
+
+// --------
+
+.oasys-update p {
+    color: $govuk-secondary-text-colour;
+}
+
+#oasys-textarea:disabled {
+    background-color:  govuk-colour("light-grey");
+    border-color: govuk-colour("mid-grey");
+    color: govuk-colour("dark-grey");
+    opacity: 1;
+}

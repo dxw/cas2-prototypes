@@ -4,5 +4,23 @@
 //
 
 window.GOVUKPrototypeKit.documentReady(() => {
-  // Add JavaScript here
+
+  // Risk section - Switch text area edit state based on radio selection
+  $('#radio-edited').on('click', (function(){
+    $('#oasys-textarea').attr("disabled", false);
+    $('#button-save-and-continue').addClass("govuk-button--disabled");
+  }))
+
+  $('#radio-up-to-date').on('click', (function(){
+    $('#oasys-textarea').attr("disabled", true);
+  }))
+
+  // Risk section - Change click status and styling of confirm button based on above selection
+  $('#radio-up-to-date').on('click', (function(){
+    $('#button-save-and-continue').attr("disabled", false);
+    $('#button-save-and-continue').removeClass("govuk-button--disabled");
+  }))
+
 })
+
+

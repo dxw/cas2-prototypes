@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="health-needs-independent-living" method="post">
+
+        <span class="govuk-caption-l">Risk and need factors</span>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Risk of serious harm</h1>
+
+        <div class="oasys-update govuk-!-margin-bottom-7">
+          <p class="govuk-!-margin-bottom-2">Imported from OASys <strong> 09 January 2023 </strong></p>
+          <p>OASys last updated <strong> 09 January 2023</strong></p>
+        </div>
+
+        {{ govukTextarea({
+          name: "oasys-textarea",
+          id: "oasys-textarea",
+          disabled: true,
+          rows: "8",
+          value: "Males whom Mr Bloggs believes have wronged him, or partners including current partner, children and un-born child.",
+          label: {
+            text: "Who is at risk?",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukInsetText({
+          text: "This will not be written back into OASys. If the information in OASys is out of date, we suggest you also up-date it as well as entering it here."
+        }) }}
+
+        <!-- Answer options for question -->
+        {{ govukRadios({
+          name: "oasys-edit",
+          fieldset: {
+          },
+          items: [
+            {
+              value: "up-to-date",
+              id: "radio-up-to-date",
+              text: "I confirm this risk summary is up-to-date."
+            },
+            {
+              value: "edited",
+              id: "radio-edited",
+              text: "I want to amend this risk summary."
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          id: "button-save-and-continue",
+          text: "Save and continue",
+          class: "govuk-button--disabled",
+          disabled: true
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
