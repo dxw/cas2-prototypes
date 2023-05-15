@@ -22,19 +22,19 @@
 
       <form class="form" action="health-needs-independent-living" method="post">
 
-        <span class="govuk-caption-l">Risk and need factors</span>
-        <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Risk of serious harm</h1>
+        <!-- <span class="govuk-caption-l">Risk and need factors</span> -->
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Risk of serious harm</h1>
 
-        <div class="oasys-update govuk-!-margin-bottom-7">
-          <p class="govuk-!-margin-bottom-2">Imported from OASys <strong> 09 January 2023 </strong></p>
-          <p>OASys last updated <strong> 09 January 2023</strong></p>
+        <div class="oasys-update govuk-!-margin-bottom-6">
+          <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
+          <!-- <p>OASys last updated <strong> 09 January 2023</strong></p> -->
         </div>
 
         {{ govukTextarea({
           name: "oasys-textarea",
           id: "oasys-textarea",
           disabled: true,
-          rows: "8",
+          rows: "10",
           value: "Males whom Mr Bloggs believes have wronged him, or partners including current partner, children and un-born child.",
           label: {
             text: "Who is at risk?",
@@ -43,25 +43,25 @@
           }
         }) }}
 
+        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
+        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+
         {{ govukInsetText({
           text: "This will not be written back into OASys. If the information in OASys is out of date, we suggest you also up-date it as well as entering it here."
         }) }}
 
         <!-- Answer options for question -->
-        {{ govukRadios({
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
           name: "oasys-edit",
           fieldset: {
           },
           items: [
             {
               value: "up-to-date",
-              id: "radio-up-to-date",
+              id: "up-to-date",
               text: "I confirm this risk summary is up-to-date."
-            },
-            {
-              value: "edited",
-              id: "radio-edited",
-              text: "I want to amend this risk summary."
             }
           ]
         }) }}

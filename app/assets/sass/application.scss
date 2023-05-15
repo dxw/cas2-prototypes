@@ -37,5 +37,14 @@
     background-color:  govuk-colour("light-grey");
     border-color: govuk-colour("mid-grey");
     color: govuk-colour("dark-grey");
+
+    // background-color: govuk-colour("white");
+    // border-color: govuk-colour("white");
+    // padding: 0;
+
     opacity: 1;
+}
+
+.link-edit-text {
+    float: right;
 }
