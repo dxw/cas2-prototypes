@@ -1,0 +1,109 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/task-list-standard"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div>
+    <h2 class="govuk-heading-l">Prison information</h2>
+    <p>This information is imported from NOMIS. </p>
+    <p>Select any prison case notes that will help CAS-2 managers understand factors that may help with the person's risk management within their accommodation. </p>
+    <p>Adjudications from the person's current sentence and ACCT (Assessment, Care in Custody and Teamwork) information will be sent automatically.</p>
+  </div>
+
+  <div>
+    <!-- Sub-navigation -->
+      <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+        <ul class="moj-sub-navigation__list">
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link"  aria-current="page" href="prison-behaviours.html">Prison case notes</a>
+          </li>
+
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="prison-adjudications.html">Adjudications</a>
+          </li>
+
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link"  href="prison-acct.html">ACCT</a>
+          </li>
+        </ul>
+      </nav>
+  </div>
+
+  <div class="govuk-column-full-width">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Prison case notes</caption>
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" style="width:100px;">Select</th>
+          <th scope="col" class="govuk-table__header">Created</th>
+          <th scope="col" class="govuk-table__header">Case note comments</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="prison-behaviours" name="prison-behaviours" type="checkbox" value="behaviour-1">
+              <label class="govuk-label govuk-checkboxes__label" for="prison-behaviours"></label>
+            </div>
+          </td>
+          <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word">Monday 13 September, 13:05 - Jamie Jones</td>
+          <td scope="row" class="govuk-table__cell" style="word-wrap: break-word"><b>Type of behaviour note</b><br>
+            Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident.</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="prison-behaviours" name="prison-behaviours" type="checkbox" value="behaviour-2">
+              <label class="govuk-label govuk-checkboxes__label" for="prison-behaviours"></label>
+            </div>
+          </td>
+          <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word">Monday 13 December, 11:55 - Jason Timlin</td>
+          <td scope="row" class="govuk-table__cell" style="word-wrap: break-word">
+            <b>Type of behaviour note</b><br>
+            Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident. Happened on: 13 July 2022
+
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="prison-behaviours" name="prison-behaviours" type="checkbox" value="behaviour-3">
+              <label class="govuk-label govuk-checkboxes__label" for="prison-behaviours"></label>
+            </div>
+          </td>
+          <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word">17 November 2022, 13:08 - Sharon Olson</td>
+          <td scope="row" class="govuk-table__cell" style="word-wrap: break-word"><b>Type of behaviour note</b><br> Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="moj-pagination__results" style="float:right">Showing <b>10</b> results </p>
+  </div>
+
+  {{ govukButton({
+    text: "Save and continue",
+    href: "/prototypes/tasklist"
+  }) }}
+
+{% endblock %}

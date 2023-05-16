@@ -1,0 +1,84 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Approved Premises prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/task-list-standard"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div>
+    <h2 class="govuk-heading-l">Prison information</h2>
+    <p>This information is imported from NOMIS. </p>
+    <p>Give evidence of any positive and negative behaviour to help AP managers understand factors that may help with the person's risk management in an AP.</p>
+  </div>
+
+  <div>
+    <!-- Sub-navigation -->
+      <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+        <ul class="moj-sub-navigation__list">
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link"  href="prison-behaviours.html">Prison case notes</a>
+          </li>
+
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="prison-adjudications.html">Adjudications</a>
+          </li>
+
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" aria-current="page"  href="prison-acct.html">ACCT</a>
+          </li>
+        </ul>
+      </nav>
+  </div>
+
+  <div class="govuk-column-full-width">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Assessment, Care in Custody and Teamwork (ACCT)</caption>
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" style="width:100px;">Alert type</th>
+          <th scope="col" class="govuk-table__header">ACCT description</th>
+          <th scope="col" class="govuk-table__header">Date created</th>
+          <th scope="col" class="govuk-table__header">Expiry date</th>
+          <th scope="col" class="govuk-table__header">Comments</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word">Self Harm</td>
+          <td scope="row" class="govuk-table__cell" style="width:150px"> ACCT Open (HMPS)</td>
+          <td scope="row" class="govuk-table__cell" style="width:150px"> 19 Aug 2022</td>
+          <td scope="row" class="govuk-table__cell" style="width:150px"> 3 Sep 2022</td>
+          <td scope="row" class="govuk-table__cell"> ACCT re-opened on 04.10.21 from P/C after stating he felt like self-harming. ACCT closed on 07.10.21"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="moj-pagination__results" style="float:right">Showing <b>1</b> result</p>
+
+  </div>
+
+  {{ govukButton({
+    text: "Save and continue",
+    href: "/prototypes/tasklist"
+  }) }}
+
+{% endblock %}

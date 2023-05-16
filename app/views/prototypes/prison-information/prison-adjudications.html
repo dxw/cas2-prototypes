@@ -1,0 +1,118 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Approved Premises prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/task-list-standard"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+    <div>
+      <h2 class="govuk-heading-l">Prison information</h2>
+      <p>This information is imported from NOMIS. </p>
+
+      <p>Give evidence of any positive and negative behaviour to help AP managers understand factors that may help with the person's risk management in an AP.</p>
+    </div>
+
+    <div>
+      <!-- Sub-navigation -->
+      <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+        <ul class="moj-sub-navigation__list">
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link"  href="prison-behaviours.html">Prison case notes</a>
+          </li>
+
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" aria-current="page"  href="prison-adjudications.html">Adjudications</a>
+          </li>
+
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="prison-acct.html">ACCT</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="govuk-column-full-width">
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Adjudications</caption>
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="width:100px;">Adjudication number</th>
+            <th scope="col" class="govuk-table__header">Report date and time</th>
+            <th scope="col" class="govuk-table__header">Establishment</th>
+            <th scope="col" class="govuk-table__header">Offence description	</th>
+            <th scope="col" class="govuk-table__header">Finding</th>
+          </tr>
+        </thead>
+        
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word"> 1611343</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> 22 Aug 2022, 13:04</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> Hull (HMP)</td>
+            <td scope="row" class="govuk-table__cell"> Disobeys any lawful order</td>
+            <td scope="row" class="govuk-table__cell" style="width:140px"> Dismissed</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word"> 1611343</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> 01 Apr 2019, 09:04</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> Hull (HMP)</td>
+            <td scope="row" class="govuk-table__cell">Takes improperly any article belonging to another person or to a prison</td>
+            <td scope="row" class="govuk-table__cell" style="width:140px"> Charge proved</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word"> 1611343</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> 22 Aug 2017, 22:14</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> Hull (HMP)</td>
+            <td scope="row" class="govuk-table__cell"> Intentionally endangers the health or personal safety of others or, by his conduct, is reckless whether such health or personal safety is endangered</td>
+            <td scope="row" class="govuk-table__cell" style="width:140px"> Charge proved</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word"> 1611343</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> 23 Feb 2017,  11:07</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> Hull (HMP)</td>
+            <td scope="row" class="govuk-table__cell"> Has in his possession - (a) any unauthorised article, or (b) a greater quantity of any article than he is authorised to have - possession of unauthorised items </td>
+            <td scope="row" class="govuk-table__cell" style="width:140px"> Dismissed</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word"> 1611343</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> 29 Nov 2016, 16:54</td>
+            <td scope="row" class="govuk-table__cell" style="width:150px"> Hull (HMP)</td>
+            <td scope="row" class="govuk-table__cell"> Destroys or damages any part of a prison or any other property, other than his own </td>
+            <td scope="row" class="govuk-table__cell" style="width:140px"> Dismissed</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <p class="moj-pagination__results" style="float:right">Showing <b>10</b> results</p>
+
+    </div>
+
+    {{ govukButton({
+      text: "Save and continue",
+      href: "/prototypes/tasklist"
+    }) }}
+
+{% endblock %}
