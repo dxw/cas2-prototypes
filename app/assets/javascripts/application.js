@@ -8,7 +8,7 @@ window.GOVUKPrototypeKit.documentReady(() => {
   var editText = $('#edit-text');
   var revertText = $('#revert-text');
   var upToDate = $('#up-to-date');
-  var textArea = $('#oasys-textarea');
+  var textArea = $('.oasys-textarea');
   var continueButton = $('#button-save-and-continue');
   
   var originalOASys = $('#oasys-textarea').text();

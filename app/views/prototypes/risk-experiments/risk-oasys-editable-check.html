@@ -20,7 +20,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form class="form" action="health-needs-independent-living" method="post">
+      <form class="form" action="" method="post">
 
         <!-- <span class="govuk-caption-l">Risk and need factors</span> -->
         <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Risk of serious harm</h1>
@@ -43,12 +43,17 @@
           }
         }) }}
 
+        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
+        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+
         {{ govukInsetText({
           text: "This will not be written back into OASys. If the information in OASys is out of date, we suggest you also up-date it as well as entering it here."
         }) }}
 
         <!-- Answer options for question -->
-        {{ govukRadios({
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
           name: "oasys-edit",
           fieldset: {
           },
@@ -57,11 +62,6 @@
               value: "up-to-date",
               id: "up-to-date",
               text: "I confirm this risk summary is up-to-date."
-            },
-            {
-              value: "edited",
-              id: "edit-text",
-              text: "I want to amend this risk summary."
             }
           ]
         }) }}
