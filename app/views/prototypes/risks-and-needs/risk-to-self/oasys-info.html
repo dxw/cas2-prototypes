@@ -17,10 +17,10 @@
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-l">
-        Importing of OASys information
+        Is OASys up to date?
       </h1>
 
-      <p class="govuk-body-l"><strong>Joe Blogg's</strong> OASys was last updated on <strong>4th January 2022</strong>.</p>
+      <p class="govuk-body-l">OASys record for <strong>Joe Bloggs</strong> last updated on <strong>4th January 2022</strong>.</p>
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
@@ -51,7 +51,7 @@
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
-      <form action="risk-summary" method="post" novalidate>
+      <form action="vulnerability" method="post" novalidate>
 
         {{ govukButton({
           text: "Continue"
