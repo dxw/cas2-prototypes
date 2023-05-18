@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Importing of OASys information
+      </h1>
+
+      <p class="govuk-body-l"><strong>Joe Blogg's</strong> OASys was last updated on <strong>4th January 2022</strong>.</p>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <p>
+        Sections of an OASys report will be used to import information to support this section. Make sure there is no information missing that might be relevant.
+      </p>
+
+      <p>
+        We also need some guidance here explaining the type of information that may be sensitive and should be redacted.
+      </p>
+
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+      {{ govukInsetText({
+        text: "If the information in OASys is out of date, incomplete or will not support your application for any reason, update it before you continue. You will be able to edit any risk information that you import from OASys. This will not be written back into OASys."
+      }) }}
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      <form action="who-is-at-risk" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

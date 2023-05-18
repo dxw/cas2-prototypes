@@ -60,22 +60,6 @@
             }
           }) }}
 
-          <!-- Answer options for question -->
-          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-          {{ govukCheckboxes({
-            name: "oasys-edit",
-            fieldset: {
-            },
-            items: [
-              {
-                value: "up-to-date",
-                id: "up-to-date",
-                text: "I confirm this risk summary is up-to-date."
-              }
-            ]
-          }) }}
-
           {% endset -%}
 
           <!-- Answer options for question -->
@@ -108,7 +92,7 @@
           text: "Save and continue",
           class: "govuk-button--disabled",
           href: "risk-implications",
-          disabled: true
+          disabled: false
         }) }}
 
       </form>
@@ -116,4 +100,4 @@
     </div>
   </div>
 
-{% endblock %}
+{% endblock %} 
