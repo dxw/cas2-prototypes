@@ -1,0 +1,119 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="" method="post">
+
+        <span class="govuk-caption-m">Risks and needs for Joe Bloggs</span>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1>
+
+        <!-- Set stuff to show when the answer Yes is selected -->
+        {% set yesHtml %}
+
+          <p class="govuk-body-m">Please answer all questions, if there is no known information, please state this.</p> 
+
+          {{ govukTextarea({
+            name: "mappa-arrangement-type",
+            id: "mappa-arrangement-type",
+            label: {
+              text: "What is the arrangement type?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "mappa-lead-contact",
+            id: "mappa-lead-contact",
+            label: {
+              text: "Who is the lead contact?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "mappa-category-level",
+            id: "mappa-category-level",
+            label: {
+              text: "What is the category level?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          <!-- Answer options for question -->
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            name: "oasys-edit",
+            fieldset: {
+            },
+            items: [
+              {
+                value: "up-to-date",
+                id: "up-to-date",
+                text: "I confirm this risk summary is up-to-date."
+              }
+            ]
+          }) }}
+
+          {% endset -%}
+
+          <!-- Answer options for question -->
+          {{ govukRadios({
+            name: "mappa-arrangements",
+            fieldset: {
+              legend: {
+                text: "Are there any Multi-Agency Risk Management Arrangements?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: yesHtml
+                }
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+        
+        {{ govukButton({
+          id: "button-save-and-continue",
+          text: "Save and continue",
+          class: "govuk-button--disabled",
+          href: "risk-implications",
+          disabled: true
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
