@@ -1,0 +1,149 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="" method="post">
+
+        <span class="govuk-caption-m">Risks and needs for Joe Bloggs</span>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1>
+
+        <div class="oasys-update govuk-!-margin-bottom-6">
+          <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
+          <!-- <p>OASys last updated <strong> 09 January 2023</strong></p> -->
+        </div>
+
+        <p class="govuk-body">If any of the following risks are deemed <strong>medium</strong> or <strong>high</strong>, further questions will be asked.</p>
+
+        {% from "govuk/components/table/macro.njk" import govukTable %}
+
+        {{ govukTable({
+          caption: "Risk summary",
+          captionClasses: "govuk-table__caption--m",
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Risk to",
+              classes: 'govuk-!-width-one-half'
+            },
+            {
+              text: "In custody",
+              classes: 'govuk-!-width-one-quarter'
+            },
+            {
+              text: "In the community",
+              classes: 'govuk-!-width-one-quarter'
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Children"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--yellow'>medium</strong>"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--yellow'>medium</strong>"
+              }
+            ],
+            [
+              {
+                text: "Public"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--yellow'>medium</strong>"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--yellow'>medium</strong>"
+              }
+            ],
+            [
+              {
+                text: "Known adult"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>low</strong>"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>low</strong>"
+              }
+            ],
+            [
+              {
+                text: "Staff"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>low</strong>"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>low</strong>"
+              }
+            ],
+            [
+              {
+                text: "Prisoner"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>low</strong>"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>low</strong>"
+              }
+            ]
+          ]
+        }) }}
+
+        <!-- <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit risk</a> -->
+        <!-- <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a> -->
+
+        {{ govukInsetText({
+          text: "This will not be written back into OASys. If the information in OASys is out of date, we suggest you also up-date it as well as entering it here."
+        }) }}
+
+        <!-- Answer options for question -->
+        <!-- {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "oasys-edit",
+          fieldset: {
+          },
+          items: [
+            {
+              value: "up-to-date",
+              id: "up-to-date",
+              text: "I confirm this risk summary is up-to-date."
+            }
+          ]
+        }) }} -->
+
+        {{ govukButton({
+          id: "button-save-and-continue",
+          text: "Continue",
+          href: "nature-of-risk",
+          disabled: false
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
