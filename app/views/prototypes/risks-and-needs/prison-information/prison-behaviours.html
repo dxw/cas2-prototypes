@@ -18,16 +18,28 @@
 
 {% block content %}
 
-  <div>
-    <h2 class="govuk-heading-l">Prison information</h2>
-    <p>This information is imported from NOMIS. </p>
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Risks and needs for Joe Bloggs</span>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk to self</h1>
+
+    <div class="oasys-update govuk-!-margin-bottom-6">
+      <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
+    </div>
+
     <p>Select any prison case notes that will help CAS-2 managers understand factors that may help with the person's risk management within their accommodation. </p>
     <p>Adjudications from the person's current sentence and ACCT (Assessment, Care in Custody and Teamwork) information will be sent automatically.</p>
   </div>
 
-  <div>
+</div>
+
+<div class="govuk-grid-row">
+  
+  <div class="govuk-grid-column-full">
     <!-- Sub-navigation -->
-      <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <nav class="moj-sub-navigation govuk-!-margin-top-3" aria-label="Sub navigation">
 
         <ul class="moj-sub-navigation__list">
           <li class="moj-sub-navigation__item">
@@ -45,15 +57,16 @@
       </nav>
   </div>
 
-  <div class="govuk-column-full-width">
+  <div class="govuk-grid-column-full">
 
     <table class="govuk-table">
       <caption class="govuk-table__caption govuk-table__caption--m">Prison case notes</caption>
 
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header" style="width:100px;">Select</th>
+          <th scope="col" class="govuk-table__header" style="width:75px;">Select</th>
           <th scope="col" class="govuk-table__header">Created</th>
+          <th scope="col" class="govuk-table__header">Author</th>
           <th scope="col" class="govuk-table__header">Case note comments</th>
         </tr>
       </thead>
@@ -65,9 +78,11 @@
               <label class="govuk-label govuk-checkboxes__label" for="prison-behaviours"></label>
             </div>
           </td>
-          <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word">Monday 13 September, 13:05 - Jamie Jones</td>
-          <td scope="row" class="govuk-table__cell" style="word-wrap: break-word"><b>Type of behaviour note</b><br>
-            Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident.</td>
+          <td scope="row" class="govuk-table__cell" style="">Monday 13 September, 13:05</td>
+          <td scope="row" class="govuk-table__cell" style="">Jamie Jones</td>
+          <td scope="row" class="govuk-table__cell govuk-!-width-two-thirds" style="word-wrap: break-word">
+            Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident.
+          </td>
         </tr>
 
         <tr class="govuk-table__row">
@@ -77,11 +92,10 @@
               <label class="govuk-label govuk-checkboxes__label" for="prison-behaviours"></label>
             </div>
           </td>
-          <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word">Monday 13 December, 11:55 - Jason Timlin</td>
-          <td scope="row" class="govuk-table__cell" style="word-wrap: break-word">
-            <b>Type of behaviour note</b><br>
-            Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident. Happened on: 13 July 2022
-
+          <td scope="row" class="govuk-table__cell" style="">Monday 13 December, 11:55</td>
+          <td scope="row" class="govuk-table__cell" style="">Jason Timlin</td>
+          <td scope="row" class="govuk-table__cell govuk-!-width-two-thirds" style="word-wrap: break-word">
+            Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident.
           </td>
         </tr>
 
@@ -92,18 +106,22 @@
               <label class="govuk-label govuk-checkboxes__label" for="prison-behaviours"></label>
             </div>
           </td>
-          <td scope="row" class="govuk-table__cell" style="width:100px; word-wrap: break-word">17 November 2022, 13:08 - Sharon Olson</td>
-          <td scope="row" class="govuk-table__cell" style="word-wrap: break-word"><b>Type of behaviour note</b><br> Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident.</td>
+          <td scope="row" class="govuk-table__cell" style="">17 November 2022, 13:08</td>
+          <td scope="row" class="govuk-table__cell" style="">Sharon Olson</td>
+          <td scope="row" class="govuk-table__cell" style="word-wrap: break-word"> Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident.</td>
         </tr>
       </tbody>
     </table>
 
     <p class="moj-pagination__results" style="float:right">Showing <b>10</b> results </p>
-  </div>
+  
 
-  {{ govukButton({
-    text: "Save and continue",
-    href: "/prototypes/tasklist"
-  }) }}
+    {{ govukButton({
+      text: "Save and continue",
+      href: "/prototypes/tasklist"
+    }) }}
+
+  </div>
+</div>
 
 {% endblock %}
