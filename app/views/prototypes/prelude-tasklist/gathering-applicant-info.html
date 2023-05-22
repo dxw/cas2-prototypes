@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Gathering applicant information
+      </h1>
+
+      <p class="govuk-body-l">You now need to speak to the applicant about their housing needs.</p>
+
+      <p class="govuk-body-m">Download and print off the <strong>Applicant Interview Sheet</strong>.</p>
+
+      <p class="govuk-body-m">This contains questions you must work through with the applicant, covering their CAS-2 preferences, funding and consent.</p>
+
+      {{ govukButton({
+        text: "Download the Applicant Interview Sheet",
+        classes: "govuk-button--secondary",
+        href: "#",
+        isStartButton: false
+      }) }}
+
+      <p class="govuk-body-m">Once you have a fully completed sheet, continue on to begin your referral application.</p>
+
+      <form action="if-hdc" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Continue",
+          isStartButton: false
+        }) }}
+  
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

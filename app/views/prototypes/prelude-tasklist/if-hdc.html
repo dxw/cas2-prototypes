@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Start address and CAS-2 area checks
+      </h1>
+
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+      {{ govukWarningText({
+        text: "Starting this now will save you significant time",
+        iconFallbackText: "Important"
+      }) }}
+
+      <p class="govuk-body-m">Before you apply for accommodation on behalf of this applicant, make sure you <strong>enter their preferred CAS-2 areas into the <a href="#" class="govuk-link govuk-link--no-visited-state">HDC tool</a></strong>. </p>
+
+      <p class="govuk-body-m">This will trigger CAS-2 area checks, to see if their requested areas are approved.</p>
+
+      <p class="govuk-body-m">This contains questions you must work through with the applicant, covering their CAS-2 preferences, funding and consent.</p>
+
+      <form action="service-start" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Continue",
+          isStartButton: false
+        }) }}
+  
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
