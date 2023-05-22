@@ -94,5 +94,3 @@ router.get('/scores', function (req, res) {
   
     res.render('scores', { riskScores, widgetData })
   })
-
-// Add your routes here

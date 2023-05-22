@@ -20,11 +20,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form class="form" action="../prelude-tasklist/gathering-applicant-info" method="post">
+      <form class="form" action="search-applicant" method="post">
 
-        <div class="govuk-panel govuk-!-margin-bottom-9 govuk-panel--confirmation">
+        <div class="govuk-panel govuk-!-margin-bottom-9 govuk-panel--fail" style="background-color: #d4351c; color: #ffffff;">
           <h1 class="govuk-panel__title">
-            Joe Bloggs is eligible for CAS-2 accommodation
+            Joe Bloggs is not eligible for CAS-2 accommodation
           </h1>
         </div>
 
@@ -70,7 +70,7 @@
                 text: "Applicant is not currently charged with, or has any past convictions or cautions, or current allegations of any sexual offences in Schedule 3 of the Sexual Offences Act 2003"
               },
               {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
+                html: "<strong class='govuk-tag govuk-tag--red'>not eligible</strong>"
               }
             ],
             [
@@ -78,7 +78,7 @@
                 text: "Applicant is not assessed as high or very high risk of serious harm"
               },
               {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
+                html: "<strong class='govuk-tag govuk-tag--red'>not eligible</strong>"
               }
             ],
             [
@@ -100,15 +100,11 @@
           ]
         }) }}
 
-        <p class="govuk-body">If you are ready, you can start your CAS-2 referral application now.</p>
-
         {{ govukButton({
-          text: "Continue"
+          text: "Search for a different applicant"
         }) }}
 
       </form>
-
-      <a href="#" class="govuk-link govuk-link--no-visited-state">Search for a different applicant.</a>
 
     </div>
   </div>
