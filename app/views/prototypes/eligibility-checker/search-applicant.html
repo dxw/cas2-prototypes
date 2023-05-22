@@ -14,21 +14,23 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters">
 
-    <form action="confirm-referrer" method="post" novalidate>
+    <span class="govuk-caption-m">Eligibility check</span>
+
+    <form action="confirm-applicant" method="post" validate>
       {{ govukInput({
         label: {
-          text: "Find a referrer",
+          text: "Find an applicant",
           isPageHeading: true,
-          classes: "govuk-label--l "
+          classes: "govuk-label--l"
         },
         hint: {
-          text: "Enter some kind of key to find an individual referrer's details within the relevant system."
+          text: "Enter the CRN for the individual requesting a CAS-2 placement."
         },
         classes: "govuk-input--width-10",
-        id: "referrer-number",
-        name: "referrer"
+        id: "applicant-crn",
+        name: "applicant-crn"
       }) }}
 
       {{ govukButton({

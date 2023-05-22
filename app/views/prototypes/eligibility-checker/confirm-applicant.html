@@ -15,13 +15,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Confirm referrer details</h1>
+      <span class="govuk-caption-m">Eligibility check</span>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Confirm applicant details</h1>
 
       <div class="oasys-update govuk-!-margin-bottom-6">
-        <p class="govuk-!-margin-bottom-1">Imported from NOMIS <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
+        <p class="govuk-!-margin-bottom-1">Imported from nDelius <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
       </div>
-
-      <!-- <p class="">Details for <strong>Alex Edwards</strong> from <strong>Nomis</strong>, last updated <strong>27th April 2023</strong>.</p> -->
 
       {{ govukSummaryList({
         rows: [
@@ -30,56 +29,60 @@
               text: "Full name"
             },
             value: {
-              text: "Alex Edwards"
+              text: "Joe Bloggs"
             }
           },
           {
             key: {
-              text: "Job title"
+              text: "CRN"
             },
             value: {
-              text: "Prison Offender Manager"
+              text: "GT46272"
             }
           },
           {
             key: {
-              text: "Probation region"
+              text: "Date of birth"
             },
             value: {
-              text: "West Yorkshire"
+              text: "03/10/1984"
             }
           },
           {
             key: {
-              text: "Email"
+              text: "Nationality"
             },
             value: {
-              text: "alex.edwards@dxw.com"
+              text: "British"
             }
           },
           {
             key: {
-              text: "Contact number"
+              text: "Sex"
             },
             value: {
-              text: "01234 567891"
+              text: "Male"
             }
           }
         ]
       }) }}
 
-      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-      {{ govukInsetText({
-        text: "If these details are wrong, update your details within Nomis before continuing."
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+      {{ govukWarningText({
+        text: "If these details are wrong, update the details within Nomis before continuing.",
+        iconFallbackText: "Warning"
       }) }}
 
-      <form action="confirm-com" method="post" novalidate>
+      <form action="eligibility-success" method="post" novalidate>
 
         {{ govukButton({
           text: "Continue"
         }) }}
 
       </form>
+
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Search for a different applicant.</a>
 
     </div>
   </div>

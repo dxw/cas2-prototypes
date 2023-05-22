@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Check eligibility for a CAS-2 placement
+      </h1>
+
+      <p class="govuk-body-l">CAS-2 accommodation is offered by Nacro, the housing service provider.</p>
+
+      <p class="govuk-body-l">Use this service to check on behalf of an applicant if they meet the eligibility criteria for a CAS-2 accommodation placement or not.</p>
+
+      <!-- <p class="govuk-body-l">Not every applicant released on HDC is eligible for CAS-2 accommodation.</p> -->
+
+      <form action="search-applicant" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Check eligibility",
+          classes: "govuk-!-margin-bottom-0",
+          isStartButton: true
+        }) }}
+  
+      </form>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l">
+        Before you start
+      </h2>
+
+      <h3 class="govuk-heading-m">Who is CAS-2 for?</h3>
+
+      <p class="govuk-body">CAS-2 provides housing for people who do not have a suitable address and:</p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>are on Bail Order</li>
+        <li>are on a Home Detention Curfew (HDC) licence </li>
+        <li>who are homeless on conditional release (HCRD)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">To check eligibility you need:</h3>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>the applicant's CRN number</li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
