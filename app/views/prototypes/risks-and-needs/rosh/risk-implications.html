@@ -20,7 +20,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form class="form" action="" method="post">
+      <form class="form" action="/prototypes/tasklist" method="post">
 
         <span class="govuk-caption-m">Risks and needs for Joe Bloggs</span>
         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1>
@@ -34,16 +34,14 @@
             isPageHeading: true
           },
           hint: {
-            text: "A hint would be good here."
+            text: "Think about any issues these risks could cause, and how they might affect the safety of the applicant and others."
           }
         }) }}
-
 
         {{ govukButton({
           id: "button-save-and-continue",
           text: "Save and complete section",
           class: "govuk-button--disabled",
-          href: "/prototypes/tasklist",
           disabled: false
         }) }}
 
