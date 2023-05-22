@@ -16,22 +16,40 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-xl">
+      <h1 class="govuk-heading-l">
         Apply for CAS-2 accommodation for Joe Bloggs
       </h1>
 
-      <p class="govuk-body-l">Now you’re ready to start a new application on behalf of this applicant.</p>
+      <p class="govuk-body-m">Now you’re ready to start a new application on behalf of this applicant.</p>
 
-      <p class="govuk-body-l">You can leave and return to your application at any time. Your progress will be saved automatically.</p>
+      <p class="govuk-body-m">You can leave and return to your application at any time. Your progress will be saved automatically.</p>
 
       <form action="search-referrer" method="post" novalidate>
 
         {{ govukButton({
           text: "Start a new application",
+          classes: "govuk-!-margin-0",
           isStartButton: true
         }) }}
   
       </form>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Start your address check</h2>
+
+      <p class="govuk-body-m">Before you apply for accommodation on behalf of this applicant, make sure you <strong>enter their preferred CAS-2 areas into the <a href="#" class="govuk-link govuk-link--no-visited-state">HDC tool</a></strong>. </p>
+
+      <p class="govuk-body-m">This will trigger CAS-2 area checks, to see if their requested areas are approved.</p>
+
+      <p class="govuk-body-m">This contains questions you must work through with the applicant, covering their CAS-2 preferences, funding and consent.</p>
+
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+      {{ govukWarningText({
+        text: "Starting this now will save you significant time",
+        iconFallbackText: "Important"
+      }) }}
 
     </div>
   </div>

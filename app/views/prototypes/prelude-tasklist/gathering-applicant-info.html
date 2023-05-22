@@ -21,7 +21,16 @@
       </h1>
 
       <p class="govuk-body-l">You now need to speak to the applicant about their housing needs.</p>
+      
+      <hr class="govuk-section-break govuk-section-break--m">
+      
+      <!-- {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
+      {{ govukWarningText({
+        text: "Starting this now could save you a significant amount of time",
+        iconFallbackText: "Important"
+      }) }} -->
+      
       <p class="govuk-body-m">Download and print off the <strong>Applicant Interview Sheet</strong>.</p>
 
       <p class="govuk-body-m">This contains questions you must work through with the applicant, covering their CAS-2 preferences, funding and consent.</p>
@@ -35,7 +44,7 @@
 
       <p class="govuk-body-m">Once you have a fully completed sheet, continue on to begin your referral application.</p>
 
-      <form action="if-hdc" method="post" novalidate>
+      <form action="service-start" method="post" novalidate>
 
         {{ govukButton({
           text: "Continue",
