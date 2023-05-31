@@ -17,18 +17,29 @@
 
   <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-xl">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
         Apply for a CAS-2 placement
       </h1>
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body">You have completed 2 of 8 sections.</p>
+      <div class="govuk-!-margin-bottom-7">
+        <p class="govuk-body govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Owner:</span> Kaie Wishlade</p>
+        <a class="govuk-!-font-size-19" href="#">Change owner</a>
+      </div>
 
-      <p class="govuk-body">Please work through all sections, following the instructions to complete them.</p>
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">You have completed 2 of 8 sections.</h2>
+      <p class="govuk-body">Please work through all sections, following the instructions within each.</p>
 
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible govuk-!-margin-bottom-5">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Inviting people to contribute to this application.</h3>
+      <p class="govuk-body">You can invite other contributors to complete parts of this application, but all sections must be completed before you can submit.</p>
+
+      {{ govukButton({
+        text: "Invite a contributor",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible govuk-!-margin-bottom-5 govuk-!-margin-top-4">
 
     </div>
 
