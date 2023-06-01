@@ -26,13 +26,36 @@
         <span class="govuk-caption-m">CAS-2 application for Joe Bloggs</span>
         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Capture verbal consent</h1>
 
-        <p class="govuk-body-l">Please read the following script out loud to Joe Bloggs in full:</p>
+        <!-- <p class="govuk-body-l">Please read the following script out loud to Joe Bloggs in full:</p> -->
+
+        <p class="govuk-body">Before you can interview <strong>Joe Bloggs</strong> about their CAS-2 housing needs, you need to get their verbal consent.</p>
+
+        <p class="govuk-body">You can’t apply for CAS-2 on their behalf without it.</p>
+
+        <p class="govuk-body govuk-!-font-weight-bold">Please explain this to the applicant, then read out the following script:</p>
 
         <div class="consent-script govuk-!-margin-bottom-5">
-            <p class="govuk-body-m govuk-!-margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="govuk-body-m">In order to apply for CAS-2 accommodation, you need to give consent that your data can be used.</p>
+
+            <p class="govuk-body-m">HMPPS and Nacro, the housing charity, will be the controllers of the data we’ll ask you for. Nacro provides short-term housing and support for tenants entering CAS-2 accommodation.</p>
+              
+            <p class="govuk-body-m">The data will be shared by HMPPS with Nacro, who will then use it for two different purposes:</p>
+              
+            <ol class="govuk-list govuk-list--number govuk-!-margin-left-6">
+              <li>They will use your data to match you with appropriate CAS-2 accommodation.</li>
+            </ol>
+              
+            <p class="govuk-body-m">That means they’ll use various kinds of information, including your health and risk data, to find you housing that meets your needs and requirements.</p>
+              
+            <ol class="govuk-list govuk-list--number govuk-!-margin-left-6" start="2">
+              <li>They will use your data to forecast and model demand for their accommodation.</li>
+            </ol>
+
+            <p class="govuk-body-m govuk-!-margin-bottom-0">That means your data will help Nacro to predict how long people will live in their various placements. This will help them to manage their supply and make sure people get housing when they need it.</p>
+              
         </div>
 
-        <p class="govuk-body">You can also download a print friendly version of this script to take with you.</p>
+        <p class="govuk-body">You can also download this script, so you can print it off and take it with you to discuss with the applicant.</p>
 
         {{ govukButton({
             text: "Download script",
@@ -81,7 +104,7 @@
           name: "health-communication",
           fieldset: {
             legend: {
-              text: "Does Joe Bloggs consent to their information being shared with Nacro, with the aim of offering them suitable accommodation?",
+              text: "Does Joe Bloggs consent to sharing their data with Nacro, for the purposes expressed in the script?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
