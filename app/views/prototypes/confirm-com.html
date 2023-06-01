@@ -27,8 +27,8 @@
         fieldset: {
           legend: {
             text: "Has the area been confirmed by a Community Offender Manager (COM)?",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
           }
         },
         hint: {
@@ -47,7 +47,8 @@
       }) }}
 
       {{ govukButton({
-        text: "Check answers"
+        text: "Check answers",
+        href: "#"
       }) }}
     </form>
 
