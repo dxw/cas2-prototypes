@@ -29,7 +29,7 @@
         </div>
 
         <h2 class="govuk-heading-l">Eligibility summary</h2>
-        <p class="govuk-body">Applicants who meet any of the following requirements are not CAS-2 eligible, meaning you cannot submit an application on their behalf. Please check carefully.</p>
+        <p class="govuk-body">Applicants who fail to meet any of the following requirements are not CAS-2 eligible, meaning you cannot submit an application on their behalf. Please check carefully.</p>
         
         {% from "govuk/components/table/macro.njk" import govukTable %}
 
@@ -40,11 +40,11 @@
           firstCellIsHeader: true,
           head: [
             {
-              text: "Risk to",
+              text: "Requirement",
               classes: 'govuk-!-width-three-quarters'
             },
             {
-              text: "In custody",
+              text: "Status",
               classes: 'govuk-!-width-one-quarter'
             }
           ],
@@ -100,7 +100,7 @@
           ]
         }) }}
 
-        <p class="govuk-body">If you are ready, you can start your CAS-2 referral application now.</p>
+        <p class="govuk-body">You can now start the CAS-2 application process on behalf of this applicant.</p>
 
         {{ govukButton({
           text: "Continue"
