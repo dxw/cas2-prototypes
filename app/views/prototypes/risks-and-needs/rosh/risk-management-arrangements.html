@@ -31,8 +31,8 @@
           <p class="govuk-body-m">Please answer all questions, if there is no known information, please state this.</p> 
 
           {{ govukTextarea({
-            name: "mappa-arrangement-type",
-            id: "mappa-arrangement-type",
+            name: "risk-management-type",
+            id: "risk-management-type",
             label: {
               text: "What is the arrangement type?",
               classes: "govuk-label--s",
@@ -64,10 +64,10 @@
 
           <!-- Answer options for question -->
           {{ govukRadios({
-            name: "mappa-arrangements",
+            name: "risk-managements",
             fieldset: {
               legend: {
-                text: "Are there any Multi-Agency Risk Management Arrangements?",
+                text: "Are there any Risk Management Arrangements, including APPA, MARAC or Integrated Offender Management?",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--m"
               }
