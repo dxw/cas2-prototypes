@@ -30,28 +30,29 @@
           <!-- <p>OASys last updated <strong> 09 January 2023</strong></p> -->
         </div>
 
-        <h2 class="govuk-heading-m"></h2>
         <div class="govuk-notification-banner govuk-!-margin-top-7" role="region"
           aria-labelledby="govuk-notification-banner-title"
           data-module="govuk-notification-banner">
+
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
               Important
             </h2>
           </div>
+
           <div class="govuk-notification-banner__content">
             <!-- <h3 class="govuk-!-margin-top-0">How it works</h3> -->
-            <p class="">Joe Bloggs is at risk of <strong>self harm</strong> and/or <strong>suicide</strong>.</p>
-            <p><p>They have been assessed as medium or high risk on OASys, or have other indicators of risk.</p>
+            <p>Joe Bloggs is currently at risk of <strong>self harm</strong>.</p>
+            <p>They have been assessed as medium or high risk on OASys, or have other indicators of risk.</p>
           </div>
-      </div>
 
-      <p class="govuk-body-m">Any live risks must be documented. Think about what might be relevant for Nacro CAS-2 housing and edit as necessary.</p>
+        </div>
 
-      <p class="govuk-body-m">Your edits won’t change the original OASys record ‒ but they could make a big difference to your applicant’s CAS-2 placement.</p>
-        
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        <p class="govuk-body-m">Any live risks must be documented. Think about what might be relevant for Nacro CAS-2 housing and edit as necessary.</p>
 
+        <p class="govuk-body-m">Your edits won’t change the original OASys record ‒ but they could make a big difference to your applicant’s CAS-2 placement.</p>
+          
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
         {{ govukTextarea({
           name: "oasys-textarea",
@@ -61,7 +62,7 @@
           rows: "10",
           value: "Socks in a single cell.",
           label: {
-            text: "Describe the circumstances, relevant issues and needs regarding current concerns about self harm or suicide",
+            text: "Describe the circumstances, relevant issues and needs regarding current concerns about self harm",
             classes: "govuk-label--m",
             isPageHeading: false
           }
@@ -94,7 +95,7 @@
           id: "button-save-and-continue",
           text: "Save and continue",
           class: "govuk-button--disabled",
-          href: "historical-self-harm-suicide",
+          href: "current-suicide",
           disabled: true
         }) }}
 

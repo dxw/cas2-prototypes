@@ -18,6 +18,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
+
     <div class="govuk-grid-column-three-quarters">
 
       <form class="form" action="" method="post">
@@ -30,47 +31,47 @@
           <!-- <p>OASys last updated <strong> 09 January 2023</strong></p> -->
         </div>
 
-        <h2 class="govuk-heading-m"></h2>
         <div class="govuk-notification-banner govuk-!-margin-top-7" role="region"
           aria-labelledby="govuk-notification-banner-title"
           data-module="govuk-notification-banner">
+
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
               Important
             </h2>
           </div>
+
           <div class="govuk-notification-banner__content">
             <!-- <h3 class="govuk-!-margin-top-0">How it works</h3> -->
-            <p class="">Joe Bloggs is a <strong>vulnerable person</strong>.</p>
-            <p>They have been assessed as medium or high risk on OASys, or have other indicators of risk.</p>
+            <p class="">Joe Bloggs has <strong>no current concerns about suicide</strong>.</p>
           </div>
-      </div>
 
-      <p class="govuk-body-m">Any live risks must be documented. Think about what might be relevant for Nacro CAS-2 housing and edit as necessary.</p>
+        </div>
 
-      <p class="govuk-body-m">Your edits won’t change the original OASys record ‒ but they could make a big difference to your applicant’s CAS-2 placement.</p>
-        
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        <p class="govuk-body-m">Any live risks must be documented. Think about what might be relevant for Nacro CAS-2 housing and edit as necessary.</p>
+
+        <p class="govuk-body-m">Your edits won’t change the original OASys record ‒ but they could make a big difference to your applicant’s CAS-2 placement.</p>
+          
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
         {{ govukTextarea({
           name: "oasys-textarea",
           id: "oasys-textarea",
           classes: "oasys-textarea",
-          disabled: true,
+          disabled: false,
           rows: "10",
-          value: "Socks in a single cell.",
           label: {
-            text: "Describe the circumstances, relevant issues and needs about their vulnerability",
+            text: "If you believe there are current concerns relating to suicide, describe them below",
             classes: "govuk-label--m",
             isPageHeading: false
           }
         }) }}
 
-        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
-        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+        <!-- <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
+        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a> -->
 
         <!-- {{ govukInsetText({
-          text: "If this information is out of date or incorrect, please return to the original OASys record and update it there."
+          text: "This will not be written back into OASys. If the information in OASys is out of date, we suggest you also up-date it as well as entering it here."
         }) }} -->
 
         <!-- Answer options for question -->
@@ -93,7 +94,7 @@
           id: "button-save-and-continue",
           text: "Save and continue",
           class: "govuk-button--disabled",
-          href: "current-self-harm",
+          href: "historical-self-harm",
           disabled: true
         }) }}
 
