@@ -1,0 +1,114 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="health-needs-independent-living" method="post">
+
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Capture verbal consent</h1>
+
+        <p class="govuk-body-l">Please read the following script out loud to Joe Bloggs in full:</p>
+
+        <div class="consent-script govuk-!-margin-bottom-5">
+            <p class="govuk-body-m govuk-!-margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+        <p class="govuk-body">You can also download a print friendly version of this script to take with you.</p>
+
+        {{ govukButton({
+            text: "Download script",
+            classes: "govuk-button--secondary"
+        }) }}
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-3">
+
+        <!-- Set stuff to show when the answer Yes is selected -->
+        {% set yesHtml %}
+
+            {{ govukDateInput({
+            id: "consent-date",
+            namePrefix: "consent-date",
+            fieldset: {
+                legend: {
+                    text: "What date did they provide consent?",
+                    classes: "govuk-label--s"
+                }
+            },
+            hint: {
+                text: "For example, 27 3 2007"
+            }
+            }) }}
+
+        {% endset -%}
+
+        <!-- Set stuff to show when the answer No is selected -->
+        {% set noHtml %}
+
+            {{ govukTextarea({
+            name: "consent-refused",
+            id: "consent-refused",
+            label: {
+                text: "Why was consent refused?",
+                classes: "govuk-label--s",
+                isPageHeading: false
+            }
+            }) }}
+
+        {% endset -%}
+
+        <!-- Answer options for question -->
+        {{ govukRadios({
+          name: "health-communication",
+          fieldset: {
+            legend: {
+              text: "Does Joe Bloggs consent to their information being shared with Nacro, with the aim of offering them suitable accommodation?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHtml
+              }
+            },
+            {
+            value: "no",
+            text: "No",
+            conditional: {
+                html: noHtml
+            }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
