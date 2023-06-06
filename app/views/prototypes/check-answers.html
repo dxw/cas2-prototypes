@@ -1,0 +1,310 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">Consent and eligibility</h2>
+
+      <!---------------------- Eligibility ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "CAS-2 Eligibility"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Applicant is over 18 years old"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Applicant is not currently serving a sentence of 4 years or more for any offence"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Applicant is not currently charged with, or has any past convictions or cautions, or current allegations of any sexual offences in Schedule 3 of the Sexual Offences Act 2003"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Applicant is not assessed as high or very high risk of serious harm"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Applicant has not breached immigration law other than over staying on approved period of leave to enter or remain in UK, or has no recourse to public funds"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "HDC applicant is currently not in prison having been recalled for failing to comply with HDC curfew conditions"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          }
+        ]
+      }) }}
+
+      <!---------------------- Consent ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "CAS-2 Consent"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Does the applicant consent to sharing their data with Nacro?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-l">CAS-2 application</h2>
+
+      <!---------------------- AREA ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Preferred CAS-2 area"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Do you want to apply for a Nacro CAS-2 family property to live with your children?"
+            },
+            value: {
+              html: "No"
+            }
+          },
+          {
+            key: {
+              text: "1st choice region"
+            },
+            value: {
+              html: "London"
+            }
+          },
+          {
+            key: {
+              text: "1st choice area"
+            },
+            value: {
+              html: "Southhall"
+            }
+          },
+          {
+            key: {
+              text: "2nd choice region"
+            },
+            value: {
+              html: "London"
+            }
+          },
+          {
+            key: {
+              text: "2nd choice area"
+            },
+            value: {
+              html: "Shepherds Bush"
+            }
+          },
+          {
+            key: {
+              text: "Have these Local Areas been approved by the probation office?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      <!---------------------- FUNDING ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Funding information for CAS-2 placement"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "How will you pay for CAS-2 accommodation and the service charge?"
+            },
+            value: {
+              html: "Housing benefit and Universal credit"
+            }
+          },
+          {
+            key: {
+              text: "Where were you living before custody including the full address and postcode?"
+            },
+            value: {
+              html: "13 Trough Street <br>Grimsby <br>Yorkshire<br>GR32 GJ3"
+            }
+          },
+          {
+            key: {
+              text: "2nd choice region"
+            },
+            value: {
+              html: "London"
+            }
+          },
+          {
+            key: {
+              text: "2nd choice area"
+            },
+            value: {
+              html: "Shepherds Bush"
+            }
+          },
+          {
+            key: {
+              text: "Have these Local Areas been approved by the probation office?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l">About the applicant</h2>
+
+      <!---------------------- Upload ID documents ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Identification checks"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "File names"
+            },
+            value: {
+              html: "filename.doc (XX.XX KB)<br>filename_02.doc (XX.XX KB)"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Now send your application
+      </h2>
+
+      <p>
+        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
+      </p>
+
+      <form action="/confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
