@@ -94,3 +94,13 @@ router.get('/scores', function (req, res) {
   
     res.render('scores', { riskScores, widgetData })
   })
+
+router.post('/prototypes/tasklist', function(request, response) {
+
+  var consentAnswer = request.session.data['consent-answer']
+  if (consentAnswer == "yes"){
+      response.redirect("/prototypes/tasklist")
+  } else {
+      response.redirect("/prototypes/consent/consent-refused")
+  }
+})

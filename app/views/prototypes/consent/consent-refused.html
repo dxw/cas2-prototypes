@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="search-applicant" method="post">
+
+        <div class="govuk-panel govuk-!-margin-bottom-9 govuk-panel--fail" style="background-color: #d4351c; color: #ffffff;">
+          <h1 class="govuk-panel__title">
+            Joe Bloggs has not provided consent
+          </h1>
+        </div>
+
+        <p class="govuk-body-l"><strong>Joe Bloggs</strong> has not provided their consent for their information to be shared with other parties.</p>
+        <p class="govuk-body-l">This means that their application cannot be shared with Nacro, the accommodation supplier for CAS-2.</p>
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible ">
+
+        <h2 class="govuk-heading-m">What happens next?</h2>
+        <p class="govuk-body-m">You can explain to the applicant why their consent is required for their application to proceed.</p>
+        <p class="govuk-body-m">It may help to remind them of their reason for refusing to provide their consent below.</p>
+          
+          {{ govukTextarea({
+            name: "refusal-reason",
+            id: "refusal-reason",
+            classes: "padded-box govuk-!-margin-bottom-5",
+            value: data['consent-refused'],
+            disabled: true,
+            label: {
+              text: "Reason for refusal",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {{ govukButton({
+          text: "Search for a different applicant"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
