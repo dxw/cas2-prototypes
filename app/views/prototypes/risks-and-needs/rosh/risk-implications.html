@@ -22,19 +22,19 @@
 
       <form class="form" action="/prototypes/tasklist" method="post">
 
-        <span class="govuk-caption-m">Risks and needs for Joe Bloggs</span>
+        <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1>
 
         {{ govukTextarea({
           name: "risk-implications",
           id: "risk-implications",
           label: {
-            text: "How will these risks impact the applicant's CAS-2 placement and the support they need?",
+            text: "Is there any other information to add?",
             classes: "govuk-label--m",
             isPageHeading: true
           },
           hint: {
-            text: "Think about any issues these risks could cause, and how they might affect the safety of the applicant and others."
+            text: "Please record any other risk-related information you feel is relevant to the applicant’s move into CAS-2 housing and the support they’ll need."
           }
         }) }}
 
