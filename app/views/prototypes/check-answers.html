@@ -119,6 +119,14 @@
             value: {
               html: "Yes"
             }
+          },
+          {
+            key: {
+              text: "Date consent was given"
+            },
+            value: {
+              html: "27/3/2023"
+            }
           }
         ]
       }) }}
@@ -221,45 +229,13 @@
             value: {
               html: "Housing benefit and Universal credit"
             }
-          },
-          {
-            key: {
-              text: "Where were you living before custody including the full address and postcode?"
-            },
-            value: {
-              html: "13 Trough Street <br>Grimsby <br>Yorkshire<br>GR32 GJ3"
-            }
-          },
-          {
-            key: {
-              text: "2nd choice region"
-            },
-            value: {
-              html: "London"
-            }
-          },
-          {
-            key: {
-              text: "2nd choice area"
-            },
-            value: {
-              html: "Shepherds Bush"
-            }
-          },
-          {
-            key: {
-              text: "Have these Local Areas been approved by the probation office?"
-            },
-            value: {
-              html: "Yes"
-            }
           }
         ]
       }) }}
 
       <h2 class="govuk-heading-l">About the applicant</h2>
 
-      <!---------------------- Upload ID documents ---------------------->
+      <!---------------------- ID documents ---------------------->
 
       {{ govukSummaryList({
         classes: "check-answers",
@@ -280,10 +256,96 @@
         rows: [
           {
             key: {
-              text: "File names"
+              text: "Confirmed types of identification"
             },
             value: {
-              html: "filename.doc (XX.XX KB)<br>filename_02.doc (XX.XX KB)"
+              html: "UK Passport<br>HMRC correspondence"
+            }
+          }
+        ]
+      }) }}
+
+      <!---------------------- Equality and Diversity Monitoring ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Equality and Diversity Monitoring"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Gender/Identity"
+            },
+            value: {
+              html: "Male"
+            }
+          },
+          {
+            key: {
+              text: "Sexual orientation"
+            },
+            value: {
+              html: "Heterosexual/straight"
+            }
+          },
+          {
+            key: {
+              text: "Ethnicity"
+            },
+            value: {
+              html: "White - British"
+            }
+          },
+          {
+            key: {
+              text: "Religion"
+            },
+            value: {
+              html: "None"
+            }
+          },
+          {
+            key: {
+              text: "Marital status"
+            },
+            value: {
+              html: "Divorced"
+            }
+          },
+          {
+            key: {
+              text: "Is the applicant a military veteran?"
+            },
+            value: {
+              html: "No"
+            }
+          },
+          {
+            key: {
+              text: "Is the applicant a carer leaver?"
+            },
+            value: {
+              html: "No"
+            }
+          },
+          {
+            key: {
+              text: "Does the applicant have parental or carer responsibilities?"
+            },
+            value: {
+              html: "No"
             }
           }
         ]
