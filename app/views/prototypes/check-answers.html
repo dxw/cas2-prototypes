@@ -17,11 +17,28 @@
 <form action="" method="post" novalidate>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+
+    <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
+
+      <p class="govuk-body-l">Read through this page and check that the information provided for each answer is correct. When you're ready, submit the application. Alternatively, you can download a PDF verison of this page.</p>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {{ govukButton({
+        text: "Download as a PDF",
+        href: "#"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
       <h2 class="govuk-heading-l">Consent and eligibility</h2>
 
@@ -1775,7 +1792,7 @@
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Accept and send",
+          text: "Accept and submit",
           href: "#"
         }) }}
 
