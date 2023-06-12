@@ -381,11 +381,12 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-l">Risks and needs of the applicant</h2>
-      <h3 class="govuk-heading-m">Review offending history</h3>
-
       <!---------------------- Offending history ---------------------->
 
+      <h2 class="govuk-heading-l">Offending history</h2>
+
+      <h3 class="govuk-heading-m">Unspent convictions</h3>
+      
       {{ govukSummaryList({
         classes: "check-answers",
         card: {
@@ -413,8 +414,6 @@
           }
         ]
       }) }}
-
-      <h4 class="govuk-heading-m">Unspent convictions</h4>
 
       {{ govukSummaryList({
         classes: "check-answers",
@@ -520,7 +519,7 @@
         ]
       }) }}
 
-      <h4 class="govuk-heading-m">Other unspent offences</h4>
+      <h3 class="govuk-heading-m">Other unspent offences</h3>
 
       {{ govukSummaryList({
         classes: "check-answers",
@@ -581,6 +580,175 @@
             },
             value: {
               html: "3 x Theft and Kindred"
+            }
+          }
+        ]
+      }) }}
+
+      <!---------------------- Offending history ---------------------->
+
+      <h2 class="govuk-heading-l">Current offence information</h2>
+      
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Current conviction or alleged offence 1"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Brief details of the conviction or alleged offence"
+            },
+            value: {
+              html: "GBH"
+            }
+          },
+          {
+            key: {
+              text: "Sentence length"
+            },
+            value: {
+              html: "12 months"
+            }
+          },
+          {
+            key: {
+              text: "Where did this take place?"
+            },
+            value: {
+              html: "Leeds city centre"
+            }
+          },
+          {
+            key: {
+              text: "When did this take place?"
+            },
+            value: {
+              html: "23/02/2023"
+            }
+          },
+          {
+            key: {
+              text: "Further details of how the offence took place"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate."
+            }
+          },
+          {
+            key: {
+              text: "Are there any known victims?"
+            },
+            value: {
+              html: "Yes. The applicant's former brother in-law"
+            }
+          },
+          {
+            key: {
+              text: "Why did the applicant commit this offence?"
+            },
+            value: {
+              html: "The applicant often struggles to control his anger and on this occasion, lashed out following a civil dispute."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Domestic abuse, stalking or harassment details"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Does any offence listed above relate to domestic abuse, stalking or harassment?"
+            },
+            value: {
+              html: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "What is the victims name?"
+            },
+            value: {
+              html: "Jenny Gable"
+            }
+          },
+          {
+            key: {
+              text: "Where do they live?"
+            },
+            value: {
+              html: "Silsden, Keighley"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Restraining orders and injunctions"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Is the applicant subject to any civil/criminal orders including a restraining order
+              or injunction?"
+            },
+            value: {
+              html: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "Order length"
+            },
+            value: {
+              html: "8 months"
+            }
+          },
+          {
+            key: {
+              text: "Further details"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
             }
           }
         ]
