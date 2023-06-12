@@ -13,6 +13,9 @@
 {% endblock %}
 
 {% block content %}
+
+<form action="" method="post" novalidate>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
@@ -130,6 +133,8 @@
         ]
       }) }}
       
+      <hr class="govuk-section-break govuk-section-break--l">
+
       <h2 class="govuk-heading-l">CAS-2 application</h2>
 
       <!---------------------- AREA ---------------------->
@@ -276,6 +281,8 @@
           }
         ]
       }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
 
       <h2 class="govuk-heading-l">About the applicant</h2>
 
@@ -424,6 +431,8 @@
           }
         ]
       }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
 
       <!---------------------- Offending history ---------------------->
 
@@ -633,6 +642,8 @@
           }
         ]
       }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
 
       <!---------------------- Current offence ---------------------->
 
@@ -847,6 +858,8 @@
           }
         ]
       }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
 
       <!---------------------- Risk of Serious Harm (RoSH) Summary ---------------------->
 
@@ -1122,6 +1135,8 @@
         ]
       }) }}
 
+      <hr class="govuk-section-break govuk-section-break--l">
+
       <!---------------------- Risk to self ---------------------->
 
       <h2 class="govuk-heading-l">Risk to self</h2>
@@ -1253,6 +1268,8 @@
           }
         ]
       }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
 
       <!---------------------- Review prison information ---------------------->
 
@@ -1450,6 +1467,8 @@
           }
         ]
       }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
 
       <!---------------------- Health needs ---------------------->
 
@@ -1739,10 +1758,14 @@
         ]
       }) }}
 
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    </div>
+  </div>
 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
 
-
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         Now send your application
       </h2>
 
@@ -1750,14 +1773,21 @@
         By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
       </p>
 
-      <form action="/confirmation" method="post" novalidate>
-
+      <div class="govuk-button-group">
         {{ govukButton({
-          text: "Accept and send"
+          text: "Accept and send",
+          href: "#"
         }) }}
 
-      </form>
+        {{ govukButton({
+          text: "Save and return to tasklist",
+          href: "tasklist",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
 
     </div>
   </div>
+
+</form>
 {% endblock %}
