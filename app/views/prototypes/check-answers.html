@@ -1330,6 +1330,33 @@
         ]
       }) }}
 
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Gang affiliations"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              html: "Do they have any gang affiliations or involved in gang-related activity?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
       <!---------------------- Health needs ---------------------->
 
       <h2 class="govuk-heading-l">Health needs</h2>
