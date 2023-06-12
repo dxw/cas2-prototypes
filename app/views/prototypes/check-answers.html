@@ -585,7 +585,7 @@
         ]
       }) }}
 
-      <!---------------------- Offending history ---------------------->
+      <!---------------------- Current offence ---------------------->
 
       <h2 class="govuk-heading-l">Current offence information</h2>
       
@@ -753,6 +753,106 @@
           }
         ]
       }) }}
+
+      <!---------------------- Risk of Serious Harm (RoSH) Summary ---------------------->
+
+      <h2 class="govuk-heading-l">Risk of Serious Harm (RoSH) Summary</h2>
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Risk summary"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Risk to children"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--red'>Medium</span>"
+            }
+          },
+          {
+            key: {
+              text: "Risk to public"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--red'>Medium</span>"
+            }
+          },
+          {
+            key: {
+              text: "Risk to known adult"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--green'>Low</span>"
+            }
+          },
+          {
+            key: {
+              text: "Risk to staff"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--green'>Low</span>"
+            }
+          },
+          {
+            key: {
+              text: "Risk to prisoner"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--green'>Low</span>"
+            }
+          },
+          {
+            key: {
+              text: "Further details about the risk summary"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "RoSH Questions"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Who is at risk?"
+            },
+            value: {
+              html: "Male whome Mr Bloggs believes have wronged him, or strangers with whom he gets into altercations. The wounding offence was committed 17 years ago in 1998. More recent offence of Affray in 2004. On both occasions were male strangers in pubs."
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "area"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
 
       <h2 class="govuk-heading-m">
         Now send your application
