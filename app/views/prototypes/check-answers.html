@@ -1,4 +1,5 @@
 {% extends "layouts/main.html" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block pageTitle %}
   Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -19,8 +20,6 @@
         Check your answers
       </h1>
 
-      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-
       <h2 class="govuk-heading-l">Consent and eligibility</h2>
 
       <!---------------------- Eligibility ---------------------->
@@ -36,7 +35,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "eligibility answers"
               }
             ]
           }
@@ -106,7 +105,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "consent answer"
               }
             ]
           }
@@ -140,15 +139,6 @@
         card: {
           title: {
             text: "Preferred CAS-2 area"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "area"
-              }
-            ]
           }
         },
         rows: [
@@ -158,6 +148,15 @@
             },
             value: {
               html: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "answer"
+                }
+              ]
             }
           },
           {
@@ -166,6 +165,15 @@
             },
             value: {
               html: "London"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "first choice region"
+                }
+              ]
             }
           },
           {
@@ -174,6 +182,15 @@
             },
             value: {
               html: "Southhall"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "first choice area"
+                }
+              ]
             }
           },
           {
@@ -182,6 +199,15 @@
             },
             value: {
               html: "London"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "second choice region"
+                }
+              ]
             }
           },
           {
@@ -190,6 +216,15 @@
             },
             value: {
               html: "Shepherds Bush"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "second choice area"
+                }
+              ]
             }
           },
           {
@@ -198,6 +233,15 @@
             },
             value: {
               html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "answer"
+                }
+              ]
             }
           }
         ]
@@ -216,7 +260,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "answer"
               }
             ]
           }
@@ -248,7 +292,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "answers"
               }
             ]
           }
@@ -278,7 +322,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "answers"
               }
             ]
           }
@@ -364,7 +408,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "address"
               }
             ]
           }
@@ -398,7 +442,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "answer"
               }
             ]
           }
@@ -426,7 +470,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "conviction details"
               }
             ]
           }
@@ -478,7 +522,12 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "conviction details"
+              },
+              {
+                href: "#",
+                text: "Delete",
+                visuallyHiddenText: "conviction"
               }
             ]
           }
@@ -532,7 +581,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "offence"
               }
             ]
           }
@@ -560,7 +609,7 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "area"
+                visuallyHiddenText: "offence details"
               }
             ]
           }
@@ -594,15 +643,6 @@
         card: {
           title: {
             text: "Current conviction or alleged offence 1"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "area"
-              }
-            ]
           }
         },
         rows: [
@@ -612,6 +652,15 @@
             },
             value: {
               html: "GBH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "current conviction or alleged offence details"
+                }
+              ]
             }
           },
           {
@@ -620,6 +669,15 @@
             },
             value: {
               html: "12 months"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "current conviction or alleged offence details"
+                }
+              ]
             }
           },
           {
@@ -628,6 +686,15 @@
             },
             value: {
               html: "Leeds city centre"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "current conviction or alleged offence details"
+                }
+              ]
             }
           },
           {
@@ -644,6 +711,15 @@
             },
             value: {
               html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate."
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "current conviction or alleged offence details"
+                }
+              ]
             }
           },
           {
@@ -652,6 +728,15 @@
             },
             value: {
               html: "Yes. The applicant's former brother in-law"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "current conviction or alleged offence details"
+                }
+              ]
             }
           },
           {
@@ -660,6 +745,15 @@
             },
             value: {
               html: "The applicant often struggles to control his anger and on this occasion, lashed out following a civil dispute."
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "current conviction or alleged offence details"
+                }
+              ]
             }
           }
         ]
@@ -1182,8 +1276,8 @@
               items: [
                 {
                   href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "area"
+                  text: "Remove",
+                  visuallyHiddenText: "case note"
                 }
               ]
             }
@@ -1199,8 +1293,8 @@
               items: [
                 {
                   href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "area"
+                  text: "Remove",
+                  visuallyHiddenText: "case note"
                 }
               ]
             }
@@ -1216,8 +1310,8 @@
               items: [
                 {
                   href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "area"
+                  text: "Remove",
+                  visuallyHiddenText: "case note"
                 }
               ]
             }
@@ -1243,8 +1337,8 @@
               items: [
                 {
                   href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "area"
+                  text: "Remove",
+                  visuallyHiddenText: "case note"
                 }
               ]
             }
@@ -1260,8 +1354,8 @@
               items: [
                 {
                   href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "area"
+                  text: "Remove",
+                  visuallyHiddenText: "case note"
                 }
               ]
             }
@@ -1277,8 +1371,8 @@
               items: [
                 {
                   href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "area"
+                  text: "Remove",
+                  visuallyHiddenText: "case note"
                 }
               ]
             }
@@ -1294,8 +1388,8 @@
               items: [
                 {
                   href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "area"
+                  text: "Remove",
+                  visuallyHiddenText: "case note"
                 }
               ]
             }
