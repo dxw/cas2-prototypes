@@ -1,0 +1,162 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="" method="post">
+
+        <span class="govuk-caption-m">CAS-2 application for Terry Midhurst</span>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Confirm consent to share information</h1>
+
+        <!-- <p class="govuk-body-l">Please read the following script out loud to Terry Midhurst in full:</p> -->
+
+        <p class="govuk-body">You need verbal consent from <strong>Terry Midhurst</strong> to send an application on their behald to get housing.</p>
+
+        <p class="govuk-body">You can’t apply for CAS-2 on their behalf without it.</p>
+
+        <p class="govuk-body\">You may also be asked for written consent from health services who can provide information needed to complete this application.</p>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              View what to ask Terry Midhurst 
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <div class="consent-script govuk-!-margin-bottom-5">
+
+              <h2 class="govuk-heading-m">Accommodation consent</h2>
+              <h3 class="govuk-heading-s">Do you give HMPPS permission to apply for temporary accommodation on your behalf?</h3>
+
+              <p>Nacro is a housing charity that provides accommodation for people leaving the criminal justice system.</p>
+
+              <p>They’ll use your data to match you with suitable accommodation, and also to support their planning.</p>
+
+              <p>You must give consent in order to apply.</p>
+
+
+              <ul>
+                <li>Yes - share my information with the accommodation provider</li>
+                <li>No - don’t apply for accommodation</li>
+              </ul>
+
+              <h2 class="govuk-heading-m">Healthcare consent</h2>
+
+              <p class="govuk-body">In order to apply for temporary accommodation, HMPPS also needs permission to access and share your healthcare information with Nacro.</p>
+
+              <p class="govuk-body">This will help them to make sure any potential housing meets your needs.</p>
+
+              <p class="govuk-body">You must give consent in order to apply.
+
+              <h3 class="govuk-heading-s">Do you give permission for health services to share health information about you for your application?</h3>
+
+              <ul>
+                <li>Yes - share information about my communication needs such as language, hearing or visual impairments</li>
+                <li>Yes - share information about any cognitive impairments such as learning difficulties that might affect my ability to live independently</li>
+                <li>Yes - share information about any physical needs or mobility issues</li>
+                <li>Yes - share information about any substance misuse needs</li>
+                <li>Yes - share information about mental health</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        {{ govukButton({
+            text: "Download consent form",
+            classes: "govuk-button--secondary",
+            href: "/public/images/consent-form-for-applicant.pdf"
+        }) }}
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-3">
+
+        <!-- Set stuff to show when the answer Yes is selected -->
+        {% set yesHtml %}
+
+            {{ govukDateInput({
+            id: "consent-date",
+            namePrefix: "consent-date",
+            fieldset: {
+                legend: {
+                    text: "What date did they provide consent?",
+                    classes: "govuk-label--s"
+                }
+            },
+            hint: {
+                text: "For example, 27 3 2007"
+            }
+            }) }}
+
+        {% endset -%}
+
+        <!-- Set stuff to show when the answer No is selected -->
+        {% set noHtml %}
+
+            {{ govukTextarea({
+            name: "consent-refused",
+            id: "consent-refused",
+            label: {
+                text: "Why was consent refused?",
+                classes: "govuk-label--s",
+                isPageHeading: false
+            }
+            }) }}
+
+        {% endset -%}
+
+        <!-- Answer options for question -->
+        {{ govukRadios({
+          name: "health-communication",
+          fieldset: {
+            legend: {
+              text: "Does Terry Midhurst consent to sharing their data with Nacro to apply for accommodation?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHtml
+              }
+            },
+            {
+            value: "no",
+            text: "No",
+            conditional: {
+                html: noHtml
+            }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "/prototypes/tasklist"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
