@@ -351,6 +351,241 @@
         ]
       }) }}
 
+      <!---------------------- Review address history ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Address history"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Where were you living before custody including the full address and postcode?"
+            },
+            value: {
+              html: "13 Trough Street <br>Grimsby <br>Yorkshire<br>GR32 GJ3"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l">Risks and needs of the applicant</h2>
+      <h3 class="govuk-heading-m">Review offending history</h3>
+
+      <!---------------------- Offending history ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Unspent convictions"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Does the applicant have any unspent convictions?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      <h4 class="govuk-heading-m">Unspent convictions</h4>
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Conviction 1"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What type of unspent conviction does this applicant have?"
+            },
+            value: {
+              html: "Arson"
+            }
+          },
+          {
+            key: {
+              text: "Date of conviction "
+            },
+            value: {
+              html: "28/03/2021"
+            }
+          },
+          {
+            key: {
+              text: "Details of conviction"
+            },
+            value: {
+              html: "Terry was involved in the arson of his local takeaway following a neighbourhood dispute."
+            }
+          },
+          {
+            key: {
+              text: "Sentence details of conviction"
+            },
+            value: {
+              html: "16 Months suspended"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Conviction 2"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What type of unspent conviction does this applicant have?"
+            },
+            value: {
+              html: "Hate crime"
+            }
+          },
+          {
+            key: {
+              text: "Date of conviction"
+            },
+            value: {
+              html: "28/03/2021"
+            }
+          },
+          {
+            key: {
+              text: "Details of conviction"
+            },
+            value: {
+              html: "Terry was involved in the arson of his local takeaway following a neighbourhood dispute."
+            }
+          },
+          {
+            key: {
+              text: "Sentence details of conviction"
+            },
+            value: {
+              html: "12 Months suspended"
+            }
+          }
+        ]
+      }) }}
+
+      <h4 class="govuk-heading-m">Other unspent offences</h4>
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Other offences"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Does the applicant have any other unspent offences?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Offence 1"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "area"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Date of offence"
+            },
+            value: {
+              html: "4/2018"
+            }
+          },
+          {
+            key: {
+              text: "Details of offence"
+            },
+            value: {
+              html: "3 x Theft and Kindred"
+            }
+          }
+        ]
+      }) }}
+
       <h2 class="govuk-heading-m">
         Now send your application
       </h2>
