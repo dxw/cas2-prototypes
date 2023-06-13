@@ -107,3 +107,26 @@ router.post('/prototypes/tasklist', function(request, response) {
       response.redirect("/prototypes/consent/consent-refused")
   }
 })
+
+
+// For GOV Notify prototyping, for Review Applications prototype
+
+// The URL here needs to match the URL of the page that the user is on
+// when they type in their email address
+router.post('/prototypes/check-answers', function (req, res) {
+
+  notify.sendEmail(
+    // this long string is the template ID, copy it from the template
+    // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
+    // in your code.
+    '447f971e-304d-4c26-9a1c-0fd7aaf70063',
+    // `emailAddress` here needs to match the name of the form field in
+    // your HTML page
+    req.body.emailAddress
+  );
+
+  // This is the URL the users will be redirected to once the email
+  // has been sent
+  res.redirect('/prototypes/submission-confirmed');
+
+});

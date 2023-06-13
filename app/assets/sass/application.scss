@@ -71,3 +71,13 @@
 .check-answers .govuk-summary-list__key {
     width: 40%;
 }
+
+.prototype-infobox {
+    border: 2px solid red;
+    padding: 2rem;
+    margin-bottom: 3em;
+
+    .govuk-form-group {
+        margin-bottom: 0;
+    }
+}

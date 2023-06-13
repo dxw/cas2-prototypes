@@ -18,6 +18,39 @@
 
   <div class="govuk-grid-row">
 
+    <div class="govuk-grid-column-full">
+
+      <div class="prototype-infobox">
+
+        {{ govukInput({
+          label: {
+            text: "What is your email address?",
+            classes: "govuk-label--s",
+            isPageHeading: true
+          },
+          hint: {
+            text: "We’ll only use this to prototype 'Review submitted applications' with"
+          },
+          id: "email-address",
+          name: "emailAddress",
+          type: "email",
+          autocomplete: "email",
+          classes: "govuk-input--width-20 govuk-!-margin-0",
+          spellcheck: false
+        }) }}
+
+        <!-- {{ govukButton({
+          text: "Continue"
+        }) }} -->
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-xl">
@@ -1792,8 +1825,7 @@
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Accept and submit",
-          href: "#"
+          text: "Accept and submit"
         }) }}
 
         {{ govukButton({
