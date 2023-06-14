@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form class="form" action="health-needs-substance" method="post">
+
+        <!-- Set stuff to show when the answer Yes is selected -->
+        {% set yesHtml %}
+
+          <p class="govuk-body-m">Please answer all questions, if there is no known information, please state this.</p> 
+
+          {{ govukTextarea({
+            name: "health-physical-needs",
+            id: "health-physical-needs",
+            label: {
+              text: "What is the need/s?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-physical-treatment",
+            id: "health-physical-treatment",
+            label: {
+              text: "Are they currently receiving treatment and medication?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-physical-support",
+            id: "health-physical-support",
+            label: {
+              text: "What support is required?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-physical-independent-living",
+            id: "health-physical-independent-living",
+            label: {
+              text: "Can they live independently?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+          
+          {{ govukTextarea({
+            name: "health-physical-mobility-needs",
+            id: "health-physical-mobility-needs",
+            label: {
+              text: "Any mobility needs?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-physical-stairs",
+            id: "health-physical-stairs",
+            label: {
+              text: "Can they climb stairs?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          <div class="govuk-inset-text">
+            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
+          </div>
+
+        {% endset -%}
+
+        <!-- Answer options for question -->
+        {{ govukRadios({
+          name: "health-physical",
+          fieldset: {
+            legend: {
+              text: "Does Terry Midhurst have any physical health needs or mobility issues?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

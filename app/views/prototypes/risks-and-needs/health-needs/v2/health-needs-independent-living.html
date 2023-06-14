@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form class="form" action="health-needs-physical" method="post">
+
+        <!-- Set stuff to show when the answer Yes is selected -->
+        {% set yesHtml %}
+
+          <p class="govuk-body-m">Please answer all questions, if there is no known information, please state this.</p> 
+
+          {{ govukTextarea({
+            name: "health-shared-housing-needs",
+            id: "health-shared-housing-needs",
+            label: {
+              text: "What is the need/s?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-shared-housing-affects",
+            id: "health-shared-housing-affects",
+            label: {
+              text: "How does it affect them in everyday life?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-shared-housing-support",
+            id: "health-shared-housing-support",
+            label: {
+              text: "What support is required?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          <div class="govuk-inset-text">
+            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
+          </div>
+
+        {% endset -%}
+
+        <!-- Answer options for question -->
+        {{ govukRadios({
+          name: "health-shared-housing",
+          fieldset: {
+            legend: {
+              text: "Does Terry Midhurst have any learning disabilities, autism or acquired traumatic brain injury which affect their ability to live independently in shared housing?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
