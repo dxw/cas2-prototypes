@@ -61,7 +61,23 @@
     font-weight: 400;
 }
 
-.consent-script {
+.padded-box {
     border: 1px solid govuk-colour("dark-grey");
     padding: 1.25rem;
+}
+
+// --------
+
+.check-answers .govuk-summary-list__key {
+    width: 40%;
+}
+
+.prototype-infobox {
+    border: 2px solid red;
+    padding: 2rem;
+    margin-bottom: 3em;
+
+    .govuk-form-group {
+        margin-bottom: 0;
+    }
 }

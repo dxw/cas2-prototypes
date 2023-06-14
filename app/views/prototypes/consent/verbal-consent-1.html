@@ -21,7 +21,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form class="form" action="" method="post">
+      <form class="form" action="/prototypes/tasklist" method="post">
 
         <span class="govuk-caption-m">CAS-2 application for Terry Midhurst</span>
         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Capture verbal consent</h1>
@@ -34,24 +34,25 @@
 
         <p class="govuk-body govuk-!-font-weight-bold">Please explain this to the applicant, then read out the following script:</p>
 
-        <div class="consent-script govuk-!-margin-bottom-5">
-            <p class="govuk-body-m">In order to apply for CAS-2 accommodation, you need to give consent that your data can be used.</p>
+        <div class="padded-box govuk-!-margin-bottom-5">
 
-            <p class="govuk-body-m">HMPPS and Nacro, the housing charity, will be the controllers of the data we’ll ask you for. Nacro provides short-term housing and support for tenants entering CAS-2 accommodation.</p>
-              
-            <p class="govuk-body-m">The data will be shared by HMPPS with Nacro, who will then use it for two different purposes:</p>
-              
-            <ol class="govuk-list govuk-list--number govuk-!-margin-left-6">
-              <li>They will use your data to match you with appropriate CAS-2 accommodation.</li>
-            </ol>
-              
-            <p class="govuk-body-m">That means they’ll use various kinds of information, including your health and risk data, to find you housing that meets your needs and requirements.</p>
-              
-            <ol class="govuk-list govuk-list--number govuk-!-margin-left-6" start="2">
-              <li>They will use your data to forecast and model demand for their accommodation.</li>
-            </ol>
+          <p class="govuk-body-m">In order to apply for CAS-2 accommodation, you need to give consent that your data can be used.</p>
 
-            <p class="govuk-body-m govuk-!-margin-bottom-0">That means your data will help Nacro to predict how long people will live in their various placements. This will help them to manage their supply and make sure people get housing when they need it.</p>
+          <p class="govuk-body-m">HMPPS and Nacro, the housing charity, will be the controllers of the data we’ll ask you for. Nacro provides short-term housing and support for tenants entering CAS-2 accommodation.</p>
+            
+          <p class="govuk-body-m">The data will be shared by HMPPS with Nacro, who will then use it for two different purposes:</p>
+            
+          <ol class="govuk-list govuk-list--number govuk-!-margin-left-6">
+            <li>They will use your data to match you with appropriate CAS-2 accommodation.</li>
+          </ol>
+            
+          <p class="govuk-body-m">That means they’ll use various kinds of information, including your health and risk data, to find you housing that meets your needs and requirements.</p>
+            
+          <ol class="govuk-list govuk-list--number govuk-!-margin-left-6" start="2">
+            <li>They will use your data to forecast and model demand for their accommodation.</li>
+          </ol>
+
+          <p class="govuk-body-m govuk-!-margin-bottom-0">That means your data will help Nacro to predict how long people will live in their various placements. This will help them to manage their supply and make sure people get housing when they need it.</p>
               
         </div>
 
@@ -101,7 +102,7 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-communication",
+          name: "consent-answer",
           fieldset: {
             legend: {
               text: "Does Terry Midhurst consent to sharing their data with Nacro, for the purposes expressed in the script?",
@@ -128,8 +129,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Save and continue",
-          href: "/prototypes/tasklist"
+          text: "Save and continue"
         }) }}
 
       </form>
