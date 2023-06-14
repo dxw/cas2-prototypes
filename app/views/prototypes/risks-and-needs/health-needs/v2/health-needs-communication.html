@@ -20,7 +20,43 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Health needs</h1>
+
       <form class="form" action="health-needs-independent-living" method="post">
+
+        {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+        {{ mojSubNavigation({
+          label: 'Sub navigation',
+          items: [
+          {
+            text: 'Communication needs',
+            href: '#1',
+            active: true
+          }, 
+          {
+            text: 'Learning disabilities and difficulties',
+            href: '#2'
+          }, 
+          {
+            text: 'Physical health',
+            href: '#3'
+          }, 
+          {
+            text: 'Mental health',
+            href: '#2'
+          },
+          {
+            text: 'Substance misuse',
+            href: '#4'
+          },
+          {
+            text: 'Medication',
+            href: '#4'
+          } 
+          ]
+        }) }}
 
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
@@ -69,8 +105,8 @@
           fieldset: {
             legend: {
               text: "Does Terry Midhurst have any communication needs?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
