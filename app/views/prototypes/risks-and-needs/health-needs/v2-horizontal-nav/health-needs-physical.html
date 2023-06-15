@@ -38,7 +38,8 @@
         }, 
         {
           text: 'Physical health',
-          href: 'health-needs-physical.html'
+          href: 'health-needs-physical.html',
+          active: true
         }, 
         {
           text: 'Mental health',
@@ -46,8 +47,7 @@
         },
         {
           text: 'Substance misuse',
-          href: 'health-needs-substance.html',
-          active: true
+          href: 'health-needs-substance.html'
         },
         {
           text: 'Brain injury',
@@ -78,40 +78,50 @@
           <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
-            name: "health-substance-type",
-            id: "health-substance-type",
+            name: "health-physical-severity",
+            id: "health-physical-severity",
             label: {
-              text: "What substance(s) did/do they take? ",
+              text: "Please describe the nature of their physical health needs.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-frequency",
-            id: "health-substance-frequency",
+            name: "health-physical-treatment",
+            id: "health-physical-treatment",
             label: {
-              text: "When do they take it, by what method, and how much?",
+              text: "Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-service",
-            id: "health-substance-service",
+            name: "health-physical-medication",
+            id: "health-physical-medication",
             label: {
-              text: "Are they engaged with a drug and alcohol service? Please name it.",
+              text: "Are they currently taking any medication for their physical health needs? If so, please provide details.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-medication",
-            id: "health-substance-medication",
+            name: "health-physical-independent",
+            id: "health-physical-independent",
             label: {
-              text: "Are they prescribed a substitute medication for their misused substance? Please name it.",
+              text: "Can they live independently?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-physical-support",
+            id: "health-physical-support",
+            label: {
+              text: "What support is required?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -125,16 +135,16 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-substance",
+          name: "health-physical",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any substance misuse needs?",
+              text: "Does Terry Midhurst have any immediate or long-term physical health needs?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "XX"
+            text: "Not including mobility issues, which are covered in the next question."
           },
           items: [
             {
@@ -153,13 +163,13 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and mark as complete",
-            href: "tasklist"
+            text: "Save and continue",
+            href: "health-needs-mental"
           }) }}
   
           {{ govukButton({
             text: "Save draft of section",
-            href: "#",
+            href: "../../../tasklist",
             classes: "govuk-button--secondary"
           }) }}
         </div>

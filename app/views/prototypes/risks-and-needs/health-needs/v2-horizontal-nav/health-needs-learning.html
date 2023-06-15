@@ -34,12 +34,12 @@
         }, 
         {
           text: 'Learning disabilities and difficulties',
-          href: 'health-needs-learning.html'
+          href: 'health-needs-learning.html',
+          active: true
         }, 
         {
           text: 'Physical health',
-          href: 'health-needs-physical.html',
-          active: true
+          href: 'health-needs-physical.html'
         }, 
         {
           text: 'Mental health',
@@ -78,48 +78,38 @@
           <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
-            name: "health-physical-severity",
-            id: "health-physical-severity",
+            name: "health-learning-severity",
+            id: "health-learning-severity",
             label: {
-              text: "Please describe the nature of their physical health needs.",
+              text: "Describe their learning disability and/or difficulty need(s) and the level of severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-treatment",
-            id: "health-physical-treatment",
+            name: "health-learning-vulnerable",
+            id: "health-learning-vulnerable",
             label: {
-              text: "Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.",
+              text: "Are they vulnerable as a result of this condition?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-medication",
-            id: "health-physical-medication",
+            name: "health-learning-independent",
+            id: "health-learning-independent",
             label: {
-              text: "Are they currently taking any medication for their physical health needs? If so, please provide details.",
+              text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.              ",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-independent",
-            id: "health-physical-independent",
-            label: {
-              text: "Can they live independently?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-physical-support",
-            id: "health-physical-support",
+            name: "health-learning-support",
+            id: "health-learning-support",
             label: {
               text: "What support is required?",
               classes: "govuk-label--s",
@@ -135,16 +125,17 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-physical",
+          name: "health-learning",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any immediate or long-term physical health needs?",
+              text: "Does Terry Midhurst have any learning disabilities or difficulties?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "Not including mobility issues, which are covered in the next question."
+            html: "<p>For example, they might find it hard to understand and/or remember information, or have persistent problems with reading, writing or maths.</p> 
+              <p>Not including neurodiverse conditions like autism and ADHD, which will be covered in the next question.</p>"
           },
           items: [
             {
@@ -163,13 +154,13 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and mark as complete",
-            href: "tasklist"
+            text: "Save and continue",
+            href: "health-needs-physical"
           }) }}
   
           {{ govukButton({
             text: "Save draft of section",
-            href: "#",
+            href: "../../../tasklist",
             classes: "govuk-button--secondary"
           }) }}
         </div>

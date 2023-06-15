@@ -46,7 +46,8 @@
         },
         {
           text: 'Substance misuse',
-          href: 'health-needs-substance.html'
+          href: 'health-needs-substance.html',
+          active: true
         },
         {
           text: 'Brain injury',
@@ -58,8 +59,7 @@
         },
         {
           text: 'Neurodiversity',
-          href: 'health-needs-neurodiversity.html',
-          active: true
+          href: 'health-needs-neurodiversity.html'
         }  
         ]
       }) }}
@@ -78,40 +78,40 @@
           <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
-            name: "health-neurodiversity-severity",
-            id: "health-neurodiversity-severity",
+            name: "health-substance-type",
+            id: "health-substance-type",
             label: {
-              text: "Describe their condition and the level of severity.",
+              text: "What substance(s) did/do they take? ",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-neurodiversity-vulnerable",
-            id: "health-neurodiversity-vulnerable",
+            name: "health-substance-frequency",
+            id: "health-substance-frequency",
             label: {
-              text: "Are they vulnerable as a result of this condition?",
+              text: "When do they take it, by what method, and how much?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-neurodiversity-interaction",
-            id: "health-neurodiversity-interaction",
+            name: "health-substance-service",
+            id: "health-substance-service",
             label: {
-              text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.",
+              text: "Are they engaged with a drug and alcohol service? Please name it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-neurodiversity-support",
-            id: "health-neurodiversity-support",
+            name: "health-substance-medication",
+            id: "health-substance-medication",
             label: {
-              text: "What support is required?",
+              text: "Are they prescribed a substitute medication for their misused substance? Please name it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -125,16 +125,16 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-neurodiversity",
+          name: "health-substance",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have a medical diagnosis of a neurodiverse condition such as Autism or ADHD?",
+              text: "Does Terry Midhurst have any substance misuse needs?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: " This also includes ADD, Dyslexia, Dyscalculia and Dyspraxia."
+            text: "XX"
           },
           items: [
             {
@@ -153,13 +153,13 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and mark as complete",
-            href: "tasklist"
+            text: "Save and continue",
+            href: "health-needs-brain-injury"
           }) }}
   
           {{ govukButton({
             text: "Save draft of section",
-            href: "#",
+            href: "../../../tasklist",
             classes: "govuk-button--secondary"
           }) }}
         </div>

@@ -30,12 +30,12 @@
         items: [
         {
           text: 'Communication needs',
-          href: 'health-needs-communication.html'
+          href: 'health-needs-communication.html',
+          active: true
         }, 
         {
           text: 'Learning disabilities and difficulties',
-          href: 'health-needs-learning.html',
-          active: true
+          href: 'health-needs-learning.html'
         }, 
         {
           text: 'Physical health',
@@ -70,7 +70,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-        <form class="form" action="health-needs-independent-living" method="post"></form>
+      <form class="form" action="health-needs-independent-living" method="post">
 
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
@@ -78,40 +78,40 @@
           <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
-            name: "health-learning-severity",
-            id: "health-learning-severity",
+            name: "health-communication-severity",
+            id: "health-communication-severity",
             label: {
-              text: "Describe their learning disability and/or difficulty need(s) and the level of severity.",
+              text: "Describe their communication need(s) and the level of severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-learning-vulnerable",
-            id: "health-learning-vulnerable",
+            name: "health-communication-needs",
+            id: "health-communication-needs",
             label: {
-              text: "Are they vulnerable as a result of this condition?",
+              text: "Do they need any support to see, hear, speak, or understand? If so, please describe it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-learning-independent",
-            id: "health-learning-independent",
+            name: "health-communication-independent",
+            id: "health-communication-independent",
             label: {
-              text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.              ",
+              text: "Can they live independently? Please provide detail.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-learning-support",
-            id: "health-learning-support",
+            name: "health-communication-interpreter",
+            id: "health-communication-interpreter",
             label: {
-              text: "What support is required?",
+              text: "Do they need an interpreter? If so, which language?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -125,17 +125,16 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-learning",
+          name: "health-communication",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any learning disabilities or difficulties?",
+              text: "Does Terry Midhurst have any communication needs?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            html: "<p>For example, they might find it hard to understand and/or remember information, or have persistent problems with reading, writing or maths.</p> 
-              <p>Not including neurodiverse conditions like autism and ADHD, which will be covered in the next question.</p>"
+            text: "For example, do they need an interpreter or support to see, hear, speak or understand?"
           },
           items: [
             {
@@ -154,13 +153,13 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and mark as complete",
-            href: "tasklist"
+            text: "Save and continue",
+            href: "health-needs-learning"
           }) }}
   
           {{ govukButton({
             text: "Save draft of section",
-            href: "#",
+            href: "../../../tasklist",
             classes: "govuk-button--secondary"
           }) }}
         </div>
