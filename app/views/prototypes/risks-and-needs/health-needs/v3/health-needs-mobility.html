@@ -1,0 +1,186 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Health needs</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning disabilities and difficulties',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
+          },
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
+          },
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Mobility',
+            href: 'health-needs-mobility.html',
+            active: true
+          },
+          {
+            text: 'Neurodiversity',
+            href: 'health-needs-neurodiversity.html'
+          }  
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="health-needs-independent-living" method="post"></form>
+
+        <!-- Set stuff to show when the answer Yes is selected -->
+        {% set yesHtml %}
+
+          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
+
+          {{ govukTextarea({
+            name: "health-mobility-severity",
+            id: "health-mobility-severity",
+            label: {
+              text: "Describe the nature of their mobility needs.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-mobility-treatment",
+            id: "health-mobility-treatment",
+            label: {
+              text: "Are they currently receiving any medical treatment for their mobility needs? If so, please describe it.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-mobility-medication",
+            id: "health-mobility-medication",
+            label: {
+              text: "Are they currently taking any medication for their mobility needs? If so, please provide details.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-mobility-independent",
+            id: "health-mobility-independent",
+            label: {
+              text: "Can they live independently?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-mobility-stairs",
+            id: "health-mobility-stairs",
+            label: {
+              text: "Can they climb stairs?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          <div class="govuk-inset-text">
+            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
+          </div>
+
+        {% endset -%}
+
+        <!-- Answer options for question -->
+        {{ govukRadios({
+          name: "health-mobility",
+          fieldset: {
+            legend: {
+              text: "Does Terry Midhurst have any mobility issues?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, difficulty climbing stairs or the need for specific equipment to help them walk."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue",
+            href: "health-needs-neurodiversity"
+          }) }}
+  
+          {{ govukButton({
+            text: "Save draft of section",
+            href: "../../../tasklist",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
