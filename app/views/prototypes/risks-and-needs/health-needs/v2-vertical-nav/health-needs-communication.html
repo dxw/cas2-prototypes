@@ -1,0 +1,177 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Health needs</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html',
+            active: true
+          }, 
+          {
+            text: 'Learning disabilities and difficulties',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
+          },
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
+          },
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Mobility',
+            href: 'health-needs-mobility.html'
+          },
+          {
+            text: 'Neurodiversity',
+            href: 'health-needs-neurodiversity.html'
+          }  
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="health-needs-independent-living" method="post">
+
+        <!-- Set stuff to show when the answer Yes is selected -->
+        {% set yesHtml %}
+
+          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
+
+          {{ govukTextarea({
+            name: "health-communication-severity",
+            id: "health-communication-severity",
+            label: {
+              text: "Describe their communication need(s) and the level of severity.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-communication-needs",
+            id: "health-communication-needs",
+            label: {
+              text: "Do they need any support to see, hear, speak, or understand? If so, please describe it.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-communication-independent",
+            id: "health-communication-independent",
+            label: {
+              text: "Can they live independently? Please provide detail.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-communication-interpreter",
+            id: "health-communication-interpreter",
+            label: {
+              text: "Do they need an interpreter? If so, which language?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          <div class="govuk-inset-text">
+            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
+          </div>
+
+        {% endset -%}
+
+        <!-- Answer options for question -->
+        {{ govukRadios({
+          name: "health-communication",
+          fieldset: {
+            legend: {
+              text: "Does Terry Midhurst have any communication needs?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, do they need an interpreter or support to see, hear, speak or understand?"
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue",
+            href: "health-needs-learning"
+          }) }}
+  
+          {{ govukButton({
+            text: "Save draft of section",
+            href: "../../../tasklist",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
