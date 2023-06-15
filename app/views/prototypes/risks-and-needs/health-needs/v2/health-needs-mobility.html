@@ -38,8 +38,7 @@
         }, 
         {
           text: 'Physical health',
-          href: 'health-needs-physical.html',
-          active: true
+          href: 'health-needs-physical.html'
         }, 
         {
           text: 'Mental health',
@@ -55,7 +54,8 @@
         },
         {
           text: 'Mobility',
-          href: 'health-needs-mobility.html'
+          href: 'health-needs-mobility.html',
+          active: true
         },
         {
           text: 'Neurodiversity',
@@ -78,38 +78,38 @@
           <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
-            name: "health-physical-severity",
-            id: "health-physical-severity",
+            name: "health-mobility-severity",
+            id: "health-mobility-severity",
             label: {
-              text: "Please describe the nature of their physical health needs.",
+              text: "Describe the nature of their mobility needs.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-treatment",
-            id: "health-physical-treatment",
+            name: "health-mobility-treatment",
+            id: "health-mobility-treatment",
             label: {
-              text: "Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.",
+              text: "Are they currently receiving any medical treatment for their mobility needs? If so, please describe it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-medication",
-            id: "health-physical-medication",
+            name: "health-mobility-medication",
+            id: "health-mobility-medication",
             label: {
-              text: "Are they currently taking any medication for their physical health needs? If so, please provide details.",
+              text: "Are they currently taking any medication for their mobility needs? If so, please provide details.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-independent",
-            id: "health-physical-independent",
+            name: "health-mobility-independent",
+            id: "health-mobility-independent",
             label: {
               text: "Can they live independently?",
               classes: "govuk-label--s",
@@ -118,10 +118,10 @@
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-support",
-            id: "health-physical-support",
+            name: "health-mobility-stairs",
+            id: "health-mobility-stairs",
             label: {
-              text: "What support is required?",
+              text: "Can they climb stairs?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -135,16 +135,16 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-physical",
+          name: "health-mobility",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any immediate or long-term physical health needs?",
+              text: "Does Terry Midhurst have any mobility issues?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "Not including mobility issues, which are covered in the next question."
+            text: "For example, difficulty climbing stairs or the need for specific equipment to help them walk."
           },
           items: [
             {

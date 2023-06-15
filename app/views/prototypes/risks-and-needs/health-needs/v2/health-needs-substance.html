@@ -20,28 +20,88 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <form class="form" action="health-needs-mental-health" method="post">
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Health needs</h1>
+
+      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [
+        {
+          text: 'Communication needs',
+          href: 'health-needs-communication.html'
+        }, 
+        {
+          text: 'Learning disabilities and difficulties',
+          href: 'health-needs-learning.html'
+        }, 
+        {
+          text: 'Physical health',
+          href: 'health-needs-physical.html'
+        }, 
+        {
+          text: 'Mental health',
+          href: 'health-needs-mental.html'
+        },
+        {
+          text: 'Substance misuse',
+          href: 'health-needs-substance.html',
+          active: true
+        },
+        {
+          text: 'Brain injury',
+          href: 'health-needs-brain-injury.html'
+        },
+        {
+          text: 'Mobility',
+          href: 'health-needs-mobility.html'
+        },
+        {
+          text: 'Neurodiversity',
+          href: 'health-needs-neurodiversity.html'
+        }  
+        ]
+      }) }}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <form class="form" action="health-needs-independent-living" method="post"></form>
 
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all questions, if there is no known information, please state this.</p> 
+          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
-            name: "health-substance-type-method-amount",
-            id: "health-substance-type-method-amount",
+            name: "health-substance-type",
+            id: "health-substance-type",
             label: {
-              text: "What did/do they take, when, by what method & amount taken?",
+              text: "What substance(s) did/do they take? ",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-support",
-            id: "health-substance-support",
+            name: "health-substance-frequency",
+            id: "health-substance-frequency",
             label: {
-              text: "Are they engaged with a drug & alcohol service?",
+              text: "When do they take it, by what method, and how much?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-substance-service",
+            id: "health-substance-service",
+            label: {
+              text: "Are they engaged with a drug and alcohol service? Please name it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -51,27 +111,7 @@
             name: "health-substance-medication",
             id: "health-substance-medication",
             label: {
-              text: "Are they prescribed medication linked to reducing the risk to themselves or others?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-substance-medication-posession",
-            id: "health-substance-medication-posession",
-            label: {
-              text: "Are they in possession of their medication?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-substance-medication-issues",
-            id: "health-substance-medication-issues",
-            label: {
-              text: "Any issues taking their medication?",
+              text: "Are they prescribed a substitute medication for their misused substance? Please name it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -89,9 +129,12 @@
           fieldset: {
             legend: {
               text: "Does Terry Midhurst have any substance misuse needs?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
             }
+          },
+          hint: {
+            text: "XX"
           },
           items: [
             {
@@ -108,9 +151,18 @@
           ]
         }) }}
 
-        {{ govukButton({
-          text: "Save and continue"
-        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and mark as complete",
+            href: "tasklist"
+          }) }}
+  
+          {{ govukButton({
+            text: "Save draft of section",
+            href: "#",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
 
       </form>
 

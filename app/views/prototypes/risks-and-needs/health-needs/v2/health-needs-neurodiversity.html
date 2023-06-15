@@ -38,8 +38,7 @@
         }, 
         {
           text: 'Physical health',
-          href: 'health-needs-physical.html',
-          active: true
+          href: 'health-needs-physical.html'
         }, 
         {
           text: 'Mental health',
@@ -59,7 +58,8 @@
         },
         {
           text: 'Neurodiversity',
-          href: 'health-needs-neurodiversity.html'
+          href: 'health-needs-neurodiversity.html',
+          active: true
         }  
         ]
       }) }}
@@ -78,48 +78,38 @@
           <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
-            name: "health-physical-severity",
-            id: "health-physical-severity",
+            name: "health-neurodiversity-severity",
+            id: "health-neurodiversity-severity",
             label: {
-              text: "Please describe the nature of their physical health needs.",
+              text: "Describe their condition and the level of severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-treatment",
-            id: "health-physical-treatment",
+            name: "health-neurodiversity-vulnerable",
+            id: "health-neurodiversity-vulnerable",
             label: {
-              text: "Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.",
+              text: "Are they vulnerable as a result of this condition?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-medication",
-            id: "health-physical-medication",
+            name: "health-neurodiversity-interaction",
+            id: "health-neurodiversity-interaction",
             label: {
-              text: "Are they currently taking any medication for their physical health needs? If so, please provide details.",
+              text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-independent",
-            id: "health-physical-independent",
-            label: {
-              text: "Can they live independently?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-physical-support",
-            id: "health-physical-support",
+            name: "health-neurodiversity-support",
+            id: "health-neurodiversity-support",
             label: {
               text: "What support is required?",
               classes: "govuk-label--s",
@@ -135,16 +125,16 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-physical",
+          name: "health-neurodiversity",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any immediate or long-term physical health needs?",
+              text: "Does Terry Midhurst have a medical diagnosis of a neurodiverse condition such as Autism or ADHD?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "Not including mobility issues, which are covered in the next question."
+            text: " This also includes ADD, Dyslexia, Dyscalculia and Dyspraxia."
           },
           items: [
             {

@@ -38,12 +38,12 @@
         }, 
         {
           text: 'Physical health',
-          href: 'health-needs-physical.html',
-          active: true
+          href: 'health-needs-physical.html'
         }, 
         {
           text: 'Mental health',
-          href: 'health-needs-mental.html'
+          href: 'health-needs-mental.html',
+          active: true
         },
         {
           text: 'Substance misuse',
@@ -78,50 +78,50 @@
           <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
-            name: "health-physical-severity",
-            id: "health-physical-severity",
+            name: "health-mental-type",
+            id: "health-mental-type",
             label: {
-              text: "Please describe the nature of their physical health needs.",
+              text: "Please describe the nature of their mental health needs and the severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-treatment",
-            id: "health-physical-treatment",
+            name: "health-mental-service",
+            id: "health-mental-service",
             label: {
-              text: "Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.",
+              text: "Are they engaged with the community mental health service?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-medication",
-            id: "health-physical-medication",
+            name: "health-mental-medication",
+            id: "health-mental-medication",
             label: {
-              text: "Are they currently taking any medication for their physical health needs? If so, please provide details.",
+              text: "Are they prescribed medication linked to reducing the risk to themself or others? If so, please name and describe.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-independent",
-            id: "health-physical-independent",
+            name: "health-mental-medication-possession",
+            id: "health-mental-medication-possession",
             label: {
-              text: "Can they live independently?",
+              text: "Are they in possession of their medication?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-physical-support",
-            id: "health-physical-support",
+            name: "health-mental-medication-issues",
+            id: "health-mental-medication-issues",
             label: {
-              text: "What support is required?",
+              text: "Do they have any issues taking their medication?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -135,16 +135,16 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-physical",
+          name: "health-mental",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any immediate or long-term physical health needs?",
+              text: "Does Terry Midhurst have any diagnosed mental health issues that could pose a risk to themself or others?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "Not including mobility issues, which are covered in the next question."
+            text: "XX"
           },
           items: [
             {

@@ -23,61 +23,75 @@
       <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
       <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Health needs</h1>
 
+      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [
+        {
+          text: 'Communication needs',
+          href: 'health-needs-communication.html',
+          active: true
+        }, 
+        {
+          text: 'Learning disabilities and difficulties',
+          href: 'health-needs-learning.html'
+        }, 
+        {
+          text: 'Physical health',
+          href: 'health-needs-physical.html'
+        }, 
+        {
+          text: 'Mental health',
+          href: 'health-needs-mental.html'
+        },
+        {
+          text: 'Substance misuse',
+          href: 'health-needs-substance.html'
+        },
+        {
+          text: 'Brain injury',
+          href: 'health-needs-brain-injury.html'
+        },
+        {
+          text: 'Mobility',
+          href: 'health-needs-mobility.html'
+        },
+        {
+          text: 'Neurodiversity',
+          href: 'health-needs-neurodiversity.html'
+        }  
+        ]
+      }) }}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
       <form class="form" action="health-needs-independent-living" method="post">
-
-        {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
-
-        {{ mojSubNavigation({
-          label: 'Sub navigation',
-          items: [
-          {
-            text: 'Communication needs',
-            href: '#1',
-            active: true
-          }, 
-          {
-            text: 'Learning disabilities and difficulties',
-            href: '#2'
-          }, 
-          {
-            text: 'Physical health',
-            href: '#3'
-          }, 
-          {
-            text: 'Mental health',
-            href: '#2'
-          },
-          {
-            text: 'Substance misuse',
-            href: '#4'
-          },
-          {
-            text: 'Medication',
-            href: '#4'
-          } 
-          ]
-        }) }}
 
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all questions, if there is no known information, please state this.</p> 
+          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
             name: "health-communication-severity",
             id: "health-communication-severity",
             label: {
-              text: "What is the need/s and its severity?",
+              text: "Describe their communication need(s) and the level of severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-communication-support",
-            id: "health-communication-support",
+            name: "health-communication-needs",
+            id: "health-communication-needs",
             label: {
-              text: "What support is required?",
+              text: "Do they need any support to see, hear, speak, or understand? If so, please describe it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -87,7 +101,17 @@
             name: "health-communication-independent",
             id: "health-communication-independent",
             label: {
-              text: "Can they live independently?",
+              text: "Can they live independently? Please provide detail.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-communication-interpreter",
+            id: "health-communication-interpreter",
+            label: {
+              text: "Do they need an interpreter? If so, which language?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -110,7 +134,7 @@
             }
           },
           hint: {
-            text: "For example does Terry Midhurst need an interpreter or literacy, visual and hearing impairments?"
+            text: "For example, do they need an interpreter or support to see, hear, speak or understand?"
           },
           items: [
             {
@@ -127,9 +151,18 @@
           ]
         }) }}
 
-        {{ govukButton({
-          text: "Save and continue"
-        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and mark as complete",
+            href: "tasklist"
+          }) }}
+  
+          {{ govukButton({
+            text: "Save draft of section",
+            href: "#",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
 
       </form>
 
