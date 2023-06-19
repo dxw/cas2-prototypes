@@ -75,13 +75,11 @@
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
-
           {{ govukTextarea({
             name: "health-physical-severity",
             id: "health-physical-severity",
             label: {
-              text: "Please describe the nature of their physical health needs.",
+              text: "Describe the nature of their physical health need(s) and the level of severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -138,13 +136,13 @@
           name: "health-physical",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any immediate or long-term physical health needs?",
+              text: "Does Terry Midhurst have any physical health needs?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "Not including mobility issues, which are covered in the next question."
+            text: "Including mobility issues, such as difficulty with steps."
           },
           items: [
             {
