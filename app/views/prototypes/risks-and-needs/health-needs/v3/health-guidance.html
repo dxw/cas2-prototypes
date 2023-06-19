@@ -16,9 +16,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-l">
-        Gather health information
-      </h1>
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Gather health information</h1>
 
       <!-- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"> -->
 
@@ -45,16 +44,18 @@
         <strong>This could make completing this section significantly quicker.</strong>
       </p>
 
+      <!-- Introduction -->
       <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            View what to ask health teams
+            Introduce yourself to a health team
           </span>
         </summary>
         
-        <div class="govuk-details__text">
+        <div class="govuk-details__text padded-box">
           <div class="govuk-!-margin-bottom-5">
 
+            <!-- Introduction -->
             <p class="govuk-body">
               Hello,
             </p>
@@ -64,7 +65,7 @@
             </p>
 
             <p class="govuk-body">
-              I am currently supporting {Applicant name} with an application for Supported accommodation (CAS-2) and require some healthcare information that you can help me with.
+              I am currently supporting {Applicant name} with an application for Supported Accommodation (CAS-2) and require some healthcare information that you can help me with.
             </p>
 
             <p class="govuk-body">
@@ -75,10 +76,32 @@
               If possible, it would be much appreciated if you could respond back with the following details:
             </p>
 
-             <!-- Questions for GP -->
-             <h2 class="govuk-heading-m">
+          </div>
+
+          {{ govukButton({
+            text: "Copy text",
+            classes: "govuk-button--secondary"
+          }) }}
+          
+        </div>
+
+      </details>
+
+      <!-- Questions for GP -->
+      <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Questions for a registered GP
+          </span>
+        </summary>
+        
+        <div class="govuk-details__text padded-box">
+          <div class="govuk-!-margin-bottom-5">
+
+            <!-- Questions for GP -->
+            <!-- <h2 class="govuk-heading-m">
               Questions for registered GPs
-            </h2>
+            </h2> -->
 
             <ol class="govuk-list govuk-list--number">
               <li>
@@ -106,10 +129,32 @@
               </li>
             </ol>
 
+          </div>
+
+          {{ govukButton({
+            text: "Copy text",
+            classes: "govuk-button--secondary"
+          }) }}
+          
+        </div>
+
+      </details>
+
+      <!-- Drugs and alcohol -->
+      <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Questions for a drugs and alcohol support team
+          </span>
+        </summary>
+        
+        <div class="govuk-details__text padded-box">
+          <div class="govuk-!-margin-bottom-5">
+
             <!-- Drugs and alcohol -->
-            <h2 class="govuk-heading-m">
+            <!-- <h2 class="govuk-heading-m">
               Questions for Drugs and alcohol teams
-            </h2>
+            </h2> -->
 
             <p class="govuk-body">
               The applicant has indicated that they are engaged with support for a drug or alcohol need.
@@ -144,10 +189,11 @@
 
       </details>
 
-      <form action="vulnerability" method="post" novalidate>
+      <form action="" method="post" novalidate>
 
         {{ govukButton({
-          text: "Continue"
+          text: "Continue",
+          href: "health-needs-substance.html"
         }) }}
 
       </form>

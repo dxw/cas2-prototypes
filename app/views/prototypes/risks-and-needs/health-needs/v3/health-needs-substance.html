@@ -35,8 +35,9 @@
         label: 'Side navigation',
         items: [
           {
-            text: 'General health',
-            href: 'health-needs-general.html'
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html',
+            active: true
           },
           {
             text: 'Physical health',
@@ -45,7 +46,7 @@
           {
             text: 'Mental health',
             href: 'health-needs-mental.html'
-          },
+          }, 
           {
             text: 'Communication needs',
             href: 'health-needs-communication.html'
@@ -55,13 +56,12 @@
             href: 'health-needs-learning.html'
           }, 
           {
-            text: 'Substance misuse',
-            href: 'health-needs-substance.html',
-            active: true
-          },
-          {
             text: 'Brain injury',
             href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Other health',
+            href: 'health-needs-other.html'
           }
         ]
       }) }}
@@ -70,90 +70,63 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="health-needs-independent-living" method="post"></form>
+        <form class="form" action="" method="post">
 
-        <!-- Set stuff to show when the answer Yes is selected -->
-        {% set yesHtml %}
+          <h2 class="govuk-heading-m">Substance misuse</h2>
 
-          {{ govukTextarea({
-            name: "health-substance-type",
-            id: "health-substance-type",
-            label: {
-              text: "What substance(s) did/do they take? ",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-substance-frequency",
-            id: "health-substance-frequency",
-            label: {
-              text: "When do they take it, by what method, and how much?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-substance-service",
-            id: "health-substance-service",
-            label: {
-              text: "Are they engaged with a drug and alcohol service? Please name it.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-substance-medication",
-            id: "health-substance-medication",
-            label: {
-              text: "Are they prescribed a substitute medication for their misused substance? Please name it.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-        {% endset -%}
-
-        <!-- Answer options for question -->
-        {{ govukRadios({
-          name: "health-substance",
-          fieldset: {
-            legend: {
-              text: "Does Terry Midhurst have any substance misuse needs?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes",
-              conditional: {
-                html: yesHtml
+            {{ govukTextarea({
+              name: "health-substance-type",
+              id: "health-substance-type",
+              label: {
+                text: "What substance(s) did/do they take? ",
+                classes: "govuk-label--s",
+                isPageHeading: false
               }
-            },
-            {
-              value: "no",
-              text: "No"
-            }
-          ]
-        }) }}
+            }) }}
 
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Save and complete section",
-            href: "health-needs-brain-injury"
-          }) }}
+            {{ govukTextarea({
+              name: "health-substance-frequency",
+              id: "health-substance-frequency",
+              label: {
+                text: "When do they take it, by what method, and how much?",
+                classes: "govuk-label--s",
+                isPageHeading: false
+              }
+            }) }}
+
+            {{ govukTextarea({
+              name: "health-substance-service",
+              id: "health-substance-service",
+              label: {
+                text: "Are they engaged with a drug and alcohol service? Please name it.",
+                classes: "govuk-label--s",
+                isPageHeading: false
+              }
+            }) }}
+
+            {{ govukTextarea({
+              name: "health-substance-medication",
+              id: "health-substance-medication",
+              label: {
+                text: "Are they prescribed a substitute medication for their misused substance? Please name it.",
+                classes: "govuk-label--s",
+                isPageHeading: false
+              }
+            }) }}
+
+
+        <!-- <div class="govuk-button-group"> -->
+            {{ govukButton({
+              text: "Save and continue",
+              href: "health-needs-physical"
+            }) }}
   
-          {{ govukButton({
+          <!-- {{ govukButton({
             text: "Save draft of section",
             href: "../../../tasklist",
             classes: "govuk-button--secondary"
           }) }}
-        </div>
+        </div> -->
 
       </form>
 
