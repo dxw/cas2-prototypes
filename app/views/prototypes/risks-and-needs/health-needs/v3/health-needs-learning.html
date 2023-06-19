@@ -75,8 +75,6 @@
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
-
           {{ govukTextarea({
             name: "health-learning-severity",
             id: "health-learning-severity",
@@ -134,8 +132,7 @@
             }
           },
           hint: {
-            html: "<p>For example, they might find it hard to understand and/or remember information, or have persistent problems with reading, writing or maths.</p> 
-              <p>Not including neurodiverse conditions like autism and ADHD, which will be covered in the next question.</p>"
+            text: "For example, they might find it hard to understand and/or remember information, or have persistent problems with reading, writing or maths."
           },
           items: [
             {
