@@ -75,8 +75,6 @@
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
-
           {{ govukTextarea({
             name: "health-substance-type",
             id: "health-substance-type",
@@ -132,9 +130,6 @@
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
-          },
-          hint: {
-            text: "XX"
           },
           items: [
             {
