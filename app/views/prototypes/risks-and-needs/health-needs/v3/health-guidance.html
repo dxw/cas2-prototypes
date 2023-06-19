@@ -1,0 +1,158 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">
+        Gather health information
+      </h1>
+
+      <!-- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"> -->
+
+      <p class="govuk-body">
+        To complete this section, a variety of health information about the applicant is required.
+      </p>
+
+      <p class="govuk-body">
+        People and teams you need to speak to <strong>could</strong> include:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Registered GP</li>
+        <li>Drugs and Alcohol team</li>
+        <li>Psychological support</li>
+        <li>External registered charity</li>
+      </ul>
+
+      <p class="govuk-body">
+        It is strongly recommended that you use the below supporting text when contacting the relevant teams and departments.
+      </p>
+
+      <p class="govuk-body">
+        <strong>This could make completing this section significantly quicker.</strong>
+      </p>
+
+      <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            View what to ask health teams
+          </span>
+        </summary>
+        
+        <div class="govuk-details__text">
+          <div class="govuk-!-margin-bottom-5">
+
+            <p class="govuk-body">
+              Hello,
+            </p>
+
+            <p class="govuk-body">
+              My name is {Name}, a {Role} working at the {Location}.
+            </p>
+
+            <p class="govuk-body">
+              I am currently supporting {Applicant name} with an application for Supported accommodation (CAS-2) and require some healthcare information that you can help me with.
+            </p>
+
+            <p class="govuk-body">
+              {Applicant} provided their consent for me to reach out to you on {Consent obtained date}. Please let me know if you need to see this consent before sharing information with me.
+            </p>
+
+            <p class="govuk-body">
+              If possible, it would be much appreciated if you could respond back with the following details:
+            </p>
+
+             <!-- Questions for GP -->
+             <h2 class="govuk-heading-m">
+              Questions for registered GPs
+            </h2>
+
+            <ol class="govuk-list govuk-list--number">
+              <li>
+                Do they have any physical health need(s)? Please describe them and the level of severity.
+              </li>
+
+              <li>
+                Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.
+              </li>
+
+              <li>
+                Are they currently taking any medication for their physical health needs? If so, please provide details.
+              </li>
+
+              <li>
+                Can they climb stairs?
+              </li>
+
+              <li>
+                Can they live independently?
+              </li>
+
+              <li>
+                What support is required?
+              </li>
+            </ol>
+
+            <!-- Drugs and alcohol -->
+            <h2 class="govuk-heading-m">
+              Questions for Drugs and alcohol teams
+            </h2>
+
+            <p class="govuk-body">
+              The applicant has indicated that they are engaged with support for a drug or alcohol need.
+            </p>
+
+            <ol class="govuk-list govuk-list--number">
+              <li>
+                What substance(s) did/do they take?
+              </li>
+
+              <li>
+                When do they take it, by what method, and how much?
+              </li>
+
+              <li>
+                Are they engaged with a drug and alcohol service? Please name it.
+              </li>
+
+              <li>
+                Are they prescribed a substitute medication for their misused substance? Please name it.
+              </li>
+            </ol>
+
+          </div>
+
+          {{ govukButton({
+            text: "Copy text",
+            classes: "govuk-button--secondary"
+          }) }}
+          
+        </div>
+
+      </details>
+
+      <form action="vulnerability" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

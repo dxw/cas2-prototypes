@@ -35,38 +35,34 @@
         label: 'Side navigation',
         items: [
           {
-            text: 'Communication needs',
-            href: 'health-needs-communication.html'
-          }, 
-          {
-            text: 'Learning disabilities and difficulties',
-            href: 'health-needs-learning.html'
-          }, 
+            text: 'General health',
+            href: 'health-needs-general.html'
+          },
           {
             text: 'Physical health',
             href: 'health-needs-physical.html'
           }, 
           {
             text: 'Mental health',
-            href: 'health-needs-mental.html'
+            href: 'health-needs-mental.html',
+            active: true
           },
           {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
             text: 'Substance misuse',
-            href: 'health-needs-substance.html',
-            active: true
+            href: 'health-needs-substance.html'
           },
           {
             text: 'Brain injury',
             href: 'health-needs-brain-injury.html'
-          },
-          {
-            text: 'Mobility',
-            href: 'health-needs-mobility.html'
-          },
-          {
-            text: 'Neurodiversity',
-            href: 'health-needs-neurodiversity.html'
-          }  
+          }
         ]
       }) }}
 
@@ -79,66 +75,67 @@
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
-
           {{ govukTextarea({
-            name: "health-substance-type",
-            id: "health-substance-type",
+            name: "health-mental-type",
+            id: "health-mental-type",
             label: {
-              text: "What substance(s) did/do they take? ",
+              text: "Please describe the nature of their mental health needs and the severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-frequency",
-            id: "health-substance-frequency",
+            name: "health-mental-service",
+            id: "health-mental-service",
             label: {
-              text: "When do they take it, by what method, and how much?",
+              text: "Are they engaged with the community mental health service?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-service",
-            id: "health-substance-service",
+            name: "health-mental-medication",
+            id: "health-mental-medication",
             label: {
-              text: "Are they engaged with a drug and alcohol service? Please name it.",
+              text: "Are they prescribed medication linked to reducing the risk to themself or others? If so, please name and describe.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-medication",
-            id: "health-substance-medication",
+            name: "health-mental-medication-possession",
+            id: "health-mental-medication-possession",
             label: {
-              text: "Are they prescribed a substitute medication for their misused substance? Please name it.",
+              text: "Are they in possession of their medication?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
-          <div class="govuk-inset-text">
-            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
-          </div>
+          {{ govukTextarea({
+            name: "health-mental-medication-issues",
+            id: "health-mental-medication-issues",
+            label: {
+              text: "Do they have any issues taking their medication?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
 
         {% endset -%}
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-substance",
+          name: "health-mental",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any substance misuse needs?",
+              text: "Does Terry Midhurst have any diagnosed mental health issues that could pose a risk to themself or others?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
-          },
-          hint: {
-            text: "XX"
           },
           items: [
             {
@@ -157,8 +154,8 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and continue",
-            href: "health-needs-brain-injury"
+            text: "Save and complete section",
+            href: "health-needs-communication"
           }) }}
   
           {{ govukButton({

@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Health needs</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'General health',
+            href: 'health-needs-general.html',
+            active: true
+          },
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
+          }, 
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
+          },
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="health-needs-independent-living" method="post">
+
+        <h2 class="govuk-heading-m">General Health</h2>
+
+        {{ govukTextarea({
+          name: "health-general-long-term",
+          id: "health-general-long-term",
+          label: {
+            text: "Are they managing any long term health conditions?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          hint: {
+            text: "For example, diabetes, arthritis, high blood pressure."
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-general-cancer",
+          id: "health-general-cancer",
+          label: {
+            text: "Are they currently recieving regular treatment for cancer?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-general-seizure",
+          id: "health-general-seizure",
+          label: {
+            text: "Do they experience seizures?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and complete section",
+            href: "health-needs-physical"
+          }) }}
+  
+          {{ govukButton({
+            text: "Save draft of section",
+            href: "../../../tasklist",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

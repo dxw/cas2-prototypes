@@ -35,13 +35,9 @@
         label: 'Side navigation',
         items: [
           {
-            text: 'Communication needs',
-            href: 'health-needs-communication.html'
-          }, 
-          {
-            text: 'Learning disabilities and difficulties',
-            href: 'health-needs-learning.html'
-          }, 
+            text: 'General health',
+            href: 'health-needs-general.html'
+          },
           {
             text: 'Physical health',
             href: 'health-needs-physical.html'
@@ -51,6 +47,14 @@
             href: 'health-needs-mental.html'
           },
           {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
             text: 'Substance misuse',
             href: 'health-needs-substance.html',
             active: true
@@ -58,15 +62,7 @@
           {
             text: 'Brain injury',
             href: 'health-needs-brain-injury.html'
-          },
-          {
-            text: 'Mobility',
-            href: 'health-needs-mobility.html'
-          },
-          {
-            text: 'Neurodiversity',
-            href: 'health-needs-neurodiversity.html'
-          }  
+          }
         ]
       }) }}
 
@@ -78,8 +74,6 @@
 
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
-
-          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
 
           {{ govukTextarea({
             name: "health-substance-type",
@@ -121,10 +115,6 @@
             }
           }) }}
 
-          <div class="govuk-inset-text">
-            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
-          </div>
-
         {% endset -%}
 
         <!-- Answer options for question -->
@@ -136,9 +126,6 @@
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
-          },
-          hint: {
-            text: "XX"
           },
           items: [
             {
@@ -157,7 +144,7 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and continue",
+            text: "Save and complete section",
             href: "health-needs-brain-injury"
           }) }}
   

@@ -35,13 +35,9 @@
         label: 'Side navigation',
         items: [
           {
-            text: 'Communication needs',
-            href: 'health-needs-communication.html'
-          }, 
-          {
-            text: 'Learning disabilities and difficulties',
-            href: 'health-needs-learning.html'
-          }, 
+            text: 'General health',
+            href: 'health-needs-general.html'
+          },
           {
             text: 'Physical health',
             href: 'health-needs-physical.html'
@@ -51,22 +47,22 @@
             href: 'health-needs-mental.html'
           },
           {
-            text: 'Substance misuse',
-            href: 'health-needs-substance.html',
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html',
             active: true
+          }, 
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
           },
           {
             text: 'Brain injury',
             href: 'health-needs-brain-injury.html'
-          },
-          {
-            text: 'Mobility',
-            href: 'health-needs-mobility.html'
-          },
-          {
-            text: 'Neurodiversity',
-            href: 'health-needs-neurodiversity.html'
-          }  
+          }
         ]
       }) }}
 
@@ -79,66 +75,60 @@
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
-
           {{ govukTextarea({
-            name: "health-substance-type",
-            id: "health-substance-type",
+            name: "health-learning-severity",
+            id: "health-learning-severity",
             label: {
-              text: "What substance(s) did/do they take? ",
+              text: "Describe their learning disability and/or difficulty need(s) and the level of severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-frequency",
-            id: "health-substance-frequency",
+            name: "health-learning-vulnerable",
+            id: "health-learning-vulnerable",
             label: {
-              text: "When do they take it, by what method, and how much?",
+              text: "Are they vulnerable as a result of this condition?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-service",
-            id: "health-substance-service",
+            name: "health-learning-independent",
+            id: "health-learning-independent",
             label: {
-              text: "Are they engaged with a drug and alcohol service? Please name it.",
+              text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.              ",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-substance-medication",
-            id: "health-substance-medication",
+            name: "health-learning-support",
+            id: "health-learning-support",
             label: {
-              text: "Are they prescribed a substitute medication for their misused substance? Please name it.",
+              text: "What support is required?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
-
-          <div class="govuk-inset-text">
-            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
-          </div>
 
         {% endset -%}
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-substance",
+          name: "health-learning",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any substance misuse needs?",
+              text: "Does Terry Midhurst have any learning disabilities or difficulties?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "XX"
+            text: "For example, they might find it hard to understand and/or remember information, or have persistent problems with reading, writing or maths."
           },
           items: [
             {
@@ -157,8 +147,8 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and continue",
-            href: "health-needs-brain-injury"
+            text: "Save and complete section",
+            href: "health-needs-substance"
           }) }}
   
           {{ govukButton({
