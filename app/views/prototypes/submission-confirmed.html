@@ -14,7 +14,7 @@
         html: "Your reference number<br><strong>HDJ2123F</strong>"
       }) }}
 
-      <p>
+      <p class="govuk-body">
         We have sent you a confirmation email.
       </p>
 
@@ -22,19 +22,25 @@
         What happens next
       </h2>
 
-      <p>
-        We've sent your application to Hackney Electoral Register Office.
+      <p class="govuk-body">
+        Your CAS-2 referral has been sent to Nacro, the housing provider.
       </p>
 
-      <p>
-        They will contact you either to confirm your registration, or to ask for more information.
-      </p>
-      <p>
-        <a href="#">
-          What did you think of this service?
-        </a> (takes 30 seconds)
+      <p class="govuk-body">
+        They will be in touch to confirm whether they have any suitable accommodation for your applicant, or to ask for more information.
       </p>
 
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Start new application"
+        }) }}
+
+        {{ govukButton({
+          text: "View application answers",
+          href: "check-answers--no-cta.html",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
 
     </div>
   </div>
