@@ -98,7 +98,9 @@ router.get('/scores', function (req, res) {
     res.render('scores', { riskScores, widgetData })
   })
 
-router.post('/prototypes/tasklist', function(request, response) {
+// Consent routing
+
+router.post('/prototypes/consent/all-in-one', function(request, response) {
 
   var consentAnswer = request.session.data['consent-answer']
   if (consentAnswer == "yes"){

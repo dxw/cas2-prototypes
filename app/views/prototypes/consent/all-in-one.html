@@ -21,7 +21,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form class="form" action="" method="post">
+      <form class="form" action="/prototypes/consent/all-in-one" method="post">
 
         <span class="govuk-caption-m">CAS-2 application for Terry Midhurst</span>
         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Confirm consent to share information</h1>
@@ -123,7 +123,7 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-communication",
+          name: "consent-answer",
           fieldset: {
             legend: {
               text: "Does Terry Midhurst consent to sharing their data with Nacro to apply for accommodation?",
@@ -150,8 +150,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Save and continue",
-          href: "/prototypes/tasklist"
+          text: "Save and continue"
         }) }}
 
       </form>

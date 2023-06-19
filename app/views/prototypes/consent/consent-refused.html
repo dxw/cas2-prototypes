@@ -20,22 +20,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form class="form" action="search-applicant" method="post">
+      <form class="form" action="" method="post">
 
         <div class="govuk-panel govuk-!-margin-bottom-9 govuk-panel--fail" style="background-color: #d4351c; color: #ffffff;">
           <h1 class="govuk-panel__title">
-            Terry Midhurst has not provided consent
+            Terry Midhurst has not given consent
           </h1>
         </div>
 
-        <p class="govuk-body-l"><strong>terry Midhurst</strong> has not provided their consent for their information to be shared with other parties.</p>
-        <p class="govuk-body-l">This means that their application cannot be shared with Nacro, the accommodation supplier for CAS-2.</p>
+        <p class="govuk-body-l"><strong>Terry Midhurst</strong> has not consented to their data being shared with Nacro.</p>
+        <p class="govuk-body-l">This means their application for CAS-2 housing cannot proceed.</p>
 
         <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible ">
 
         <h2 class="govuk-heading-m">What happens next?</h2>
-        <p class="govuk-body-m">You can explain to the applicant why their consent is required for their application to proceed.</p>
-        <p class="govuk-body-m">It may help to remind them of their reason for refusing to provide their consent below.</p>
+        <p class="govuk-body-m">You can return to the applicant and explain that their consent is required if they want to apply for CAS-2. <strong>If they change their mind</strong>, select ‘Change consent status’ to update and proceed.</p>
+        <p class="govuk-body-m">Nacro is governed by the General Data Protection Regulation and also its own privacy policy ‒ you can read more about this within the <a href="https://www.nacro.org.uk/about-us/policies-and-procedures/privacy-policy/">Nacro privacy policy</a>. The applicant’s original reason for refusing consent is stated below.</p>
           
           {{ govukTextarea({
             name: "refusal-reason",
@@ -52,6 +52,11 @@
 
         {{ govukButton({
           text: "Search for a different applicant"
+        }) }}
+
+        {{ govukButton({
+          text: "Change consent answer",
+          classes: "govuk-button--secondary"
         }) }}
 
       </form>
