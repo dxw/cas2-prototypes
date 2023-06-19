@@ -42,8 +42,7 @@
           }, 
           {
             text: 'Communication needs',
-            href: 'health-needs-communication.html',
-            active: true
+            href: 'health-needs-communication.html'
           }, 
           {
             text: 'Learning difficulties and Neurodiversity',
@@ -74,80 +73,39 @@
 
       <form class="form" action="health-needs-independent-living" method="post">
 
-        <!-- Set stuff to show when the answer Yes is selected -->
-        {% set yesHtml %}
+        <h2 class="govuk-heading-m">General Health</h2>
 
-          <!-- <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p>  -->
-
-          {{ govukTextarea({
-            name: "health-communication-severity",
-            id: "health-communication-severity",
-            label: {
-              text: "Describe their communication need(s) and the level of severity.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-communication-needs",
-            id: "health-communication-needs",
-            label: {
-              text: "Do they need any support to see, hear, speak, or understand? If so, please describe it.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-communication-independent",
-            id: "health-communication-independent",
-            label: {
-              text: "Can they live independently? Please provide detail.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-communication-interpreter",
-            id: "health-communication-interpreter",
-            label: {
-              text: "Do they need an interpreter? If so, which language?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          <div class="govuk-inset-text">
-            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
-          </div>
-
-        {% endset -%}
-
-        <!-- Answer options for question -->
-        {{ govukRadios({
-          name: "health-communication",
-          fieldset: {
-            legend: {
-              text: "Does Terry Midhurst have any communication needs?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
+        {{ govukTextarea({
+          name: "health-general-seizure",
+          id: "health-general-seizure",
+          label: {
+            text: "Are they managing any long term health conditions?",
+            classes: "govuk-label--s",
+            isPageHeading: false
           },
-          items: [
-            {
-              value: "yes",
-              text: "Yes",
-              conditional: {
-                html: yesHtml
-              }
-            },
-            {
-              value: "no",
-              text: "No"
-            }
-          ]
+          hint: {
+            text: "For example, diabetes, arthritis, high blood pressure."
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-general-seizure",
+          id: "health-general-seizure",
+          label: {
+            text: "Are they currently recieving regular treatment for cancer?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-general-seizure",
+          id: "health-general-seizure",
+          label: {
+            text: "Do they experience seizures?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
         }) }}
 
         <div class="govuk-button-group">
