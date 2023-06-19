@@ -35,8 +35,9 @@
         label: 'Side navigation',
         items: [
           {
-            text: 'General health',
-            href: 'health-needs-general.html'
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html',
+            active: true
           },
           {
             text: 'Physical health',
@@ -45,7 +46,7 @@
           {
             text: 'Mental health',
             href: 'health-needs-mental.html'
-          },
+          }, 
           {
             text: 'Communication needs',
             href: 'health-needs-communication.html'
@@ -55,13 +56,12 @@
             href: 'health-needs-learning.html'
           }, 
           {
-            text: 'Substance misuse',
-            href: 'health-needs-substance.html',
-            active: true
-          },
-          {
             text: 'Brain injury',
             href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Other health',
+            href: 'health-needs-other.html'
           }
         ]
       }) }}
@@ -142,18 +142,18 @@
           ]
         }) }}
 
-        <div class="govuk-button-group">
+        <!-- <div class="govuk-button-group"> -->
           {{ govukButton({
-            text: "Save and complete section",
-            href: "health-needs-brain-injury"
+            text: "Save and continue",
+            href: "health-needs-physical"
           }) }}
   
-          {{ govukButton({
+          <!-- {{ govukButton({
             text: "Save draft of section",
             href: "../../../tasklist",
             classes: "govuk-button--secondary"
           }) }}
-        </div>
+        </div> -->
 
       </form>
 
