@@ -70,93 +70,54 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="health-needs-independent-living" method="post"></form>
+      <form class="form" action="" method="post">
 
-        <!-- Set stuff to show when the answer Yes is selected -->
-        {% set yesHtml %}
+        <h2 class="govuk-heading-m">Learning difficulties and Neurodiversity</h2>
 
-          {{ govukTextarea({
-            name: "health-learning-severity",
-            id: "health-learning-severity",
-            label: {
-              text: "Describe their learning disability and/or difficulty need(s) and the level of severity.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-learning-vulnerable",
-            id: "health-learning-vulnerable",
-            label: {
-              text: "Are they vulnerable as a result of this condition?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-learning-independent",
-            id: "health-learning-independent",
-            label: {
-              text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.              ",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-learning-support",
-            id: "health-learning-support",
-            label: {
-              text: "What support is required?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-        {% endset -%}
-
-        <!-- Answer options for question -->
-        {{ govukRadios({
-          name: "health-learning",
-          fieldset: {
-            legend: {
-              text: "Does Terry Midhurst have any learning disabilities or difficulties?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "For example, they might find it hard to understand and/or remember information, or have persistent problems with reading, writing or maths."
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes",
-              conditional: {
-                html: yesHtml
-              }
-            },
-            {
-              value: "no",
-              text: "No"
-            }
-          ]
+        {{ govukTextarea({
+          name: "health-learning-severity",
+          id: "health-learning-severity",
+          label: {
+            text: "Describe their learning disability and/or difficulty need(s) and the level of severity.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
         }) }}
 
-        <!-- <div class="govuk-button-group"> -->
-          {{ govukButton({
-            text: "Save and continue",
-            href: "health-needs-brain-injury"
-          }) }}
-  
-          <!-- {{ govukButton({
-            text: "Save draft of section",
-            href: "../../../tasklist",
-            classes: "govuk-button--secondary"
-          }) }}
-        </div> -->
+        {{ govukTextarea({
+          name: "health-learning-vulnerable",
+          id: "health-learning-vulnerable",
+          label: {
+            text: "Are they vulnerable as a result of this condition?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-learning-independent",
+          id: "health-learning-independent",
+          label: {
+            text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.              ",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-learning-support",
+          id: "health-learning-support",
+          label: {
+            text: "What support is required?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "health-needs-brain-injury"
+        }) }}
 
       </form>
 

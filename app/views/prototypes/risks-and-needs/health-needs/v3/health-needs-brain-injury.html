@@ -70,93 +70,54 @@
     
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="health-needs-independent-living" method="post"></form>
+      <form class="form" action="" method="post">
 
-        <!-- Set stuff to show when the answer Yes is selected -->
-        {% set yesHtml %}
+        <h2 class="govuk-heading-m">Brain injury</h2>
 
-          {{ govukTextarea({
-            name: "health-brain-injury-severity",
-            id: "health-brain-injury-severity",
-            label: {
-              text: "Describe the nature of their brain injury and the level of severity.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-brain-injury-vulnerable",
-            id: "health-brain-injury-vulnerable",
-            label: {
-              text: "Are they vulnerable as a result of this condition?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-brain-injury-interaction",
-            id: "health-brain-injury-interaction",
-            label: {
-              text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-brain-injury-support",
-            id: "health-brain-injury-support",
-            label: {
-              text: "What support is required?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-        {% endset -%}
-
-        <!-- Answer options for question -->
-        {{ govukRadios({
-          name: "health-brain-injury",
-          fieldset: {
-            legend: {
-              text: "Does Terry Midhurst have any brain injury?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "This could be as a result of accident, drug and alcohol use or an inherited condition."
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes",
-              conditional: {
-                html: yesHtml
-              }
-            },
-            {
-              value: "no",
-              text: "No"
-            }
-          ]
+        {{ govukTextarea({
+          name: "health-brain-injury-severity",
+          id: "health-brain-injury-severity",
+          label: {
+            text: "Describe the nature of their brain injury and the level of severity.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
         }) }}
 
-        <!-- <div class="govuk-button-group"> -->
-          {{ govukButton({
-            text: "Save and continue",
-            href: "health-needs-other"
-          }) }}
-  
-          <!-- {{ govukButton({
-            text: "Save draft of section",
-            href: "../../../tasklist",
-            classes: "govuk-button--secondary"
-          }) }}
-        </div> -->
+        {{ govukTextarea({
+          name: "health-brain-injury-vulnerable",
+          id: "health-brain-injury-vulnerable",
+          label: {
+            text: "Are they vulnerable as a result of this condition?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-brain-injury-interaction",
+          id: "health-brain-injury-interaction",
+          label: {
+            text: "Do they have difficulties interacting with other people as a result of this condition? If yes, please provide details.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-brain-injury-support",
+          id: "health-brain-injury-support",
+          label: {
+            text: "What support is required?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "health-needs-other"
+        }) }}
 
       </form>
 

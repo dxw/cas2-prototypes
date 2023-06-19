@@ -70,113 +70,74 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="health-needs-independent-living" method="post"></form>
+      <form class="form" action="" method="post">
 
-        <!-- Set stuff to show when the answer Yes is selected -->
-        {% set yesHtml %}
+        <h2 class="govuk-heading-m">Physical health</h2>
 
-          {{ govukTextarea({
-            name: "health-physical-severity",
-            id: "health-physical-severity",
-            label: {
-              text: "Describe the nature of their physical health need(s) and the level of severity.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-physical-treatment",
-            id: "health-physical-treatment",
-            label: {
-              text: "Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-physical-medication",
-            id: "health-physical-medication",
-            label: {
-              text: "Are they currently taking any medication for their physical health needs? If so, please provide details.",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-physical-stairs",
-            id: "health-physical-stairs",
-            label: {
-              text: "Can they climb stairs?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-physical-independent",
-            id: "health-physical-independent",
-            label: {
-              text: "Can they live independently?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-physical-support",
-            id: "health-physical-support",
-            label: {
-              text: "What support is required?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-        {% endset -%}
-
-        <!-- Answer options for question -->
-        {{ govukRadios({
-          name: "health-physical",
-          fieldset: {
-            legend: {
-              text: "Does Terry Midhurst have any physical health needs?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "Including mobility issues, such as difficulty with steps."
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes",
-              conditional: {
-                html: yesHtml
-              }
-            },
-            {
-              value: "no",
-              text: "No"
-            }
-          ]
+        {{ govukTextarea({
+          name: "health-physical-severity",
+          id: "health-physical-severity",
+          label: {
+            text: "Describe the nature of their physical health need(s) and the level of severity.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
         }) }}
 
-        <!-- <div class="govuk-button-group"> -->
-          {{ govukButton({
-            text: "Save and continue",
-            href: "health-needs-mental"
-          }) }}
-  
-          <!-- {{ govukButton({
-            text: "Save draft of section",
-            href: "../../../tasklist",
-            classes: "govuk-button--secondary"
-          }) }}
-        </div> -->
+        {{ govukTextarea({
+          name: "health-physical-treatment",
+          id: "health-physical-treatment",
+          label: {
+            text: "Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-medication",
+          id: "health-physical-medication",
+          label: {
+            text: "Are they currently taking any medication for their physical health needs? If so, please provide details.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-stairs",
+          id: "health-physical-stairs",
+          label: {
+            text: "Can they climb stairs?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-independent",
+          id: "health-physical-independent",
+          label: {
+            text: "Can they live independently?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-support",
+          id: "health-physical-support",
+          label: {
+            text: "What support is required?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "health-needs-mental"
+        }) }}
         
       </form>
 

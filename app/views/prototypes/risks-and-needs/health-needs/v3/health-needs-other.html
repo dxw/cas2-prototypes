@@ -73,11 +73,11 @@
 
       <form class="form" action="health-needs-independent-living" method="post">
 
-        <h2 class="govuk-heading-m">General Health</h2>
+        <h2 class="govuk-heading-m">Other health needs</h2>
 
         {{ govukTextarea({
-          name: "health-general-long-term",
-          id: "health-general-long-term",
+          name: "health-other-long-term",
+          id: "health-other-long-term",
           label: {
             text: "Are they managing any long term health conditions?",
             classes: "govuk-label--s",
@@ -89,8 +89,8 @@
         }) }}
 
         {{ govukTextarea({
-          name: "health-general-cancer",
-          id: "health-general-cancer",
+          name: "health-other-cancer",
+          id: "health-other-cancer",
           label: {
             text: "Are they currently recieving regular treatment for cancer?",
             classes: "govuk-label--s",
@@ -99,8 +99,8 @@
         }) }}
 
         {{ govukTextarea({
-          name: "health-general-seizure",
-          id: "health-general-seizure",
+          name: "health-other-seizure",
+          id: "health-other-seizure",
           label: {
             text: "Do they experience seizures?",
             classes: "govuk-label--s",
