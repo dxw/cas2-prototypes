@@ -106,6 +106,16 @@
           }) }}
 
           {{ govukTextarea({
+            name: "health-physical-stairs",
+            id: "health-physical-stairs",
+            label: {
+              text: "Can they climb stairs?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
             name: "health-physical-independent",
             id: "health-physical-independent",
             label: {
