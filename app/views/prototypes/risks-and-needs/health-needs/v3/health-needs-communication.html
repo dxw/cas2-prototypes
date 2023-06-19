@@ -80,7 +80,7 @@
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
+          <!-- <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p>  -->
 
           {{ govukTextarea({
             name: "health-communication-severity",
@@ -137,9 +137,6 @@
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
-          },
-          hint: {
-            text: "For example, do they need an interpreter or support to see, hear, speak or understand?"
           },
           items: [
             {
