@@ -39,6 +39,14 @@
             text: 'General health',
             href: 'health-needs-general.html',
             active: true
+          },
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
           }, 
           {
             text: 'Communication needs',
@@ -48,14 +56,6 @@
             text: 'Learning difficulties and Neurodiversity',
             href: 'health-needs-learning.html'
           }, 
-          {
-            text: 'Physical health',
-            href: 'health-needs-physical.html'
-          }, 
-          {
-            text: 'Mental health',
-            href: 'health-needs-mental.html'
-          },
           {
             text: 'Substance misuse',
             href: 'health-needs-substance.html'
@@ -76,8 +76,8 @@
         <h2 class="govuk-heading-m">General Health</h2>
 
         {{ govukTextarea({
-          name: "health-general-seizure",
-          id: "health-general-seizure",
+          name: "health-general-long-term",
+          id: "health-general-long-term",
           label: {
             text: "Are they managing any long term health conditions?",
             classes: "govuk-label--s",
@@ -89,8 +89,8 @@
         }) }}
 
         {{ govukTextarea({
-          name: "health-general-seizure",
-          id: "health-general-seizure",
+          name: "health-general-cancer",
+          id: "health-general-cancer",
           label: {
             text: "Are they currently recieving regular treatment for cancer?",
             classes: "govuk-label--s",
