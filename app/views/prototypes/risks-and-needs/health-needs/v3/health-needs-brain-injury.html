@@ -75,8 +75,6 @@
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
-          <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p> 
-
           {{ govukTextarea({
             name: "health-brain-injury-severity",
             id: "health-brain-injury-severity",
@@ -116,10 +114,6 @@
               isPageHeading: false
             }
           }) }}
-
-          <div class="govuk-inset-text">
-            This information may need to be gathered from the healthcare team. <br>Use this <a href="#">email template</a> to send these questions to the healthcare team.
-          </div>
 
         {% endset -%}
 
