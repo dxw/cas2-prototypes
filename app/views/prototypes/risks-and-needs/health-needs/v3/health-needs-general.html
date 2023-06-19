@@ -27,6 +27,7 @@
   </div>
 
   <div class="govuk-grid-row">
+
     <div class="govuk-grid-column-one-third">
 
       {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
@@ -36,11 +37,13 @@
         items: [
           {
             text: 'General health',
-            href: 'health-needs-general.html'
-          },
+            href: 'health-needs-general.html',
+            active: true
+          }, 
           {
             text: 'Communication needs',
-            href: 'health-needs-communication.html'
+            href: 'health-needs-communication.html',
+            active: true
           }, 
           {
             text: 'Learning difficulties and Neurodiversity',
@@ -52,8 +55,7 @@
           }, 
           {
             text: 'Mental health',
-            href: 'health-needs-mental.html',
-            active: true
+            href: 'health-needs-mental.html'
           },
           {
             text: 'Substance misuse',
@@ -70,56 +72,48 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="health-needs-independent-living" method="post"></form>
+      <form class="form" action="health-needs-independent-living" method="post">
 
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
 
+          <!-- <p class="govuk-body-m">Please answer all the following questions. If the relevant information is not known, please state this.</p>  -->
+
           {{ govukTextarea({
-            name: "health-mental-type",
-            id: "health-mental-type",
+            name: "health-communication-severity",
+            id: "health-communication-severity",
             label: {
-              text: "Please describe the nature of their mental health needs and the severity.",
+              text: "Describe their communication need(s) and the level of severity.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-mental-service",
-            id: "health-mental-service",
+            name: "health-communication-needs",
+            id: "health-communication-needs",
             label: {
-              text: "Are they engaged with the community mental health service?",
+              text: "Do they need any support to see, hear, speak, or understand? If so, please describe it.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-mental-medication",
-            id: "health-mental-medication",
+            name: "health-communication-independent",
+            id: "health-communication-independent",
             label: {
-              text: "Are they prescribed medication linked to reducing the risk to themself or others? If so, please name and describe.",
+              text: "Can they live independently? Please provide detail.",
               classes: "govuk-label--s",
               isPageHeading: false
             }
           }) }}
 
           {{ govukTextarea({
-            name: "health-mental-medication-possession",
-            id: "health-mental-medication-possession",
+            name: "health-communication-interpreter",
+            id: "health-communication-interpreter",
             label: {
-              text: "Are they in possession of their medication?",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-
-          {{ govukTextarea({
-            name: "health-mental-medication-issues",
-            id: "health-mental-medication-issues",
-            label: {
-              text: "Do they have any issues taking their medication?",
+              text: "Do they need an interpreter? If so, which language?",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -133,10 +127,10 @@
 
         <!-- Answer options for question -->
         {{ govukRadios({
-          name: "health-mental",
+          name: "health-communication",
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst have any diagnosed mental health issues that could pose a risk to themself or others?",
+              text: "Does Terry Midhurst have any communication needs?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
@@ -159,7 +153,7 @@
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Save and continue",
-            href: "health-needs-substance"
+            href: "health-needs-learning"
           }) }}
   
           {{ govukButton({
