@@ -28,8 +28,12 @@
 }
 
 .govuk-form-group {
- clear: both;   
+    clear: both;   
 }
+
+// .button--copy-text {
+//     background: $govuk-brand-colour;
+// }
 
 // -------- Risk and RoSH/OASys
 
@@ -62,7 +66,7 @@
     padding: 1.25rem;
 }
 
-// Health
+// -------- Health
 
 .moj-side-navigation {
     padding: 0;
