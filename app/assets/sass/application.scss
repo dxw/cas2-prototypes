@@ -31,10 +31,6 @@
     clear: both;   
 }
 
-// .button--copy-text {
-//     background: $govuk-brand-colour;
-// }
-
 // -------- Risk and RoSH/OASys
 
 .oasys-update p {
@@ -74,6 +70,18 @@
 
 .side-nav--status {
     margin-right: 6px;
+}
+
+.button--copy-text {
+    color: white;
+    background: $govuk-brand-colour;
+    box-shadow: 0 2px 0 darken($govuk-brand-colour, 10%);
+
+    &:hover {
+        color: white;
+        background: darken($govuk-brand-colour, 10%);
+        box-shadow: 0 2px 0 darken($govuk-brand-colour, 20%);
+    }
 }
 
 // -------- Check answers
