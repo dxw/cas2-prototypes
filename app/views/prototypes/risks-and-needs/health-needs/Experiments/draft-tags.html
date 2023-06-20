@@ -29,43 +29,50 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-one-third">
+      
+      <nav class="moj-side-navigation" aria-label="Side navigation">
+        <ul class="moj-side-navigation__list">
 
-      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+          <li class="moj-side-navigation__item">
+            <a href="health-needs-substance.html">
+              <span class="moj-badge moj-badge--blue side-nav--status">Draft</span>
+              Substance misuse
+            </a>
+          </li>
 
-      {{ mojSideNavigation({
-        label: 'Side navigation',
-        items: [
-          {
-            text: 'Substance misuse',
-            href: 'health-needs-substance.html'
-          },
-          {
-            text: 'Physical health',
-            href: 'health-needs-physical.html'
-          }, 
-          {
-            text: 'Mental health',
-            href: 'health-needs-mental.html'
-          }, 
-          {
-            text: 'Communication needs',
-            href: 'health-needs-communication.html',
-            active: true
-          }, 
-          {
-            text: 'Learning difficulties and Neurodiversity',
-            href: 'health-needs-learning.html'
-          }, 
-          {
-            text: 'Brain injury',
-            href: 'health-needs-brain-injury.html'
-          },
-          {
-            text: 'Other health',
-            href: 'health-needs-other.html'
-          }
-        ]
-      }) }}
+          <li class="moj-side-navigation__item">
+            <a href="health-needs-physical.html">
+              <span class="moj-badge moj-badge--blue side-nav--status">Draft</span>
+              Physical health
+            </a>
+          </li>
+
+          <li class="moj-side-navigation__item">
+            <a href="health-needs-mental.html">Mental health</a>
+          </li>
+
+          <li class="moj-side-navigation__item moj-side-navigation__item--active">
+            <a href="health-needs-communication.html" aria-current="location">
+              <span class="moj-badge moj-badge--blue side-nav--status">Draft</span>
+              Communication needs
+            </a>
+          </li>
+  
+          <li class="moj-side-navigation__item">
+            <a href="health-needs-learning.html">Learning difficulties and Neurodiversity</a>
+          </li>
+  
+          <li class="moj-side-navigation__item">
+            <a href="health-needs-brain-injury.html">Brain injury</a>
+          </li>
+
+          <li class="moj-side-navigation__item">
+            <a href="health-needs-other.html">Other health</a>
+          </li>
+
+        </ul>
+      </nav>
+      
 
     </div>
 
