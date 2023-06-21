@@ -84,7 +84,7 @@
             isPageHeading: false
           },
           hint: {
-            text: "For example, diabetes, arthritis, high blood pressure."
+            text: "For example, diabetes, arthritis or high blood pressure."
           }
         }) }}
 
@@ -102,7 +102,17 @@
           name: "health-other-seizure",
           id: "health-other-seizure",
           label: {
-            text: "Do they experience seizures?",
+            text: "Do they experience seizures? If so, please describe how they manage these.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-other-seizure",
+          id: "health-other-seizure",
+          label: {
+            text: "Have they experienced a stroke?",
             classes: "govuk-label--s",
             isPageHeading: false
           }
