@@ -27,41 +27,42 @@
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
 
+    <div class="govuk-grid-column-one-third">
+      
       <nav class="moj-side-navigation" aria-label="Side navigation">
         <ul class="moj-side-navigation__list">
 
           <li class="moj-side-navigation__item">
             <a href="draft-tags-substance.html">
-              <span class="moj-badge moj-badge--white side-nav--status">Draft</span>
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
               Substance misuse
             </a>
           </li>
 
           <li class="moj-side-navigation__item">
             <a href="draft-tags-physical.html">
-              <span class="moj-badge moj-badge--white side-nav--status">Draft</span>
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
               Physical health
             </a>
           </li>
 
-          <li class="moj-side-navigation__item moj-side-navigation__item--active">
+          <li class="moj-side-navigation__item">
             <a href="draft-tags-mental.html">Mental health</a>
           </li>
 
-          <li class="moj-side-navigation__item">
+          <li class="moj-side-navigation__item moj-side-navigation__item--active">
             <a href="draft-tags-communication.html" aria-current="location">
-              <span class="moj-badge moj-badge--white side-nav--status">Draft</span>
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
               Communication needs
             </a>
           </li>
   
-          <li class="moj-side-navigation__item ">
+          <li class="moj-side-navigation__item">
             <a href="draft-tags-learning.html">Learning difficulties and Neurodiversity</a>
           </li>
   
-          <li class="moj-side-navigation__item ">
+          <li class="moj-side-navigation__item">
             <a href="draft-tags-brain-injury.html">Brain injury</a>
           </li>
 
@@ -78,63 +79,54 @@
 
       <form class="form" action="" method="post">
 
-        <h2 class="govuk-heading-m">Mental health</h2>
+        <h2 class="govuk-heading-m">Communications needs</h2>
 
         {{ govukTextarea({
-          name: "health-mental-type",
-          id: "health-mental-type",
+          name: "health-communication-severity",
+          id: "health-communication-severity",
           label: {
-            text: "Please describe their mental health needs and the level of severity.",
+            text: "Describe their communication need(s) and the level of severity.",
             classes: "govuk-label--s",
             isPageHeading: false
           }
         }) }}
 
         {{ govukTextarea({
-          name: "health-mental-service",
-          id: "health-mental-service",
+          name: "health-communication-needs",
+          id: "health-communication-needs",
           label: {
-            text: "Are they engaged with any community mental health services?",
+            text: "Do they need any support to see, hear, speak, or understand? If so, please describe it.",
             classes: "govuk-label--s",
             isPageHeading: false
           }
         }) }}
 
         {{ govukTextarea({
-          name: "health-mental-medication",
-          id: "health-mental-medication",
+          name: "health-communication-independent",
+          id: "health-communication-independent",
           label: {
-            text: "Please list any medications they’ve been prescribed to reduce the risk to themself or others.",
+            text: "Can they live independently? Please provide detail.",
             classes: "govuk-label--s",
             isPageHeading: false
           }
         }) }}
 
         {{ govukTextarea({
-          name: "health-mental-medication-possession",
-          id: "health-mental-medication-possession",
+          name: "health-communication-interpreter",
+          id: "health-communication-interpreter",
           label: {
-            text: "Are they in possession of their medication?",
+            text: "Do they need an interpreter? If so, which language?",
             classes: "govuk-label--s",
             isPageHeading: false
-          }
-        }) }}
-
-        {{ govukTextarea({
-          name: "health-mental-medication-issues",
-          id: "health-mental-medication-issues",
-          label: {
-            text: "Do they have any issues taking their medication?",
-            classes: "govuk-label--s",
-            isPageHeading: false
-          }
+          },
+          value: "They do not need an interpreter."
         }) }}
 
         <div class="govuk-button-group">
 
           {{ govukButton({
             text: "Save and continue",
-            href: "draft-tags-communication"
+            href: "draft-tags-learning"
           }) }}
 
           <a href="../../../tasklist.html" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>

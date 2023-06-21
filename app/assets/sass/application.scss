@@ -84,6 +84,16 @@
     }
 }
 
+.moj-badge--white {
+    background: govuk-colour("white");
+}
+
+.moj-badge--green {
+    color: $govuk-text-colour;
+    background: lighten(govuk-colour("green"), 20%);
+    // background: govuk-colour("green");
+}
+
 // -------- Check answers
 
 .check-answers .govuk-summary-list__key {
