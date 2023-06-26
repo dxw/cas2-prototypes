@@ -43,14 +43,13 @@
           <div class="govuk-notification-banner__content">
             <!-- <h3 class="govuk-!-margin-top-0">How it works</h3> -->
             <p>Terry Midhurst is currently at risk of <strong>self harm</strong>.</p>
-            <p>They have been assessed as medium or high risk on OASys, or have other indicators of risk.</p>
           </div>
 
         </div>
 
-        <p class="govuk-body-m">Any live risks must be documented. Think about what might be relevant for Nacro CAS-2 housing and edit as necessary.</p>
+        <p class="govuk-body-m">They have been assessed as medium or high risk on OASys, or have other indicators of risk.</p>
 
-        <p class="govuk-body-m">Your edits won’t change the original OASys record ‒ but they could make a big difference to your applicant’s CAS-2 placement.</p>
+        <p class="govuk-body-m">If this information is out of date or incorrect, please return to the original OASys record and update it there.</p>
           
         <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
@@ -62,7 +61,7 @@
           rows: "10",
           value: "Mr Midhurst has a history of self harm when not taking his medications or self-medicating with drugs and alcohol.",
           label: {
-            text: "Describe the circumstances, relevant issues and needs regarding current concerns about self harm",
+            text: "Description of circumstances, relevant issues and needs: Self harm",
             classes: "govuk-label--m",
             isPageHeading: false
           }
@@ -71,9 +70,9 @@
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
         <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
 
-        <!-- {{ govukInsetText({
-          text: "This will not be written back into OASys. If the information in OASys is out of date, we suggest you also up-date it as well as entering it here."
-        }) }} -->
+        {{ govukInsetText({
+          text: "Your edits won’t change the original OASys record ‒ but they could make a big difference to your applicant’s CAS-2 placement."
+        }) }}
 
         <!-- Answer options for question -->
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
