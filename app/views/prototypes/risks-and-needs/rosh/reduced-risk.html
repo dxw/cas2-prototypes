@@ -23,17 +23,11 @@
       <form class="form" action="" method="post">
 
         <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
-        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1>
+        <!-- <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1>
 
         <div class="oasys-update govuk-!-margin-bottom-6">
           <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
-        </div>
-
-        <p class="govuk-body-m">Any live risks must be documented. Think about what might be relevant for Nacro CAS-2 housing and edit as necessary.</p>
-
-        <p class="govuk-body-m">Your edits won’t change the original OASys record ‒ but they could make a big difference to your applicant’s CAS-2 placement.</p>
-          
-        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        </div> -->
 
         {{ govukTextarea({
           name: "oasys-textarea",
@@ -41,11 +35,11 @@
           classes: "oasys-textarea",
           disabled: true,
           rows: "10",
-          value: "Mr Midhurst was thinking about consequences of his actions and not acting impulsively. He was walking away from situations that he assesses as risky. If he is not drinking to excess, not taking drogs.",
+          value: "Mr Midhurst thinking about consequences of his actions and not acting impulsively. He was walking away from situations that he assesses as risky. If he is not drinking to excess, not taking drugs.",
           label: {
             text: "What factors are likely to reduce risk?",
-            classes: "govuk-label--m",
-            isPageHeading: false
+            classes: "govuk-label--l govuk-!-margin-top-2",
+            isPageHeading: true
           },
           hint: {
             text: "Describe factors, actions and events which might reduce or contain the level of risk now and in the future."
@@ -55,9 +49,9 @@
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
         <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
 
-        <!-- {{ govukInsetText({
-          text: "This will not be written back into OASys. If the information in OASys is out of date, we suggest you also up-date it as well as entering it here."
-        }) }} -->
+        {{ govukInsetText({
+          text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys."
+        }) }}
 
         <!-- Answer options for question -->
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
