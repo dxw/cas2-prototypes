@@ -26,11 +26,12 @@
         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1>
 
         <div class="oasys-update govuk-!-margin-bottom-6">
-          <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
-          <!-- <p>OASys last updated <strong> 09 January 2023</strong></p> -->
+          <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 7th January 2023 </strong>, last updated <strong> 4th January 2023</strong></p>
         </div>
 
-        <p class="govuk-body">If any of the following risks are deemed <strong>medium</strong> or <strong>high</strong>, further information will be needed.</p>
+        <p class="govuk-body">This section provides a summary of the risk this applicant poses to others.</p>
+
+        <p class="govuk-body">If any of these risks are deemed <strong>medium</strong>, further information will be imported for you to review on the following screens.</p>
 
         {{ govukInsetText({
           text: "If this information is out of date or incorrect, please return to the original OASys record and update it there."
@@ -117,13 +118,13 @@
 
         <!-- Additional info -->
         {{ govukDetails({
-          summaryText: "I would like to add more information about the above assessment",
+          summaryText: "Add your own notes about the RoSH summary.",
           classes: "govuk-!-margin-top-8",
           html: "
           <div class='govuk-form-group'>
             <h1 class='govuk-label-wrapper'>
               <label class='govuk-label govuk-label--s' for='more-detail'>
-                Additional comments
+                Referrer's comments
               </label>
             </h1>
             <textarea class='govuk-textarea govuk-!-margin-bottom-0' id='more-detail' name='more-detail' rows='5'></textarea>

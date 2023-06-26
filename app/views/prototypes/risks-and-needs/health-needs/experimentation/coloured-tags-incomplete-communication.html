@@ -34,40 +34,40 @@
         <ul class="moj-side-navigation__list">
 
           <li class="moj-side-navigation__item">
-            <a href="draft-tags-substance.html">
-              <span class="moj-badge moj-badge--green side-nav--status">Draft</span>
+            <a href="#">
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
               Substance misuse
             </a>
           </li>
 
           <li class="moj-side-navigation__item">
-            <a href="draft-tags-physical.html">
-              <span class="moj-badge moj-badge--green side-nav--status">Draft</span>
+            <a href="#">
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
               Physical health
             </a>
           </li>
 
           <li class="moj-side-navigation__item">
-            <a href="draft-tags-mental.html">Mental health</a>
+            <a href="#">Mental health</a>
           </li>
 
           <li class="moj-side-navigation__item moj-side-navigation__item--active">
-            <a href="draft-tags-communication.html" aria-current="location">
-              <span class="moj-badge moj-badge--green side-nav--status">Draft</span>
+            <a href="#" aria-current="location">
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
               Communication needs
             </a>
           </li>
   
           <li class="moj-side-navigation__item">
-            <a href="draft-tags-learning.html">Learning difficulties and Neurodiversity</a>
+            <a href="#">Learning difficulties and Neurodiversity</a>
           </li>
   
           <li class="moj-side-navigation__item">
-            <a href="draft-tags-brain-injury.html">Brain injury</a>
+            <a href="#">Brain injury</a>
           </li>
 
           <li class="moj-side-navigation__item">
-            <a href="draft-tags-other.html">Other health</a>
+            <a href="#">Other health</a>
           </li>
 
         </ul>
@@ -88,8 +88,7 @@
             text: "Describe their communication need(s) and the level of severity.",
             classes: "govuk-label--s",
             isPageHeading: false
-          },
-          value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          }
         }) }}
 
         {{ govukTextarea({
@@ -99,8 +98,7 @@
             text: "Do they need any support to see, hear, speak, or understand? If so, please describe it.",
             classes: "govuk-label--s",
             isPageHeading: false
-          },
-          value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          }
         }) }}
 
         {{ govukTextarea({
@@ -110,8 +108,7 @@
             text: "Can they live independently? Please provide detail.",
             classes: "govuk-label--s",
             isPageHeading: false
-          },
-          value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          }
         }) }}
 
         {{ govukTextarea({
@@ -129,7 +126,7 @@
 
           {{ govukButton({
             text: "Save and continue",
-            href: "draft-tags-learning"
+            href: "#"
           }) }}
 
           <a href="../../../tasklist.html" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>

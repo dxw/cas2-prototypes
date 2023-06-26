@@ -45,6 +45,12 @@
           </div>
       </div>
 
+        <p class="govuk-body-m">They have been assessed as medium or high risk on OASys, or have other indicators of risk.</p>
+
+        <p class="govuk-body-m">If this information is out of date or incorrect, please return to the original OASys record and update it there.</p>
+          
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
         {{ govukTextarea({
           name: "oasys-textarea",
           id: "oasys-textarea",
@@ -53,7 +59,7 @@
           rows: "10",
           value: "Mr Midhurst went through several periods of self harming as a young man, but claims not to have done so for the past 5 years. No current record of self harming.",
           label: {
-            text: "Describe any previous circumstances, issues and needs regarding concerns about self harm",
+            text: "Description of circumstances, relevant issues and needs: Self harm",
             classes: "govuk-label--m",
             isPageHeading: false
           }
@@ -62,9 +68,9 @@
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
         <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
 
-        <!-- {{ govukInsetText({
-          text: "This will not be written back into OASys. If the information in OASys is out of date, we suggest you also up-date it as well as entering it here."
-        }) }} -->
+        {{ govukInsetText({
+          text: "Your edits won’t change the original OASys record ‒ but they could make a big difference to your applicant’s CAS-2 placement."
+        }) }}
 
         <!-- Answer options for question -->
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
