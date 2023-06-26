@@ -1,4 +1,5 @@
 {% extends "layouts/main.html" %}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
 
 {% from "components/widgets/macro.njk" import widgets %}
 
@@ -19,12 +20,294 @@
 <div class="govuk-grid-row">
 
   <!-- Title -->
-  <div class="govuk-grid-column-three-quarters">
+  <div class="govuk-grid-column-full">
 
-    <h1 class="govuk-heading-xl">
+    <h1 class="govuk-heading-l">
       Short-Term Accommodation (CAS-2) Applications
     </h1>
 
+    <!-- Tabs -->
+    {% from "govuk/components/tabs/macro.njk" import govukTabs %}
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {% set currentApplicationsHTML %}
+
+      <h2 class="govuk-heading-m">Current Applications</h2>
+
+      {{ govukTable({
+        attributes: {
+          'data-module': 'moj-sortable-table'
+        },
+        classes: "govuk-!-margin-0",
+        head: [
+          {
+            text: "Person",
+            attributes: {
+              "aria-sort": "ascending"
+            }
+          },
+          {
+            text: "CRN",
+            classes: "govuk-!-text-align-left",
+            attributes: {
+              "aria-sort": "none"
+            },
+            format: "numeric"
+          },
+          {
+            text: "Start date",
+            attributes: {
+              "aria-sort": "descending"
+            }
+          },
+          {
+            text: "Application owner",
+            attributes: {
+              "aria-sort": "none"
+            }
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='../tasklist.html' class='govuk-link govuk-link--no-visited-state'>Terry Midhurst</a>",
+              attributes: {
+                "data-sort-value": "Terry Midhurst"
+              }
+            },
+            {
+              text: "783JSAA",
+              attributes: {
+                "data-sort-value": "783JSAA"
+              }
+            },
+            {
+              text: "19 February 2023",
+              attributes: {
+                "data-sort-value": "19 February 2023"
+              }
+            },
+            {
+              text: "Alex Edwards",
+              attributes: {
+                "data-sort-value": "Alex Edwards"
+              }
+            }
+          ],
+          [
+            {
+              html: "<a href='#' class='govuk-link govuk-link--no-visited-state'>Jane Earle</a>",
+              attributes: {
+                "data-sort-value": "Jane Earle"
+              }
+            },
+            {
+              text: "474DGSA",
+              attributes: {
+                "data-sort-value": "474DGSA"
+              }
+            },
+            {
+              text: "1 Janaury 2023",
+              attributes: {
+                "data-sort-value": "1 January 2023"
+              }
+            },
+            {
+              text: "Alex Edwards",
+              attributes: {
+                "data-sort-value": "Alex Edwards"
+              }
+            }
+          ],
+          [
+            {
+              html: "<a href='#' class='govuk-link govuk-link--no-visited-state'>Judith MacDonald</a>",
+              attributes: {
+                "data-sort-value": "Judith MacDonald"
+              }
+            },
+            {
+              text: "56758AD",
+              attributes: {
+                "data-sort-value": "457DFGD"
+              }
+            },
+            {
+              text: "12 March 2023",
+              attributes: {
+                "data-sort-value": "12 March 2023"
+              }
+            },
+            {
+              text: "Katie Wishlade",
+              attributes: {
+                "data-sort-value": "Katie Wishlade"
+              }
+            }
+          ]
+        ]
+      }) }}
+
+    {% endset -%}
+
+    {% set submittedApplicationsHTML %}
+
+    <h2 class="govuk-heading-m">Submitted Applications</h2>
+
+      {{ govukTable({
+        attributes: {
+          'data-module': 'moj-sortable-table'
+        },
+        classes: "govuk-!-margin-0",
+        head: [
+          {
+            text: "Person",
+            attributes: {
+              "aria-sort": "ascending"
+            }
+          },
+          {
+            text: "CRN",
+            classes: "govuk-!-text-align-left",
+            attributes: {
+              "aria-sort": "none"
+            },
+            format: "numeric"
+          },
+          {
+            text: "Submission date",
+            attributes: {
+              "aria-sort": "descending"
+            }
+          },
+          {
+            text: "Application owner",
+            attributes: {
+              "aria-sort": "none"
+            }
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='#' class='govuk-link govuk-link--no-visited-state'>Lisa Cork</a>",
+              attributes: {
+                "data-sort-value": "Lisa Cork"
+              }
+            },
+            {
+              text: "3464TAS",
+              attributes: {
+                "data-sort-value": "3464TAS"
+              }
+            },
+            {
+              text: "19 February 2023",
+              attributes: {
+                "data-sort-value": "19 February 2023"
+              }
+            },
+            {
+              text: "Alex Edwards",
+              attributes: {
+                "data-sort-value": "Alex Edwards"
+              }
+            }
+          ],
+          [
+            {
+              html: "<a href='check-answers--no-cta-joe.html' class='govuk-link govuk-link--no-visited-state'>Joe Sandhurst</a>",
+              attributes: {
+                "data-sort-value": "Joe Sandhurst"
+              }
+            },
+            {
+              text: "34ASF3",
+              attributes: {
+                "data-sort-value": "34ASF3"
+              }
+            },
+            {
+              text: "1 Janaury 2023",
+              attributes: {
+                "data-sort-value": "1 January 2023"
+              }
+            },
+            {
+              text: "Alex Edwards",
+              attributes: {
+                "data-sort-value": "Alex Edwards"
+              }
+            }
+          ],
+          [
+            {
+              html: "<a href='#' class='govuk-link govuk-link--no-visited-state'>Judith MacDonald</a>",
+              attributes: {
+                "data-sort-value": "Michael Doors"
+              }
+            },
+            {
+              text: "56758AD",
+              attributes: {
+                "data-sort-value": "56758AD"
+              }
+            },
+            {
+              text: "12 March 2023",
+              attributes: {
+                "data-sort-value": "12 March 2023"
+              }
+            },
+            {
+              text: "Katie Wishlade",
+              attributes: {
+                "data-sort-value": "Katie Wishlade"
+              }
+            }
+          ]
+        ]
+      }) }}
+
+    {% endset -%}
+    
+    {{ govukTabs({
+      items: [
+        {
+          label: "Applications",
+          id: "current-applications",
+          panel: {
+            html: currentApplicationsHTML
+          }
+        },
+        {
+          label: "Submitted",
+          id: "submitted-applications",
+          panel: {
+            html: submittedApplicationsHTML
+          }
+        }
+      ]
+    }) }}
+
+  </div>
+
+</div>
+
+<div class="govuk-grid-row">
+  
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-m">Start a new application</h2>
+    
+    <p>Start a new application for a Short-Term Accommodation placement by clicking on the start button below.</p>
+  
+    {{ govukButton({
+      text: "Start a new application",
+      href: "#"
+    }) }}
+  
   </div>
 
 </div>
