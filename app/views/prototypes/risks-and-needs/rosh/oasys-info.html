@@ -17,19 +17,21 @@
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-l">
-        Is OASys up to date?
+        Pre-filled answers from OASys
       </h1>
 
-      <p class="govuk-body-l">OASys record for <strong>Terry Midhurst</strong> last updated on <strong>4th January 2022</strong>.</p>
+      <p class="govuk-body-l">OASys record for <strong>Terry Midhurst</strong> was last updated on <strong>4th January 2022</strong>.</p>
+      <p class="govuk-body-m">Please be aware this is more than 6 months old. Further updates may be needed.</p>
 
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <hr class="govuk-section-break govuk-section-break--l">
 
+      <h2 class="govuk-heading-m">How it works</h2>
       <p>
-        To support this application, sections of the OASys record will be imported.
+        Sections of your applicant’s OASys record will be imported. This will give you pre-filled answers to the risk questions that follow. 
       </p>
 
-      <p>
-        <strong>Please check the information on the following pages, and make sure nothing important is missing.</strong>
+      <!-- <p>
+        <strong>Please check the information, and make sure nothing important is missing.</strong>
       </p>
 
       {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
@@ -46,14 +48,15 @@
             <p class="">You’ll be able to edit the OASys information. Think about how relevant each section is to your applicant’s CAS-2 placement ‒ then delete any text that’s no longer accurate and add any missing information you feel is relevant.</p>
             <p class="">Your edits won’t change the original OASys record ‒ <strong>but they could make a big difference to your applicant’s CAS-2 placement</strong>.</p>
           </div>
-      </div>
+      </div> -->
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
-      <form action="risk-summary" method="post" novalidate>
+      <form action="" method="post" novalidate>
 
         {{ govukButton({
-          text: "Continue"
+          text: "Continue",
+          href: "risk-summary"
         }) }}
 
       </form>
