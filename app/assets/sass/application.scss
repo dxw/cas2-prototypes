@@ -5,8 +5,9 @@
 
 // Add extra styles here
 
+@import "risk/predictor-scores";
 @import "risk/widgets";
-@import "risk/rosh-widget";
+@import "risk/timeline";
 
 .flexbox {
     display: inline-flex;
