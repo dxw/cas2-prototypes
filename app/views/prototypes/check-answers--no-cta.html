@@ -651,64 +651,49 @@
 
       <h2 class="govuk-heading-l">Risk of Serious Harm (RoSH) Summary</h2>
 
-      {{ govukSummaryList({
-        classes: "check-answers",
-        card: {
-          title: {
-            text: "Risk summary"
-          }
-        },
-        rows: [
-          {
-            key: {
-              text: "Risk to children"
+      {% from "components/rosh-widget/macro.njk" import roshWidget %}
+
+      <div class="govuk-summary-card">
+
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Risk summary</h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action"> 
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> age</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="govuk-summary-card__content">
+          {{ roshWidget({
+            hasBeenCompleted: true,
+            overallRisk: "MEDIUM",
+            riskInCommunity: {
+              "Children": "MEDIUM",
+              "Public": "MEDIUM",
+              "Known Adult": "LOW",
+              "Staff": "LOW"
             },
-            value: {
-              html: "<span class='moj-badge moj-badge--red'>Medium</span>"
-            }
-          },
-          {
-            key: {
-              text: "Risk to public"
-            },
-            value: {
-              html: "<span class='moj-badge moj-badge--red'>Medium</span>"
-            }
-          },
-          {
-            key: {
-              text: "Risk to known adult"
-            },
-            value: {
-              html: "<span class='moj-badge moj-badge--green'>Low</span>"
-            }
-          },
-          {
-            key: {
-              text: "Risk to staff"
-            },
-            value: {
-              html: "<span class='moj-badge moj-badge--green'>Low</span>"
-            }
-          },
-          {
-            key: {
-              text: "Risk to prisoner"
-            },
-            value: {
-              html: "<span class='moj-badge moj-badge--green'>Low</span>"
-            }
-          },
-          {
-            key: {
-              text: "Further details about the risk summary"
-            },
-            value: {
-              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-            }
-          }
-        ]
-      }) }}
+            lastUpdated: "10th October 2021"
+          }) }}
+
+          <dl class="govuk-summary-list">
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Referrer's comments
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              </dd>
+            </div>
+
+          </dl>
+
+        </div>
+      </div>
 
       {{ govukSummaryList({
         card: {
