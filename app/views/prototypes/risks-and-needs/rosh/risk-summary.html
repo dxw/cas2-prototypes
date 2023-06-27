@@ -49,9 +49,9 @@
           text: "If this information is out of date or incorrect, please return to the original OASys record and update it there."
         }) }}
 
-        {% from "govuk/components/table/macro.njk" import govukTable %}
+        <!-- {% from "govuk/components/table/macro.njk" import govukTable %} -->
 
-        {{ govukTable({
+        <!-- {{ govukTable({
           caption: "Risk summary",
           captionClasses: "govuk-table__caption--m",
           firstCellIsHeader: true,
@@ -126,6 +126,19 @@
               }
             ]
           ]
+        }) }} -->
+
+        {% from "components/rosh-widget/macro.njk" import roshWidget %}
+        {{ roshWidget({
+          hasBeenCompleted: true,
+          overallRisk: "MEDIUM",
+          riskInCommunity: {
+            "Children": "MEDIUM",
+            "Public": "MEDIUM",
+            "Known Adult": "LOW",
+            "Staff": "LOW"
+          },
+          lastUpdated: "10th October 2021"
         }) }}
 
         <!-- Additional info -->

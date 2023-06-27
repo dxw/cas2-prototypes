@@ -925,8 +925,6 @@
 
       <h2 class="govuk-heading-l">Risk of Serious Harm (RoSH) Summary</h2>
 
-      {% from "components/rosh-widget/macro.njk" import roshWidget %}
-
       <div class="govuk-summary-card">
 
         <div class="govuk-summary-card__title-wrapper">
@@ -941,6 +939,7 @@
         </div>
 
         <div class="govuk-summary-card__content">
+          {% from "components/rosh-widget/macro.njk" import roshWidget %}
           {{ roshWidget({
             hasBeenCompleted: true,
             overallRisk: "MEDIUM",
