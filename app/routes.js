@@ -104,7 +104,7 @@ router.post('/prototypes/consent/all-in-one', function(request, response) {
 
   var consentAnswer = request.session.data['consent-answer']
   if (consentAnswer == "yes"){
-      response.redirect("/prototypes/tasklist")
+      response.redirect("/prototypes/tasklists/tasklist")
   } else {
       response.redirect("/prototypes/consent/consent-refused")
   }
