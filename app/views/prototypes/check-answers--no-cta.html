@@ -17,14 +17,12 @@
         Application answers
       </h1>
 
-      <div class="govuk-!-margin-bottom-7">
-        <p class="govuk-body-m govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Application owner:</span> Alex Edwards</p>
-        <p class="govuk-body-m govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Applicant name:</span> Terry Midhurst</p>
-        <p class="govuk-body-m"><span class="govuk-!-font-weight-bold">Submission date:</span> 13 June 2023</p>
-      </div>
-
       <p class="govuk-body-l">This page contains answers submitted as part of a CAS-2 application. Alternatively, you can download a PDF verison of this page.</p>
 
+      {{ govukButton({
+        text: "Download as a PDF",
+        href: "#"
+      }) }}
     </div>
 
   </div>
@@ -32,10 +30,20 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      {{ govukButton({
-        text: "Download as a PDF",
-        href: "#"
-      }) }}
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <!---------------------- Summary ---------------------->
+      <h2 class="govuk-heading-l">
+        Application summary
+      </h2>
+
+      <ul class="govuk-list govuk-list--spaced">
+        <li><strong>Applicant name:</strong> Terry Midhurst</li>
+        <li><strong>Referrer name:</strong> Alex Edwards</li>
+        <li><strong>Referring institution:</strong> HM Prison Pentonville</li> 
+        <li><strong>Contact email address:</strong> <a class="govuk-link" href="mailto:aedwards3@hmppentonville.gov.uk">aedwards3@hmppentonville.gov.uk</a></li>
+        <li><strong>Contact number: </strong><a class="govuk-link" href="tel:01234567891">01234567891</a></li>
+      </ul>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
@@ -56,7 +64,7 @@
               text: "Applicant is over 18 years old"
             },
             value: {
-              html: "Confirmed"
+              html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
             }
           },
           {
@@ -64,7 +72,7 @@
               text: "Applicant is not currently serving a sentence of 4 years or more for any offence"
             },
             value: {
-              html: "Confirmed"
+              html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
             }
           },
           {
@@ -72,7 +80,7 @@
               text: "Applicant is not currently charged with, or has any past convictions or cautions, or current allegations of any sexual offences in Schedule 3 of the Sexual Offences Act 2003"
             },
             value: {
-              html: "Confirmed"
+              html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
             }
           },
           {
@@ -80,7 +88,7 @@
               text: "Applicant is not assessed as high or very high risk of serious harm"
             },
             value: {
-              html: "Confirmed"
+              html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
             }
           },
           {
@@ -88,7 +96,7 @@
               text: "Applicant has not breached immigration law other than over staying on approved period of leave to enter or remain in UK, or has no recourse to public funds"
             },
             value: {
-              html: "Confirmed"
+              html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
             }
           },
           {
@@ -96,7 +104,7 @@
               text: "HDC applicant is currently not in prison having been recalled for failing to comply with HDC curfew conditions"
             },
             value: {
-              html: "Confirmed"
+              html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
             }
           }
         ]
