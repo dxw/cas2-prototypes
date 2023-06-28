@@ -28,7 +28,7 @@
 }
 
 .govuk-form-group {
- clear: both;   
+    clear: both;   
 }
 
 // -------- Risk and RoSH/OASys
@@ -62,10 +62,48 @@
     padding: 1.25rem;
 }
 
-// Health
+// -------- Health
 
 .moj-side-navigation {
     padding: 0;
+}
+
+.side-nav--status {
+    margin-right: 6px;
+}
+
+.button--copy-text {
+    color: white;
+    background: $govuk-brand-colour;
+    box-shadow: 0 2px 0 darken($govuk-brand-colour, 10%);
+
+    &:hover {
+        color: white;
+        background: darken($govuk-brand-colour, 10%);
+        box-shadow: 0 2px 0 darken($govuk-brand-colour, 20%);
+    }
+}
+
+.moj-badge--white {
+    background: govuk-colour("white");
+}
+
+.overlay {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+    // opacity: .5;
+    z-index: 10;
+}
+
+.govuk-width-container--pop-up {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 // -------- Check answers

@@ -8,11 +8,23 @@
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
   {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -23,7 +35,7 @@
       <form class="form" action="risk-implications" method="post">
 
         <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
-        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1>
+        <!-- <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk of Serious Harm (RoSH) Summary</h1> -->
 
         <!-- Set stuff to show when the answer Yes is selected -->
         {% set yesHtml %}
@@ -67,10 +79,13 @@
             name: "risk-managements",
             fieldset: {
               legend: {
-                text: "Are there any Risk Management Arrangements, including APPA, MARAC or Integrated Offender Management?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
+                text: "Are there any Risk Management Arrangements?",
+                classes: "govuk-label--l govuk-!-margin-top-2",
+                isPageHeading: true
               }
+            },
+            hint: {
+              text: "Including MAPPA, MARAC or Integrated Offender Management."
             },
             items: [
               {

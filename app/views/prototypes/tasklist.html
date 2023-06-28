@@ -7,6 +7,18 @@
 {% endblock %}
 
 {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -34,7 +46,7 @@
     <!-- Main -->
     <div class="govuk-grid-column-three-quarters">
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">You have completed 2 of 8 sections.</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">You have completed 1 of 8 sections.</h2>
       <p class="govuk-body">Please work through all sections, following the instructions within each.</p>
 
       <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Inviting people to contribute to this application.</h3>
@@ -72,12 +84,39 @@
 
             <li class="govuk-prototype-kit-task-list__item">
               <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="eligibility-checker/eligibility-success.html" aria-describedby="read-declaration-status">
+                  Check eligibility for CAS-2
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
+            </li>
+            
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
                 <a class="govuk-link--no-visited-state" href="consent/all-in-one.html" aria-describedby="read-declaration-status">
                   Confirm consent to share information
                 </a>
               </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
             </li>
+
+          </ul>
+
+        </li>
+
+      </ol>
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <ol class="govuk-prototype-kit-task-list">
+
+        <li>
+
+          <h2 class="govuk-prototype-kit-task-list__section govuk-!-font-size-27">
+            CAS-2 Application
+          </h2>
+
+          <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0 govuk-!-margin-bottom-0">
 
             <li class="govuk-prototype-kit-task-list__item">
               <span class="govuk-prototype-kit-task-list__task-name">
@@ -120,15 +159,6 @@
           </h3>
 
           <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0 ">
-
-            <li class="govuk-prototype-kit-task-list__item">
-              <span class="govuk-prototype-kit-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="eligibility-checker/eligibility-success.html" aria-describedby="read-declaration-status">
-                  Check eligibility for CAS-2
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
-            </li>
 
             <li class="govuk-prototype-kit-task-list__item">
               <span class="govuk-prototype-kit-task-list__task-name">

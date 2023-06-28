@@ -1,0 +1,177 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Health needs</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      <nav class="moj-side-navigation" aria-label="Side navigation">
+        <ul class="moj-side-navigation__list">
+
+          <li class="moj-side-navigation__item">
+            <a href="draft-tags-substance.html">
+              <span class="moj-badge moj-badge--white side-nav--status">Draft</span>
+              Substance misuse
+            </a>
+          </li>
+
+          <li class="moj-side-navigation__item moj-side-navigation__item--active">
+            <a href="draft-tags-physical.html">
+              <span class="moj-badge moj-badge--white side-nav--status">Draft</span>
+              Physical health
+            </a>
+          </li>
+
+          <li class="moj-side-navigation__item">
+            <a href="draft-tags-mental.html">Mental health</a>
+          </li>
+
+          <li class="moj-side-navigation__item">
+            <a href="draft-tags-communication.html" aria-current="location">
+              <span class="moj-badge moj-badge--white side-nav--status">Draft</span>
+              Communication needs
+            </a>
+          </li>
+  
+          <li class="moj-side-navigation__item">
+            <a href="draft-tags-learning.html">Learning difficulties and Neurodiversity</a>
+          </li>
+  
+          <li class="moj-side-navigation__item">
+            <a href="draft-tags-brain-injury.html">Brain injury</a>
+          </li>
+
+          <li class="moj-side-navigation__item">
+            <a href="draft-tags-other.html">Other health</a>
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Physical health</h2>
+
+        {{ govukTextarea({
+          name: "health-physical-severity",
+          id: "health-physical-severity",
+          label: {
+            text: "Describe their physical health needs and the level of severity.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-treatment",
+          id: "health-physical-treatment",
+          label: {
+            text: "Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-medication",
+          id: "health-physical-medication",
+          label: {
+            text: "Are they currently taking any medication for their physical health needs? If so, please provide details.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-stairs",
+          id: "health-physical-stairs",
+          label: {
+            text: "Can they climb stairs?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          value: "Yes, they can climb stairs."
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-independent",
+          id: "health-physical-independent",
+          label: {
+            text: "Can they live independently?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+        }) }}
+
+        {{ govukTextarea({
+          name: "health-physical-support",
+          id: "health-physical-support",
+          label: {
+            text: "What support is required?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          value: "No further support is required."
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "draft-tags-mental"
+          }) }}
+
+          <a href="../../../tasklist.html" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
