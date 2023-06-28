@@ -32,6 +32,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <span class="govuk-caption-m">Preferred areas</span>
+
     <form action="confirm-referrer" method="post" novalidate>
       {{ govukRadios({
         classes: "govuk-radios--inline",
@@ -59,7 +61,7 @@
       }) }}
 
       {{ govukButton({
-        text: "Check answers",
+        text: "Save and continue",
         href: "#"
       }) }}
     </form>
