@@ -1,0 +1,1290 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form action="" method="post" novalidate>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        Application answers
+      </h1>
+
+      <div class="govuk-!-margin-bottom-7">
+        <p class="govuk-body-m govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Application owner:</span> Alex Edwards</p>
+        <p class="govuk-body-m govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Applicant name:</span> Joe Sandhurst</p>
+        <p class="govuk-body-m"><span class="govuk-!-font-weight-bold">Submission date:</span> 13 June 2023</p>
+      </div>
+
+      <p class="govuk-body-l">This page contains answers submitted as part of a CAS-2 application. Alternatively, you can download a PDF verison of this page.</p>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {{ govukButton({
+        text: "Download as a PDF",
+        href: "#"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l">Consent and eligibility</h2>
+
+      <!---------------------- Eligibility ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "CAS-2 Eligibility"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Applicant is over 18 years old"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Applicant is not currently serving a sentence of 4 years or more for any offence"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Applicant is not currently charged with, or has any past convictions or cautions, or current allegations of any sexual offences in Schedule 3 of the Sexual Offences Act 2003"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Applicant is not assessed as high or very high risk of serious harm"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Applicant has not breached immigration law other than over staying on approved period of leave to enter or remain in UK, or has no recourse to public funds"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "HDC applicant is currently not in prison having been recalled for failing to comply with HDC curfew conditions"
+            },
+            value: {
+              html: "Confirmed"
+            }
+          }
+        ]
+      }) }}
+
+      <!---------------------- Consent ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "CAS-2 Consent"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Does the applicant consent to sharing their data with Nacro?"
+            },
+            value: {
+              html: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "Date consent was given"
+            },
+            value: {
+              html: "27/3/2023"
+            }
+          }
+        ]
+      }) }}
+      
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <h2 class="govuk-heading-l">CAS-2 application</h2>
+
+      <!---------------------- AREA ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Preferred CAS-2 area"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Do you want to apply for a Nacro CAS-2 family property to live with your children?"
+            },
+            value: {
+              html: "No"
+            }
+          },
+          {
+            key: {
+              text: "1st choice region"
+            },
+            value: {
+              html: "London"
+            }
+          },
+          {
+            key: {
+              text: "1st choice area"
+            },
+            value: {
+              html: "Southhall"
+            }
+          },
+          {
+            key: {
+              text: "2nd choice region"
+            },
+            value: {
+              html: "London"
+            }
+          },
+          {
+            key: {
+              text: "2nd choice area"
+            },
+            value: {
+              html: "Shepherds Bush"
+            }
+          },
+          {
+            key: {
+              text: "Have these Local Areas been approved by the probation office?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      <!---------------------- FUNDING ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Funding information for CAS-2 placement"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "How will you pay for CAS-2 accommodation and the service charge?"
+            },
+            value: {
+              html: "Housing benefit and Universal credit"
+            }
+          }
+        ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <h2 class="govuk-heading-l">About the applicant</h2>
+
+      <!---------------------- ID documents ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Identification checks"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Confirmed types of identification"
+            },
+            value: {
+              html: "UK Passport<br>HMRC correspondence"
+            }
+          }
+        ]
+      }) }}
+
+      <!---------------------- Equality and Diversity Monitoring ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Equality and Diversity Monitoring"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Gender/Identity"
+            },
+            value: {
+              html: "Male"
+            }
+          },
+          {
+            key: {
+              text: "Sexual orientation"
+            },
+            value: {
+              html: "Heterosexual/straight"
+            }
+          },
+          {
+            key: {
+              text: "Ethnicity"
+            },
+            value: {
+              html: "White - British"
+            }
+          },
+          {
+            key: {
+              text: "Religion"
+            },
+            value: {
+              html: "None"
+            }
+          },
+          {
+            key: {
+              text: "Marital status"
+            },
+            value: {
+              html: "Divorced"
+            }
+          },
+          {
+            key: {
+              text: "Is the applicant a military veteran?"
+            },
+            value: {
+              html: "No"
+            }
+          },
+          {
+            key: {
+              text: "Is the applicant a carer leaver?"
+            },
+            value: {
+              html: "No"
+            }
+          },
+          {
+            key: {
+              text: "Does the applicant have parental or carer responsibilities?"
+            },
+            value: {
+              html: "No"
+            }
+          }
+        ]
+      }) }}
+
+      <!---------------------- Review address history ---------------------->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Address history"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Where were you living before custody including the full address and postcode?"
+            },
+            value: {
+              html: "13 Trough Street <br>Grimsby <br>Yorkshire<br>GR32 GJ3"
+            }
+          }
+        ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <!---------------------- Offending history ---------------------->
+
+      <h2 class="govuk-heading-l">Offending history</h2>
+
+      <h3 class="govuk-heading-m">Unspent convictions</h3>
+      
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Unspent convictions"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Does the applicant have any unspent convictions?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Conviction 1"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What type of unspent conviction does this applicant have?"
+            },
+            value: {
+              html: "Arson"
+            }
+          },
+          {
+            key: {
+              text: "Date of conviction "
+            },
+            value: {
+              html: "28/03/2021"
+            }
+          },
+          {
+            key: {
+              text: "Details of conviction"
+            },
+            value: {
+              html: "Joe was involved in the arson of his local takeaway following a neighbourhood dispute."
+            }
+          },
+          {
+            key: {
+              text: "Sentence details of conviction"
+            },
+            value: {
+              html: "16 Months suspended"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Conviction 2"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What type of unspent conviction does this applicant have?"
+            },
+            value: {
+              html: "Hate crime"
+            }
+          },
+          {
+            key: {
+              text: "Date of conviction"
+            },
+            value: {
+              html: "28/03/2021"
+            }
+          },
+          {
+            key: {
+              text: "Details of conviction"
+            },
+            value: {
+              html: "Joe was involved in the arson of his local takeaway following a neighbourhood dispute."
+            }
+          },
+          {
+            key: {
+              text: "Sentence details of conviction"
+            },
+            value: {
+              html: "12 Months suspended"
+            }
+          }
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">Other unspent offences</h3>
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Other offences"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Does the applicant have any other unspent offences?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Offence 1"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Date of offence"
+            },
+            value: {
+              html: "4/2018"
+            }
+          },
+          {
+            key: {
+              text: "Details of offence"
+            },
+            value: {
+              html: "3 x Theft and Kindred"
+            }
+          }
+        ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <!---------------------- Current offence ---------------------->
+
+      <h2 class="govuk-heading-l">Current offence information</h2>
+      
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Current conviction or alleged offence 1"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Brief details of the conviction or alleged offence"
+            },
+            value: {
+              html: "GBH"
+            }
+          },
+          {
+            key: {
+              text: "Sentence length"
+            },
+            value: {
+              html: "12 months"
+            }
+          },
+          {
+            key: {
+              text: "Where did this take place?"
+            },
+            value: {
+              html: "Leeds city centre"
+            }
+          },
+          {
+            key: {
+              text: "When did this take place?"
+            },
+            value: {
+              html: "23/02/2023"
+            }
+          },
+          {
+            key: {
+              text: "Further details of how the offence took place"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate."
+            }
+          },
+          {
+            key: {
+              text: "Are there any known victims?"
+            },
+            value: {
+              html: "Yes. The applicant's former brother in-law"
+            }
+          },
+          {
+            key: {
+              text: "Why did the applicant commit this offence?"
+            },
+            value: {
+              html: "The applicant often struggles to control his anger and on this occasion, lashed out following a civil dispute."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Domestic abuse, stalking or harassment details"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Does any offence listed above relate to domestic abuse, stalking or harassment?"
+            },
+            value: {
+              html: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "What is the victims name?"
+            },
+            value: {
+              html: "Jenny Gable"
+            }
+          },
+          {
+            key: {
+              text: "Where do they live?"
+            },
+            value: {
+              html: "Silsden, Keighley"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Restraining orders and injunctions"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Is the applicant subject to any civil/criminal orders including a restraining order
+              or injunction?"
+            },
+            value: {
+              html: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "Order length"
+            },
+            value: {
+              html: "8 months"
+            }
+          },
+          {
+            key: {
+              text: "Further details"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <!---------------------- Risk of Serious Harm (RoSH) Summary ---------------------->
+
+      <h2 class="govuk-heading-l">Risk of Serious Harm (RoSH) Summary</h2>
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Risk summary"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Risk to children"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--red'>Medium</span>"
+            }
+          },
+          {
+            key: {
+              text: "Risk to public"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--red'>Medium</span>"
+            }
+          },
+          {
+            key: {
+              text: "Risk to known adult"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--green'>Low</span>"
+            }
+          },
+          {
+            key: {
+              text: "Risk to staff"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--green'>Low</span>"
+            }
+          },
+          {
+            key: {
+              text: "Risk to prisoner"
+            },
+            value: {
+              html: "<span class='moj-badge moj-badge--green'>Low</span>"
+            }
+          },
+          {
+            key: {
+              text: "Further details about the risk summary"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "RoSH Questions"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Who is at risk?"
+            },
+            value: {
+              html: "Male whome Mr Midhurst believes have wronged him, or strangers with whom he gets into altercations. The wounding offence was committed 17 years ago in 1998. More recent offence of Affray in 2004. On both occasions were male strangers in pubs."
+            }
+          },
+          {
+            key: {
+              text: "What is the nature of the risk?"
+            },
+            value: {
+              html: "Violence against others. This includes threats, plotting of attacks and actual physical harm, both premeditated and unplanned."
+            }
+          },
+          {
+            key: {
+              text: "When is the risk likely to be greatest?"
+            },
+            value: {
+              html: "Lengthy gap between convictions for violent offences. No history of aggressive behaviour in custody; level of violence deployed in current offence was significant and could have resulted in more serious injuries. If he is in need of drugs or feels wronged, there is no telling how he will behave despite stated motivation to avoid such behaviour in the future and address his drug use."
+            }
+          },
+          {
+            key: {
+              text: "What circumstances are likely to increase risk?"
+            },
+            value: {
+              html: "As previous. Drug use, need to obtain money for drugs at all costs, feeling he has been wronged in some way, lack of consideration of consequences, impulsive behaviour. Previously 1. if in a pub with mates and feels he or mates are threatened or 2. may be an increased risk if drinking."
+            }
+          },
+          {
+            key: {
+              text: "What factors are likely to reduce risk?"
+            },
+            value: {
+              html: "Mr Midhurst was thinking about consequences of his actions and not acting impulsively. He was walking away from situations that he assesses as risky. If he is not drinking to excess, not taking drogs."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "MAPPA, MARAC and IOM"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Are there any Risk Management Arrangements, including APPA, MARAC or Integrated Offender Management?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "What is the arrangement type?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Who is the lead contact?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "What is the category level?
+              "
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Further details"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Is there any other information to add?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <!---------------------- Risk to self ---------------------->
+
+      <h2 class="govuk-heading-l">Risk to self</h2>
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Vulnerability"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Describe the circumstances, relevant issues and needs about their vulnerability"
+            },
+            value: {
+              html: "Mr Midhurst experiences intense emotional states of paranoia and anxiety that cause him to isolate himself for days on end.This may result in little or no intake of food or drink, which has previously left him too weak to look after himself."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Self harm risk"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Describe the circumstances, relevant issues and needs regarding current concerns about self harm"
+            },
+            value: {
+              html: "Mr Midhurst has a history of self harm when not taking his medications or self-medicating with drugs and alcohol."
+            }
+          },
+          {
+            key: {
+              text: "Describe any previous circumstances, issues and needs regarding concerns about self harm"
+            },
+            value: {
+              html: "Mr Midhurst went through several periods of self harming as a young man, but claims not to have done so for the past 5 years. No current record of self harming."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Suicide risk"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "If you believe there are current concerns relating to suicide, describe them below"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Describe any previous circumstances, issues and needs regarding concerns about suicide"
+            },
+            value: {
+              html: "Despite stating he doesn’t wish to kill himself any more, Mr Midhurst has a history of suicide attempts. He has recently reported new mental health issues that are causing suicidal thoughts."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Further details"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "How will these risks impact the applicant's CAS-2 placement and the support they need?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <!---------------------- Review prison information ---------------------->
+
+      <h2 class="govuk-heading-l">Review prison information</h2>
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Prison case notes"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Monday 13 September, 13:05"
+            },
+            value: {
+              html: "Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident."
+            }
+          },
+          {
+            key: {
+              text: "Monday 13 December, 11:55"
+            },
+            value: {
+              html: "Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident."
+            }
+          },
+          {
+            key: {
+              text: "17 November 2022, 13:08"
+            },
+            value: {
+              html: "Whilst dealing with Mr Brown's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Brown was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Adjudications"
+          }
+        },
+        rows: [
+          {
+            key: {
+              html: "1611343<br><span class='govuk-!-font-weight-regular'>22 Aug 2022, 13:04</span><br><span class='govuk-!-font-weight-regular'>Hull (HMP)</span><br>Dismissed"
+            },
+            value: {
+              html: "Disobeys any lawful order"
+            }
+          },
+          {
+            key: {
+              html: "1611343<br><span class='govuk-!-font-weight-regular'>01 Apr 2019, 09:04</span><br><span class='govuk-!-font-weight-regular'>Hull (HMP)</span><br>Charge proved"
+            },
+            value: {
+              html: "Takes improperly any article belonging to another person or to a prison"
+            }
+          },
+          {
+            key: {
+              html: "1611343<br><span class='govuk-!-font-weight-regular'>22 Aug 2017, 22:14</span><br><span class='govuk-!-font-weight-regular'>Hull (HMP)</span><br>Charge proved"
+            },
+            value: {
+              html: "Intentionally endangers the health or personal safety of others or, by his conduct, is reckless whether such health or personal safety is endangered"
+            }
+          },
+          {
+            key: {
+              html: "1611343<br><span class='govuk-!-font-weight-regular'>23 Feb 2017, 11:07</span><br><span class='govuk-!-font-weight-regular'>Hull (HMP)</span><br>Dismissed"
+            },
+            value: {
+              html: "Has in his possession - (a) any unauthorised article, or (b) a greater quantity of any article than he is authorised to have - possession of unauthorised items"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "ACCT"
+          }
+        },
+        rows: [
+          {
+            key: {
+              html: "Self Harm<br><span class='govuk-!-font-weight-regular'>ACCT Open (HMPS)</span><br><span class='govuk-!-font-weight-regular'>Created: 19 Aug 2022 <br> Expiry: 3 Sep 2022</span>"
+            },
+            value: {
+              html: "ACCT re-opened on 04.10.21 from P/C after stating he felt like self-harming. ACCT closed on 07.10.21"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Gang affiliations"
+          }
+        },
+        rows: [
+          {
+            key: {
+              html: "Do they have any gang affiliations or involved in gang-related activity?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <!---------------------- Health needs ---------------------->
+
+      <h2 class="govuk-heading-l">Health needs</h2>
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Communication needs"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What is the need/s and its severity?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "What support is required?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Can they live independently?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+      
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Learning disabilities, autism or acquired traumatic brain injury"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What is the need/s?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "How does it affect them in everyday life?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "What support is required?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Physical health needs or mobility issues"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What is the need/s?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Are they currently receiving treatment and medication?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "What support is required?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Can they live independently?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Can they climb stairs?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Substance misuse needs"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What did/do they take, when, by what method and amount taken?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Are they engaged with a drug and alcohol service?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Are they prescribed medication linked to reducing the risk to themselves or others?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Are they in possession of their medication?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Any issues taking their medication?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "Mental health needs"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "What is the need/s?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "How does it affect them in everyday life?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Can they live independently in shared housing?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Are they engaged with the community mental health service?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Are they prescribed medication linked to reducing the risk to themselves or others?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Are they in posession of their medication?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          },
+          {
+            key: {
+              text: "Any issues taking their medication?"
+            },
+            value: {
+              html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            }
+          }
+        ]
+      }) }}
+
+    </div>
+  </div>
+
+</form>
+{% endblock %}

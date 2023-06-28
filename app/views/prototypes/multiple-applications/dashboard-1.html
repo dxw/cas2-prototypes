@@ -1,0 +1,272 @@
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+{%- from "moj/components/badge/macro.njk" import mojBadge -%}
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/index"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">Short-Term Accommodation (CAS-2) Applications</h1>
+
+      <div class="govuk-tabs" data-module="govuk-tabs">
+
+        <!-- Tab titles -->
+        <ul class="govuk-tabs__list">
+
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#past-day">
+              Applications
+            </a>
+          </li>
+
+          <!-- <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-week">
+              Further information requested
+            </a>
+          </li> -->
+
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#submitted">
+              Submitted
+            </a>
+          </li>
+
+        </ul>
+
+        <!-- Applications -->
+        <div class="govuk-tabs__panel" id="past-day">
+
+          <h2 class="govuk-heading-m">Applications</h2>
+
+          <table class="govuk-table">
+
+            <!-- Table top -->
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Person</th>
+                <th scope="col" class="govuk-table__header">CRN</th>
+                <th scope="col" class="govuk-table__header">Start date</th>
+                <th scope="col" class="govuk-table__header">Application owner</th>
+                <!-- <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Change owner</span></th> -->
+              </tr>
+            </thead>
+
+            <!-- Table body -->
+            <tbody class="govuk-table__body">
+
+              <!-- Application 1 -->
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <a href="../tasklist.html" class="govuk-link govuk-link--no-visited-state">
+                    Terry Midhurst
+                  </a>
+                </td>
+                <td class="govuk-table__cell">783JSAA</td>
+                <td class="govuk-table__cell">19 February 2023</td>
+                <td class="govuk-table__cell">Alex Edwards</td>
+                <!-- <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Change owner</a>
+                </td> -->
+              </tr>
+
+              <!-- Application 2 -->
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Jane Earle</a>
+                </td>
+                <td class="govuk-table__cell">474DGSA</td>
+                <td class="govuk-table__cell">1 Janaury 2023</td>
+                <td class="govuk-table__cell">Alex Edwards</td>
+                <!-- <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Change owner</a>
+                </td> -->
+              </tr>
+
+              <!-- Application 2 -->
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Judith MacDonald</a>
+                </td>
+                <td class="govuk-table__cell">56758AD</td>
+                <td class="govuk-table__cell">12 March 2023</td>
+                <td class="govuk-table__cell">Alex Edwards</td>
+                <!-- <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Change owner</a>
+                </td> -->
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <!-- Submitted -->
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="submitted">
+
+          <h2 class="govuk-heading-m">Submitted</h2>
+
+          <table class="govuk-table">
+
+            <!-- Table top -->
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Person</th>
+                <th scope="col" class="govuk-table__header">CRN</th>
+                <th scope="col" class="govuk-table__header">Submission date</th>
+                <th scope="col" class="govuk-table__header">Application owner</th>
+                <!-- <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">View submitted application</span></th> -->
+              </tr>
+            </thead>
+
+            <!-- Table body -->
+            <tbody class="govuk-table__body">
+
+              <!-- Application 1 -->
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Lisa Cork</a>
+                </td>
+                <td class="govuk-table__cell">783JSAA</td>
+                <td class="govuk-table__cell">13 June 2023</td>
+                <td class="govuk-table__cell">Alex Edwards</td>
+                <!-- <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">View submitted application</a>
+                </td> -->
+              </tr>
+
+              <!-- Application 2 -->
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <a href="check-answers--no-cta-joe.html" class="govuk-link govuk-link--no-visited-state">Joe Sandhurst</a>
+                </td>
+                <td class="govuk-table__cell">783JSAA</td>
+                <td class="govuk-table__cell">1 Janaury 2023</td>
+                <td class="govuk-table__cell">Alex Edwards</td>
+                <!-- <td class="govuk-table__cell">
+                  <a href="check-answers--no-cta-joe.html" class="govuk-link govuk-link--no-visited-state">View submitted application</a>
+                </td> -->
+              </tr>
+
+              <!-- Application 2 -->
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Michael Doors</a>
+                </td>
+                <td class="govuk-table__cell">783JSAA</td>
+                <td class="govuk-table__cell">12 March 2023</td>
+                <td class="govuk-table__cell">Alex Edwards</td>
+                <!-- <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">View submitted application</a>
+                </td> -->
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <!-- Further information -->
+        <!-- <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+
+          <h2 class="govuk-heading-l">Further information request</h2>
+
+          <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Service user</th>
+                <th scope="col" class="govuk-table__header">CRN</th>
+                <th scope="col" class="govuk-table__header">Arrival date</th>
+                <th scope="col" class="govuk-table__header">Assessor</th>
+                <th scope="col" class="govuk-table__header">Days since request</th>
+                <th scope="col" class="govuk-table__header">Status</th>
+              </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="assess/pp-info-request.html">Jaza Sanson</a></td>
+                <td class="govuk-table__cell">783JSAA</td>
+                <td class="govuk-table__cell">18</td>
+                <td class="govuk-table__cell">Jamie Jones</td>
+                <td class="govuk-table__cell">3 days</td>
+                <td class="govuk-table__cell">
+                  {{govukTag({
+                    text: "Info Request",
+                    classes: "govuk-tag--yellow"
+                  })}}
+                </td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="">Lewis Wolf</a> </td>
+                <td class="govuk-table__cell"> 712LWWA</td>
+                <td class="govuk-table__cell">13 Sep 2022</td>
+                <td class="govuk-table__cell">Carlos Sainz</td>
+                <td class="govuk-table__cell">1 day</td>
+                <td class="govuk-table__cell">
+                  {{govukTag({
+                    text: "Info Request",
+                    classes: "govuk-tag--yellow"
+                  })}}
+                </td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="">Rita Patel</a></td>
+                <td class="govuk-table__cell">894DBAS</td>
+                <td class="govuk-table__cell">29 Aug 2022</td>
+                <td class="govuk-table__cell">Rowan King</td>
+                <td class="govuk-table__cell">3 days</td>
+                <td class="govuk-table__cell">
+                  {{govukTag({
+                    text: "Info Request",
+                    classes: "govuk-tag--yellow"
+                  })}}
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div> -->
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">Start a new application</h2>
+    
+    <p>Start a new application for a Short-Term Accommodation placement by clicking on the start button below.</p>
+
+    {{ govukButton({
+      text: "Start a new application",
+      href: "#"
+    }) }}
+
+  </div>
+
+</div>
+{% endblock %}
