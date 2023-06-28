@@ -5,9 +5,7 @@
 
 // Add extra styles here
 
-@import "risk/predictor-scores";
 @import "risk/widgets";
-@import "risk/timeline";
 
 .flexbox {
     display: inline-flex;
@@ -90,11 +88,23 @@
     background: govuk-colour("white");
 }
 
-// .moj-badge--green {
-//     color: $govuk-text-colour;
-//     background: lighten(govuk-colour("green"), 20%);
-//     background: govuk-colour("green");
-// }
+.overlay {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+    // opacity: .5;
+    z-index: 10;
+}
+
+.govuk-width-container--pop-up {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 // -------- Check answers
 
