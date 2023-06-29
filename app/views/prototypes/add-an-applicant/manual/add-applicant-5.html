@@ -1,0 +1,114 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Add an applicant</span>
+
+    <form action="" method="post" validate>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      <h1 class="govuk-heading-l">Sex and gender identity</h1>
+
+      {% set genderHtml %}
+        {{ govukInput({
+          id: "gender-description",
+          name: "gender-description",
+          type: "text",
+          classes: "govuk-!-width-one-half",
+          label: {
+            text: "What is your gender identity? (optional)"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "sex",
+        fieldset: {
+          legend: {
+            text: "What is the applicant's sex?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "female",
+            text: "Female"
+          },
+          {
+            value: "male",
+            text: "Male"
+          },
+          {
+            value: "skip",
+            text: "Prefer not to say"
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        name: "gender-identity",
+        fieldset: {
+          legend: {
+            text: "Is the gender the applicant identifies with the same as the sex registered at birth?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No",
+            conditional: {
+              html: genderHtml
+            }
+          },
+          {
+            value: "skip",
+            text: "Prefer not to say"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        href: "add-applicant-6"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
