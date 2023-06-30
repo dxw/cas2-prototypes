@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Add an applicant</span>
+
+    <form action="" method="post" validate>
+      
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "ethnicity",
+        fieldset: {
+          legend: {
+            text: "What is your ethnic group?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "white",
+            text: "White"
+          },
+          {
+            value: "multiple",
+            text: "Mixed or multiple ethnic groups"
+          },
+          {
+            value: "asian",
+            text: "Asian or Asian British"
+          },
+          {
+            value: "black",
+            text: "Black, African, Caribbean or Black British"
+          },
+          {
+            value: "other",
+            text: "Other ethnic group"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "skip",
+            text: "Prefer not to say"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        href: "add-applicant-4"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

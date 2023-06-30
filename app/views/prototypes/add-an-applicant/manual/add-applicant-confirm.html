@@ -1,0 +1,134 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your feedback will help us to improve it.'
+  }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <span class="govuk-caption-m">Find an applicant</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Confirm applicant details</h1>
+
+      <div class="oasys-update govuk-!-margin-bottom-6">
+        <p class="govuk-!-margin-bottom-1">Imported from nDelius <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
+      </div>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: "Sandra Lowhurst"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "03/10/1984"
+            }
+          },
+          {
+            key: {
+              text: "Nationality"
+            },
+            value: {
+              text: "British"
+            }
+          },
+          {
+            key: {
+              text: "Immigration status"
+            },
+            value: {
+              text: "N/A"
+            }
+          },
+          {
+            key: {
+              text: "Sex"
+            },
+            value: {
+              text: "Female"
+            }
+          },
+          {
+            key: {
+              text: "National insurance number"
+            },
+            value: {
+              text: "NIN4IDG98453J"
+            }
+          },
+          {
+            key: {
+              text: "Prison number"
+            },
+            value: {
+              text: "ADSF4532"
+            }
+          },
+          {
+            key: {
+              text: "PNC number"
+            },
+            value: {
+              text: "349785/34646"
+            }
+          },
+          {
+            key: {
+              text: "NDelius CRN number"
+            },
+            value: {
+              text: "TM57D2"
+            }
+          }
+        ]
+      }) }}
+
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+      {{ govukWarningText({
+        text: "If any of these details are wrong, please update Nomis before continuing.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <form action="" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          href: "../../tasklists/tasklist"
+        }) }}
+
+      </form>
+
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Search for a different applicant</a>
+
+    </div>
+  </div>
+{% endblock %}
