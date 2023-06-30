@@ -50,6 +50,13 @@ window.GOVUKPrototypeKit.documentReady(() => {
 
 })
 
+  let selectElement = document.querySelector('#choose-country')
+
+  accessibleAutocomplete.enhanceSelectElement({
+    defaultValue: '',
+    selectElement: selectElement
+  })
+
 //   const riskScores = {
 //     current: {
 //       date: '23 Jul 2021 at 12:00:00',

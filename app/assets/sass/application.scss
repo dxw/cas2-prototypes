@@ -122,3 +122,7 @@
         margin-bottom: 0;
     }
 }
+
+.autocomplete__wrapper * {
+  @include govuk-typography-common();
+}
