@@ -29,68 +29,79 @@
   <div class="govuk-grid-column-three-quarters">
 
     <span class="govuk-caption-m">Add an applicant</span>
-    <h1 class="govuk-heading-l">Available identification numbers</h1>
-    <!-- <p class="govuk-body"></p> -->
 
     <form action="" method="post" validate>
 
-      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {% set dueDateHTML %}
 
-      {{ govukInput({
-        label: {
-          text: "National Insurance number (Optional)",
-          classes: "govuk-label--m",
-          isPageHeading: false
-        },
-        id: "applicant-nino",
-        name: "applicant-nino",
-        classes: "govuk-input--width-10",
-        spellcheck: false,
-        hint: {
-          text: "We need the NINO to set up a Universal Credit and Housing Benefit claim if required. If
-          unknown, we may ask you to find this out for us."
-        }
-      }) }}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="dueDateHint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              When is the due date?
+            </h2>
+          </legend>
+          <div id="dueDateHint" class="govuk-hint">
+            For example, January 2023
+          </div>
+          <div class="govuk-date-input" id="applicant-dueDate">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="applicant-dueDate-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input" id="applicant-dueDate-month" name="applicant-dueDate-month" type="text"">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="applicant-dueDate-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="applicant-dueDate-year" name="applicant-dueDate-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-      {{ govukInput({
-        label: {
-          text: "Prison number (Optional)",
-          classes: "govuk-label--m",
-          isPageHeading: false
-        },
-        id: "applicant-prisonnumb",
-        name: "applicant-prisonnumb",
-        classes: "govuk-input--width-10",
-        spellcheck: false
-      }) }}
 
-      {{ govukInput({
-        label: {
-          text: "PNC number (Optional)",
-          classes: "govuk-label--m",
-          isPageHeading: false
-        },
-        id: "applicant-pnc",
-        name: "applicant-pnc",
-        classes: "govuk-input--width-10",
-        spellcheck: false
-      }) }}
+      {% endset -%}
 
-      {{ govukInput({
-        label: {
-          text: "nDelius CRN (Optional)",
-          classes: "govuk-label--m",
-          isPageHeading: false
+      {{ govukRadios({
+        name: "applicant-mobile",
+        fieldset: {
+          legend: {
+            text: "Is the applicant pregnant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
         },
-        id: "applicant-ndelius",
-        name: "applicant-ndelius",
-        classes: "govuk-input--width-10",
-        spellcheck: false
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: dueDateHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "na",
+            text: "I don't know"
+          }
+        ]
       }) }}
 
       {{ govukButton({
         text: "Save and continue",
-        href: "add-applicant-confirm"
+        href: "add-applicant-9"
       }) }}
 
     </form>
