@@ -48,14 +48,14 @@ window.GOVUKPrototypeKit.documentReady(() => {
     console.log('not checked');
   }
 
-})
-
   let selectElement = document.querySelector('#choose-country')
 
   accessibleAutocomplete.enhanceSelectElement({
     defaultValue: '',
     selectElement: selectElement
   })
+
+})
 
 //   const riskScores = {
 //     current: {
