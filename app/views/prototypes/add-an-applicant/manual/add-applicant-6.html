@@ -32,60 +32,69 @@
 
     <form action="" method="post" validate>
 
-      <!-- <h1 class="govuk-heading-l">Sex and gender identity</h1> -->
-      
+      {% set dueDateHTML %}
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="dueDateHint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              When is the due date?
+            </h2>
+          </legend>
+          <div id="dueDateHint" class="govuk-hint">
+            For example, January 2023
+          </div>
+          <div class="govuk-date-input" id="applicant-dueDate">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="applicant-dueDate-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input" id="applicant-dueDate-month" name="applicant-dueDate-month" type="text"">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="applicant-dueDate-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="applicant-dueDate-year" name="applicant-dueDate-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      {% endset -%}
+
       {{ govukRadios({
-        name: "marriage-civil-partnership",
+        name: "applicant-mobile",
         fieldset: {
           legend: {
-            text: "What is the applicant's legal marital or registered civil partnership status?",
+            text: "Is the applicant pregnant?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "never",
-            text: "Never married and never registered in a civil partnership"
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: dueDateHTML
+            }
           },
           {
-            value: "married",
-            text: "Married"
-          },
-          {
-            value: "civil-partnership",
-            text: "In a registered civil partnership"
-          },
-          {
-            value: "separated-married",
-            text: "Separated, but still legally married"
-          },
-          {
-            value: "separated-civil-partnership",
-            text: "Separated, but still legally in a civil partnership"
-          },
-          {
-            value: "divorced",
-            text: "Divorced"
-          },
-          {
-            value: "dissolved-civil-partnership",
-            text: "Formerly in a civil partnership which is now legally dissolved"
-          },
-          {
-            value: "widowed",
-            text: "Widowed"
-          },
-          {
-            value: "widowed-civil-partnership",
-            text: "Surviving partner from a registered civil partnership"
+            value: "no",
+            text: "No"
           },
           {
             divider: "or"
           },
           {
-            value: "skip",
-            text: "Prefer not to say"
+            value: "na",
+            text: "I don't know"
           }
         ]
       }) }}

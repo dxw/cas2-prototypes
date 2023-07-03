@@ -29,86 +29,68 @@
   <div class="govuk-grid-column-three-quarters">
 
     <span class="govuk-caption-m">Add an applicant</span>
+    <h1 class="govuk-heading-l">Available identification numbers</h1>
+    <!-- <p class="govuk-body"></p> -->
 
     <form action="" method="post" validate>
 
-      {% set mobileHTML %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
 
-        {{ govukInput({
-          id: "applicant-mobile-number",
-          name: "applicant-mobile-number",
-          type: "tel",
-          classes: "govuk-input--width-20",
-          label: {
-            text: "What is the mobile number?",
-            classes: "govuk-label--m"
-          }
-        }) }}
-
-        {{ govukRadios({
-          classes: "govuk-radios--inline",
-          name: "applicant-smart-phone",
-          fieldset: {
-            legend: {
-              text: "Is this mobile a smart phone?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes"
-            },
-            {
-              value: "no",
-              text: "No"
-            }
-          ]
-        }) }}
-
-        {{ govukDetails({
-          summaryText: "What is a smart phone?",
-          text: "A mobile phone that allows the user to browse the Web, send and receive e-mail, view audio and video files, play games, read e-books, and access other computer applications, as well as to make phone calls.",
-          classes: "govuk-!-margin-top-3"
-        }) }}
-
-      {% endset -%}
-
-      {{ govukRadios({
-        name: "applicant-mobile",
-        fieldset: {
-          legend: {
-            text: "Does the applicant have a working mobile phone?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
+      {{ govukInput({
+        label: {
+          text: "National Insurance number (Optional)",
+          classes: "govuk-label--m",
+          isPageHeading: false
         },
-        items: [
-          {
-            value: "yes",
-            text: "Yes",
-            conditional: {
-              html: mobileHTML
-            }
-          },
-          {
-            value: "no",
-            text: "No"
-          },
-          {
-            divider: "or"
-          },
-          {
-            value: "na",
-            text: "I don't know"
-          }
-        ]
+        id: "applicant-nino",
+        name: "applicant-nino",
+        classes: "govuk-input--width-10",
+        spellcheck: false,
+        hint: {
+          text: "We need the NINO to set up a Universal Credit and Housing Benefit claim if required. If
+          unknown, we may ask you to find this out for us."
+        }
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Prison number (Optional)",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        id: "applicant-prisonnumb",
+        name: "applicant-prisonnumb",
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "PNC number (Optional)",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        id: "applicant-pnc",
+        name: "applicant-pnc",
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "nDelius CRN (Optional)",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        id: "applicant-ndelius",
+        name: "applicant-ndelius",
+        classes: "govuk-input--width-10",
+        spellcheck: false
       }) }}
 
       {{ govukButton({
         text: "Save and continue",
-        href: "add-applicant-8"
+        href: "add-applicant-confirm"
       }) }}
 
     </form>
