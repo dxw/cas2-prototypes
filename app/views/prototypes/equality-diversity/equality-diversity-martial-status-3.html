@@ -28,54 +28,57 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
 
-    <span class="govuk-caption-m">Add an applicant</span>
+    <span class="govuk-caption-m">Equality and diversity</span>
 
     <form action="" method="post" validate>
 
-      {% from "govuk/components/button/macro.njk" import govukButton %}
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
-      {% from "govuk/components/input/macro.njk" import govukInput %}
-
-      {% set ethnicityHtml %}
-        {{ govukInput({
-          id: "other-description",
-          name: "other-description",
-          type: "text",
-          classes: "govuk-!-width-one-half",
-          label: {
-            text: "How would you describe their background? (optional)"
-          }
-        }) }}
-      {% endset -%}
-
+      <!-- <h1 class="govuk-heading-l">Sex and gender identity</h1> -->
+      
       {{ govukRadios({
-        name: "ethnicity-detail",
+        name: "marriage-civil-partnership",
         fieldset: {
           legend: {
-            text: "Which of the following best describes their White background?",
+            text: "What is the applicant's legal marital or registered civil partnership status?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "british",
-            text: "English, Welsh, Scottish, Northern Irish or British"
+            value: "never",
+            text: "Never married and never registered in a civil partnership"
           },
           {
-            value: "irish",
-            text: "Irish"
+            value: "married",
+            text: "Married"
           },
           {
-            value: "gypsy-traveller",
-            text: "Gypsy or Irish Traveller"
+            value: "civil-partnership",
+            text: "In a registered civil partnership"
           },
           {
-            value: "other",
-            text: "Any other White background",
-            conditional: {
-              html: ethnicityHtml
-            }
+            value: "separated-married",
+            text: "Separated, but still legally married"
+          },
+          {
+            value: "separated-civil-partnership",
+            text: "Separated, but still legally in a civil partnership"
+          },
+          {
+            value: "divorced",
+            text: "Divorced"
+          },
+          {
+            value: "dissolved-civil-partnership",
+            text: "Formerly in a civil partnership which is now legally dissolved"
+          },
+          {
+            value: "widowed",
+            text: "Widowed"
+          },
+          {
+            value: "widowed-civil-partnership",
+            text: "Surviving partner from a registered civil partnership"
           },
           {
             divider: "or"
@@ -89,7 +92,7 @@
 
       {{ govukButton({
         text: "Save and continue",
-        href: "#"
+        href: "add-applicant-7"
       }) }}
 
     </form>

@@ -28,30 +28,44 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
 
-    <span class="govuk-caption-m">Add an applicant</span>
+    <span class="govuk-caption-m">Additional details</span>
 
     <form action="" method="post" validate>
-      {{ govukInput({
-        label: {
-          text: "Enter the CRN number for the applicant",
-          isPageHeading: true,
-          classes: "govuk-label--l"
+
+      {{ govukRadios({
+        name: "details-military",
+        fieldset: {
+          legend: {
+            text: "Is the applicant a military veteran?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
         },
-        hint: {
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        },
-        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
-        id: "applicant-crn",
-        name: "applicant-crn"
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "na",
+            text: "I don't know"
+          }
+        ]
       }) }}
 
       {{ govukButton({
-        text: "Search",
-        href: "confirm-applicant--male"
+        text: "Save and continue",
+        href: "../tasklists/tasklist"
       }) }}
-    </form>
 
-    <a href="#" class="govuk-link govuk-link--no-visited-state">Enter applicant details manually</a>
+    </form>
 
   </div>
 </div>
