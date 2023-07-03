@@ -1,0 +1,119 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Add an applicant</span>
+
+    <form action="" method="post" validate>
+
+      {% set mobileHTML %}
+
+        {{ govukInput({
+          id: "applicant-mobile-number",
+          name: "applicant-mobile-number",
+          type: "tel",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "What is the mobile number?",
+            classes: "govuk-label--m"
+          }
+        }) }}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "applicant-smart-phone",
+          fieldset: {
+            legend: {
+              text: "Is this mobile a smart phone?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What is a smart phone?",
+          text: "A mobile phone that allows the user to browse the Web, send and receive e-mail, view audio and video files, play games, read e-books, and access other computer applications, as well as to make phone calls.",
+          classes: "govuk-!-margin-top-3"
+        }) }}
+
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "applicant-mobile",
+        fieldset: {
+          legend: {
+            text: "Does the applicant have a working mobile phone?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: mobileHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "na",
+            text: "I don't know"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        href: "add-applicant-7"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

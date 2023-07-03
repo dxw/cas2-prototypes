@@ -32,83 +32,67 @@
 
     <form action="" method="post" validate>
 
-      {% set mobileHTML %}
-
-        {{ govukInput({
-          id: "applicant-mobile-number",
-          name: "applicant-mobile-number",
-          type: "tel",
-          classes: "govuk-input--width-20",
-          label: {
-            text: "What is the mobile number?",
-            classes: "govuk-label--m"
-          }
-        }) }}
-
-        {{ govukRadios({
-          classes: "govuk-radios--inline",
-          name: "applicant-smart-phone",
-          fieldset: {
-            legend: {
-              text: "Is this mobile a smart phone?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes"
-            },
-            {
-              value: "no",
-              text: "No"
-            }
-          ]
-        }) }}
-
-        {{ govukDetails({
-          summaryText: "What is a smart phone?",
-          text: "A mobile phone that allows the user to browse the Web, send and receive e-mail, view audio and video files, play games, read e-books, and access other computer applications, as well as to make phone calls.",
-          classes: "govuk-!-margin-top-3"
-        }) }}
-
-      {% endset -%}
-
+      <!-- <h1 class="govuk-heading-l">Sex and gender identity</h1> -->
+      
       {{ govukRadios({
-        name: "applicant-mobile",
+        name: "marriage-civil-partnership",
         fieldset: {
           legend: {
-            text: "Does the applicant have a working mobile phone?",
+            text: "What is the applicant's legal marital or registered civil partnership status?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "yes",
-            text: "Yes",
-            conditional: {
-              html: mobileHTML
-            }
+            value: "never",
+            text: "Never married and never registered in a civil partnership"
           },
           {
-            value: "no",
-            text: "No"
+            value: "married",
+            text: "Married"
+          },
+          {
+            value: "civil-partnership",
+            text: "In a registered civil partnership"
+          },
+          {
+            value: "separated-married",
+            text: "Separated, but still legally married"
+          },
+          {
+            value: "separated-civil-partnership",
+            text: "Separated, but still legally in a civil partnership"
+          },
+          {
+            value: "divorced",
+            text: "Divorced"
+          },
+          {
+            value: "dissolved-civil-partnership",
+            text: "Formerly in a civil partnership which is now legally dissolved"
+          },
+          {
+            value: "widowed",
+            text: "Widowed"
+          },
+          {
+            value: "widowed-civil-partnership",
+            text: "Surviving partner from a registered civil partnership"
           },
           {
             divider: "or"
           },
           {
-            value: "na",
-            text: "I don't know"
+            value: "skip",
+            text: "Prefer not to say"
           }
         ]
       }) }}
 
       {{ govukButton({
         text: "Save and continue",
-        href: "add-applicant-7"
+        href: "add-applicant-6"
       }) }}
 
     </form>
