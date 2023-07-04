@@ -10,8 +10,10 @@ window.GOVUKPrototypeKit.documentReady(() => {
   var upToDate = $('#up-to-date');
   var textArea = $('.oasys-textarea');
   var continueButton = $('#button-save-and-continue');
-  
   var originalOASys = $('#oasys-textarea').text();
+  
+  var healthNotApplicable = $('#health-not-applicable-check');
+  var healthTextBox = $('.health-not-applicable-test');
   
   // Risk section - Click "edit text", make text area editable, hide 'edit text' button, show 'revert to oasys' button 
   $(editText).on('click', (function(){
@@ -48,12 +50,22 @@ window.GOVUKPrototypeKit.documentReady(() => {
     console.log('not checked');
   }
 
+  // Health section - Check 'Is not applicable' checkbox, disable text area
+  $(healthNotApplicable).on('click', (function(){
+    // $(healthTextBox).attr("disabled", true);
+    console.log('testing health box');
+    $(healthTextBox).addClass("health-not-applicable-test--disabled");
+  }))
+
+  // Area choose country
   let selectElement = document.querySelector('#choose-country')
 
-  accessibleAutocomplete.enhanceSelectElement({
-    defaultValue: '',
-    selectElement: selectElement
-  })
+  if (selectElement) {
+    accessibleAutocomplete.enhanceSelectElement({
+      defaultValue: '',
+      selectElement: selectElement
+    })
+  }
 
 })
 
