@@ -37,7 +37,7 @@
     color: $govuk-secondary-text-colour;
 }
 
-#oasys-textarea:disabled {
+#oasys-textarea:disabled, .health-not-applicable-test--disabled {
     background-color:  govuk-colour("light-grey");
     border-color: govuk-colour("mid-grey");
     color: govuk-colour("dark-grey");
