@@ -36,7 +36,7 @@
       <form class="form" action="" method="post">
 
         <span class="govuk-caption-m">Risks to self for Terry Midhurst</span>
-        <h1 class="govuk-heading-l">Self harm</h1>
+        <h1 class="govuk-heading-l">Suicide</h1>
 
         <div class="govuk-notification-banner" role="region"
           aria-labelledby="govuk-notification-banner-title"
@@ -49,14 +49,14 @@
           </div>
 
           <div class="govuk-notification-banner__content">
-            <p class="">Terry Midhurst is currently at risk of <strong>self harm</strong>.</p>
+            <p class="">Terry Midhurst is <strong>not currently at risk of suicide.</strong>.</p>
           </div>
 
         </div>
 
-        <p class="govuk-body">They have been assessed as medium risk on OASys, or have other indicators of risk.</p>
-
-        <p class="govuk-body"><strong>Please make sure all the information that follows is accurate and relevant.</strong></p>
+        {{ govukInsetText({
+          text: "Any live risks must be documented. If you believe there are current concerns relating to suicide, please add your notes in the following section."
+        }) }}
           
         <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
@@ -64,45 +64,13 @@
           name: "oasys-textarea",
           id: "oasys-textarea",
           classes: "oasys-textarea",
-          disabled: true,
+          disabled: false,
           rows: "10",
-          value: "Terry Midhurst has a history of self harm when not taking his medications or self-medicating with drugs and alcohol.",
           label: {
-            text: "Describe current circumstances, issues and needs",
+            text: "Notes on suicide",
             classes: "govuk-label--m",
             isPageHeading: false
-          },
-            hint: {
-              html: '<div class="oasys-update govuk-!-margin-bottom-6">
-                    <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
-                    </div>'
-            }
-        }) }}
-
-        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
-        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
-
-        {{ govukInsetText({
-          text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys."
-        }) }}
-
-        {{ govukTextarea({
-          name: "oasys-textarea",
-          id: "oasys-textarea",
-          classes: "oasys-textarea",
-          disabled: true,
-          rows: "10",
-          value: "Lorum ipsum",
-          label: {
-            text: "Describe historic circumstances, issues and needs",
-            classes: "govuk-label--m",
-            isPageHeading: false
-          },
-            hint: {
-              html: '<div class="oasys-update govuk-!-margin-bottom-6">
-                    <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
-                    </div>'
-            }
+          }
         }) }}
 
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
@@ -128,7 +96,7 @@
           id: "button-save-and-continue",
           text: "Save and continue",
           class: "govuk-button--disabled",
-          href: "suicide",
+          href: "#",
           disabled: true
         }) }}
 
