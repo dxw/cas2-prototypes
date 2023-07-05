@@ -29,22 +29,21 @@
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-l">
-        Pre-filled answers from OASys
+        No OASys record found
       </h1>
 
-      <p class="govuk-body-l">OASys record for <strong>Terry Midhurst</strong> was last updated on <strong>4th January 2022</strong>.</p>
-      <p class="govuk-body-m">Please be aware this is more than 6 months old. Further updates may be needed.</p>
+      <p class="govuk-body-m">We can’t find an OASys record for Terry Midhurst. This means we can’t import existing information to pre-fill answers to this applicant’s risk questions.</p>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-      <h2 class="govuk-heading-m">How it works</h2>
+      <h2 class="govuk-heading-m">What happens now</h2>
       
       <p class="govuk-body">
-        Sections of your applicant’s OASys record will be imported. This will give you pre-filled answers to the risk questions that follow. 
+        You’ll need to complete an OASys assessment before the applicant can apply for CAS-2 housing.
       </p>
 
       <p class="govuk-body">
-        <strong>Please check the information, and make sure nothing important is missing.</strong>
+        Once their record has been added to OASys, you can return here and the information will be pulled through. 
       </p>
 
       <p class="govuk-body">
@@ -68,13 +67,11 @@
           </div>
       </div> -->
 
-      {% from "govuk/components/button/macro.njk" import govukButton %}
-
       <form action="" method="post" novalidate>
 
         {{ govukButton({
           text: "Continue",
-          href: "vulnerability"
+          href: "../../tasklists/tasklist"
         }) }}
 
       </form>
