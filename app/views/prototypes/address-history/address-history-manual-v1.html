@@ -1,0 +1,196 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <span class="govuk-caption-m">Address history</span>
+
+      <form class="form" action="" method="post">
+
+        <!-- Manual address entry set -->
+        {% set previousAddressManualHtml %}
+
+          {% call govukFieldset({
+            legend: {
+              text: "What was the address?",
+              classes: "govuk-fieldset__legend--m",
+              isPageHeading: false
+            }
+          }) %}
+
+            {{ govukInput({
+              label: {
+                text: 'Address line 1'
+              },
+              id: "address-line-1",
+              name: "address-line-1",
+              autocomplete: "address-line1"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: 'Address line 2 (optional)'
+              },
+              id: "address-line-2",
+              name: "address-line-2",
+              autocomplete: "address-line2"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Town or city"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "address-town",
+              name: "address-town",
+              autocomplete: "address-level2"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "County (optional)"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "address-county",
+              name: "address-county"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Postcode"
+              },
+              classes: "govuk-input--width-10",
+              id: "address-postcode",
+              name: "address-postcode",
+              autocomplete: "postal-code"
+            }) }}
+
+          {% endcall %}
+
+        {% endset -%}
+
+        <!-- No fixed abode set -->
+        {% set nfaHtml %}
+
+          {{ govukInput({
+            label: {
+              text: "How long has the applicant been of no fixed abode?",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            classes: "govuk-!-margin-bottom-5",
+            name: "event-name"
+          }) }}
+
+          {% call govukFieldset({
+            legend: {
+              text: "What is the last known permanent address?",
+              classes: "govuk-fieldset__legend--m",
+              isPageHeading: false
+            }
+          }) %}
+
+            {{ govukInput({
+              label: {
+                text: 'Address line 1'
+              },
+              id: "address-line-1",
+              name: "address-line-1",
+              autocomplete: "address-line1"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: 'Address line 2 (optional)'
+              },
+              id: "address-line-2",
+              name: "address-line-2",
+              autocomplete: "address-line2"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Town or city"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "address-town",
+              name: "address-town",
+              autocomplete: "address-level2"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "County (optional)"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "address-county",
+              name: "address-county"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Postcode"
+              },
+              classes: "govuk-input--width-10",
+              id: "address-postcode",
+              name: "address-postcode",
+              autocomplete: "postal-code"
+            }) }}
+
+          {% endcall %}
+
+        {% endset -%}
+    
+        {{ govukRadios({
+          name: "previous-address",
+          fieldset: {
+            legend: {
+              text: "Does the applicant have a previous address before entering custody?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: previousAddressManualHtml
+              }
+            },
+            {
+              value: "no-fixed-abode",
+              text: "No fixed abode",
+              conditional: {
+                html: nfaHtml
+              }
+            }
+          ]
+        }) }}
+    
+        {{ govukButton({
+          text: "Save and complete",
+          href: "../tasklists/tasklist"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
