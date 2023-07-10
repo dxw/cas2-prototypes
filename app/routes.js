@@ -99,7 +99,6 @@ router.get('/scores', function (req, res) {
   })
 
 // Consent routing
-
 router.post('/prototypes/consent/all-in-one', function(request, response) {
 
   var consentAnswer = request.session.data['consent-answer']
@@ -110,8 +109,7 @@ router.post('/prototypes/consent/all-in-one', function(request, response) {
   }
 })
 
-
-// For GOV Notify prototyping, for Review Applications prototype
+// Review Applications prototype
 
 // The URL here needs to match the URL of the page that the user is on
 // when they type in their email address
@@ -130,5 +128,15 @@ router.post('/prototypes/check-answers', function (req, res) {
   // This is the URL the users will be redirected to once the email
   // has been sent
   res.redirect('/prototypes/submission-confirmed');
-
 });
+
+// Address history routing
+router.post('/prototypes/address-history/address-history-manual-v2-1', function(request, response) {
+
+  var previousAddressAnswer = request.session.data['previous-address']
+  if (previousAddressAnswer == "yes"){
+      response.redirect("/prototypes/address-history/address-history-manual-v2-2a")
+  } else {
+      response.redirect("/prototypes/address-history/address-history-manual-v2-2b")
+  }
+})
