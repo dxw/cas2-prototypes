@@ -140,3 +140,14 @@ router.post('/prototypes/address-history/address-history-manual-v2-1', function(
       response.redirect("/prototypes/address-history/address-history-manual-v2-2b")
   }
 })
+
+// Equality and diversity routing
+router.post('/prototypes/equality-diversity/equality-diversity-opt-in', function(request, response) {
+
+  var previousAddressAnswer = request.session.data['equalities-info']
+  if (previousAddressAnswer == "yes"){
+      response.redirect("/prototypes/equality-diversity/equality-diversity-sexual-orientation-1")
+  } else {
+      response.redirect("/prototypes/tasklists/tasklist")
+  }
+})
