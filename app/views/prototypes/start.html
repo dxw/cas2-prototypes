@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your feedback will help us to improve it.'
+  }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Apply for a Short-Term Accommodation placement
+      </h1>
+
+      <p class="govuk-body">Use this service to apply for a placement in a Short-Term Accommodation placement on behalf of a person who'll be on Home Detention Curfew (HDC) licence.</p>
+      <p class="govuk-body"> You can leave and return to your application at any time. Your progress will be saved.</p>
+    
+      {{ govukButton({
+        text: "Start now",
+        href: "#",
+        isStartButton: true
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      <h3 class="govuk-heading-s">You need:</h3>
+        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+          <li>the person's CRN </li>
+          <li>an up to date OASys – we'll use this to pre-fill some of your application</li>
+          <li>to speak with the applicant and <a href="#" class="">conduct an offline interview</a> directly with them</li>
+        </ul>
+
+      <h3 class="govuk-heading-s">You need to know:</h3>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>eligibility requirements - you'll need to demonstrate that an applicant can meet the Short-Term Accommodation placement elgibility criteria</li>
+        <li>factors that will have an impact on the location, type of placement, and room required </li>
+        <li>how you'll prepare for move on after the Short-Term Accommodation placement</li>
+      </ul>
+  
+    </div>
+
+   
+  </div>
+{% endblock %}

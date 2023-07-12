@@ -30,12 +30,17 @@
 
     <div class="govuk-panel govuk-!-margin-bottom-5 govuk-panel--fail" style="background-color: #d4351c; color: #ffffff;">
       <h1 class="govuk-panel__title">
-        An application for {Name} already exists
+        This person could not be found
       </h1>
     </div>
 
-    <h2 class="govuk-heading-m">An ongoing application for {Name} has been found.</h2>
-    <p class="govuk-body">Please contact their Prison Offender Manager (POM) or Community Offender Manager (COM) for more information.</p>
+    <h2 class="govuk-heading-m">No person could be found with the identifier <strong>{CRN1234}</strong>.</h2>
+    
+    <!-- <h3 class="govuk-heading-s">What can I try?</h3> -->
+    <p class="govuk-body">Check to make sure that you are using the correct identifier.</p>
+    <p class="govuk-body">For HDC applicants, this number is the <strong>P-NOMIS CRN number</strong>.</p>
+
+    <p class="govuk-body">If you can't find the applicant's identifier, please contact their Prison Offender Manager (POM) or Community Offender Manager (COM) for help.</p>
 
     {{ govukButton({
       text: "Search for a different applicant",

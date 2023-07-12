@@ -32,8 +32,34 @@
 
     <form action="" method="post" validate>
 
+      {% set supportWorkerPreferenceHTML %}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "applicant-support-preference",
+          fieldset: {
+            legend: {
+              text: "What is their preference?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "male",
+              text: "Male"
+            },
+            {
+              value: "female",
+              text: "Female"
+            }
+          ]
+        }) }}
+
+      {% endset -%}
+
       {{ govukRadios({
-        classes: "govuk-radios--inline",
+        classes: "",
         name: "applicant-support-preference",
         fieldset: {
           legend: {
@@ -45,11 +71,21 @@
         items: [
           {
             value: "yes",
-            text: "Yes"
+            text: "Yes",
+            conditional: {
+              html: supportWorkerPreferenceHTML
+            }
           },
           {
             value: "no",
             text: "No"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "na",
+            text: "I don't know"
           }
         ]
       }) }}

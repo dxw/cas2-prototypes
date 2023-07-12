@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <span class="govuk-caption-m">Address history</span>
+
+      <form class="form" action="" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "How long has the applicant been of no fixed abode?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          }
+        }) }}
+    
+        {{ govukButton({
+          text: "Save and continue",
+          href: "address-history-manual-v2-2c"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

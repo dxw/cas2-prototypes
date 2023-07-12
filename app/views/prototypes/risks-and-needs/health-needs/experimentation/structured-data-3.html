@@ -1,0 +1,235 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Health needs</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html',
+            active: true
+          },
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
+          }, 
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Other health',
+            href: 'health-needs-other.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Substance misuse</h2>
+
+        <!---------------------------- Substance misuse ---------------------------->
+        {% set substancesHTML %}
+
+          {{ govukTextarea({
+            name: "health-substance-service",
+            id: "health-substance-service",
+            label: {
+              text: "What substances do they take?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            },
+            hint: {
+              text: "Please describe their recent history of substance misuse."
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-substance-frequency",
+            id: "health-substance-frequency",
+            label: {
+              text: "How often do they take these substances, by what method, and how much?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {% endset -%}
+        
+        {{ govukRadios({
+          name: "applicant-mobile",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+              text: "Do they take any illegal substances?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: substancesHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <!---------------------------- Drug alcohol service ---------------------------->
+        {% set drugAlcoholServiceHTML %}
+
+          {{ govukInput({
+            label: {
+              text: "Name the drug and alcohol service",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "applicant-drugalcoholservice",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+              text: "Are they engaged with a drug and alcohol service?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: drugAlcoholServiceHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <!---------------------------- Substitute medication ---------------------------->
+        {% set substituteMedicationHTML %}
+
+        {{ govukInput({
+          label: {
+            text: "What substitute medication do they take?",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "applicant-substitutemedication",
+        classes: "govuk-radios--inline",
+        fieldset: {
+          legend: {
+            text: "Do they require any substitute medication for misused substances?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: substituteMedicationHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+        }) }}
+
+
+          <div class="govuk-button-group">
+
+            {{ govukButton({
+              text: "Save and continue",
+              href: "health-needs-physical"
+            }) }}
+  
+            <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+          </div> 
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
