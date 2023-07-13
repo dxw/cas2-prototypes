@@ -62,6 +62,12 @@
     padding: 1.25rem;
 }
 
+.prison-info {
+    .govuk-summary-list__key {
+        width: 20%;
+    }
+}
+
 // -------- Health
 
 .moj-side-navigation {
