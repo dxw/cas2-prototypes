@@ -1,0 +1,149 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk to self</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Vulnerability',
+            href: 'vulnerability.html'
+          },
+          {
+            text: 'Current risk',
+            href: 'current.html'
+          }, 
+          {
+            text: 'Historical risk',
+            href: 'historical.html',
+            active: true
+          }, 
+          {
+            text: 'ACCT',
+            href: '#'
+          }, 
+          {
+            text: 'Prison notes',
+            href: '#'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Historical risk</h2>
+        <div class="oasys-update govuk-!-margin-bottom-6">
+          <p class="">Imported from OASys <strong> 09 January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
+        </div>
+        <!-- <p class="govuk-body govuk-!-margin-bottom-6">Any live risks must be documented. Any changes you make here won’t be written back into OASys.</p> -->
+
+        <!-- {{ govukInsetText({
+          text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys."
+        }) }} -->
+
+        <!---------------------------- Self harm ---------------------------->
+        {{ govukTextarea({
+          name: "oasys-textarea",
+          id: "oasys-textarea",
+          classes: "oasys-textarea",
+          disabled: true,
+          rows: "10",
+          value: "Terry Midhurst has a history of self harm when not taking his medications or self-medicating with drugs and alcohol.",
+          label: {
+            text: "Describe any previous issues and needs relating to Self Harm",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
+        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+
+        <!---------------------------- Suicide ---------------------------->
+        {{ govukTextarea({
+          name: "oasys-textarea",
+          id: "oasys-textarea",
+          classes: "oasys-textarea",
+          rows: "10",
+          label: {
+            text: "Describe any previous issues and needs relating to Suicide",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        <!-- Answer options for question -->
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "oasys-edit",
+          fieldset: {
+          },
+          items: [
+            {
+              value: "up-to-date",
+              id: "up-to-date",
+              text: "I confirm this information is relevant."
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          id: "button-save-and-continue",
+          text: "Save and continue",
+          class: "govuk-button--disabled",
+          href: "#",
+          disabled: true
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
