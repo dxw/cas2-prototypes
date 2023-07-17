@@ -65,7 +65,7 @@
           }, 
           {
             text: 'Prison notes',
-            href: '#'
+            href: 'prison-note-x2.html'
           }
         ]
       }) }}
@@ -79,54 +79,7 @@
         <h2 class="govuk-heading-m">Assessment, Care in Custody and Teamwork (ACCT)</h2>
         <p class="govuk-body">An ACCT is a plan to support someone in prison who is at risk of self-harm or suicide. Plans are tailored to the people being supported and their needs, and involve the person throughout in making decisions about the best support for them.</p>
         
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> {{ data['acct-start-date'] }}
-
-        <!------------------------ User entered ------------------------>
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">{{ data['acct-referring-institution'] }}</h2>
-            <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">
-                  Delete<span class="govuk-visually-hidden"> ACCT entry</span>
-                </a>
-              </li>
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">
-                  Change<span class="govuk-visually-hidden"> ACCT entry</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Started: 
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['acct-start-date-day'] }}/{{ data['acct-start-date-month'] }}/{{ data['acct-start-date-year'] }}
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Ended: 
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['acct-end-date-day'] }}/{{ data['acct-end-date-month'] }}/{{ data['acct-end-date-year'] }}
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Details:
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['acct-detail'] }}
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
         <!------------------------ Leeds ------------------------>
         {{ govukSummaryList({
@@ -231,7 +184,7 @@
         {{ govukButton({
           text: "Add an ACCT entry",
           classes: "govuk-button--secondary",
-          href: "acct-add"
+          href: "../acct/acct-add--manual"
         }) }}
 
         <br>

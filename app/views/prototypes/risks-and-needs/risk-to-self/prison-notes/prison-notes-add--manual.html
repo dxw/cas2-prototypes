@@ -19,35 +19,22 @@
     <div class="govuk-grid-column-three-quarters">
 
       <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
-      <h1 class="govuk-heading-l">Add an ACCT</h1>
+      <h1 class="govuk-heading-l">Add a prison case note</h1>
       <p class="govuk-body-l">Guidance about where this information can be found ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 
       <hr class="govuk-section-break govuk-section-break--s">
 
-      <form class="form" action="acct-x3" method="post">
+      <form class="form" action="../v3-manual/prison-note-x3" method="post">
 
         <!------------------------ Start date ------------------------>
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
         {{ govukDateInput({
-          id: "acct-start-date",
-          namePrefix: "acct-start-date",
+          id: "prison-note-start-date",
+          namePrefix: "prison-note-start-date",
           fieldset: {
             legend: {
-              text: "When was the ACCT created?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          }
-        }) }}
-
-        <!------------------------ End date ------------------------>
-        {{ govukDateInput({
-          id: "acct-end-date",
-          namePrefix: "acct-end-date",
-          fieldset: {
-            legend: {
-              text: "When did the ACCT expire?",
+              text: "When was the note created?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
@@ -58,14 +45,14 @@
         {% from "govuk/components/select/macro.njk" import govukSelect %}
 
         {{ govukSelect({
-          id: "acct-referring-institution",
-          name: "acct-referring-institution",
+          id: "prison-note-referring-institution",
+          name: "prison-note-referring-institution",
           label: {
             text: "Referring institution",
             classes: "govuk-label--m"
           },
             hint: {
-            text: "Where the applicant was based at the time the ACCT was created"
+            text: "Where the applicant was based at the time the prison case note was created"
           },
           items: [
             {
@@ -92,11 +79,11 @@
         {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
         {{ govukTextarea({
-          id: "acct-detail",
-          name: "acct-detail",
+          id: "prison-note-detail",
+          name: "prison-note-detail",
           rows: "10",
           label: {
-            text: "Detail about the ACCT",
+            text: "Describe the prison case note",
             classes: "govuk-label--m",
             isPageHeading: false
           },
@@ -106,7 +93,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Save and add ACCT"
+          text: "Save and add prison case note"
         }) }}
 
       </form>

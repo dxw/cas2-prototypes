@@ -98,17 +98,6 @@ router.get('/scores', function (req, res) {
     res.render('scores', { riskScores, widgetData })
   })
 
-// Consent routing
-router.post('/prototypes/consent/all-in-one', function(request, response) {
-
-  var consentAnswer = request.session.data['consent-answer']
-  if (consentAnswer == "yes"){
-      response.redirect("/prototypes/tasklists/tasklist")
-  } else {
-      response.redirect("/prototypes/consent/consent-refused")
-  }
-})
-
 // Review Applications prototype
 
 // The URL here needs to match the URL of the page that the user is on
@@ -129,6 +118,17 @@ router.post('/prototypes/check-answers', function (req, res) {
   // has been sent
   res.redirect('/prototypes/submission-confirmed');
 });
+
+// Consent routing
+router.post('/prototypes/consent/all-in-one', function(request, response) {
+
+  var consentAnswer = request.session.data['consent-answer']
+  if (consentAnswer == "yes"){
+      response.redirect("/prototypes/tasklists/tasklist")
+  } else {
+      response.redirect("/prototypes/consent/consent-refused")
+  }
+})
 
 // Address history routing
 router.post('/prototypes/address-history/address-history-manual-v2-1', function(request, response) {

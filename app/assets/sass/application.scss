@@ -49,6 +49,20 @@
     opacity: 1;
 }
 
+.checked {
+    .govuk-table__body .govuk-table__row:nth-child(-1n + 3) {
+        background: lighten(govuk-colour("light-blue"), 40%);
+    }
+} 
+
+.govuk-checkboxes__item {
+    background: white;
+}
+
+.govuk-table__header {
+    text-wrap: nowrap;
+}
+
 .link-edit-text {
     float: right;
 }
