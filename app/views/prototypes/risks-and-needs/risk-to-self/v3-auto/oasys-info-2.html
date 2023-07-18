@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your feedback will help us to improve it.'
+  }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-l">
+      Import data from OASys
+    </h1>
+
+    <p class="govuk-body">
+      Where possible, information from an OASys record can be automatically added to help answer some of the following questions.
+    </p>
+
+    <p class="govuk-body">
+      Text that comes from the OASys can be edited. It's important to remove any sensitive information such as names and addresses.
+    </p>
+
+    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+    {{ govukInsetText({
+      html: "It is important that all recent <strong>live risk</strong> information is added to the application."
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <form action="" method="post" novalidate>
+
+      {{ govukRadios({
+        name: "oasys-prepopulate",
+        fieldset: {
+          legend: {
+            text: "Would you like to pre-populate some answers?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes, I would like to use the OASys record to pre-populate answers"
+          },
+          {
+            value: "no",
+            text: "No, I want to answer each question manually"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "pnomis-info"
+      }) }}
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
