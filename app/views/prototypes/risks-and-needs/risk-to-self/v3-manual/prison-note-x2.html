@@ -1,0 +1,186 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk to self</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Vulnerability',
+            href: 'vulnerability.html'
+          },
+          {
+            text: 'Current risk',
+            href: 'current.html'
+          }, 
+          {
+            text: 'Historical risk',
+            href: 'historical.html'
+          }, 
+          {
+            text: 'ACCT',
+            href: 'acct-x2.html'
+          }, 
+          {
+            text: 'Prison notes',
+            href: 'prison-note-x2',
+            active: true
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Prison case notes</h2>
+        <p class="govuk-body">Something here explaining what a prison case note is and why it's useful to have in this application.</p>
+        
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <!------------------------ Leeds ------------------------>
+        {{ govukSummaryList({
+          classes: "prison-info",
+          card: {
+            title: {
+              text: "HMPPS Leeds"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Delete",
+                  visuallyHiddenText: "prison case note"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "prison case note"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Created:"
+              },
+              value: {
+                html: "21/02/2022"
+              }
+            },
+            {
+              key: {
+                text: "Details"
+              },
+              value: {
+                html: "Whilst dealing with Mr Midhurst's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Midhurst was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident."
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ Sheffield ------------------------>
+        {{ govukSummaryList({
+          classes: "prison-info",
+          card: {
+            title: {
+              text: "HMPPS Sheffield"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Delete",
+                  visuallyHiddenText: "prison case note"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "prison case note"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Created:"
+              },
+              value: {
+                html: "21/02/2022"
+              }
+            },
+            {
+              key: {
+                text: "Details"
+              },
+              value: {
+                html: "Whilst dealing with Mr Midhurst's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Midhurst was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident."
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Add a prison case note",
+          classes: "govuk-button--secondary",
+          href: "../prison-notes/prison-notes-add--manual"
+        }) }}
+
+        <br>
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "vulnerability"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

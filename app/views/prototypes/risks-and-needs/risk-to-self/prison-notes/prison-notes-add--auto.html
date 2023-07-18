@@ -1,0 +1,241 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l">Choose prison case notes to add</h1>
+      <p class="govuk-body-l">Guidance about where this information can be found ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form class="form govuk-!-margin-top-3" action="" method="post">
+        
+        {%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+        {{ govukTable({
+          attributes: {
+            'data-module': 'moj-sortable-table'
+          },
+          head: [
+            {
+              text: "Select",
+              classes: "govuk-visually-hidden"
+            },
+            {
+              text: "Description",
+              attributes: {
+                "aria-sort": "none"
+              }
+            },
+            {
+              text: "Institution",
+              attributes: {
+                "aria-sort": "none"
+              }
+            },
+            {
+              text: "Created",
+              attributes: {
+                "aria-sort": "descending"
+              },
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: '<div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" name="acct-note" type="checkbox">
+                        <label class="govuk-label govuk-checkboxes__label" for="acct-note" style="padding:0;">
+                          <span class="govuk-visually-hidden" style="padding:0;">Select ACCT</span>
+                        </label>
+                      </div>'
+              },
+              {
+                text: "ACCT re-opened at the request of P/C after stating he felt like self-harming."
+              },
+              {
+                text: "HMPPS Leeds",
+                attributes: {
+                  "data-sort-value": "Leeds"
+                }
+              },
+              {
+                text: "19/2/2023",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "2023"
+                }
+              }
+            ],
+            [
+              {
+                html: '<div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" name="acct-note" type="checkbox">
+                        <label class="govuk-label govuk-checkboxes__label" for="acct-note" style="padding:0;">
+                          <span class="govuk-visually-hidden" style="padding:0;">Select ACCT</span>
+                        </label>
+                      </div>'
+              },
+              {
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              },
+              {
+                text: "HMPPS Sheffield",
+                attributes: {
+                  "data-sort-value": "Sheffield"
+                }
+              },
+              {
+                text: "2/12/2022",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "2022"
+                }
+              }
+            ],
+            [
+              {
+                html: '<div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" name="acct-note" type="checkbox">
+                        <label class="govuk-label govuk-checkboxes__label" for="acct-note" style="padding:0;">
+                          <span class="govuk-visually-hidden" style="padding:0;">Select ACCT</span>
+                        </label>
+                      </div>'
+              },
+              {
+                text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+              },
+              {
+                text: "HMPPS Sheffield",
+                attributes: {
+                  "data-sort-value": "Sheffield"
+                }
+              },
+              {
+                text: "11/10/2022",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "2022"
+                }
+              }
+            ],
+            [
+              {
+                html: '<div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" name="acct-note" type="checkbox">
+                        <label class="govuk-label govuk-checkboxes__label" for="acct-note" style="padding:0;">
+                          <span class="govuk-visually-hidden" style="padding:0;">Select ACCT</span>
+                        </label>
+                      </div>'
+              },
+              {
+                text: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur."
+              },
+              {
+                text: "HMPPS Sheffield",
+                attributes: {
+                  "data-sort-value": "Sheffield"
+                }
+              },
+              {
+                text: "15/6/2021",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "2021"
+                }
+              }
+            ],
+            [
+              {
+                html: '<div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" name="acct-note" type="checkbox">
+                        <label class="govuk-label govuk-checkboxes__label" for="acct-note" style="padding:0;">
+                          <span class="govuk-visually-hidden" style="padding:0;">Select ACCT</span>
+                        </label>
+                      </div>'
+              },
+              {
+                text: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur."
+              },
+              {
+                text: "HMPPS Sheffield",
+                attributes: {
+                  "data-sort-value": "Sheffield"
+                }
+              },
+              {
+                text: "2/3/2021",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "2021"
+                }
+              }
+            ]
+          ]
+        }) }}
+
+        <div class="" style="display:flex; justify-content: end;">
+
+          <!---------------------- Results indicator ---------------------->
+          <div style="display:flex; align-items: center">
+            <p class="moj-pagination__results" style="margin-right: 20px;">Showing <strong>5</strong> of <strong>15</strong> results</p>
+          </div>
+
+          <!---------------------- Pagination ---------------------->
+          {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+          {{ govukPagination({
+            classes: "govuk-!-margin-bottom-0",
+            next: {
+              href: "#"
+            },
+            items: [
+              {
+                number: 1,
+                current: true,
+                href: "#"
+              },
+              {
+                number: 2,
+                href: "#"
+              },
+              {
+                number: 3,
+                href: "#"
+              }
+            ]
+          }) }}
+
+        </div>
+
+        {{ govukButton({
+          text: "Save and add selection",
+          href: "../v3-auto/prison-note-x3",
+          classes: "govuk-!-margin-top-5"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

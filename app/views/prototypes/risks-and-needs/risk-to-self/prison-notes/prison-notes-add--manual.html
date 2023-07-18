@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l">Add a prison case note</h1>
+      <p class="govuk-body-l">Guidance about where this information can be found ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+
+      <hr class="govuk-section-break govuk-section-break--s">
+
+      <form class="form" action="../v3-manual/prison-note-x3" method="post">
+
+        <!------------------------ Start date ------------------------>
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukDateInput({
+          id: "prison-note-start-date",
+          namePrefix: "prison-note-start-date",
+          fieldset: {
+            legend: {
+              text: "When was the note created?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          }
+        }) }}
+
+        <!------------------------ Referring institution ------------------------>
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "prison-note-referring-institution",
+          name: "prison-note-referring-institution",
+          label: {
+            text: "Referring institution",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "Where the applicant was based at the time the prison case note was created"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose location",
+              selected: true
+            },
+            {
+              value: "HMPPS Leeds",
+              text: "HMPPS Leeds"
+            },
+            {
+              value: "HMPPS Sheffield",
+              text: "HMPPS Sheffield"
+            },
+            {
+              value: "HMPPS London",
+              text: "HMPPS London"
+            }
+          ]
+        }) }}
+
+        <!------------------------ Details ------------------------>
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          id: "prison-note-detail",
+          name: "prison-note-detail",
+          rows: "10",
+          label: {
+            text: "Describe the prison case note",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Guidance about the level of detail to include"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Save and add prison case note"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

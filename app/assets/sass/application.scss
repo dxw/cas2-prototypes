@@ -27,8 +27,12 @@
     padding: 1em;
 }
 
-.govuk-form-group {
+.govuk-form-group, .clear-both {
     clear: both;   
+}
+
+.moj-side-navigation__list {
+    font-size: 18px;
 }
 
 // -------- Risk and RoSH/OASys
@@ -41,12 +45,21 @@
     background-color:  govuk-colour("light-grey");
     border-color: govuk-colour("mid-grey");
     color: govuk-colour("dark-grey");
-
-    // background-color: govuk-colour("white");
-    // border-color: govuk-colour("white");
-    // padding: 0;
-
     opacity: 1;
+}
+
+.checked {
+    .govuk-table__body .govuk-table__row:nth-child(-1n + 3) {
+        background: lighten(govuk-colour("light-blue"), 40%);
+    }
+} 
+
+.govuk-checkboxes__item {
+    background: white;
+}
+
+.govuk-table__header {
+    text-wrap: nowrap;
 }
 
 .link-edit-text {
@@ -60,6 +73,12 @@
 .padded-box {
     border: 1px solid govuk-colour("dark-grey");
     padding: 1.25rem;
+}
+
+.prison-info {
+    .govuk-summary-list__key {
+        width: 20%;
+    }
 }
 
 // -------- Health
