@@ -1,0 +1,140 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Equality and diversity</span>
+
+    <form action="" method="post" validate>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {% set otherDisabilityHtml %}
+
+        {{ govukInput({
+          name: "other-disability",
+          type: "text",
+          classes: "govuk-!-width-one-half",
+          label: {
+            text: "What is the disability?"
+          }
+        }) }}
+
+      {% endset -%}
+
+      {% set disabilityHtml %}
+
+        {{ govukCheckboxes({
+          name: "disability-type",
+          fieldset: {
+            legend: {
+              text: "What type of disability?"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "sensory",
+              text: "Sensory impairment"
+            },
+            {
+              value: "physical",
+              text: "Physical impairment"
+            },
+            {
+              value: "learning",
+              text: "Learning disability or difficulty"
+            },
+            {
+              value: "mental",
+              text: "Mental health condition"
+            },
+            {
+              value: "long-standing",
+              text: "Long-standing illness"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "other",
+              text: "Other",
+              conditional: {
+                html: otherDisabilityHtml
+              }
+            }
+          ]
+        }) }}
+      
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "disability",
+        fieldset: {
+          legend: {
+            text: "Do they have a disability?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: disabilityHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "skip",
+            text: "Prefer not to say"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        href: "equality-diversity-care-leaver-6"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
