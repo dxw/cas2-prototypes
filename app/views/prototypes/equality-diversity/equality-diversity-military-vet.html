@@ -36,7 +36,7 @@
         name: "details-military",
         fieldset: {
           legend: {
-            text: "Is the applicant a care leaver?",
+            text: "Are they a military veteran?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -60,10 +60,16 @@
         ]
       }) }}
 
-      {{ govukButton({
-        text: "Save and complete",
-        href: "../tasklists/tasklist"
-      }) }}
+      <div class="govuk-button-group">
+        
+        {{ govukButton({
+          text: "Save and continue",
+          href: "equality-diversity-care-leaver"
+        }) }}
+
+        <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+      </div>
 
     </form>
 

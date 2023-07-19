@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Equality and diversity</span>
+
+    <form action="" method="post" validate>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {% set ethnicityHtml %}
+        {{ govukInput({
+          id: "other-description",
+          name: "other-description",
+          type: "text",
+          classes: "govuk-!-width-one-half",
+          label: {
+            text: "How would they describe their background? (optional)"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "ethnicity-detail",
+        fieldset: {
+          legend: {
+            text: "Which of the following best describes their Black, African, Caribbean or Black British background?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "african",
+            text: "African"
+          },
+          {
+            value: "caribbean",
+            text: "Caribbean"
+          },
+          {
+            value: "other",
+            text: "Any other Black, African or Caribbean background",
+            conditional: {
+              html: ethnicityHtml
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "skip",
+            text: "Prefer not to say"
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "equality-diversity-religion"
+        }) }}
+
+        <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

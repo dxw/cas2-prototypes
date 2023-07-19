@@ -32,38 +32,63 @@
 
     <form action="" method="post" validate>
 
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {% set ethnicityHtml %}
+        {{ govukInput({
+          id: "other-description",
+          name: "other-description",
+          type: "text",
+          classes: "govuk-!-width-one-half",
+          label: {
+            text: "How would they describe their background? (optional)"
+          }
+        }) }}
+      {% endset -%}
+
       {{ govukRadios({
-        name: "details-military",
+        name: "ethnicity-detail",
         fieldset: {
           legend: {
-            text: "Does the applicant have parental or carer responsibilities?",
+            text: "Which of the following best describes their background?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "yes",
-            text: "Yes"
+            value: "arab",
+            text: "Arab"
           },
           {
-            value: "no",
-            text: "No"
+            value: "other",
+            text: "Any other ethnic group",
+            conditional: {
+              html: ethnicityHtml
+            }
           },
           {
             divider: "or"
           },
           {
-            value: "na",
-            text: "I don't know"
+            value: "skip",
+            text: "Prefer not to say"
           }
         ]
       }) }}
 
-      {{ govukButton({
-        text: "Save and continue",
-        href: "equality-diversity-military-vet-5"
-      }) }}
+      <div class="govuk-button-group">
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "equality-diversity-religion"
+        }) }}
+
+        <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+      </div>
 
     </form>
 

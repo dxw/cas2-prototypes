@@ -38,14 +38,14 @@
 
         {% set hintHtml %}
           <p class="govuk-!-margin-top-0">These questions are optional. [Add a couple of sentences explaining why you’re asking the questions and what you’ll do with the information].</p>
-          <p>Your answers will not affect your application.</p>
+          <p>The answers will not affect their application.</p>
         {% endset -%}
 
         {{ govukRadios({
           name: "equalities-info",
           fieldset: {
             legend: {
-              text: "Do you want to answer the equality questions?",
+              text: "Does Terry Midhurst want to answer the equality questions?",
               classes: "govuk-fieldset__legend--l",
               isPageHeading: true
             }
@@ -69,7 +69,7 @@
           summaryText: "Why we ask equality questions",
           text: "[Consider adding an optional longer explanation of what you’re asking the questions and what you’ll do with the information]."
         }) }}
-
+        
         {{ govukButton({
           text: "Save and continue"
         }) }}

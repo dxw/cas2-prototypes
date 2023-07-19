@@ -32,53 +32,26 @@
 
     <form action="" method="post" validate>
 
-      <!-- <h1 class="govuk-heading-l">Sex and gender identity</h1> -->
-      
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
       {{ govukRadios({
-        name: "marriage-civil-partnership",
+        name: "disability",
         fieldset: {
           legend: {
-            text: "What is the applicant's legal marital or registered civil partnership status?",
+            text: "Do you have any physical or mental health conditions or illness lasting or expected to last 12 months or more?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "never",
-            text: "Never married and never registered in a civil partnership"
+            value: "yes",
+            text: "Yes"
           },
           {
-            value: "married",
-            text: "Married"
-          },
-          {
-            value: "civil-partnership",
-            text: "In a registered civil partnership"
-          },
-          {
-            value: "separated-married",
-            text: "Separated, but still legally married"
-          },
-          {
-            value: "separated-civil-partnership",
-            text: "Separated, but still legally in a civil partnership"
-          },
-          {
-            value: "divorced",
-            text: "Divorced"
-          },
-          {
-            value: "dissolved-civil-partnership",
-            text: "Formerly in a civil partnership which is now legally dissolved"
-          },
-          {
-            value: "widowed",
-            text: "Widowed"
-          },
-          {
-            value: "widowed-civil-partnership",
-            text: "Surviving partner from a registered civil partnership"
+            value: "no",
+            text: "No"
           },
           {
             divider: "or"
@@ -92,7 +65,7 @@
 
       {{ govukButton({
         text: "Save and continue",
-        href: "equality-diversity-parental-care-4"
+        href: "equality-diversity-care-leaver-6"
       }) }}
 
     </form>

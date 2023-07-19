@@ -32,38 +32,58 @@
 
     <form action="" method="post" validate>
 
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
       {{ govukRadios({
-        name: "details-military",
+        name: "ethnicity",
         fieldset: {
           legend: {
-            text: "Is the applicant a military veteran?",
+            text: "What is their ethnic group?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "yes",
-            text: "Yes"
+            value: "white",
+            text: "White"
           },
           {
-            value: "no",
-            text: "No"
+            value: "multiple",
+            text: "Mixed or multiple ethnic groups"
+          },
+          {
+            value: "asian",
+            text: "Asian or Asian British"
+          },
+          {
+            value: "black",
+            text: "Black, African, Caribbean or Black British"
+          },
+          {
+            value: "other",
+            text: "Other ethnic group"
           },
           {
             divider: "or"
           },
           {
-            value: "na",
-            text: "I don't know"
+            value: "skip",
+            text: "Prefer not to say"
           }
         ]
       }) }}
 
-      {{ govukButton({
-        text: "Save and continue",
-        href: "equality-diversity-care-leaver-6"
-      }) }}
+      <div class="govuk-button-group">
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+        <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+      </div>
 
     </form>
 

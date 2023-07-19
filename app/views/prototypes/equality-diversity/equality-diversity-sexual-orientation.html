@@ -40,7 +40,7 @@
         type: "text",
         classes: "govuk-!-width-one-half",
         label: {
-          text: "How would you describe your sexual orientation? (optional)"
+          text: "How would they describe their sexual orientation? (optional)"
         }
       }) }}
     {% endset -%}
@@ -49,7 +49,7 @@
       name: "sexual-orientation",
       fieldset: {
         legend: {
-          text: "Which of the following best describes your sexual orientation?",
+          text: "Which of the following best describes their sexual orientation?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
@@ -60,8 +60,12 @@
           text: "Heterosexual or straight"
         },
         {
-          value: "gay-lesbian",
-          text: "Gay or lesbian"
+          value: "gay",
+          text: "Gay"
+        },
+        {
+          value: "lesbian",
+          text: "Lesbian"
         },
         {
           value: "bisexual",
@@ -84,10 +88,16 @@
       ]
     }) }}
 
-      {{ govukButton({
-        text: "Save and continue",
-        href: "equality-diversity-religion-2"
-      }) }}
+      <div class="govuk-button-group">
+        
+        {{ govukButton({
+          text: "Save and continue",
+          href: "equality-diversity-ethnicity"
+        }) }}
+  
+        <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+      </div>
 
     </form>
 
