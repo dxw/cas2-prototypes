@@ -165,5 +165,7 @@ router.post('/prototypes/equality-diversity/equality-diversity-ethnicity', funct
     response.redirect("/prototypes/equality-diversity/equality-diversity-ethnicity-black")
   } else if (previousAddressAnswer == "other") {
     response.redirect("/prototypes/equality-diversity/equality-diversity-ethnicity-other")
+  } else {
+    response.redirect("/prototypes/equality-diversity/equality-diversity-religion")
   }
 })
