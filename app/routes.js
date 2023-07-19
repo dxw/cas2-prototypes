@@ -151,3 +151,19 @@ router.post('/prototypes/equality-diversity/equality-diversity-opt-in', function
       response.redirect("/prototypes/tasklists/tasklist")
   }
 })
+
+router.post('/prototypes/equality-diversity/equality-diversity-ethnicity', function(request, response) {
+
+  var previousAddressAnswer = request.session.data['ethnicity']
+  if (previousAddressAnswer == "white"){
+      response.redirect("/prototypes/equality-diversity/equality-diversity-ethnicity-white")
+  } else if (previousAddressAnswer == "multiple") {
+      response.redirect("/prototypes/equality-diversity/equality-diversity-ethnicity-mixed-multiple")
+  } else if (previousAddressAnswer == "asian") {
+    response.redirect("/prototypes/equality-diversity/equality-diversity-ethnicity-asian-british")
+  } else if (previousAddressAnswer == "black") {
+    response.redirect("/prototypes/equality-diversity/equality-diversity-ethnicity-black")
+  } else if (previousAddressAnswer == "other") {
+    response.redirect("/prototypes/equality-diversity/equality-diversity-ethnicity-other")
+  }
+})
