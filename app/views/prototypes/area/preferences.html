@@ -210,9 +210,15 @@
             </div>
           </div>
 
-          <button class="govuk-button" data-module="govuk-button">
-            Save and continue
-          </button>
+          <div class="govuk-button-group">
+
+            {{ govukButton({
+              text: "Save and continue"
+            }) }}
+    
+            <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+    
+          </div>
         </form>
 
 
