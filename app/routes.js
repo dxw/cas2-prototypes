@@ -146,7 +146,7 @@ router.post('/prototypes/equality-diversity/equality-diversity-opt-in', function
 
   var previousAddressAnswer = request.session.data['equalities-info']
   if (previousAddressAnswer == "yes"){
-      response.redirect("/prototypes/equality-diversity/equality-diversity-sexual-orientation-1")
+      response.redirect("/prototypes/equality-diversity/equality-diversity-disability")
   } else {
       response.redirect("/prototypes/tasklists/tasklist")
   }
