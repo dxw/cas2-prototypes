@@ -18,13 +18,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <span class="govuk-caption-m">Address history</span>
+      <span class="govuk-caption-m">Address history for Terry Midhurst</span>
 
       <form class="form" action="address-history-manual-v2-2a" method="post">
 
         {% call govukFieldset({
           legend: {
-            text: "What was the address?",
+            text: "What was Terry Midhurst's address?",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
@@ -32,7 +32,7 @@
 
           {{ govukInput({
             label: {
-              text: 'Address line 1'
+              text: 'Address line 1 (optional)'
             },
             id: "address-line-1",
             name: "address-line-1",
@@ -69,7 +69,7 @@
 
           {{ govukInput({
             label: {
-              text: "Postcode"
+              text: "Postcode (optional)"
             },
             classes: "govuk-input--width-10",
             id: "address-postcode",
