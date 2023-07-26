@@ -112,8 +112,11 @@
           }
         }) }}
 
-        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
-        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+        <div class="oasys-edit--container govuk-!-margin-bottom-3">
+          <p class="govuk-body last-edited govuk-!-margin-right-2">Last edited: 26/07/2023</p>
+          <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right">Edit text</a>
+          <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right govuk-!-display-none">Revert to original OASys</a>
+        </div>
 
         <!---------------------------- Suicide ---------------------------->
         {{ govukTextarea({
