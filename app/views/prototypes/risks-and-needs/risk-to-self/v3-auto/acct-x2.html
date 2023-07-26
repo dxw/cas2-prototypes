@@ -1,0 +1,192 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk to self</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Vulnerability',
+            href: 'vulnerability.html'
+          },
+          {
+            text: 'Current risk',
+            href: 'current.html'
+          }, 
+          {
+            text: 'Historical risk',
+            href: 'historical.html'
+          }, 
+          {
+            text: 'ACCT',
+            href: 'acct-x2.html',
+            active: true
+          }, 
+          {
+            text: 'Prison notes',
+            href: 'prison-note-x2'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Assessment, Care in Custody and Teamwork (ACCT)</h2>
+        <p class="govuk-body">An ACCT is a plan to support someone in prison who is at risk of self-harm or suicide. Plans are tailored to the people being supported and their needs, and involve the person throughout in making decisions about the best support for them.</p>
+        
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <!------------------------ Leeds ------------------------>
+        {{ govukSummaryList({
+          classes: "prison-info",
+          card: {
+            title: {
+              text: "HMPPS Leeds"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Delete",
+                  visuallyHiddenText: "ACCT entry"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Started:"
+              },
+              value: {
+                html: "21/02/2022"
+              }
+            },
+            {
+              key: {
+                text: "Ended:"
+              },
+              value: {
+                html: "20/05/2022"
+              }
+            },
+            {
+              key: {
+                text: "Details"
+              },
+              value: {
+                html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ Sheffield ------------------------>
+        {{ govukSummaryList({
+          classes: "prison-info",
+          card: {
+            title: {
+              text: "HMPPS Sheffield"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Delete",
+                  visuallyHiddenText: "ACCT entry"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Started:"
+              },
+              value: {
+                html: "21/02/2022"
+              }
+            },
+            {
+              key: {
+                text: "Ended:"
+              },
+              value: {
+                html: "20/05/2022"
+              }
+            },
+            {
+              key: {
+                text: "Details"
+              },
+              value: {
+                html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Select ACCT entries",
+          classes: "govuk-button--secondary",
+          href: "../acct/acct-add--auto"
+        }) }}
+
+        <br>
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "current"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
