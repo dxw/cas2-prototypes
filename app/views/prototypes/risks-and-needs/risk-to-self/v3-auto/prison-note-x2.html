@@ -41,35 +41,46 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
 
-      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+      <nav class="moj-side-navigation" aria-label="Side navigation">
+        <ul class="moj-side-navigation__list">
 
-      {{ mojSideNavigation({
-        label: 'Side navigation',
-        items: [
-          {
-            text: 'Vulnerability',
-            href: 'vulnerability.html'
-          },
-          {
-            text: 'Current risk',
-            href: 'current.html'
-          }, 
-          {
-            text: 'Historical risk',
-            href: 'historical.html'
-          }, 
-          {
-            text: 'ACCT',
-            href: 'acct-x2.html'
-          }, 
-          {
-            text: 'Prison notes',
-            href: 'prison-note-x2',
-            active: true
-          }
-        ]
-      }) }}
+          <li class="moj-side-navigation__item ">
+            <a href="vulnerability.html">
+              <span class="moj-badge moj-badge--green side-nav--status">Complete</span>
+              Vulnerability
+            </a>
+          </li>
 
+          <li class="moj-side-navigation__item">
+            <a href="current.html">
+              <span class="moj-badge moj-badge--green side-nav--status">Complete</span>
+              Current risk
+            </a>
+          </li>
+
+          <li class="moj-side-navigation__item">
+            <a href="historical.html">
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
+              Historical risk
+            </a>
+          </li>
+
+          <li class="moj-side-navigation__item">
+            <a href="acct-x2.html">
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
+              ACCT
+            </a>
+          </li>
+  
+          <li class="moj-side-navigation__item moj-side-navigation__item--active">
+            <a href="prison-note-x2.html">
+              <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span>
+              Prison notes
+            </a>
+          </li>
+
+        </ul>
+      </nav>
     </div>
 
     <div class="govuk-grid-column-two-thirds">
