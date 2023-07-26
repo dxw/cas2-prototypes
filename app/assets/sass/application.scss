@@ -37,8 +37,16 @@
 
 // -------- Risk and RoSH/OASys
 
-.oasys-update p {
+.last-edited {
+    display: inline-block;
+}
+
+.oasys-update p, .last-edited {
     color: $govuk-secondary-text-colour;
+}
+
+.oasys-edit--container {
+    text-align: right;
 }
 
 #oasys-textarea:disabled, .health-not-applicable-test--disabled {

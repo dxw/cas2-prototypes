@@ -24,7 +24,7 @@
 
       <hr class="govuk-section-break govuk-section-break--s">
 
-      <form class="form" action="../v3-manual/prison-note-x3" method="post">
+      <form class="form" action="../v4/prison-note-x3" method="post">
 
         <!------------------------ Start date ------------------------>
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
@@ -92,9 +92,13 @@
           }
         }) }}
 
-        {{ govukButton({
-          text: "Save and add prison case note"
-        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and add prison case note"
+          }) }}
+
+          <a class="govuk-link" href="#">Cancel</a>
+        </div>
 
       </form>
 

@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your feedback will help us to improve it.'
+  }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-l">
+      Import data from Digital Prison Service (DPS)
+    </h1>
+
+    <p class="govuk-body">
+      ACCT and prison case notes can be imported in to the application from P-Nomis.
+    </p>
+
+    <p class="govuk-body">
+      DPS alerts help assessors understand behavioural traits and additional needs an applicant may have.
+    </p>
+
+    <p class="govuk-body">
+      Where DPS alerts are available, a referrer can select the most appropriate and add them to the application.
+    </p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <div class="import-info govuk-!-margin-bottom-7">
+      <h2 class="govuk-heading-m">DPS information available for Terry Midhurst</h2>
+
+      <p class="govuk-!-margin-bottom-1">Imported date: <strong> 26th July 2023 </strong></p>
+      <p class="govuk-!-margin-bottom-1">Last updated: <strong> 9th January 2023</strong></p>
+    </div>
+
+    <form action="" method="post" novalidate>
+
+      {{ govukRadios({
+        name: "pnomis-prepopulate",
+        fieldset: {
+          legend: {
+            text: "Would you like to import DPS alerts?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes, I would like to import P-Nomis alerts and select which ones to include"
+          },
+          {
+            value: "no",
+            text: "No, I want add any P-Nomis alerts manually"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "vulnerability"
+      }) }}
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
