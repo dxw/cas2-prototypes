@@ -169,3 +169,14 @@ router.post('/prototypes/equality-diversity/equality-diversity-ethnicity', funct
     response.redirect("/prototypes/equality-diversity/equality-diversity-religion")
   }
 })
+
+// OASys pre-population routing
+router.post('/prototypes/risks-and-needs/risk-to-self/v4/oasys-not-available', function(request, response) {
+
+  var previousAddressAnswer = request.session.data['oasys-prepopulate']
+  if (previousAddressAnswer == "yes"){
+      response.redirect("/prototypes/risks-and-needs/risk-to-self/v4/pnomis-info")
+  } else {
+      response.redirect("/prototypes/tasklists/tasklist")
+  }
+})
