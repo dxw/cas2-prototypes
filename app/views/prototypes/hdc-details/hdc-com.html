@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Community supervision and HDC licence conditions</span>
+
+    <form action="" method="post" validate>
+
+      <h1 class="govuk-heading-l">Who is Terry Midhurst's Community Offender Manager (COM)?</h1>
+
+      {{ govukInput({
+        label: {
+          text: "Full name",
+          classes: "govuk-label--m"
+        },
+        id: "com-full-name",
+        name: "com-full-name",
+        autocomplete: "name",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Probation region",
+          classes: "govuk-label--m"
+        },
+        id: "com-probation-region",
+        name: "com-probation-region"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Contact number",
+          classes: "govuk-label--m"
+        },
+        id: "com-telephone-number",
+        name: "com-telephone-number",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-input--width-20"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Contact email address",
+          classes: "govuk-label--m"
+        },
+        id: "email",
+        name: "email",
+        type: "email",
+        autocomplete: "email",
+        spellcheck: false
+      }) }}
+
+
+      <div class="govuk-button-group govuk-!-margin-top-7">
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "hdc-conditions"
+        }) }}
+
+        <!-- <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a> -->
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

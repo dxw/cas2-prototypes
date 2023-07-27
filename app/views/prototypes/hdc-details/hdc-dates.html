@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Community supervision and HDC licence conditions</span>
+
+    <form action="" method="post" validate>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      <h1 class="govuk-heading-l">HDC Licence dates</h1>
+
+      {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+      {{ govukDateInput({
+        id: "hdc-eligibility-date",
+        namePrefix: "hdc-eligibility-date",
+        value: data[hdc-eligibility-date],
+        fieldset: {
+          legend: {
+            text: "What is Terry Midhurst's HDC eligibility date?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2023"
+        }
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      {{ govukDateInput({
+        id: "hdc-expiry-date",
+        namePrefix: "hdc-expiry-date",
+        value: data[hdc-expiry-date],        
+        fieldset: {
+          legend: {
+            text: "What is Terry Midhurst's conditional release date?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          html: "For example, 27 3 2023"
+        }
+      }) }}
+
+      <div class="govuk-button-group govuk-!-margin-top-7">
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "hdc-com"
+        }) }}
+
+        <!-- <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a> -->
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

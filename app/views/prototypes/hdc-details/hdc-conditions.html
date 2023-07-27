@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Community supervision and HDC licence conditions</span>
+
+    <form action="" method="post" validate>
+
+      <!-- <h1 class="govuk-heading-l">Who is Terry Midhurst's Community Offender Manager (COM)?</h1> -->
+
+      {% set hdcConditionsHTML %}
+
+        {{ govukTextarea({
+          name: "hdc-conditions-detail",
+          id: "hdc-conditions-detail",
+          rows: "12",
+          label: {
+            text: "Describe the additional conditions",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "Include any exclusion zones or those designed to protect identified victims such as prohibited areas."
+          }
+        }) }}
+        
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "hdc-conditions",
+        fieldset: {
+          legend: {
+            text: "Does Terry Midhurst have any non-standard licence conditions?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: hdcConditionsHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group govuk-!-margin-top-7">
+
+        {{ govukButton({
+          text: "Save and complete",
+          href: "../tasklists/tasklist"
+        }) }}
+
+        <!-- <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a> -->
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
