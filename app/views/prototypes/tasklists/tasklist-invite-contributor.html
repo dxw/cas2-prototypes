@@ -1,0 +1,364 @@
+{% extends "layouts/main.html" %}
+
+{% from "components/widgets/macro.njk" import widgets %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+    Apply for a CAS-2 placement
+  </h1>
+
+  <div class="govuk-grid-row">
+
+    <!-- Title -->
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">You have completed 3 of 17 tasks.</h2>
+      <p class="govuk-body">Please work through all sections, following the instructions within each.</p>
+
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Inviting people to contribute to this application.</h3>
+      <p class="govuk-body">You can invite other contributors to complete parts of this application, but all sections must be completed before you can submit.</p>
+
+      {{ govukButton({
+        text: "Invite a contributor",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-!-margin-bottom-4">
+        <p class="govuk-body govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Applicant:</span> Terry Midhurst</p>
+        <p class="govuk-body govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Institution:</span> HM Prison Pentonville</p>
+        <p class="govuk-body govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Referrer:</span> Alex Edwards</p>
+        <!-- <a class="govuk-!-font-size-19" href="#">Change referrer</a> -->
+      </div>
+    </div>
+
+  </div>
+
+    <div class="govuk-grid-row">
+
+    <!-- Main -->
+    <div class="govuk-grid-column-two-thirds">
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible  govuk-!-margin-top-4">
+
+      <!--
+      <h2 class="govuk-prototype-kit-task-list__section govuk-!-font-size-27">
+        Input interview data about Terry Midhurst
+      </h2>
+
+      <p class="govuk-body">After interviewing the applicant, enter the information on the form into each of the following sections.</p>
+
+      {{ govukButton({
+        text: "Download Applicant interview form",
+        href: "#"
+      }) }}
+      -->
+
+      <ol class="govuk-prototype-kit-task-list">
+
+        <h2 class="govuk-prototype-kit-task-list__section govuk-!-font-size-27">
+          Before you apply
+        </h2>
+
+        <p class="govuk-body">Complete these pre-application tasks first. <br>You’ll need to speak to the applicant to complete some of these sections.</p>
+        
+        <li>
+
+          <!-- <h3 class="govuk-prototype-kit-task-list__section">Eligibility and consent</h3> -->
+
+          <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0 govuk-!-margin-bottom-0">
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../add-an-applicant/search-applicant--male.html" aria-describedby="read-declaration-status">
+                  Add an applicant
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../eligibility-checker/eligibility-success.html" aria-describedby="read-declaration-status">
+                  Check eligibility for CAS-2
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
+            </li>
+            
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../consent/all-in-one.html" aria-describedby="read-declaration-status">
+                  Confirm consent to share information
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ol>
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <ol class="govuk-prototype-kit-task-list">
+
+        <h2 class="govuk-prototype-kit-task-list__section govuk-!-font-size-27">
+          Complete application
+        </h2>
+  
+        <p class="govuk-body">Review each of the following sections, checking the information is accurate and relevant.<br>You can do this at any time.</p>
+
+        <li>
+
+          <h3 class="govuk-prototype-kit-task-list__section">
+            About Terry Midhurst
+          </h3>
+
+          <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0 govuk-!-margin-bottom-0">
+
+            <!-- <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
+                  Confirm ID documents
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li> -->
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../equality-diversity/equality-diversity-opt-in.html" aria-describedby="read-declaration-status">
+                  Complete Equality and Diversity Monitoring
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../address-history/address-history-manual-v2-1.html" aria-describedby="read-declaration-status">
+                  Review address history
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
+                  Enter Community supervision and HDC licence conditions
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+          </ul>
+
+        </li>
+
+        <li>
+
+          <h3 class="govuk-prototype-kit-task-list__section">Area and funding</h3>
+
+          <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0 govuk-!-margin-bottom-0">
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../area/family.html" aria-describedby="read-declaration-status">
+                  Add preferred areas of accommodation
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
+                  Add funding information for CAS-2 placement
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+          </ul>
+
+        </li>
+
+        <li>
+
+          <h3 class="govuk-prototype-kit-task-list__section">
+            Risks and needs for Terry Midhurst
+          </h3>
+
+          <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0">
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
+                  Review offending history
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
+                  Enter current offence information
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../risks-and-needs/rosh/oasys-info" aria-describedby="read-declaration-status">
+                  Review Risk of Serious Harm (RoSH) summary
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../risks-and-needs/risk-to-self/v4/oasys-info-2.html" aria-describedby="read-declaration-status">
+                  Review Risk to Self summary
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+            <!-- <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../risks-and-needs/prison-information/prison-case-notes" aria-describedby="read-declaration-status">
+                  Select relevant prison information
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li> -->
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../risks-and-needs/health-needs/v3/health-guidance" aria-describedby="read-declaration-status">
+                  Enter health needs
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
+                  Enter gang affiliations
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Not started</strong>
+            </li>
+            
+          </ul>
+
+        </li>
+
+      </ol>
+
+      <!-- <hr class="govuk-section-break govuk-section-break--s "> -->
+
+      <ol class="govuk-prototype-kit-task-list">
+
+        <li>
+
+          <h2 class="govuk-prototype-kit-task-list__section govuk-!-font-size-27">
+            Before you send
+          </h2>
+
+          <ul class="govuk-prototype-kit-task-list__items govuk-!-padding-0">
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../check-answers.html" aria-describedby="read-declaration-status">
+                  Check your answers
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag govuk-tag--grey">Cannot start yet</strong>
+            </li>
+        
+          </ul>
+        </li>
+      </ol>
+
+      <form action="" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Submit application",
+          href: "submission-confirmed",
+          disabled: true
+        }) }}
+
+      </form>
+
+    </div>
+
+    <!-- Sidebar -->
+    <!-- <div class="govuk-grid-column-one-third govuk-!-padding-left-8">
+
+      <h3 class="govuk-heading-m">Recent activity</h3>
+      <ul class="govuk-list">
+
+        <li>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">17/01/2023 12:32pm</h4>
+          <p class="govuk-body" style="color: #505a5f;">Sally Fish made updates to "Enter health needs"</p>
+        </li>
+
+        <li>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">15/01/2023 09:12am</h4>
+          <p class="govuk-body" style="color: #505a5f;">Jack Chop made updates to "Add preferred CAS-2 area"</p>
+        </li>
+
+        <li>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">15/01/2023 15:22pm</h4>
+          <p class="govuk-body" style="color: #505a5f;">Jack Chop made updates to "Obtain applicant consent"</p>
+        </li>
+
+      </ul>
+
+    </div> -->
+    <!-- <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Inviting people to contribute to this application.</h3>
+      <p class="govuk-body">You can invite other contributors to complete parts of this application, but all sections must be completed before you can submit.</p>
+
+      {{ govukButton({
+        text: "Invite a contributor",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div> -->
+
+  </div>
+
+{% endblock %}
