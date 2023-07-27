@@ -86,15 +86,16 @@
         iconFallbackText: "Warning"
       }) }}
 
-      <form action="eligibility-success" method="post" novalidate>
+      <form action="" method="post" novalidate>
 
         {{ govukButton({
-          text: "Continue"
+          text: "Continue",
+          href: "eligibility-flat"
         }) }}
 
       </form>
 
-      <a href="#" class="govuk-link govuk-link--no-visited-state">Search for a different applicant.</a>
+      <a href="search-applicant" class="govuk-link govuk-link--no-visited-state">Search for a different applicant</a>
 
     </div>
   </div>
