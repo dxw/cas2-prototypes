@@ -34,23 +34,21 @@
 
       <form class="form" action="" method="post">
 
-        <div class="govuk-panel govuk-!-margin-bottom-9 govuk-panel--fail" style="background-color: #d4351c; color: #ffffff;">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9" style="">
           <h1 class="govuk-panel__title">
-            Terry Midhurst has not given consent
+            Terry Midhurst has provided consent
           </h1>
         </div>
 
-        <!-- <p class="govuk-body-l"><strong>Terry Midhurst</strong> has not consented to their data being shared with Nacro.</p> -->
-        <p class="govuk-body-l">This means their application for CAS-2 housing cannot proceed.</p>
+        <p class="govuk-body-l"><strong>Terry Midhurst</strong> provided consent to their data being shared with Nacro on {consent-date}.</p>
 
         <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible ">
 
         <h2 class="govuk-heading-m">What happens next?</h2>
-        <p class="govuk-body-m">You can return to the applicant and explain that their consent is required if they want to apply for CAS-2. <strong>If they change their mind</strong>, select ‘Change consent answer to update and proceed.</p>
-        <p class="govuk-body-m">Nacro is governed by the General Data Protection Regulation and also its own <a href="https://www.nacro.org.uk/about-us/policies-and-procedures/privacy-policy/">privacy policy</a>.</p>
-        <p class="govuk-body-m">The applicant’s original reason for refusing consent is stated as follows:</p>
+        <p class="govuk-body-m">Continue on to work through the tasklist, making sure to add up to date, relevant information where appropriate.</p>
+        <p class="govuk-body-m">When you are ready, submit the application to Nacro.</p>
           
-        {{ govukTextarea({
+        <!-- {{ govukTextarea({
           name: "refusal-reason",
           id: "refusal-reason",
           classes: "padded-box govuk-!-margin-bottom-5",
@@ -61,12 +59,13 @@
             classes: "govuk-label--s",
             isPageHeading: false
           }
-        }) }}
+        }) }} -->
 
-        <div class="govuk-button-group">
+        <div class="govuk-button-group govuk-!-margin-top-5">
           
           {{ govukButton({
-            text: "Search for a different applicant"
+            text: "Continue",
+            href: "../tasklists/tasklist"
           }) }}
 
           {{ govukButton({

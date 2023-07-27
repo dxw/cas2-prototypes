@@ -33,12 +33,12 @@
     <form action="" method="post" validate>
       {{ govukInput({
         label: {
-          text: "Enter the CRN number for the applicant",
+          text: "Search for an applicant",
           isPageHeading: true,
           classes: "govuk-label--l"
         },
         hint: {
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          text: "Enter the CRN or p-Nomis number for the applicant."
         },
         classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
         id: "applicant-crn",
@@ -46,7 +46,7 @@
       }) }}
 
       {{ govukButton({
-        text: "Search",
+        text: "Search for applicant",
         href: "confirm-applicant--male"
       }) }}
     </form>

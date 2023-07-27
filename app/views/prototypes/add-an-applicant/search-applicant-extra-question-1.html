@@ -77,6 +77,7 @@
 
       {{ govukRadios({
         name: "applicant-mobile",
+        value: data['applicant-mobile'],
         fieldset: {
           legend: {
             text: "Does the applicant have a working mobile phone?",
@@ -108,7 +109,7 @@
 
       {{ govukButton({
         text: "Save and continue",
-        href: "../tasklists/tasklist-without-required-tasks"
+        href: "../eligibility-checker/eligibility-flat"
       }) }}
 
     </form>

@@ -124,7 +124,7 @@ router.post('/prototypes/consent/all-in-one', function(request, response) {
 
   var consentAnswer = request.session.data['consent-answer']
   if (consentAnswer == "yes"){
-      response.redirect("/prototypes/tasklists/tasklist")
+      response.redirect("/prototypes/consent/consent-given")
   } else {
       response.redirect("/prototypes/consent/consent-refused")
   }
@@ -186,7 +186,7 @@ router.post('/prototypes/eligibility-checker/eligibility-flat', function(request
 
   var previousAddressAnswer = request.session.data['eligibility-check']
   if (previousAddressAnswer == "yes"){
-      response.redirect("/prototypes/tasklists/tasklist")
+      response.redirect("/prototypes/tasklists/tasklist-without-required-tasks")
   } else {
       response.redirect("/prototypes/eligibility-checker/eligibility-fail")
   }

@@ -104,6 +104,7 @@
 
             {{ govukDateInput({
             id: "consent-date",
+            value: data['consent-date'],
             namePrefix: "consent-date",
             fieldset: {
                 legend: {
@@ -124,6 +125,7 @@
             {{ govukTextarea({
             name: "consent-refused",
             id: "consent-refused",
+            value: data['consent-refused'],
             label: {
                 text: "Why was consent refused?",
                 classes: "govuk-label--s",
@@ -136,6 +138,7 @@
         <!-- Answer options for question -->
         {{ govukRadios({
           name: "consent-answer",
+          value: data['consent-answer'],
           fieldset: {
             legend: {
               text: "Does Terry Midhurst consent to sharing their data with Nacro to apply for accommodation?",
