@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <div class="govuk-panel govuk-!-margin-bottom-9 govuk-panel--fail" style="background-color: #d4351c; color: #ffffff;">
+        <h1 class="govuk-panel__title">
+          Terry Midhurst is not eligible for CAS-2 accommodation
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-l">What to do next</h2>
+    
+      <p class="govuk-body">The COM (Community Offender Manager) should refer the applicant to the regional Commissioned Rehabilitative Services provider (Accommodation contractor for men or Women’s Services contractor for women).</p>
+
+      <div class="govuk-button-group govuk-!-margin-top-5">
+        
+        {{ govukButton({
+          text: "Search for a different applicant",
+          href: "search-applicant"
+        }) }}
+
+        {{ govukButton({
+          text: "Change eligibility answer",
+          href: "eligibility-flat",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

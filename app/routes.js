@@ -180,3 +180,14 @@ router.post('/prototypes/risks-and-needs/risk-to-self/v4/oasys-not-available', f
       response.redirect("/prototypes/tasklists/tasklist")
   }
 })
+
+// Eligibility routing
+router.post('/prototypes/eligibility-checker/eligibility-flat', function(request, response) {
+
+  var previousAddressAnswer = request.session.data['eligibility-check']
+  if (previousAddressAnswer == "yes"){
+      response.redirect("/prototypes/tasklists/tasklist")
+  } else {
+      response.redirect("/prototypes/eligibility-checker/eligibility-fail")
+  }
+})

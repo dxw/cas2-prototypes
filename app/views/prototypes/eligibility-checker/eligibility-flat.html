@@ -52,21 +52,45 @@
         <li>if a Home Detention Curfew (HDC) applicant, not be currently in prison having been recalled for failing to comply with HDC curfew conditions</li>
       </ul>
 
-      <div class="govuk-!-margin-top-7">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+      <form action="" method="post" novalidate>
         
-          <label class="govuk-label govuk-checkboxes__label govuk-!-font-weight-bold" for="nationality">
-            I confirm Terry Midhurst meets all requirements and is eligible for CAS-2. 
-          </label>
+        <div class="govuk-!-margin-top-7">
+          <!-- <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+          
+            <label class="govuk-label govuk-checkboxes__label govuk-!-font-weight-bold" for="nationality">
+              I confirm Terry Midhurst meets all requirements and is eligible for CAS-2. 
+            </label>
+          </div> -->
+
+          {{ govukRadios({
+            name: "eligibility-check",
+            value: data['eligibility-check'],
+            fieldset: {
+              legend: {
+                text: "Is Terry Midhurst eligibile for CAS-2?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, I confirm Terry Midhurst is eligible for CAS-2 Accommodation"
+              },
+              {
+                value: "no",
+                text: "No, Terry Midhurst is not eligible for CAS-2 Accommodation"
+              }
+            ]
+          }) }}
         </div>
-      </div>
-    
-      {{ govukButton({
-        text: "Save and continue",
-        href: "../tasklists/tasklist",
-        classes: "govuk-!-margin-top-7"
-      }) }}
+      
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
 
     </div>
   </div>
