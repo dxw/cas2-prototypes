@@ -41,13 +41,13 @@
         </div>
 
         <h2 class="govuk-heading-l">Eligibility summary</h2>
-        <p class="govuk-body">Applicants who fail to meet any of the following requirements are not CAS-2 eligible, meaning you cannot submit an application on their behalf. Please check carefully.</p>
+        <p class="govuk-body">Applicants must meet all requirements to be eligible for Short-Term Accommodation (CAS-2). Check carefully before starting Terry Midhurst's application.</p>
         
         {% from "govuk/components/table/macro.njk" import govukTable %}
 
         {{ govukTable({
           classes: "govuk-!-margin-top-6 govuk-!-margin-bottom-8",
-          caption: "Criteria",
+          caption: "Short-Term Accommodation (CAS-2) requirement",
           captionClasses: "govuk-table__caption--m",
           firstCellIsHeader: true,
           head: [
@@ -63,7 +63,7 @@
           rows: [
             [
               {
-                text: "Applicant is over 18 years old"
+                text: "Applicant is 18 years old or over"
               },
               {
                 html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
@@ -95,7 +95,7 @@
             ],
             [
               {
-                text: "Applicant has not breached immigration law other than over staying on approved period of leave to enter or remain in UK, or has no recourse to public funds"
+                text: "Applicant has not breached immigration law other than over staying on approved period of leave to enter or remain in UK"
               },
               {
                 html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
@@ -103,7 +103,15 @@
             ],
             [
               {
-                text: "HDC applicant is currently not in prison having been recalled for failing to comply with HDC curfew conditions"
+                text: "Applicant does not have the 'no recourse to public funds' (NRPF) condition applied to their permission to enter or remain in the UK"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
+              }
+            ],
+            [
+              {
+                text: "HDC applicant is currently not in prison having been recalled for failing to comply with HDC licence conditions"
               },
               {
                 html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
@@ -112,7 +120,7 @@
           ]
         }) }}
 
-        <p class="govuk-body">You can now start the CAS-2 application process on behalf of this applicant.</p>
+        <p class="govuk-body">If Terry Midhurst meets all the requirements, you can start the application process on their behalf.</p>
 
         {{ govukButton({
           text: "Continue"
