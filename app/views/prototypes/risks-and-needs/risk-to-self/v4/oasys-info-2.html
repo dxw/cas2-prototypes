@@ -28,31 +28,39 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
 
-    <h1 class="govuk-heading-l">
-      Import data from OASys
-    </h1>
+    <span class="govuk-caption-m">Risk to self for Terry Midhurst</span>
+      <h1 class="govuk-heading-l">
+      Copy risk to self data from OASys
+      </h1>
 
     <p class="govuk-body">
-      Where possible, information from an OASys record can be automatically added to help answer some of the following questions.
+      There is OASys information you can copy to complete this section.
     </p>
 
     <p class="govuk-body">
-      Text that comes from the OASys can be edited. It's important to remove any sensitive information such as names and addresses.
+      You can edit the information. Changes made will not affect the OASys record.
     </p>
 
-    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+    <!-- {% from "govuk/components/inset-text/macro.njk" import govukInsetText %} -->
 
-    {{ govukInsetText({
+    <!-- {{ govukInsetText({
       html: "It is important that all recent <strong>live risk</strong> information is added to the application."
-    }) }}
+    }) }} -->
+
+    {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "You must include all current risk information in your answers. Remove sensitive information, such as names and addresses.",
+  iconFallbackText: "Warning"
+}) }}
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     <div class="import-info govuk-!-margin-bottom-7">
-      <h2 class="govuk-heading-m">OASys information available for Terry Midhurst</h2>
+      <h2 class="govuk-heading-m">OASys record available for Terry Midhurst</h2>
 
-      <p class="govuk-!-margin-bottom-1">Imported date: <strong> 26th July 2023 </strong></p>
-      <p class="govuk-!-margin-bottom-1">Last updated: <strong> 9th January 2023</strong></p>
+      <p class="govuk-!-margin-bottom-1">Date created: <strong> 26 July 2022 </strong></p>
+      <p class="govuk-!-margin-bottom-1">Last updated: <strong> 9 January 2023</strong></p>
       <p class="govuk-!-margin-bottom-1">OASys level: <strong> Layer 3</strong></p>
     </div>
     
@@ -62,7 +70,7 @@
         name: "oasys-prepopulate",
         fieldset: {
           legend: {
-            text: "Would you like to pre-populate some answers with this OASys?",
+            text: "Do you want to copy risk to self data from OASys?",
             isPageHeading: false,
             classes: "govuk-fieldset__legend--m"
           }
@@ -70,7 +78,7 @@
         items: [
           {
             value: "yes",
-            text: "Yes, I would like to use the OASys record to pre-populate answers"
+            text: "Yes, pre-populate the answers with OASys data"
           },
           {
             value: "no",
