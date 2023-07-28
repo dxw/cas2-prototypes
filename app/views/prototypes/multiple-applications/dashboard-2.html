@@ -32,7 +32,7 @@
 
     {% set currentApplicationsHTML %}
 
-      <h2 class="govuk-heading-m">Current Applications</h2>
+      <h2 class="govuk-heading-m">In progress</h2>
 
       {{ govukTable({
         attributes: {
@@ -153,7 +153,7 @@
 
     {% set submittedApplicationsHTML %}
 
-    <h2 class="govuk-heading-m">Submitted Applications</h2>
+    <h2 class="govuk-heading-m">Submitted</h2>
 
       {{ govukTable({
         attributes: {
@@ -176,7 +176,7 @@
             format: "numeric"
           },
           {
-            text: "Submission date",
+            text: "Date submitted",
             attributes: {
               "aria-sort": "descending"
             }
@@ -275,7 +275,7 @@
     {{ govukTabs({
       items: [
         {
-          label: "Applications",
+          label: "In progress",
           id: "current-applications",
           panel: {
             html: currentApplicationsHTML
