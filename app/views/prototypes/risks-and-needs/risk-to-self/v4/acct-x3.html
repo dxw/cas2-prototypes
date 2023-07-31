@@ -236,10 +236,16 @@
 
         <br>
 
-        {{ govukButton({
-          text: "Save and continue",
-          href: "current"
-        }) }}
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "current"
+          }) }}
+  
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+        </div>
 
       </form>
 
