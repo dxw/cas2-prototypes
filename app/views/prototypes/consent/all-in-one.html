@@ -108,7 +108,7 @@
             namePrefix: "consent-date",
             fieldset: {
                 legend: {
-                    text: "What date did they provide consent?",
+                    text: "When did they give consent?",
                     classes: "govuk-label--s"
                 }
             },
@@ -149,14 +149,14 @@
           items: [
             {
               value: "yes",
-              text: "Yes",
+              text: "Yes, Terry Midhurst has given their consent",
               conditional: {
                 html: yesHtml
               }
             },
             {
             value: "no",
-            text: "No",
+            text: "No, Terry Midhurst has not given their consent",
             conditional: {
                 html: noHtml
             }
