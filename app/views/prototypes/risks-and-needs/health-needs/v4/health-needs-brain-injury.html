@@ -1,0 +1,264 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs</h1>
+      <!-- <p class="govuk-body-l">Enter information gathered from health teams in the relevant sections.</p> -->
+      <a href="health-guidance" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">Who do I need to contact for health care information?</a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
+          },
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
+          }, 
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Brain Injury and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html',
+            active: true
+          },
+          {
+            text: 'Other health',
+            href: 'health-needs-other.html'
+          }
+        ]
+      }) }}
+
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Brain injury</h2>
+        <p class="govuk-m">This could be as a result of accident, drug and alcohol use or an inherited condition.</p>
+
+        <!---------------------------- Brain injury needs ---------------------------->
+        {% set brainInjuryNeedsHTML %}
+
+        {{ govukTextarea({
+          name: "health-brain-injury-needs",
+          id: "health-brain-injury-needs",
+          label: {
+            text: "Please describe their brain injury and needs.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-brain-injury-needs-radio",
+        fieldset: {
+        legend: {
+          text: "Do they have a brain injury?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: brainInjuryNeedsHTML
+          }
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+        }) }}
+
+        <!---------------------------- Brain Injury vulnerability needs ---------------------------->
+        {% set brainInjuryVulnerabilityHTML %}
+
+        {{ govukTextarea({
+          name: "health-brain-injury-needs-vulnerability",
+          id: "health-brain-injury-needs-vulnerability",
+          label: {
+            text: "Please describe their level of vulnerability.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-brain-injury-needs-vulnerability-radio",
+        fieldset: {
+        legend: {
+          text: "Are they vulnerable as a result of this injury?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: brainInjuryVulnerabilityHTML
+          }
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+        }) }}
+
+        <!---------------------------- Brain Injury interaction needs ---------------------------->
+        {% set brainInjuryInteractionHTML %}
+
+        {{ govukTextarea({
+          name: "health-brain-injury-needs-interaction",
+          id: "health-brain-injury-needs-interaction",
+          label: {
+            text: "Please describe these difficulties.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-brain-injury-needs-interaction-radio",
+        fieldset: {
+        legend: {
+          text: "Do they have difficulties interacting with other people as a result of this injury?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: brainInjuryInteractionHTML
+          }
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+        }) }}
+
+        <!---------------------------- Brain Injury support needs ---------------------------->
+        {% set brainInjurySupportHTML %}
+
+        {{ govukTextarea({
+          name: "health-brain-injury-needs-support",
+          id: "health-brain-injury-needs-support",
+          label: {
+            text: "Please describe the type of support.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-brain-injury-needs-support-radio",
+        fieldset: {
+        legend: {
+          text: "Is additonal support required?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: brainInjurySupportHTML
+          }
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "health-needs-other"
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,256 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs</h1>
+      <!-- <p class="govuk-body-l">Enter information gathered from health teams in the relevant sections.</p> -->
+      <a href="health-guidance" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">Who do I need to contact for health care information?</a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
+          },
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html',
+            active: true
+          }, 
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Other health',
+            href: 'health-needs-other.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Mental health</h2>
+
+        <!---------------------------- Mental health needs ---------------------------->
+        {% set mentalNeedsHTML %}
+
+          {{ govukTextarea({
+            name: "health-mental-needs",
+            id: "health-mental-needs",
+            label: {
+              text: "Please describe their mental health needs.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "health-mental-needs-radio",
+          fieldset: {
+            legend: {
+              text: "Do they have any mental health needs?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: mentalNeedsHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <!---------------------------- Mental health services ---------------------------->
+        {% set mentalNeedsServicesHTML %}
+
+          {{ govukTextarea({
+            name: "health-mental-needs-services",
+            id: "health-mental-needs-services",
+            label: {
+              text: "Please state which services.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "health-mental-needs-services-radio",
+          fieldset: {
+            legend: {
+              text: "Are they engaged with any community mental health services?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: mentalNeedsServicesHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <!---------------------------- Mental health medication ---------------------------->
+        {% set mentalNeedsMedicationHTML %}
+
+          {{ govukRadios({
+            name: "health-mental-needs-medication-possession",
+            classes: "govuk-radios--inline",
+            fieldset: {
+              legend: {
+                text: "Are they in possession of their medication?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-mental-needs-medication",
+            id: "health-mental-needs-medication",
+            label: {
+              text: "Please list any medications.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-mental-needs-medication-issues",
+            id: "health-mental-needs-medication-issues",
+            label: {
+              text: "Please list any issues they have with taking their medication",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+          
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-mental-needs-medication-radio",
+        fieldset: {
+          legend: {
+            text: "Are they prescribed any medication for their mental health?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: mentalNeedsMedicationHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "health-needs-communication"
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

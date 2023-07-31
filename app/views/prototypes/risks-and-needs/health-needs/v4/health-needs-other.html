@@ -1,0 +1,234 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs</h1>
+      <!-- <p class="govuk-body-l">Enter information gathered from health teams in the relevant sections.</p> -->
+      <a href="health-guidance" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">Who do I need to contact for health care information?</a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
+          },
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
+          }, 
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Other health',
+            href: 'health-needs-other.html',
+            active: true
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Other health needs</h2>
+
+        <!---------------------------- Other health needs ---------------------------->
+        {% set otherHealthNeedsHTML %}
+
+          {{ govukTextarea({
+            name: "health-other-needs-longterm",
+            id: "health-other-needs-longterm",
+            label: {
+              text: "Please describe the long term health conditions.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukRadios({
+            name: "health-other-needs-stroke-radio",
+            classes: "govuk-radios--inline",
+            fieldset: {
+              legend: {
+                text: "Have they experienced a stroke?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "health-other-needs-radio",
+          hint: {
+            text: "For example, diabetes, arthritis or high blood pressure."
+          },
+          fieldset: {
+            legend: {
+              text: "Are they managing any long term health conditions?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: otherHealthNeedsHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+        }) }}
+
+        <!---------------------------- Other health needs Seizure ---------------------------->
+        {% set otherHealthNeedsSeizureHTML %}
+
+        {{ govukTextarea({
+          name: "health-other-needs-seizure",
+          id: "health-other-needs-seizure",
+          label: {
+            text: "Please describe the type and any treatment.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-other-needs-seizure-radio",
+        fieldset: {
+          legend: {
+            text: "Do they experience seizures?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: otherHealthNeedsSeizureHTML
+          }
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+        }) }}
+
+        <!---------------------------- Other health needs Cancer ---------------------------->
+        {{ govukRadios({
+          name: "health-other-needs-cancer-radio",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+              text: "Are they currently recieving regular treatment for cancer?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "health-needs-substance"
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

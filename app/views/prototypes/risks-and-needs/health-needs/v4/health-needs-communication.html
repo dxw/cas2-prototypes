@@ -1,0 +1,225 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs</h1>
+      <!-- <p class="govuk-body-l">Enter information gathered from health teams in the relevant sections.</p> -->
+      <a href="health-guidance" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">Who do I need to contact for health care information?</a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
+          },
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html'
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
+          }, 
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html',
+            active: true
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Other health',
+            href: 'health-needs-other.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Communications needs</h2>
+
+        <!---------------------------- Communication needs ---------------------------->
+        {% set communicationNeedsHTML %}
+
+          {{ govukTextarea({
+            name: "health-communication-needs",
+            id: "health-communication-needs",
+            label: {
+              text: "Please describe their needs.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-communication-needs-radio",
+        fieldset: {
+          legend: {
+            text: "Do they have any additional communication needs?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: communicationNeedsHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+        }) }}
+
+        <!---------------------------- Interpreter needs ---------------------------->
+        {% set communicationNeedsHTML %}
+
+          {{ govukInput({
+            name: "health-interpreter-needs",
+            id: "health-interpreter-needs",
+            label: {
+              text: "What language do they need an interpreter for?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-interpreter-needs-radio",
+        fieldset: {
+          legend: {
+            text: "Do they need an interpreter?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: communicationNeedsHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+        }) }}
+
+        <!---------------------------- See, hear, speak, understand ---------------------------->
+        {% set communicationNeedsShsuHTML %}
+
+        {{ govukTextarea({
+          name: "health-communication-needs-shsu",
+          id: "health-communication-needs-shsu",
+          label: {
+            text: "Please describe their needs.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-communication-needs-shsu-radio",
+        fieldset: {
+        legend: {
+          text: "Do they need any support to see, hear, speak, or understand?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: communicationNeedsShsuHTML
+          }
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "health-needs-learning"
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

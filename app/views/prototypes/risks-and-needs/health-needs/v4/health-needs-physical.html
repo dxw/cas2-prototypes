@@ -1,0 +1,324 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs</h1>
+      <!-- <p class="govuk-body-l">Enter information gathered from health teams in the relevant sections.</p> -->
+      <a href="health-guidance" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">Who do I need to contact for health care information?</a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'Substance misuse',
+            href: 'health-needs-substance.html'
+          },
+          {
+            text: 'Physical health',
+            href: 'health-needs-physical.html',
+            active: true
+          }, 
+          {
+            text: 'Mental health',
+            href: 'health-needs-mental.html'
+          }, 
+          {
+            text: 'Communication needs',
+            href: 'health-needs-communication.html'
+          }, 
+          {
+            text: 'Learning difficulties and Neurodiversity',
+            href: 'health-needs-learning.html'
+          }, 
+          {
+            text: 'Brain injury',
+            href: 'health-needs-brain-injury.html'
+          },
+          {
+            text: 'Other health',
+            href: 'health-needs-other.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Physical health</h2>
+
+        <!---------------------------- Physical health needs ---------------------------->
+        {% set physicalNeedsHTML %}
+
+          {{ govukTextarea({
+            name: "health-physical-needs",
+            id: "health-physical-needs",
+            label: {
+              text: "Please describe their needs.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukRadios({
+            name: "health-physical-needs-medication-radio",
+            classes: "govuk-radios--inline",
+            fieldset: {
+              legend: {
+                text: "Can they climb stairs?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "health-physical-needs-radio",
+          fieldset: {
+            legend: {
+              text: "Do they have any physical health needs?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: physicalNeedsHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <!---------------------------- Physical health needs treatments ---------------------------->
+        {% set physicalNeedsTreatmentHTML %}
+
+          {{ govukTextarea({
+            name: "health-physical-needs-treatment",
+            id: "health-physical-needs-treatment",
+            label: {
+              text: "Please describe their treatment.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "health-physical-needs-treatment-radio",
+          fieldset: {
+            legend: {
+              text: "Are they currently receiving any medical treatment for their physical health needs?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: physicalNeedsTreatmentHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <!---------------------------- Physical health needs medications ---------------------------->
+        {% set physicalNeedsMedicationHTML %}
+
+        {{ govukTextarea({
+          name: "health-physical-needs-medication",
+          id: "health-physical-needs-medication",
+          label: {
+            text: "Please describe their medication.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-physical-needs-medication-radio",
+        fieldset: {
+          legend: {
+            text: "Are they currently receiving any medication for their physical health needs?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: physicalNeedsMedicationHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+        }) }}
+
+        <!---------------------------- Physical health needs independence ---------------------------->
+        {% set physicalNeedsIndependenceHTML %}
+
+        {{ govukTextarea({
+          name: "health-physical-needs-independence",
+          id: "health-physical-needs-independence",
+          label: {
+            text: "Please describe why they can't.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-physical-needs-independence-radio",
+        fieldset: {
+          legend: {
+            text: "Can they live independently?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No",
+            conditional: {
+              html: physicalNeedsIndependenceHTML
+            }
+          }
+        ]
+        }) }}
+
+        <!---------------------------- Physical health needs support ---------------------------->
+        {% set physicalNeedsSupportHTML %}
+
+        {{ govukTextarea({
+          name: "health-physical-needs-support",
+          id: "health-physical-needs-support",
+          label: {
+            text: "Please describe the types of support.",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "health-physical-needs-support-radio",
+        fieldset: {
+          legend: {
+            text: "Do they require any additional support?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No",
+            conditional: {
+              html: physicalNeedsSupportHTML
+            }
+          }
+        ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "health-needs-mental"
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
