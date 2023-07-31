@@ -186,7 +186,7 @@ router.post('/prototypes/eligibility-checker/eligibility-flat', function(request
 
   var previousAddressAnswer = request.session.data['eligibility-check']
   if (previousAddressAnswer == "yes"){
-      response.redirect("/prototypes/tasklists/tasklist-without-required-tasks")
+      response.redirect("/prototypes/eligibility-checker/eligibility-success")
   } else {
       response.redirect("/prototypes/eligibility-checker/eligibility-fail")
   }
