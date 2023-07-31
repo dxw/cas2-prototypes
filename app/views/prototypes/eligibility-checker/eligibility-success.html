@@ -32,7 +32,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form class="form" action="../prelude-tasklist/gathering-applicant-info" method="post">
+      <form class="form" action="" method="post">
 
         <div class="govuk-panel govuk-!-margin-bottom-9 govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
@@ -43,92 +43,40 @@
         <h2 class="govuk-heading-l">Eligibility summary</h2>
         <p class="govuk-body">Applicants must meet all requirements to be eligible for Short-Term Accommodation (CAS-2). Check carefully before starting Terry Midhurst's application.</p>
         
-        {% from "govuk/components/table/macro.njk" import govukTable %}
+        <p class="govuk-body">
+          The applicant must:
+        </p>
+  
+        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+          <li>be 18 years old or older</li>
+          <li>not be currently serving a sentence of 4 years or more for any offence</li>
+          <li>not be currently charged with, or have any past convictions of cautions, or current allegations of any sexual offences in Schedule 3 of the Sexual Offences Act 2003</li>
+          <li>not be assessed as high or very high risk of serious harm</li>
+          <li>not have breached immigration law (other than over staying on approved period of leave to enter or remain in UK)</li>
+          <li>not have the ‘no recourse to public funds’ (NRPF) condition applied to their permission to enter or stay in the UK</li>
+          <li>if a Home Detention Curfew (HDC) applicant, not be currently in prison having been recalled for failing to comply with HDC licence conditions</li>
+        </ul>
 
-        {{ govukTable({
-          classes: "govuk-!-margin-top-6 govuk-!-margin-bottom-8",
-          caption: "Short-Term Accommodation (CAS-2) requirement",
-          captionClasses: "govuk-table__caption--m",
-          firstCellIsHeader: true,
-          head: [
-            {
-              text: "Requirement",
-              classes: 'govuk-!-width-three-quarters'
-            },
-            {
-              text: "Status",
-              classes: 'govuk-!-width-one-quarter'
-            }
-          ],
-          rows: [
-            [
-              {
-                text: "Applicant is 18 years old or over"
-              },
-              {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
-              }
-            ],
-            [
-              {
-                text: "Applicant is not currently serving a sentence of 4 years or more for any offence"
-              },
-              {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
-              }
-            ],
-            [
-              {
-                text: "Applicant is not currently charged with, or has any past convictions or cautions, or current allegations of any sexual offences in Schedule 3 of the Sexual Offences Act 2003"
-              },
-              {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
-              }
-            ],
-            [
-              {
-                text: "Applicant is not assessed as high or very high risk of serious harm"
-              },
-              {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
-              }
-            ],
-            [
-              {
-                text: "Applicant has not breached immigration law other than over staying on approved period of leave to enter or remain in UK"
-              },
-              {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
-              }
-            ],
-            [
-              {
-                text: "Applicant does not have the 'no recourse to public funds' (NRPF) condition applied to their permission to enter or remain in the UK"
-              },
-              {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
-              }
-            ],
-            [
-              {
-                text: "HDC applicant is currently not in prison having been recalled for failing to comply with HDC licence conditions"
-              },
-              {
-                html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
-              }
-            ]
-          ]
-        }) }}
+        <!-- <p class="govuk-body">If Terry Midhurst meets all the requirements, you can start the application process on their behalf.</p> -->
 
-        <p class="govuk-body">If Terry Midhurst meets all the requirements, you can start the application process on their behalf.</p>
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        <div class="govuk-button-group govuk-!-margin-top-5">
+        
+          {{ govukButton({
+            text: "Continue",
+            href: "../tasklists/tasklist"
+          }) }}
+  
+          {{ govukButton({
+            text: "Change eligibility answer",
+            href: "eligibility-flat",
+            classes: "govuk-button--secondary"
+          }) }}
+  
+        </div>
 
       </form>
 
-      <a href="#" class="govuk-link govuk-link--no-visited-state">Search for a different applicant.</a>
+      <!-- <a href="#" class="govuk-link govuk-link--no-visited-state">Search for a different applicant.</a> -->
 
     </div>
   </div>
