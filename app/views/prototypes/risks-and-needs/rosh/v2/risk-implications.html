@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="" method="post">
+
+        <span class="govuk-caption-m">RoSH for Terry Midhurst</span>
+
+        {{ govukTextarea({
+          name: "risk-implications",
+          id: "risk-implications",
+          label: {
+            text: "Is there any other information to add?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Record any other risk-related information you feel is relevant to this application."
+          }
+        }) }}
+
+        {{ govukButton({
+          id: "button-save-and-continue",
+          text: "Save and complete section",
+          class: "govuk-button--disabled",
+          href: "../../../tasklists/tasklist",
+          disabled: false
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
