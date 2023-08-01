@@ -56,8 +56,11 @@
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
         <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
 
-        {{ govukInsetText({
-          text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys."
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        {{ govukWarningText({
+          text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys.",
+          iconFallbackText: "Warning"
         }) }}
 
         <!-- Answer options for question -->
