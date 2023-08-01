@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="" method="post">
+
+        <span class="govuk-caption-m">RoSH for Terry Midhurst</span>
+
+        {{ govukTextarea({
+          name: "oasys-textarea",
+          id: "oasys-textarea",
+          classes: "oasys-textarea",
+          disabled: true,
+          rows: "10",
+          value: "Lengthy gap between convictions for violent offences. No history of aggressive behaviour in custody; level of violence deployed in current offence was significant and could have resulted in more serious injuries. If he is in need of drugs or feels wronged, there is no telling how he will behave despite stated motivation to avoid such behaviour in the future and address his drug use.",
+          label: {
+            text: "When is the risk likely to be greatest?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: { 
+            text: "Consider the timescale and indicate whether risk is immediate or not."
+          }
+        }) }}
+
+        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
+        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+
+        {{ govukInsetText({
+          text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys."
+        }) }}
+
+        <!-- Answer options for question -->
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "oasys-edit",
+          fieldset: {
+          },
+          items: [
+            {
+              value: "up-to-date",
+              id: "up-to-date",
+              text: "I confirm this information is relevant."
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          id: "button-save-and-continue",
+          text: "Save and continue",
+          class: "govuk-button--disabled",
+          href: "increased-risk",
+          disabled: true
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
