@@ -1,0 +1,168 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-4">
+    <div class="govuk-grid-column-full">
+
+      <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
+      <h1 class="govuk-heading-l">RoSH for Terry Midhurst</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'About the risk',
+            href: 'rosh-about.html',
+            active: true
+          },
+          {
+            text: 'Risk factors',
+            href: 'rosh-factors.html'
+          },
+          {
+            text: 'Risk circumstances',
+            href: 'rosh-circumstances.html'
+          },
+          {
+            text: 'Risk management arrangements',
+            href: 'rosh-arrangements.html'
+          },
+          {
+            text: 'Cell share information',
+            href: 'rosh-cell-share.html'
+          },
+          {
+            text: 'Prison notes',
+            href: 'rosh-prison-notes.html'
+          },
+          {
+            text: 'Additional information',
+            href: 'rosh-additional-info.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <!-- <h2 class="govuk-heading-m">Risk factors</h2> -->
+
+        <!---------------------------- Who is at risk ---------------------------->
+        {{ govukTextarea({
+          name: "oasys-textarea",
+          id: "oasys-textarea",
+          classes: "oasys-textarea",
+          disabled: true,
+          rows: "10",
+          value: "Male whome Mr Midhurst believes have wronged him, or strangers with whom he gets into altercations. The wounding offence was committed 17 years ago in 1998. More recent offence of Affray in 2004. On both occasions were male strangers in pubs.",
+          label: {
+            text: "Who is at risk?",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          }
+        }) }}
+
+        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
+        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+
+        <!---------------------------- Nature of risk ---------------------------->
+        {{ govukTextarea({
+          name: "oasys-textarea",
+          id: "oasys-textarea",
+          classes: "oasys-textarea",
+          disabled: true,
+          rows: "10",
+          value: "Violence against others. This includes threats, plotting of attacks and actual physical harm, both premeditated and unplanned.",
+          label: {
+            text: "What is the nature of the risk?",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          }
+        }) }}
+
+        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
+        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        {{ govukWarningText({
+          text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        <!-- Answer options for question -->
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "oasys-edit",
+          fieldset: {
+          },
+          items: [
+            {
+              value: "up-to-date",
+              id: "up-to-date",
+              text: "I confirm this information is relevant."
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            id: "button-save-and-continue",
+            text: "Save and continue",
+            class: "govuk-button--disabled",
+            href: "#",
+            disabled: true
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div> 
+
+      </form>
+
+    </div>
+    
+  </div>
+
+{% endblock %}
