@@ -18,20 +18,20 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
-      <h1 class="govuk-heading-l">Add a prison case note</h1>
-      <p class="govuk-body-l">Guidance about where this information can be found ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <span class="govuk-caption-m">RoSH for Terry Midhurst</span>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Add Cell Share information</h1>
+      <p class="govuk-body-m">Guidance about where this information can be found ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 
-      <hr class="govuk-section-break govuk-section-break--s">
+      <hr class="govuk-section-break govuk-section-break--m">
 
-      <form class="form" action="../v4/prison-note-x3" method="post">
+      <form class="form" action="../v3/rosh-cell-share-x3" method="post">
 
         <!------------------------ Start date ------------------------>
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
         {{ govukDateInput({
-          id: "prison-note-start-date",
-          namePrefix: "prison-note-start-date",
+          id: "cell-share-start-date",
+          namePrefix: "cell-share-start-date",
           fieldset: {
             legend: {
               text: "When was the note created?",
@@ -45,8 +45,8 @@
         {% from "govuk/components/select/macro.njk" import govukSelect %}
 
         {{ govukSelect({
-          id: "prison-note-referring-institution",
-          name: "prison-note-referring-institution",
+          id: "cell-share-referring-institution",
+          name: "cell-share-referring-institution",
           label: {
             text: "Referring institution",
             classes: "govuk-label--m"
@@ -79,8 +79,8 @@
         {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
         {{ govukTextarea({
-          id: "prison-note-detail",
-          name: "prison-note-detail",
+          id: "cell-share-detail",
+          name: "cell-share-detail",
           rows: "10",
           label: {
             text: "Describe the prison case note",
@@ -101,7 +101,7 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and add prison case note"
+            text: "Save and add cell share information"
           }) }}
 
           <a class="govuk-link" href="#">Cancel</a>
