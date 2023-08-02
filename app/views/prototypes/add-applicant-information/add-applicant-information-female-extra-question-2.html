@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <span class="govuk-caption-m">Add an applicant</span>
+
+    <form action="" method="post" validate>
+
+      {% set supportWorkerPreferenceHTML %}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "applicant-support-preference",
+          fieldset: {
+            legend: {
+              text: "What is their preference?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "male",
+              text: "Male"
+            },
+            {
+              value: "female",
+              text: "Female"
+            }
+          ]
+        }) }}
+
+      {% endset -%}
+
+      {{ govukRadios({
+        classes: "",
+        name: "applicant-support-preference",
+        fieldset: {
+          legend: {
+            text: "Does the applicant have a preference on gender for their support worker?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: supportWorkerPreferenceHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "na",
+            text: "I don't know"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        href: "search-applicant-extra-question-1"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
