@@ -29,11 +29,11 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+  <div class="govuk-grid-row govuk-!-margin-bottom-4">
     <div class="govuk-grid-column-full">
 
-      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk to self</h1>
+      <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
+      <h1 class="govuk-heading-l">RoSH for Terry Midhurst</h1>
 
     </div>
   </div>
@@ -58,15 +58,15 @@
             </a>
           </li>
 
-          <li class="moj-side-navigation__item moj-side-navigation__item--active">
+          <li class="moj-side-navigation__item">
             <a href="historical.html">
               <!-- <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span> -->
               Historical risk
             </a>
           </li>
 
-          <li class="moj-side-navigation__item">
-            <a href="acct-x2.html">
+          <li class="moj-side-navigation__item ">
+            <a href="acct-x3.html">
               <!-- <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span> -->
               ACCT
             </a>
@@ -79,7 +79,7 @@
             </a>
           </li>
 
-          <li class="moj-side-navigation__item">
+          <li class="moj-side-navigation__item moj-side-navigation__item--active">
             <a href="additional-info.html">
               <!-- <span class="moj-badge moj-badge--red side-nav--status">Incomplete</span> -->
               Additional information
@@ -95,63 +95,20 @@
 
       <form class="form" action="" method="post">
 
-        <h2 class="govuk-heading-m">Historical risk</h2>
-        <div class="oasys-update govuk-!-margin-bottom-6">
-          <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 26th January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
-        </div>
+        <!-- <h2 class="govuk-heading-m">Risk factors</h2> -->
 
-        <!-- {{ govukInsetText({
-          text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys."
-        }) }} -->
-
-        <!---------------------------- Self harm ---------------------------->
+        <!---------------------------- Additional information ---------------------------->
         {{ govukTextarea({
-          name: "oasys-textarea",
-          id: "oasys-textarea",
-          classes: "oasys-textarea",
-          disabled: true,
-          rows: "10",
-          value: "Terry Midhurst has a history of self harm when not taking his medications or self-medicating with drugs and alcohol.",
+          name: "risk-implications",
+          id: "risk-implications",
           label: {
-            text: "Describe any previous issues and needs relating to Self Harm",
-            classes: "govuk-label--s",
+            text: "Is there any other information to add? (Optional)",
+            classes: "govuk-label--m",
             isPageHeading: false
-          }
-        }) }}
-
-        <div class="oasys-edit--container govuk-!-margin-bottom-3">
-          <p class="govuk-body last-edited govuk-!-margin-right-2">Last edited: 26/07/2023</p>
-          <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right">Edit text</a>
-          <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right govuk-!-display-none">Revert to original OASys</a>
-        </div>
-
-        <!---------------------------- Suicide ---------------------------->
-        {{ govukTextarea({
-          name: "oasys-textarea",
-          id: "oasys-textarea",
-          classes: "oasys-textarea",
-          rows: "10",
-          label: {
-            text: "Describe any previous issues and needs relating to Suicide",
-            classes: "govuk-label--s",
-            isPageHeading: false
-          }
-        }) }}
-
-        <!-- Answer options for question -->
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-        {{ govukCheckboxes({
-          name: "oasys-edit",
-          fieldset: {
           },
-          items: [
-            {
-              value: "up-to-date",
-              id: "up-to-date",
-              text: "I confirm this information is relevant."
-            }
-          ]
+          hint: {
+            text: "Record any other risk-related information you feel is relevant to this application."
+          }
         }) }}
 
         <div class="govuk-button-group">
@@ -159,18 +116,18 @@
           {{ govukButton({
             id: "button-save-and-continue",
             text: "Save and continue",
-            class: "govuk-button--disabled",
-            href: "acct-x2",
-            disabled: true
+            href: "#",
+            disabled: false
           }) }}
-  
+
           <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
-  
-        </div>
+
+        </div> 
 
       </form>
 
     </div>
+    
   </div>
 
 {% endblock %}
