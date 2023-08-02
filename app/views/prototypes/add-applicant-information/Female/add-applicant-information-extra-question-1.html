@@ -28,42 +28,59 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
 
-    <span class="govuk-caption-m">Add an applicant</span>
+    <span class="govuk-caption-m">Add Fiona Midhurst's information</span>
 
     <form action="" method="post" validate>
 
-      {% set supportWorkerPreferenceHTML %}
+      {% set mobileHTML %}
+
+        {{ govukInput({
+          id: "applicant-mobile-number",
+          name: "applicant-mobile-number",
+          type: "tel",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "What is the mobile number?",
+            classes: "govuk-label--m"
+          }
+        }) }}
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          name: "applicant-support-preference",
+          name: "applicant-smart-phone",
           fieldset: {
             legend: {
-              text: "What is their preference?",
-              isPageHeading: true,
+              text: "Is this mobile a smart phone?",
+              isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
             {
-              value: "male",
-              text: "Male"
+              value: "yes",
+              text: "Yes"
             },
             {
-              value: "female",
-              text: "Female"
+              value: "no",
+              text: "No"
             }
           ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What is a smart phone?",
+          text: "A mobile phone that allows the user to browse the Web, send and receive e-mail, view audio and video files, play games, read e-books, and access other computer applications, as well as to make phone calls.",
+          classes: "govuk-!-margin-top-3"
         }) }}
 
       {% endset -%}
 
       {{ govukRadios({
-        classes: "",
-        name: "applicant-support-preference",
+        name: "applicant-mobile",
+        value: data['applicant-mobile'],
         fieldset: {
           legend: {
-            text: "Does the applicant have a preference on gender for their support worker?",
+            text: "Does the applicant have a working mobile phone?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -73,7 +90,7 @@
             value: "yes",
             text: "Yes",
             conditional: {
-              html: supportWorkerPreferenceHTML
+              html: mobileHTML
             }
           },
           {
@@ -92,7 +109,7 @@
 
       {{ govukButton({
         text: "Save and continue",
-        href: "search-applicant-extra-question-1"
+        href: "add-applicant-information-female-extra-question-1"
       }) }}
 
     </form>
