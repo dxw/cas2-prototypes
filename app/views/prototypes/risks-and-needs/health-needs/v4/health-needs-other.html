@@ -32,8 +32,8 @@
   <div class="govuk-grid-row govuk-!-margin-bottom-8">
     <div class="govuk-grid-column-full">
 
-      <span class="govuk-caption-m">Health needs for Terry Midhurst</span>
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs</h1>
+      <!-- <span class="govuk-caption-m">Health needs for Terry Midhurst</span> -->
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs for Terry Midhurst</h1>
       <!-- <p class="govuk-body-l">Enter information gathered from health teams in the relevant sections.</p> -->
       <a href="health-guidance" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">Who do I need to contact for health care information?</a>
 
@@ -87,7 +87,7 @@
 
       <form class="form" action="" method="post">
 
-        <h2 class="govuk-heading-m">Other health needs</h2>
+        <!-- <h2 class="govuk-heading-m">Other health needs</h2> -->
 
         <!---------------------------- Other health needs ---------------------------->
         {% set otherHealthNeedsHTML %}
@@ -135,7 +135,7 @@
             legend: {
               text: "Are they managing any long term health conditions?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
+              classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
@@ -156,15 +156,15 @@
         <!---------------------------- Other health needs Seizure ---------------------------->
         {% set otherHealthNeedsSeizureHTML %}
 
-        {{ govukTextarea({
-          name: "health-other-needs-seizure",
-          id: "health-other-needs-seizure",
-          label: {
-            text: "Please describe the type and any treatment.",
-            classes: "govuk-label--s",
-            isPageHeading: false
-          }
-        }) }}
+          {{ govukTextarea({
+            name: "health-other-needs-seizure",
+            id: "health-other-needs-seizure",
+            label: {
+              text: "Please describe the type and any treatment.",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
 
         {% endset -%}
 
@@ -174,7 +174,7 @@
           legend: {
             text: "Do they experience seizures?",
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
+            classes: "govuk-fieldset__legend--m"
           }
         },
         items: [
@@ -200,7 +200,7 @@
             legend: {
               text: "Are they currently recieving regular treatment for cancer?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
+              classes: "govuk-fieldset__legend--m"
             }
           },
           items: [

@@ -32,8 +32,8 @@
   <div class="govuk-grid-row govuk-!-margin-bottom-8">
     <div class="govuk-grid-column-full">
 
-      <span class="govuk-caption-m">Health needs for Terry Midhurst</span>
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs</h1>
+      <!-- <span class="govuk-caption-m">Health needs for Terry Midhurst</span> -->
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Health needs for Terry Midhurst</h1>
       <!-- <p class="govuk-body-l">Enter information gathered from health teams in the relevant sections.</p> -->
       <a href="health-guidance" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">Who do I need to contact for health care information?</a>
 
@@ -86,7 +86,7 @@
 
       <form class="form" action="" method="post">
 
-        <h2 class="govuk-heading-m">Substance misuse</h2>
+        <!-- <h2 class="govuk-heading-m">Substance misuse</h2> -->
 
         <!---------------------------- Substance misuse ---------------------------->
         {% set substancesHTML %}
@@ -122,7 +122,7 @@
             legend: {
               text: "Do they take any illegal substances?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
+              classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
@@ -159,7 +159,7 @@
             legend: {
               text: "Are they engaged with a drug and alcohol service?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
+              classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
@@ -180,13 +180,13 @@
         <!---------------------------- Substitute medication ---------------------------->
         {% set substituteMedicationHTML %}
 
-        {{ govukInput({
-          label: {
-            text: "What substitute medication do they take?",
-            classes: "govuk-label--s",
-            isPageHeading: false
-          }
-        }) }}
+          {{ govukInput({
+            label: {
+              text: "What substitute medication do they take?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
 
         {% endset -%}
 
@@ -196,7 +196,7 @@
           legend: {
             text: "Do they require any substitute medication for misused substances?",
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
+            classes: "govuk-fieldset__legend--m"
           }
         },
         items: [
