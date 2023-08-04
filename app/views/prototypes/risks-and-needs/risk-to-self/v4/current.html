@@ -103,10 +103,15 @@
           rows: "10",
           value: "Terry Midhurst has a history of self harm when not taking his medications or self-medicating with drugs and alcohol.",
           label: {
-            text: "Describe any current issues and needs relating to Self Harm",
+            text: "Describe Terry Midhurst's current self harm issues and needs",
             classes: "govuk-label--m",
             isPageHeading: false
-          }
+          },
+          hint: {
+            text: "Include all current risk information and remove sensitive information, such as names and addresses."
+          },
+          id: "event-name",
+          name: "event-name"
         }) }}
 
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
@@ -121,19 +126,30 @@
           rows: "10",
           value: "Mr Midhurst has made several attempts to kill himself, and has stated he may try again in future should the opportunity arise. He has stated he wishes to hang himself rather than die from cutting, so needs housing which reduces ease of this and regular meetings with case worker and counsellor.",
           label: {
-            text: "Describe any current issues and needs relating to Suicide",
+            text: "Describe Terry Midhurst's current suicide issues and needs",
             classes: "govuk-label--m",
             isPageHeading: false
-          }
+          },
+          hint: {
+            text: "Include all current risk information and remove sensitive information, such as names and addresses."
+          },
+          id: "event-name",
+          name: "event-name"
         }) }}
 
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
         <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
 
+        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  text: "If the OASys record was out of date, you should update the record in OASys too."
+}) }}
+<!-- 
         {{ govukWarningText({
           text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys.",
           iconFallbackText: "Warning"
-        }) }}
+        }) }} -->
 
         <!-- Answer options for question -->
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
