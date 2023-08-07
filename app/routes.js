@@ -116,7 +116,7 @@ router.post('/prototypes/tasklists/tasklist-complete', function (req, res) {
 
   // This is the URL the users will be redirected to once the email
   // has been sent
-  res.redirect('../submission-confirmed');
+  res.redirect('prototypes/submission-confirmed');
 });
 
 // Consent routing
