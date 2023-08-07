@@ -311,11 +311,21 @@
 
       <form action="" method="post" novalidate>
 
-        {{ govukButton({
-          text: "Submit application",
-          href: "submission-confirmed",
-          disabled: false
-        }) }}
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Submit application",
+            href: "submission-confirmed",
+            disabled: false
+          }) }}
+
+          {{ govukButton({
+            text: "Return to applications dashboard",
+            href: "../multiple-applications/dashboard-1",
+            classes: "govuk-button--secondary"
+          }) }}
+
+        </div>
 
       </form>
 
@@ -345,6 +355,35 @@
       </ul>
 
     </div> -->
+
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <div class="prototype-infobox govuk-!-margin-top-9">
+
+        {{ govukInput({
+          label: {
+            text: "What is your email address?",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          hint: {
+            text: "We will only use your address to test this 'Review submitted applications' prototype with."
+          },
+          id: "email-address",
+          name: "emailAddress",
+          type: "email",
+          autocomplete: "email",
+          classes: "govuk-input--width-20 govuk-!-margin-0",
+          spellcheck: false
+        }) }}
+
+      </div>
+
+    </div>
 
   </div>
 

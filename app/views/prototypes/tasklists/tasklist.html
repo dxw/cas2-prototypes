@@ -311,11 +311,21 @@
 
       <form action="" method="post" novalidate>
 
-        {{ govukButton({
-          text: "Submit application",
-          href: "submission-confirmed",
-          disabled: true
-        }) }}
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Submit application",
+            href: "submission-confirmed",
+            disabled: false
+          }) }}
+
+          {{ govukButton({
+            text: "Return to applications dashboard",
+            href: "../multiple-applications/dashboard-1",
+            classes: "govuk-button--secondary"
+          }) }}
+
+        </div>
 
       </form>
 

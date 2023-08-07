@@ -8,8 +8,10 @@ window.GOVUKPrototypeKit.documentReady(() => {
   var editText = $('#edit-text');
   var revertText = $('#revert-text');
   var upToDate = $('#up-to-date');
+  var checkAnswersConfirm = $('#check-answers-confirm');
   var textArea = $('.oasys-textarea');
   var continueButton = $('#button-save-and-continue');
+  var checkAnswersConfirmButton = $('#button-check-answers-confirm');
   var originalOASys = $('#oasys-textarea').text();
   
   var healthNotApplicable = $('#health-not-applicable-check');
@@ -67,7 +69,14 @@ window.GOVUKPrototypeKit.documentReady(() => {
     })
   }
 
+  // Check answers - checkbox to make save and complete active
+  $(checkAnswersConfirm).on('click', (function(){
+    $(checkAnswersConfirmButton).attr("disabled", false);
+    $(checkAnswersConfirmButton).removeClass("govuk-button--disabled");
+  }))
+
 })
+
 
 //   const riskScores = {
 //     current: {

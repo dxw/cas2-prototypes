@@ -6,15 +6,15 @@
 {% endblock %}
 
 {% block beforeContent %}
-    <div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: "Beta"
-    },
-    html: 'This is a new service – your feedback will help us to improve it.'
-  }) }}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
     </div>
   </div>
 
@@ -27,35 +27,6 @@
 {% block content %}
 
 <form action="" method="post" novalidate>
-
-  <div class="govuk-grid-row">
-
-    <div class="govuk-grid-column-full">
-
-      <div class="prototype-infobox">
-
-        {{ govukInput({
-          label: {
-            text: "What is your email address?",
-            classes: "govuk-label--m",
-            isPageHeading: true
-          },
-          hint: {
-            text: "We will only use your address to test this 'Review submitted applications' prototype with."
-          },
-          id: "email-address",
-          name: "emailAddress",
-          type: "email",
-          autocomplete: "email",
-          classes: "govuk-input--width-20 govuk-!-margin-0",
-          spellcheck: false
-        }) }}
-
-      </div>
-
-    </div>
-
-  </div>
 
   <div class="govuk-grid-row">
 
@@ -1945,25 +1916,47 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-
+<!-- 
       <h2 class="govuk-heading-l">
-        Now send your application
-      </h2>
+        Confirm this information is correct
+      </h2> -->
 
-      <p class="govuk-body">
+      <!-- <p class="govuk-body">
         By submitting this application you confirm that, to the best of your knowledge, the details are accurate and have been verified, where required, with all relevant prison departments.
-      </p>
+      </p> -->
+
+      {{ govukCheckboxes({
+        name: "waste",
+        fieldset: {
+          legend: {
+            text: "Confirm this information is correct?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            id: "check-answers-confirm",
+            text: "I confirm the information provided is complete, accurate and up to date."
+          }
+        ]
+      }) }}
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Confirm and submit"
+          text: "Save and complete",
+          class: "govuk-button--disabled",
+          id: "button-check-answers-confirm",
+          href: "tasklists/tasklist-complete",
+          disabled: true
         }) }}
 
-        {{ govukButton({
+        <!-- {{ govukButton({
           text: "Return to tasklist",
-          href: "tasklists/tasklist",
+          href: "tasklists/tasklist-complete",
           classes: "govuk-button--secondary"
-        }) }}
+        }) }} -->
       </div>
 
     </div>
