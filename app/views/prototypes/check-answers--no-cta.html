@@ -251,6 +251,49 @@
             },
             value: {
               html: "Housing benefit and Universal credit"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "answer"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Confirmed types of identification"
+            },
+            value: {
+              html: "UK Passport<br>HMRC correspondence"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "answer"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Is the applicant's national insurance number known?"
+            },
+            value: {
+              html: "NRI4860 38693J"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "answer"
+                }
+              ]
             }
           }
         ]
@@ -262,7 +305,7 @@
 
       <!---------------------- ID documents ---------------------->
 
-      {{ govukSummaryList({
+      <!-- {{ govukSummaryList({
         classes: "check-answers",
         card: {
           title: {
@@ -279,7 +322,7 @@
             }
           }
         ]
-      }) }}
+      }) }} -->
 
       <!---------------------- Equality and Diversity Monitoring ---------------------->
 
