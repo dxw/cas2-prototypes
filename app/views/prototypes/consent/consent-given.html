@@ -40,7 +40,8 @@
           </h1>
         </div>
 
-        <p class="govuk-body-l"><strong>Terry Midhurst</strong> provided consent to their data being shared with Nacro on {consent-date}.</p>
+        <p class="govuk-body-l"><strong>Terry Midhurst</strong> provided consent to their data being shared with Nacro on 
+        <strong>{{ data | isoDateFromDateInput("consent-date") | govukDate }}</strong>.</p>
 
         <!-- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible "> -->
 
