@@ -51,7 +51,7 @@
 
       <!---------------------- Eligibility ---------------------->
 
-      {{ govukSummaryList({
+      <!-- {{ govukSummaryList({
         classes: "check-answers",
         card: {
           title: {
@@ -108,7 +108,38 @@
             }
           }
         ]
+      }) }} -->
+
+      {{ govukSummaryList({
+        classes: "check-answers",
+        card: {
+          title: {
+            text: "CAS-2 Consent"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "eligibility answer"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Is the applicant eligibile for CAS-2 Short Term accommodation?"
+            },
+            value: {
+              html: "Yes"
+            }
+          }
+        ]
       }) }}
+
+
+
 
       <!---------------------- Consent ---------------------->
 
