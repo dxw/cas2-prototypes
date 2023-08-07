@@ -29,8 +29,13 @@
   <div class="govuk-grid-column-three-quarters">
 
     <h1 class="govuk-heading-l">
-      OASys not available
+      No OASys record for Terry Midhurst
     </h1>
+
+    <p class="govuk-body">
+      There is no level 3 OASys record to import for this section.
+    </p>
+
 
     <!-- <p class="govuk-body">
       Information from an OASys record can be automatically added to help answer some of the following questions.
@@ -41,7 +46,7 @@
     </p>
 
     {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %} -->
-
+<!-- 
     {% set html %}
       <h2 class="govuk-notification-banner__heading govuk-!-font-size-24">
         Terry Midhurst does not have a level 3 OASys
@@ -56,7 +61,7 @@
 
     {{ govukNotificationBanner({
       html: html
-    }) }}
+    }) }} -->
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
@@ -74,11 +79,11 @@
         items: [
           {
             value: "yes",
-            text: "Yes, I would like to continue without pre-population"
+            text: "Yes, I would like to continue without pre-populated answers from OASys"
           },
           {
             value: "no",
-            text: "No, I will create a level 3 OASys for the applicant and try again"
+            text: "No, I will create a level 3 OASys for Terry Midhurst and come back"
           }
         ]
       }) }}
