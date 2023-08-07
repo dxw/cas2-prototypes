@@ -27,35 +27,6 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-full">
-
-    <div class="prototype-infobox">
-
-      {{ govukInput({
-        label: {
-          text: "What is your email address?",
-          classes: "govuk-label--m",
-          isPageHeading: true
-        },
-        hint: {
-          text: "We will only use your address to test this 'Review submitted applications' prototype with."
-        },
-        id: "email-address",
-        name: "emailAddress",
-        type: "email",
-        autocomplete: "email",
-        classes: "govuk-input--width-20 govuk-!-margin-0",
-        spellcheck: false
-      }) }}
-
-    </div>
-
-  </div>
-
-</div>
-
   <div class="govuk-grid-row">
 
     <!-- Title -->
@@ -354,6 +325,36 @@
           }) }}
 
         </div>
+
+        <div class="govuk-grid-row">
+
+          <div class="govuk-grid-column-full">
+        
+            <div class="prototype-infobox">
+        
+              {{ govukInput({
+                label: {
+                  text: "What is your email address?",
+                  classes: "govuk-label--m",
+                  isPageHeading: true
+                },
+                hint: {
+                  text: "We will only use your address to test this 'Review submitted applications' prototype with."
+                },
+                id: "email-address",
+                name: "emailAddress",
+                type: "email",
+                autocomplete: "email",
+                classes: "govuk-input--width-20 govuk-!-margin-0",
+                spellcheck: false
+              }) }}
+        
+            </div>
+        
+          </div>
+        
+        </div>
+        
 
       </form>
 
