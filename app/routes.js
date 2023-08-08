@@ -120,15 +120,15 @@ router.post('/prototypes/tasklists/tasklist-complete', function (req, res) {
 });
 
 // Consent routing
-router.post('/prototypes/consent/all-in-one', function(request, response) {
+// router.post('/prototypes/consent/all-in-one', function(request, response) {
 
-  var consentAnswer = request.session.data['consent-answer']
-  if (consentAnswer == "yes"){
-      response.redirect("/prototypes/consent/consent-given")
-  } else {
-      response.redirect("/prototypes/consent/consent-refused")
-  }
-})
+//   var consentAnswer = request.session.data['consent-answer']
+//   if (consentAnswer == "yes"){
+//       response.redirect("/prototypes/consent/consent-given")
+//   } else {
+//       response.redirect("/prototypes/consent/consent-refused")
+//   }
+// })
 
 // Address history routing
 router.post('/prototypes/address-history/address-history-manual-v2-1', function(request, response) {
