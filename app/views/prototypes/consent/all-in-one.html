@@ -36,24 +36,35 @@
       <form class="form" action="/prototypes/consent/all-in-one" method="post">
 
         <!-- <span class="govuk-caption-m">CAS-2 application for Terry Midhurst</span> -->
-        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Confirm consent to share information</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Confirm Terry Midhurst's consent to share information</h1>
 
         <!-- <p class="govuk-body-l">Please read the following script out loud to Terry Midhurst in full:</p> -->
 
-        <p class="govuk-body">You need verbal consent from <strong>Terry Midhurst</strong> to send an application on their behalf to get housing.</p>
+        <p class="govuk-body">You need verbal consent from Terry Midhurst to send an application for Short-Term Accommodation (CAS-2) on their behalf.</p>
 
-        <p class="govuk-body">You can’t apply for CAS-2 on their behalf without it.</p>
+        <p class="govuk-body">
+          Check that Terry Midhurst understands:
+        </p>
+  
+        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+          <li>the accommodation and support CAS-2 provides and why</li>
+          <li>what will be in the application form, including legal and confidental information about them</li>
+          <li>their health needs will be collected from relevant sources where appropriate, including the prison drug and alcohol provider, mental health in-reach team and healthcare team</li>
+          <li>their information will be shared with the CAS-2 referral team, who will use the information to assess the applicant's suitability for the service based on the support they need</li>
+        </ul>
 
-        <p class="govuk-body\">You may also be asked for written consent from health services who can provide information needed to complete this application.</p>
+        <!-- <p class="govuk-body">You can’t apply for CAS-2 on their behalf without it.</p> -->
 
-        <details class="govuk-details" data-module="govuk-details">
+        <!-- <p class="govuk-body\">You may also be asked for written consent from health services who can provide information needed to complete this application.</p> -->
+
+        <!-- <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
               View what to ask Terry Midhurst 
             </span>
-          </summary>
+          </summary> -->
           
-          <div class="govuk-details__text">
+          <!-- <div class="govuk-details__text">
             <div class="consent-script ">
 
               <h2 class="govuk-heading-m">Accommodation consent</h2>
@@ -68,7 +79,7 @@
               <ul class="govuk-list govuk-list--bullet">
                 <li>Yes - share my information with the accommodation provider</li>
                 <li>No - don’t apply for accommodation</li>
-              </ul>
+              </ul> -->
 
               <!-- <h2 class="govuk-heading-m">Healthcare consent</h2>
 
@@ -91,16 +102,16 @@
           </div>
         </details>
 
-        {{ govukButton({
+        <!-- {{ govukButton({
             text: "Download consent form",
             classes: "govuk-button--secondary",
             href: "/public/images/consent-form-for-applicant.pdf"
-        }) }}
+        }) }} -->
 
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-3">
+        <!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-3"> -->
 
         <!-- Set stuff to show when the answer Yes is selected -->
-        {% set yesHtml %}
+        <!-- {% set yesHtml %}
 
             {{ govukDateInput({
             id: "consent-date",
@@ -117,10 +128,10 @@
             }
             }) }}
 
-        {% endset -%}
+        {% endset -%} -->
 
         <!-- Set stuff to show when the answer No is selected -->
-        {% set noHtml %}
+        <!-- {% set noHtml %}
 
             {{ govukTextarea({
             name: "consent-refused",
@@ -133,10 +144,11 @@
             }
             }) }}
 
-        {% endset -%}
+        {% endset -%} -->
 
         <!-- Answer options for question -->
-        {{ govukRadios({
+       
+        <!-- {{ govukRadios({
           name: "consent-answer",
           value: data['consent-answer'],
           fieldset: {
@@ -162,7 +174,39 @@
             }
             }
           ]
+        }) }} -->
+
+        <!-- Confirmation checkbox -->
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "consent",
+          fieldset: {
+          },
+          items: [
+            {
+              value: "consent-confirmation",
+              id: "consent-confirmation",
+              text: "I confirm Terry Midhurst understands the information on this page and gave their verbal consent to submit a CAS-2 application on their behalf."
+            }
+          ]
         }) }}
+
+        <!-- Confirmation date -->
+        {{ govukDateInput({
+          id: "consent-date",
+          value: data['consent-date'],
+          namePrefix: "consent-date",
+          fieldset: {
+              legend: {
+                  text: "When did Terry Midhurst give their consent?",
+                  classes: "govuk-label--m"
+              }
+          },
+          hint: {
+              text: "For example, 27 3 2007"
+          }
+          }) }}
 
         {{ govukButton({
           text: "Save and continue"
