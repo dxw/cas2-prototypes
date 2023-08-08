@@ -176,12 +176,16 @@
           ]
         }) }} -->
 
-        <!-- Confirmation checkbox -->
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible  govuk-!-margin-bottom-7">
 
+        <!-- Confirmation checkbox -->
         {{ govukCheckboxes({
           name: "consent",
           fieldset: {
+            legend: {
+              text: "Confirm that Terry Midhurst provided consent",
+              classes: "govuk-label--m"
+            }
           },
           items: [
             {
