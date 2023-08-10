@@ -47,10 +47,12 @@
         </p>
   
         <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-          <li>the accommodation and support CAS-2 provides and why</li>
+          <li>that CAS-2 provides short-term housing and weekly support to help with resettlement and support needs</li>
+          <li>they are responsible for paying for the CAS-2 accommodation and support</li>
+          <li>they must leave the CAS-2 accommodation at the end of their HDC licence period, and find accommodation to move on to with their support worker's help</li>
           <li>what will be in the application form, including legal and confidental information about them</li>
           <li>their health needs will be collected from relevant sources where appropriate, including the prison drug and alcohol provider, mental health in-reach team and healthcare team</li>
-          <li>their information will be shared with the CAS-2 referral team, who will use the information to assess the applicant's suitability for the service based on the support they need</li>
+          <li>their information will be shared with the CAS-2 referral team, who will use the information to assess the applicant's suitability for the service, and to make sure they are safe while in CAS-2 accommodation</li>
         </ul>
 
         <!-- <p class="govuk-body">You can’t apply for CAS-2 on their behalf without it.</p> -->
@@ -108,9 +110,9 @@
             href: "/public/images/consent-form-for-applicant.pdf"
         }) }} -->
 
-        <!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-3"> -->
-
-        <!-- Set stuff to show when the answer Yes is selected -->
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-3">
+<!-- 
+        Set stuff to show when the answer Yes is selected -->
         <!-- {% set yesHtml %}
 
             {{ govukDateInput({
@@ -144,16 +146,16 @@
             }
             }) }}
 
-        {% endset -%} -->
+        {% endset -%}
 
         <!-- Answer options for question -->
        
-        <!-- {{ govukRadios({
+        {{ govukRadios({
           name: "consent-answer",
           value: data['consent-answer'],
           fieldset: {
             legend: {
-              text: "Does Terry Midhurst consent to sharing their data with Nacro to apply for accommodation?",
+              text: "Does Terry Midhurst consent to sharing personal information to apply for Short-Term Accommodation (CAS-2)?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
@@ -174,12 +176,10 @@
             }
             }
           ]
-        }) }} -->
-
-        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible  govuk-!-margin-bottom-7">
+        }) }}
 
         <!-- Confirmation checkbox -->
-        {{ govukCheckboxes({
+        <!-- {{ govukCheckboxes({
           name: "consent",
           fieldset: {
             legend: {
@@ -194,10 +194,10 @@
               text: "I confirm Terry Midhurst understood the information on this page and gave verbal consent."
             }
           ]
-        }) }}
+        }) }} -->
 
-        <!-- Confirmation checkbox -->
-        {{ govukDateInput({
+        <!-- Consent date -->
+        <!-- {{ govukDateInput({
           id: "consent-date",
           value: data['consent-date'],
           namePrefix: "consent-date",
@@ -210,7 +210,7 @@
           hint: {
               text: "For example, 27 3 2007"
           }
-          }) }}
+          }) }} -->
 
 
           <div class="govuk-button-group">
