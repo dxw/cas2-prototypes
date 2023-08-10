@@ -153,3 +153,11 @@
 .autocomplete__wrapper * {
   @include govuk-typography-common();
 }
+
+
+// -------- Offence history
+
+.oh-card--blue .govuk-summary-card__title-wrapper {
+    background-color: #d2e2f1;
+    color: $govuk-text-colour;
+}

@@ -29,39 +29,36 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row govuk-!-margin-bottom-8">
-    <div class="govuk-grid-column-full">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
 
-      <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Risk of Serious Harm for Terry Midhurst</h1>
-      <a href="risk-summary" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">View Terry Midhurst's risk summary</a>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Offence history for Terry Midhurst</h1>
+      <p class="govuk-body">Something here explaining to list the applicant's previous offences, where they are both serious and unspent.</p>
+      <hr class="govuk-section-break govuk-section-break--m">
 
     </div>
+
   </div>
 
   <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
       <form class="form" action="" method="post">
 
-        <p class="govuk-body">Something here explaining what a prison case note is and why it's useful to have in this application.</p>
-        
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
         <!------------------------ User entered ------------------------>
-        <div class="govuk-summary-card prison-info">
+        <!-- <div class="govuk-summary-card prison-info">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">{{ data['prison-note-referring-institution'] }}</h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link" href="#">
-                  Remove<span class="govuk-visually-hidden"> prison note entry</span>
+                  Change<span class="govuk-visually-hidden"> prison note entry</span>
                 </a>
               </li>
               <li class="govuk-summary-card__action">
                 <a class="govuk-link" href="#">
-                  Change<span class="govuk-visually-hidden"> prison note entry</span>
+                  Remove<span class="govuk-visually-hidden"> prison note entry</span>
                 </a>
               </li>
             </ul>
@@ -86,26 +83,26 @@
               </div>
             </dl>
           </div>
-        </div>
+        </div> -->
 
-        <!------------------------ Leeds ------------------------>
+        <!------------------------ Stalking or harassment ------------------------>
         {{ govukSummaryList({
-          classes: "prison-info",
           card: {
             title: {
-              text: "HMPPS Leeds"
+              html: "<strong class='govuk-tag'>Stalking or harassment</strong>"
             },
+            classes: "oh-card oh-card--blue",
             actions: {
               items: [
                 {
                   href: "#",
-                  text: "Remove",
-                  visuallyHiddenText: "prison case note"
+                  text: "Change",
+                  visuallyHiddenText: "offence"
                 },
                 {
                   href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "prison case note"
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
                 }
               ]
             }
@@ -113,15 +110,23 @@
           rows: [
             {
               key: {
-                text: "Created:"
+                text: "Sentencing date:"
               },
               value: {
-                html: "21/02/2022"
+                text: "12 April 2023"
               }
             },
             {
               key: {
-                text: "Details"
+                text: "Length of sentence:"
+              },
+              value: {
+                text: "6 months"
+              }
+            },
+            {
+              key: {
+                text: "Offence details"
               },
               value: {
                 html: "Whilst dealing with Mr Midhurst's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Midhurst was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident."
@@ -130,50 +135,17 @@
           ]
         }) }}
 
-        <!------------------------ Sheffield ------------------------>
-        {{ govukSummaryList({
-          classes: "prison-info",
-          card: {
-            title: {
-              text: "HMPPS Sheffield"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Remove",
-                  visuallyHiddenText: "prison case note"
-                },
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "prison case note"
-                }
-              ]
-            }
-          },
-          rows: [
-            {
-              key: {
-                text: "Created:"
-              },
-              value: {
-                html: "21/02/2022"
-              }
-            },
-            {
-              key: {
-                text: "Details"
-              },
-              value: {
-                html: "Whilst dealing with Mr Midhurst's neigbour Mr Roe who wasnt complying with officers instructions to un cover his obs panel, Midhurst was able to communicate with Mr Roe and Mr Roe listened to him and uncovered his obs panel and went to bed. This support to officers assisted and resolved the incident."
-              }
-            }
-          ]
-        }) }}
+       
+
+
+
+
+
+
+
 
         {{ govukButton({
-          text: "Create a prison case note",
+          text: "Create a offence",
           classes: "govuk-button--secondary",
           href: "prison-notes/prison-notes-add--manual"
         }) }}
