@@ -191,3 +191,14 @@ router.post('/prototypes/eligibility-checker/eligibility-flat', function(request
       response.redirect("/prototypes/eligibility-checker/eligibility-fail")
   }
 })
+
+// Offending history routing
+router.post('/prototypes/offending-history/oh-q1', function(request, response) {
+
+  var previousAddressAnswer = request.session.data['previous-convictions']
+  if (previousAddressAnswer == "yes"){
+      response.redirect("/prototypes/offending-history/oh-listing")
+  } else {
+      response.redirect("/prototypes/tasklists/tasklist")
+  }
+})
