@@ -178,3 +178,12 @@
         color: $govuk-text-colour;
     }
 }
+
+.oh-card--pink .govuk-summary-card__title-wrapper {
+    background-color: #f7d7e6;
+
+    .govuk-tag--pink {
+        background: #80224d;
+        color: #ffffff;
+    }
+}

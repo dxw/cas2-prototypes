@@ -235,6 +235,72 @@
         ]
       }) }}
 
+      <!------------------------ Violence ------------------------>
+      {{ govukSummaryList({
+        card: {
+          title: {
+            html: "<strong class='govuk-tag govuk-tag--pink'>Violence</strong>"
+          },
+          classes: "oh-card oh-card--pink",
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "offence"
+              },
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "offence"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Sentencing date:"
+            },
+            value: {
+              text: "12 April 2023"
+            }
+          },
+          {
+            key: {
+              text: "Length of sentence:"
+            },
+            value: {
+              text: "6 months"
+            }
+          },
+          {
+            key: {
+              text: "Offence details"
+            },
+            value: {
+              html: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
