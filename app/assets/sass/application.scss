@@ -159,5 +159,22 @@
 
 .oh-card--blue .govuk-summary-card__title-wrapper {
     background-color: #d2e2f1;
-    color: $govuk-text-colour;
+}
+
+.oh-card--red .govuk-summary-card__title-wrapper {
+    background-color: #f6d7d2;
+
+    .govuk-tag--red {
+        background: #942514;
+        color: #ffffff;
+    }
+}
+
+.oh-card--yellow .govuk-summary-card__title-wrapper {
+    background-color: #fff7bf;
+
+    .govuk-tag--yellow {
+        background: #FFE30F;
+        color: $govuk-text-colour;
+    }
 }
