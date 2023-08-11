@@ -96,18 +96,17 @@
         }) }}
 
         <!------------------------ Sentence length ------------------------>
-        {{ govukDateInput({
+        {{ govukInput({
           id: "sentence-length",
           value: data['sentence-length'],
-          namePrefix: "sentence-length",
-          fieldset: {
-            legend: {
-                text: "How long were they sentenced for?",
-                classes: "govuk-label--m"
-            }
+          name: "sentence-length",
+          classes: "govuk-input--width-10",
+          label: {
+            text: "How long were they sentenced for?",
+            classes: "govuk-label--m"
           },
           hint: {
-              text: "For example, 27 3 2007"
+            text: "For example, 6 months"
           }
         }) }}
 
@@ -135,7 +134,8 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and continue"
+            text: "Save and continue",
+            href: "oh-listing"
           }) }}
 
           <a class="govuk-link" href="#">Cancel</a>
