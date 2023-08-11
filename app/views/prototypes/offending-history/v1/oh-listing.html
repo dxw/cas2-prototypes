@@ -79,15 +79,8 @@
       </div>
 
       <form class="form clear-both" action="" method="post">
-
-        <!-- {% if data['offence-category'] and data['offence-details'] %}
-          {{ data['offence-category'] }}
-          {{ data['offence-details'] }}
-        {% endif %} -->
-        
         
         <!------------------------ User entered ------------------------>
-
          
         {% if data['offence-category'] and data['offence-details'] and data | isoDateFromDateInput("sentence-date") and data['sentence-length'] %}
           <div class="govuk-summary-card">
