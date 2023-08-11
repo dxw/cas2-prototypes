@@ -80,43 +80,40 @@
 
       <form class="form clear-both" action="" method="post">
 
-        {{ data['offence-category'] }}
-        {{ data['offence-details'] }}
-        {{ data | isoDateFromDateInput("sentence-date") | govukDate }}
-        {{ data['sentence-length'] }}
-
-
+        <!-- {% if data['offence-category'] and data['offence-details'] %}
+          {{ data['offence-category'] }}
+          {{ data['offence-details'] }}
+        {% endif %} -->
+        
+        
         <!------------------------ User entered ------------------------>
-        {% if (data['offence-category']) and (data['offence-details']) and (data['sentence-date']) and (data['sentence-length']) %}
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
-            <h2 class="govuk-summary-card__title">
-              <strong class="govuk-tag govuk-tag--blue">
-                {{ data['offence-category'] }}
-              </strong>
-            </h2>
-            <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
-                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+         
+        {% if data['offence-category'] and data['offence-details'] and data | isoDateFromDateInput("sentence-date") and data['sentence-length'] %}
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+              <h2 class="govuk-summary-card__title">
+                <strong class="govuk-tag govuk-tag--blue">
+                  {{ data['offence-category'] }}
+                </strong>
+              </h2>
+              <ul class="govuk-summary-card__actions">
+                <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                  </a>
+                </li>
+                <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> offence history note</span>
                 </a>
               </li>
-              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
-                Remove<span class="govuk-visually-hidden"> offence history note</span>
-              </a>
-            </li>
-            </ul>
-          </div>
-          <!-- {% if (data['offence-details']) %} -->
-            <div class="govuk-summary-card__content">
-              <p class="govuk-body" style="margin-bottom: 0px;">{{ data['offence-details'] }}.</p>
+              </ul>
             </div>
-          <!-- {% endif %} -->
-          <!-- {% if (data['sentence-date']) and (data['sentence-length']) %} -->
-          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
-            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> {{ data | isoDateFromDateInput("sentence-date") | govukDate }}</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> {{ data['sentence-length'] }}</p>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body" style="margin-bottom: 0px;">{{ data['offence-details'] }}.</p>
+              </div>
+            <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+              <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> {{ data | isoDateFromDateInput("sentence-date") | govukDate }}</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> {{ data['sentence-length'] }}</p>
+            </div>
           </div>
-          <!-- {% endif %} -->
-        </div>
         {% endif %}
 
         <!------------------------ Stalking or harassment ------------------------>

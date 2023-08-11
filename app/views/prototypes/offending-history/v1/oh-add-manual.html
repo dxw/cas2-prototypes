@@ -31,7 +31,7 @@
 
       <hr class="govuk-section-break govuk-section-break--m">
 
-      <form class="form" action="" method="post">
+      <form class="form" action="oh-listing" method="post">
 
         <!------------------------ Type of offence ------------------------>
         {% from "govuk/components/select/macro.njk" import govukSelect %}
@@ -134,8 +134,7 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and continue",
-            href: "oh-listing"
+            text: "Save and continue"
           }) }}
 
           <a class="govuk-link" href="#">Cancel</a>
