@@ -81,12 +81,27 @@
       <form class="form clear-both" action="" method="post">
         
         <!------------------------ User entered ------------------------>
-         
+
+        {% set tagColour = 'test' %}
+        {% if data['offence-category'] == 'stalkingHarassment' %}
+          {% set tagColour = "--blue" %}
+        {% elif data['offence-category'] == 'weaponsFirearms' %}
+          {% set tagColour = "--red" %}
+        {% elif data['offence-category'] == 'arson' %}
+          {% set tagColour = "--yellow" %}
+        {% elif data['offence-category'] == 'violence' %}
+          {% set tagColour = "--pink" %}
+        {% elif data['offence-category'] == 'domesticAbuse' %}
+          {% set tagColour = "--purple" %}
+        {% elif data['offence-category'] == 'hateCrime' %}
+          {% set tagColour = "govuk-tag--turquoise" %}
+        {% endif %}
+        
         {% if data['offence-category'] and data['offence-details'] and data | isoDateFromDateInput("sentence-date") and data['sentence-length'] %}
           <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
               <h2 class="govuk-summary-card__title">
-                <strong class="govuk-tag govuk-tag--blue">
+                <strong class="govuk-tag govuk-tag{{ tagColour }}">
                   {{ data['offence-category'] }}
                 </strong>
               </h2>
