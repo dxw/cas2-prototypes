@@ -1,0 +1,415 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Offence history for Terry Midhurst</h1>
+      <p class="govuk-body">Something here explaining to list the applicant's previous offences, where they are both serious and unspent.</p>
+      
+      {{ govukButton({
+        text: "Add a previous offence",
+        classes: "govuk-button--secondary",
+        href: "prison-notes/prison-notes-add--manual"
+      }) }}
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <!-- <hr class="govuk-section-break govuk-section-break--s"> -->
+
+      <div class="float-right">
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "sort",
+          name: "sort",
+          label: {
+            html: "<span class='govuk-!-margin-right-1 govuk-!-font-weight-bold'>Sort by:</span>",
+            classes: "govuk-!-display-inline"
+          },
+          items: [
+            {
+              value: "offence",
+              text: "Offence type"
+            },
+            {
+              value: "updated",
+              text: "Most recent",
+              selected: true
+            },
+            {
+              value: "alphabet",
+              text: "Alphabet"
+            }
+          ]
+        }) }}
+      </div>
+
+      <form class="form clear-both" action="" method="post">
+
+        <!------------------------ User entered ------------------------>
+        <!-- <div class="govuk-summary-card prison-info">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">{{ data['prison-note-referring-institution'] }}</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> prison note entry</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">
+                  Remove<span class="govuk-visually-hidden"> prison note entry</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Created: 
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['prison-note-start-date-day'] }}/{{ data['prison-note-start-date-month'] }}/{{ data['prison-note-start-date-year'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Details:
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['prison-note-detail'] }}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div> -->
+
+        <!------------------------ Stalking or harassment ------------------------>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            <h2 class="govuk-summary-card__title">
+              <strong class="govuk-tag govuk-tag--blue">
+                Stalking or harassment
+              </strong>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                Remove<span class="govuk-visually-hidden"> offence history note</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <!-- <p class="govuk-body" style="margin-bottom: 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> -->
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "View details about this offence",
+              html: "<p class='govuk-body' style='margin-bottom: 0px;'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+            }) }}
+          </div>
+          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> 12 April 2023</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> 6 months</p>
+          </div>
+        </div>
+
+        <!------------------------ Weapons or firearms ------------------------>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            <h2 class="govuk-summary-card__title">
+              <strong class="govuk-tag govuk-tag--red">
+                Weapons or firearms
+              </strong>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                Remove<span class="govuk-visually-hidden"> offence history note</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <!-- <p class="govuk-body" style="margin-bottom: 0px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "View details about this offence",
+              html: "<p class='govuk-body' style='margin-bottom: 0px;'>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+            }) }}
+          </div>
+          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> 12 April 2023</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> 6 months</p>
+          </div>
+        </div>
+
+        <!------------------------ Arson ------------------------>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            <h2 class="govuk-summary-card__title">
+              <strong class="govuk-tag govuk-tag--yellow">
+                Arson
+              </strong>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                Remove<span class="govuk-visually-hidden"> offence history note</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <!-- <p class="govuk-body" style="margin-bottom: 0px;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><br><p class="govuk-body" style="margin-bottom: 0px;">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p> -->
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "View details about this offence",
+              html: "<p class='govuk-body' style='margin-bottom: 0px;'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><br><p class='govuk-body' style='margin-bottom: 0px;'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>"
+            }) }}
+          </div>
+          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> 12 April 2023</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> 6 months</p>
+          </div>
+        </div>
+
+        <!------------------------ Stalking or harassment ------------------------>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            <h2 class="govuk-summary-card__title">
+              <strong class="govuk-tag govuk-tag--blue">
+                Stalking or harassment
+              </strong>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                Remove<span class="govuk-visually-hidden"> offence history note</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <!-- <p class="govuk-body" style="margin-bottom: 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> -->
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "View details about this offence",
+              html: "<p class='govuk-body' style='margin-bottom: 0px;'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+            }) }}
+          </div>
+          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> 12 April 2023</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> 6 months</p>
+          </div>
+        </div>
+
+
+        <!------------------------ Violence ------------------------>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            <h2 class="govuk-summary-card__title">
+              <strong class="govuk-tag govuk-tag--pink">
+                Violence
+              </strong>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                Remove<span class="govuk-visually-hidden"> offence history note</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <!-- <p class="govuk-body" style="margin-bottom: 0px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "View details about this offence",
+              html: "<p class='govuk-body' style='margin-bottom: 0px;'>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+            }) }}
+          </div>
+          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> 12 April 2023</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> 6 months</p>
+          </div>
+        </div>
+
+        <!------------------------ Domestic abuse ------------------------>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            <h2 class="govuk-summary-card__title">
+              <strong class="govuk-tag govuk-tag--purple">
+                Domestic abuse
+              </strong>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                Remove<span class="govuk-visually-hidden"> offence history note</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <!-- <p class="govuk-body" style="margin-bottom: 0px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "View details about this offence",
+              html: "<p class='govuk-body' style='margin-bottom: 0px;'>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+            }) }}
+          </div>
+          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> 12 April 2023</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> 6 months</p>
+          </div>
+        </div>
+
+        <!------------------------ Hate crime ------------------------>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            <h2 class="govuk-summary-card__title">
+              <strong class="govuk-tag govuk-tag--turquoise">
+                Hate crime
+              </strong>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                Remove<span class="govuk-visually-hidden"> offence history note</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <!-- <p class="govuk-body" style="margin-bottom: 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> -->
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "View details about this offence",
+              html: "<p class='govuk-body' style='margin-bottom: 0px;'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+            }) }}
+          </div>
+          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> 12 April 2023</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> 6 months</p>
+          </div>
+        </div>
+
+        <!------------------------ Weapons or firearms ------------------------>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            <h2 class="govuk-summary-card__title">
+              <strong class="govuk-tag govuk-tag--red">
+                Weapons or firearms
+              </strong>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of offence history note</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"><a class="govuk-link" href="">
+                Remove<span class="govuk-visually-hidden"> offence history note</span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <!-- <p class="govuk-body" style="margin-bottom: 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> -->
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "View details about this offence",
+              html: "<p class='govuk-body' style='margin-bottom: 0px;'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+            }) }}
+          </div>
+          <div class="govuk-summary-card__title-wrapper" style="justify-content: normal;">
+            <p class="govuk-!-margin-bottom-0 govuk-!-margin-right-3"><strong>Sentencing date:</strong> 12 April 2023</p><p class="govuk-!-margin-bottom-0"><strong>Sentence length:</strong> 6 months</p>
+          </div>
+        </div>
+
+
+
+
+        <hr class="govuk-section-break govuk-section-break--l">
+
+        {{ govukButton({
+          text: "Add a previous offence",
+          classes: "govuk-button--secondary",
+          href: "prison-notes/prison-notes-add--manual"
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "vulnerability"
+          }) }}
+  
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
