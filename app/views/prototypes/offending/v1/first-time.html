@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form action="" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Is the current offence the applicant’s first offence?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="current-offence-2" name="current-offence" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="current-offence-2">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="current-offence" name="current-offence" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="current-offence">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

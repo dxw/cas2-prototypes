@@ -1,0 +1,148 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Add a previous offence</h1>
+      <p class="govuk-body">Something here explaining to list the applicant's previous offences, where they are both serious and unspent.</p>
+      <p class="govuk-body">Add one offence at a time, for example, stalking or harassment.</p>
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+      {{ govukDetails({
+        summaryText: "What is an unspent conviction?",
+        text: "Crimes that are violent and/or serious (any custodial sentence over two and a half years) OR convictions that are still in the ‘rehabilitation period’ (so not enough time has passed for it to be ‘wiped’ from your record). These should be taken into consideration, because the applicant is in the rehabilitation period"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <form class="form" action="list-historical-offences" method="post">
+
+        <!------------------------ Type of offence ------------------------>
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "offence-category",
+          name: "offence-category",
+          label: {
+            text: "Offence category",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "Not sure what to put here, but a hint feels right"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose category",
+              selected: true
+            },
+            {
+              value: "stalkingHarassment",
+              text: "Stalking or Harassment"
+            },
+            {
+              value: "weaponsFirearms",
+              text: "Weapons or Firearms"
+            },
+            {
+              value: "arson",
+              text: "Arson"
+            },
+            {
+              value: "violence",
+              text: "Violence"
+            },
+            {
+              value: "domesticAbuse",
+              text: "Domestic Abuse"
+            },
+            {
+              value: "hateCrime",
+              text: "Hate crime"
+            }
+          ]
+        }) }}
+        
+        <!------------------------ Sentence date ------------------------>
+        {{ govukDateInput({
+          id: "sentence-date",
+          value: data['sentence-date'],
+          namePrefix: "sentence-date",
+          fieldset: {
+            legend: {
+                text: "When were they sentenced for this offence?",
+                classes: "govuk-label--m"
+            }
+          },
+          hint: {
+              text: "For example, 27 3 2007"
+          }
+        }) }}
+
+        <!------------------------ Sentence length ------------------------>
+        {{ govukInput({
+          id: "sentence-length",
+          value: data['sentence-length'],
+          name: "sentence-length",
+          classes: "govuk-input--width-10",
+          label: {
+            text: "How long were they sentenced for?",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "For example, 6 months"
+          }
+        }) }}
+
+        <!------------------------ Details about the offence ------------------------>
+        {{ govukTextarea({
+          id: "offence-details",
+          name: "offence-details",
+          rows: "10",
+          label: {
+            text: "Offence details",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Include details such as location, extent of the damage or injury caused, weapon type, motivations behind the offence etc."
+          }
+        }) }}
+
+        <div class="moj-button-action">
+          {{ govukButton({
+            text: 'Add another offence',
+            classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+          }) }}
+        </div>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+
+          <a class="govuk-link" href="#">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

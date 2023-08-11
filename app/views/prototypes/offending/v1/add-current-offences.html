@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form action="section-complete" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Offence details
+                </h1>
+              </legend>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-line-1">
+                  Offence
+                </label>
+                <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+              </div>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-line-2">
+                  Briefly summarise offence
+                </label>
+                <div id="more-detail-hint" class="govuk-hint">
+                  Where and when offence happened? How did they do it? Any known victims?
+                </div>
+                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+              </div>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-line-2">
+                  Details of any outstanding charges
+                </label>
+                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+              </div>
+              <div class="govuk-form-group">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading">
+                    Does any offence listed above relate to domestic abuse, stalking or harassment?
+                  </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="threat" name="threat" type="radio" value="email" data-aria-controls="conditional-threat">
+                    <label class="govuk-label govuk-radios__label" for="threat">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-threat">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="threat-by-email">
+                         Provide the victim(s) full name and area they live in so that we can avoid placing the applicant near to them.
+                      </label>
+                      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="threat-2" name="threat" type="radio" value="phone" data-aria-controls="conditional-threat-2">
+                    <label class="govuk-label govuk-radios__label" for="threat-2">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!--
+              <div class="govuk-form-group">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading">
+                    Are they currently subject to any civil/criminal orders including a restraining order, injunction or any other prohibited areas?
+                  </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="order" name="order" type="radio" value="email" data-aria-controls="conditional-order">
+                    <label class="govuk-label govuk-radios__label" for="order">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-order">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="order-by-email">
+                         Provide the victim(s) full name and area they live in so that we can avoid placing the applicant near to them
+                      </label>
+                      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="order-2" name="order" type="radio" value="phone" data-aria-controls="conditional-order-2">
+                    <label class="govuk-label govuk-radios__label" for="order-2">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+            </fieldset>
+          </div>
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Add another offence
+            </button>
+          </div>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

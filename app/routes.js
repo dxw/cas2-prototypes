@@ -202,3 +202,14 @@ router.post('/prototypes/offending-history/v1/oh-q1', function(request, response
       response.redirect("/prototypes/tasklists/tasklist")
   }
 })
+
+// Offending prototype routing
+router.post('/prototypes/offending/v1/first-time', function(request, response) {
+
+  var previousAddressAnswer = request.session.data['current-offence']
+  if (previousAddressAnswer == "yes"){
+    response.redirect("/prototypes/offending/v1/add-current-offences")
+  } else {
+    response.redirect("/prototypes/offending/v1/list-historical-offences")
+  }
+})
