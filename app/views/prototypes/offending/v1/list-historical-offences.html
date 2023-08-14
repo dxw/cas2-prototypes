@@ -83,17 +83,17 @@
         <!------------------------ User entered ------------------------>
 
         {% set tagColour = 'test' %}
-        {% if data['offence-category'] == 'stalkingHarassment' %}
+        {% if data['offence-category'] == 'Stalking or Harassment' %}
           {% set tagColour = "--blue" %}
-        {% elif data['offence-category'] == 'weaponsFirearms' %}
+        {% elif data['offence-category'] == 'Weapons or Firearms' %}
           {% set tagColour = "--red" %}
-        {% elif data['offence-category'] == 'arson' %}
+        {% elif data['offence-category'] == 'Arson' %}
           {% set tagColour = "--yellow" %}
-        {% elif data['offence-category'] == 'violence' %}
+        {% elif data['offence-category'] == 'Violence' %}
           {% set tagColour = "--pink" %}
-        {% elif data['offence-category'] == 'domesticAbuse' %}
+        {% elif data['offence-category'] == 'Domestic Abuse' %}
           {% set tagColour = "--purple" %}
-        {% elif data['offence-category'] == 'hateCrime' %}
+        {% elif data['offence-category'] == 'Hate crime' %}
           {% set tagColour = "govuk-tag--turquoise" %}
         {% endif %}
         
