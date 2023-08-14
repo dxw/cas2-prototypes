@@ -33,8 +33,8 @@
     <div class="govuk-grid-column-full">
 
       <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">RoSH (Risk of Serious Harm) for Terry Midhurst</h1>
-      <a href="risk-summary" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">View Terry Midhurst's risk summary</a>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Risk of Serious Harm (ROSH) for Terry Midhurst</h1>
+      <a href="risk-summary" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">View Terry Midhurst's RoSH risk summary</a>
 
     </div>
   </div>
@@ -87,7 +87,7 @@
 
         <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">About the risk</h2> -->
         <div class="oasys-update govuk-!-margin-bottom-6">
-          <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 26th January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
+          <p class="govuk-!-margin-bottom-1">Imported from OASys on<strong> 26 January 2023</strong>, last updated on<strong> 09 January 2023</strong></p>
         </div>
 
         <!---------------------------- Who is at risk ---------------------------->
@@ -102,6 +102,9 @@
             text: "Who is at risk?",
             classes: "govuk-label--m",
             isPageHeading: false
+          },
+          hint: {
+            text: "Include all current risk information and remove sensitive information, such as names and addresses."
           }
         }) }}
 
@@ -120,17 +123,24 @@
             text: "What is the nature of the risk?",
             classes: "govuk-label--m",
             isPageHeading: false
+          },
+          hint: {
+            text: "Include all current risk information and remove sensitive information, such as names and addresses."
           }
         }) }}
 
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
         <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
 
-        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+        <!-- {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
         {{ govukWarningText({
           text: "Any live risks must be documented. Any changes you make here won’t be written back into OASys.",
           iconFallbackText: "Warning"
+        }) }} -->
+
+        {{ govukInsetText({
+          text: "If the OASys record was out of date, you should update the record in OASys too."
         }) }}
 
         <!-- Answer options for question -->
@@ -144,7 +154,7 @@
             {
               value: "up-to-date",
               id: "up-to-date",
-              text: "I confirm this information is relevant."
+              text: "I confirm this information is relevant and up to date."
             }
           ]
         }) }}
