@@ -1,0 +1,260 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">Alternative ID for Terry Midhurst</h1>
+
+      <form class="form" action="" method="post">
+
+        {% set otherID %}
+
+          {{ govukInput({
+            label: {
+              text: "What other ID does Terry Midhurst have?",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            },
+            id: "other-ID",
+            name: "other-ID"
+          }) }}
+
+        {% endset -%}
+
+        {{ govukCheckboxes({
+          name: "id-docs-employment",
+          fieldset: {
+            legend: {
+              text: "Work and employment",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Employer letter/contract of employment",
+              text: "Employer letter/contract of employment"
+            },
+            {
+              value: "Trade union membership card",
+              text: "Trade union membership card"
+            },
+            {
+              value: "Invoices (self-employed)",
+              text: "Invoices (self-employed)"
+            }
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+          name: "id-docs-living",
+          fieldset: {
+            legend: {
+              text: "Citizenship and living",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "CitizenCard",
+              text: "CitizenCard"
+            },
+            {
+              value: "Foreign birth certificate",
+              text: "Foreign birth certificate"
+            },
+            {
+              value: "British citizen registration/naturalisation certificate",
+              text: "British citizen registration/naturalisation certificate"
+            },
+            {
+              value: "Permanent residence card",
+              text: "Permanent residence card"
+            },
+            {
+              value: "Residence permit",
+              text: "Residence permit"
+            },
+            {
+              value: "Local authority rent card",
+              text: "Local authority rent card"
+            }
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+          name: "id-docs-relationship",
+          fieldset: {
+            legend: {
+              text: "Relationship",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Original marriage/civil partnership certificate",
+              text: "Original marriage/civil partnership certificate"
+            },
+            {
+              value: "Divorce or annulment papers",
+              text: "Divorce or annulment papers"
+            },
+            {
+              value: "Dissolution of marriage/civil partnership papers",
+              text: "Dissolution of marriage/civil partnership papers"
+            }
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+          name: "id-docs-financial",
+          fieldset: {
+            legend: {
+              text: "Financial",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Building society passbook",
+              text: "Building society passbook"
+            },
+            {
+              value: "Council tax documents",
+              text: "Council tax documents"
+            },
+            {
+              value: "Life assurance or insurance policies",
+              text: "Life assurance or insurance policies"
+            },
+            {
+              value: "Personal cheque book",
+              text: "Personal cheque book"
+            },
+            {
+              value: "Mortgage repayment policies",
+              text: "Mortgage repayment policies"
+            }
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+          name: "id-docs-young",
+          fieldset: {
+            legend: {
+              text: "Young people and students",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+          {
+            value: "Student ID card",
+            text: "Student ID card"
+          },
+          {
+            value: "Educational institution letter (student)",
+            text: "Educational institution letter (student)"
+          },
+          {
+            value: "Young Scot card",
+            text: "Young Scot card"
+          }
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+          name: "id-other",
+          fieldset: {
+            legend: {
+              text: "Other",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Deed poll certificate",
+              text: "Deed poll certificate"
+            },
+            {
+              value: "Biometric Residence Permit",
+              text: "Biometric Residence Permit"
+            },
+            {
+              value: "Vehicle registration/motor insurance documents",
+              text: "Vehicle registration/motor insurance documents"
+            },
+            {
+              value: "NHS medical card",
+              text: "NHS medical card"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Other",
+              text: "Other",
+              conditional: {
+                html: otherID
+              }
+            }
+          ]
+        }) }}
+
+        <!-- Component to show details of why ID docs are needed and how they will be used -->
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+        {{ govukDetails({
+          summaryText: "Why do we need identification documents?",
+          html: "<p class='govuk-body'>The applicant needs ID if they are applying for Universal Credit for financial support, and Housing Benefit to
+          cover their rent.</p>
+          <p class='govuk-body'>If they want to receive an advance payment of Universal Credit on the day of
+          release, they will need a Bank account and Photo ID.</p>"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "../tasklists/tasklist"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

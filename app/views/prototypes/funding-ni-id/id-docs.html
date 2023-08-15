@@ -23,8 +23,8 @@
           fieldset: {
             legend: {
               text: "Which types of Identification Documentation (ID) does Terry Midhurst have?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
@@ -32,23 +32,71 @@
           },
           items: [
             {
-              value: "carcasses",
-              text: "Waste from animal carcasses"
+              value: "Current or expired passport",
+              text: "Current or expired passport"
             },
             {
-              value: "mines",
-              text: "Waste from mines or quarries"
+              value: "Travel pass with photograph affixed",
+              text: "Travel pass with photograph affixed"
             },
             {
-              value: "farm",
-              text: "Farm or agricultural waste"
+              value: "Birth or Adoption certificate",
+              text: "Birth certificate"
+            },
+            {
+              value: "Current bank account or debit card",
+              text: "Current bank account or debit card"
+            },
+            {
+              value: "Current or open saving account book",
+              text: "Current or open saving account book"
+            },
+            {
+              value: "Current bank, building society or Post Office card account statements",
+              text: "Current bank, building society or Post Office card account statements"
+            },
+            {
+              value: "Current or provisional UK photo driving licence",
+              text: "Current or provisional UK photo driving licence"
+            },
+            {
+              value: "Recent wage slip",
+              text: "Recent wage slip",
+              hint: {
+                text: "With payee name and NI number"
+              }
+            },
+            {
+              value: "National Insurance Number",
+              text: "National Insurance Number"
+            },
+            {
+              value: "HMRC correspondence",
+              text: "HMRC correspondence"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "None of these options",
+              text: "None of these options"
             }
           ]
         }) }}
 
+        <!-- Component to show details of why ID docs are needed and how they will be used -->
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+        {{ govukDetails({
+          summaryText: "Why do we need identification documents?",
+          html: "<p class='govuk-body'>The applicant needs ID if they are applying for Universal Credit for financial support, and Housing Benefit to
+          cover their rent.</p>
+          <p class='govuk-body'>If they want to receive an advance payment of Universal Credit on the day of
+          release, they will need a Bank account and Photo ID.</p>"
+        }) }}
+
         {{ govukButton({
-          text: "Save and continue",
-          href: "national-insurance"
+          text: "Save and continue"
         }) }}
 
       </form>
