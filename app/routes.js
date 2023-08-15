@@ -210,6 +210,6 @@ router.post('/prototypes/offending/v1/first-time', function(request, response) {
   if (previousAddressAnswer == "yes"){
     response.redirect("/prototypes/offending/v1/add-current-offences")
   } else {
-    response.redirect("/prototypes/offending/v1/list-historical-offences")
+    response.redirect("/prototypes/offending/v1/add-historical-offence")
   }
 })
