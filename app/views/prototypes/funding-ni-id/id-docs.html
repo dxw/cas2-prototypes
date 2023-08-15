@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="" method="post">
+
+        {{ govukCheckboxes({
+          name: "id-docs",
+          fieldset: {
+            legend: {
+              text: "Which types of Identification Documentation (ID) does Terry Midhurst have?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "carcasses",
+              text: "Waste from animal carcasses"
+            },
+            {
+              value: "mines",
+              text: "Waste from mines or quarries"
+            },
+            {
+              value: "farm",
+              text: "Farm or agricultural waste"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "national-insurance"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

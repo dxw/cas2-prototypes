@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "What is Terry Midhurst's national insurance number?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          classes: "govuk-!-width-one-third",
+          hint: {
+            text: "We need this to set up a Universal Credit and Housing Benefit claim if required."
+          },
+          id: "national-insurance",
+          name: "national-insurance"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "id-docs"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
