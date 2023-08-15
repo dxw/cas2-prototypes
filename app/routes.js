@@ -213,3 +213,25 @@ router.post('/prototypes/offending/v1/first-time', function(request, response) {
     response.redirect("/prototypes/offending/v1/add-historical-offence")
   }
 })
+
+// Funding routing
+router.post('/prototypes/funding-ni-id/funding', function(request, response) {
+
+  var consentAnswer = request.session.data['funding']
+  if (consentAnswer == "Benefits" || consentAnswer == "Both"){
+      response.redirect("/prototypes/funding-ni-id/id-docs")
+  } else {
+      response.redirect("/prototypes/funding-ni-id/national-insurance")
+  }
+})
+
+// ID Docs routing
+router.post('/prototypes/funding-ni-id/id-docs', function(request, response) {
+
+  var consentAnswer = request.session.data['id-docs']
+  if (consentAnswer == "None of these options"){
+      response.redirect("/prototypes/funding-ni-id/id-docs-alternative")
+  } else {
+      response.redirect("/prototypes/funding-ni-id/national-insurance")
+  }
+})
