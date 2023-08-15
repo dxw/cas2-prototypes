@@ -32,10 +32,16 @@
           name: "national-insurance"
         }) }}
 
-        {{ govukButton({
-          text: "Save and complete",
-          href: "../tasklists/tasklist"
-        }) }}
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and complete",
+            href: "../tasklists/tasklist"
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+        </div>
 
       </form>
 
