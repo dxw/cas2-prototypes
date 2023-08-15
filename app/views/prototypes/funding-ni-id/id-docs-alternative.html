@@ -36,6 +36,7 @@
 
         {% endset -%}
 
+        <!-- Employment and work -->
         {{ govukCheckboxes({
           name: "id-docs-employment",
           fieldset: {
@@ -60,10 +61,15 @@
             {
               value: "Invoices (self-employed)",
               text: "Invoices (self-employed)"
+            },
+            {
+              value: "HMRC correspondence",
+              text: "HMRC correspondence"
             }
           ]
         }) }}
 
+        <!-- Citizenship and living -->
         {{ govukCheckboxes({
           name: "id-docs-living",
           fieldset: {
@@ -98,12 +104,17 @@
               text: "Residence permit"
             },
             {
+              value: "Biometric Residence Permit",
+              text: "Biometric Residence Permit"
+            },
+            {
               value: "Local authority rent card",
               text: "Local authority rent card"
             }
           ]
         }) }}
 
+        <!-- Relationship -->
         {{ govukCheckboxes({
           name: "id-docs-relationship",
           fieldset: {
@@ -132,6 +143,7 @@
           ]
         }) }}
 
+        <!-- Financial -->
         {{ govukCheckboxes({
           name: "id-docs-financial",
           fieldset: {
@@ -164,10 +176,15 @@
             {
               value: "Mortgage repayment policies",
               text: "Mortgage repayment policies"
+            },
+            {
+              value: "Saving account book",
+              text: "Saving account book"
             }
           ]
         }) }}
 
+        <!-- Young people -->
         {{ govukCheckboxes({
           name: "id-docs-young",
           fieldset: {
@@ -196,6 +213,7 @@
           ]
         }) }}
 
+        <!-- Other -->
         {{ govukCheckboxes({
           name: "id-other",
           fieldset: {
@@ -212,10 +230,6 @@
             {
               value: "Deed poll certificate",
               text: "Deed poll certificate"
-            },
-            {
-              value: "Biometric Residence Permit",
-              text: "Biometric Residence Permit"
             },
             {
               value: "Vehicle registration/motor insurance documents",
