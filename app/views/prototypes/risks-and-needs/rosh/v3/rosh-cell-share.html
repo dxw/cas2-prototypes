@@ -1,0 +1,147 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+
+      <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Risk of Serious Harm for Terry Midhurst</h1>
+      <a href="risk-summary" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">View Terry Midhurst's risk summary</a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'About the risk',
+            href: 'rosh-about.html'
+          },
+          {
+            text: 'Risk factors',
+            href: 'rosh-factors.html'
+          },
+          {
+            text: 'Risk circumstances',
+            href: 'rosh-circumstances.html'
+          },
+          {
+            text: 'Risk management arrangements',
+            href: 'rosh-arrangements.html'
+          },
+          {
+            text: 'Cell share information',
+            href: 'rosh-cell-share-x2.html',
+            active: true
+          },
+          {
+            text: 'Prison notes',
+            href: 'rosh-prison-note-x2.html'
+          },
+          {
+            text: 'Additional information',
+            href: 'rosh-additional-info.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <!---------------------------- Risk Cell Share ---------------------------->
+        {% set yesHtml %}
+
+          {{ govukTextarea({
+            name: "risk-cell-share-comments",
+            id: "risk-cell-share-comments",
+            rows: '8',
+            label: {
+              text: "Cell sharing information",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "risk-cell-share-radio",
+          fieldset: {
+            legend: {
+              text: "Are there any comments about cell sharing to add?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Comments could include information such as racial alerts and history of drug supply."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "vulnerability"
+          }) }}
+  
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
