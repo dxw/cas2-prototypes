@@ -1,0 +1,169 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+
+      <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Risk of Serious Harm for Terry Midhurst</h1>
+      <a href="risk-summary" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">View Terry Midhurst's risk summary</a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      <!-- {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'About the risk',
+            href: 'rosh-about.html'
+          },
+          {
+            text: 'Risk factors',
+            href: 'rosh-factors.html'
+          },
+          {
+            text: 'Risk circumstances',
+            href: 'rosh-circumstances.html'
+          },
+          {
+            text: 'Risk management arrangements',
+            href: 'rosh-arrangements.html',
+            active: true
+          },
+          {
+            text: 'Cell share information',
+            href: 'rosh-cell-share-x2.html'
+          },
+          {
+            text: 'Prison notes',
+            href: 'rosh-prison-note-x2.html'
+          },
+          {
+            text: 'Additional information',
+            href: 'rosh-additional-info.html'
+          }
+        ]
+      }) }} -->
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'About the risk',
+            href: 'rosh-about.html'
+          },
+          {
+            text: 'Risk factors',
+            href: 'rosh-factors.html'
+          },
+          {
+            text: 'Risk circumstances',
+            href: 'rosh-circumstances.html'
+          },
+          {
+            text: 'Risk management arrangements',
+            href: 'rosh-arrangements.html'
+          },
+          {
+            text: 'Prison information (Empty)',
+            href: 'rosh-prison-information-empty.html',
+            active: true
+          },
+          {
+            text: 'Prison information (Populated)',
+            href: 'rosh-prison-information-populated.html'
+          },
+          {
+            text: 'Additional information',
+            href: 'rosh-additional-info.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h2 class="govuk-heading-m">Additional prison information</h2>
+        <p class="govuk-body">Include information such as a person's behaviour in prison, how comfortable they are cell sharing and any additional requirements relating to risk.</p>
+        <p class="govuk-body">If successful, this information is useful to help to match somebody to appropriate accommodation.</p>
+
+        {{ govukButton({
+          text: "Add prison information",
+          classes: "govuk-button--secondary",
+          href: "../cell-share/cell-share-add--manual"
+        }) }}
+
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        <!---------------------------- No information to add check box ---------------------------->
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "risk-prison-information-question",
+          fieldset: {
+          },
+          items: [
+            {
+              value: "risk-prison-information-none",
+              text: "There is no additional prison related information to add."
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            id: "button-save-and-continue",
+            text: "Save and continue",
+            href: "#",
+            disabled: false
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div> 
+
+      </form>
+
+    </div>
+    
+  </div>
+
+{% endblock %}

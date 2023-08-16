@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your feedback will help us to improve it.'
+  }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
+    <h1 class="govuk-heading-l">
+      Import Terry Midhurst's Risk of Serious Harm (RoSH) data from OASys
+    </h1>
+
+    <p class="govuk-body">
+      There is OASys information you can import to complete this section.
+    </p>
+
+    <p class="govuk-body">
+      You can edit the information. Changes made will not affect the OASys record.
+    </p>
+
+    {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+    {{ govukWarningText({
+      text: "You can only import from OASys once. Make sure it is up to date before importing.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <div class="import-info govuk-!-margin-bottom-7">
+      <h2 class="govuk-heading-m">OASys record available for Terry Midhurst</h2>
+
+      <p class="govuk-!-margin-bottom-1">Date created: <strong> 26 July 2022 </strong></p>
+      <p class="govuk-!-margin-bottom-1">Last updated: <strong> 9 January 2023</strong></p>
+      <p class="govuk-!-margin-bottom-1">OASys level: <strong> Layer 3</strong></p>
+    </div>
+    
+    <form action="" method="post" novalidate>
+
+      {{ govukRadios({
+        name: "oasys-prepopulate",
+        fieldset: {
+          legend: {
+            text: "Do you want to import RoSH data from OASys?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes, I want to use OASys data to pre-populate the answers"
+          },
+          {
+            value: "no",
+            text: "No, I want to answer each question manually"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "risk-summary"
+      }) }}
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
