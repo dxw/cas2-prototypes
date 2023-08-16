@@ -18,27 +18,57 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <span class="govuk-caption-m">Risks and needs for Terry Midhurst</span>
-      <h1 class="govuk-heading-l">Add a prison case note</h1>
-      <p class="govuk-body-l">Guidance about where this information can be found ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <span class="govuk-caption-m">Risk of Serious Harm for Terry Midhurst</span>
+      <h1 class="govuk-heading-l">Add a behaviour note</h1>
+      <p class="govuk-body">Guidance about where this information can be found ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Types of information could include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>issues with dual working (working with a specific gender of staff)</li>
+        <li>issues being managed by a specific gender of staff</li>
+        <li>inappropriate comments or lewd touching</li>
+        <li>enhanced prisoner stuff whatever that is</li>
+      </ul>
+
+      {{ govukDetails({
+        summaryText: "A good example of a behaviour note",
+        classes: "govuk-!-margin-bottom-2",
+        text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "A poor example of a behaviour note",
+        text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+      }) }}
 
       <hr class="govuk-section-break govuk-section-break--s">
 
       <form class="form" action="../v4/prison-note-x3" method="post">
 
         <!------------------------ Start date ------------------------>
-        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+        <!-- {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
         {{ govukDateInput({
-          id: "prison-note-start-date",
-          namePrefix: "prison-note-start-date",
+          id: "prison-note-date",
+          namePrefix: "prison-note-date",
           fieldset: {
             legend: {
-              text: "When was the note created?",
+              text: "When did this incident occur?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           }
+        }) }} -->
+
+        {{ govukInput({
+          label: {
+            text: "When did this incident occur?",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "Approximate dates are ok. For example, 17 December"
+          },
+          classes: "govuk-!-width-one-third",
+          id: "prison-note-start-date",
+          name: "prison-note-start-date"
         }) }}
 
         <!------------------------ Referring institution ------------------------>
@@ -52,7 +82,7 @@
             classes: "govuk-label--m"
           },
             hint: {
-            text: "Where the applicant was based at the time the prison case note was created"
+            text: "Where the applicant was based at the time the incident occured"
           },
           items: [
             {
@@ -101,7 +131,7 @@
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and add prison case note"
+            text: "Save and add behaviour note"
           }) }}
 
           <a class="govuk-link" href="#">Cancel</a>
