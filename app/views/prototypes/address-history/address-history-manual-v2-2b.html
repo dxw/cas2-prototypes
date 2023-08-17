@@ -18,22 +18,29 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <span class="govuk-caption-m">Address history for Terry Midhurst</span>
+      <!-- <span class="govuk-caption-m">Address history for Terry Midhurst</span> -->
 
       <form class="form" action="" method="post">
 
         {{ govukInput({
           label: {
-            text: "How long did Terry Midhurst have no fixed address?",
+            text: "How long did Terry Midhurst have no fixed address for?",
             classes: "govuk-label--l",
             isPageHeading: true
-          }
+          },
+          classes: "govuk-!-width-one-half"
         }) }}
-    
-        {{ govukButton({
-          text: "Save and continue",
-          href: "address-history-manual-v2-2c"
-        }) }}
+        
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "address-history-manual-v2-2c"
+          }) }}
+
+          <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div>
 
       </form>
 

@@ -18,7 +18,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <span class="govuk-caption-m">Address history for Terry Midhurst</span>
+      <!-- <span class="govuk-caption-m">Address history for Terry Midhurst</span> -->
 
       <form class="form" action="" method="post">
 
@@ -78,11 +78,17 @@
           }) }}
 
         {% endcall %}
-    
-        {{ govukButton({
-          text: "Save and complete",
-          href: "../tasklists/tasklist"
-        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and complete",
+            href: "../tasklists/tasklist"
+          }) }}
+
+          <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div>
 
       </form>
 
