@@ -1,0 +1,170 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Current offences for Terry Midhurst</h1>
+      <p class="govuk-body">Something here explaining to list the applicant's current offences.</p>
+      
+      {{ govukButton({
+        text: "Add a current offence",
+        classes: "govuk-button--secondary",
+        href: "co-add-manual"
+      }) }}
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <!-- <hr class="govuk-section-break govuk-section-break--s"> -->
+
+      <div class="float-right">
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "sort",
+          name: "sort",
+          label: {
+            html: "<span class='govuk-!-margin-right-1 govuk-!-font-weight-bold'>Sort by:</span>",
+            classes: "govuk-!-display-inline"
+          },
+          items: [
+            {
+              value: "offence",
+              text: "Offence type"
+            },
+            {
+              value: "updated",
+              text: "Most recent",
+              selected: true
+            },
+            {
+              value: "alphabet",
+              text: "Alphabet"
+            }
+          ]
+        }) }}
+      </div>
+
+      <form class="form clear-both" action="" method="post">
+
+        <!------------------------ User entered ------------------------>
+        <div class="govuk-summary-card">
+
+          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
+            
+            <h2 class="govuk-summary-card__title">
+              {{ data['co-offence-title'] }}
+            </h2>
+
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of current offence note</span>
+                </a>
+              </li>
+
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> current offence note</span>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body">{{ data['co-offence-summary'] }}</p>
+
+            <!-- <h3 class="govuk-body govuk-!-font-weight-bold">This is a serious offence:</h3> -->
+            <div class="govuk-warning-text govuk-!-margin-bottom-2">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                This is a serious offence (domestic abuse, stalking or harassment)              
+              </strong>
+            </div>
+
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View serious offence details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                {{ data['co-serious-details'] }}
+              </div>
+            </details>
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View outstanding charges
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                {{ data['co-outstanding-charges'] }}
+              </div>
+            </details>
+          
+          </div>
+        </div>
+
+        <hr class="govuk-section-break govuk-section-break--l">
+
+        {{ govukButton({
+          text: "Add a current offence",
+          classes: "govuk-button--secondary",
+          href: "co-add-manual"
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "vulnerability"
+          }) }}
+  
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
