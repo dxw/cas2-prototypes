@@ -64,7 +64,7 @@
       <p class="govuk-!-margin-bottom-1">OASys level: <strong> Layer 3</strong></p>
     </div>
     
-    <form action="" method="post" novalidate>
+    <!-- <form action="" method="post" novalidate>
 
       {{ govukRadios({
         name: "oasys-prepopulate",
@@ -92,7 +92,15 @@
         href: "pnomis-info"
       }) }}
       
-    </form>
+    </form> -->
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Import and continue"
+      }) }}
+
+      <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+    </div>
 
   </div>
 </div>
