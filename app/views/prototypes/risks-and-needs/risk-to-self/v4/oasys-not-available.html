@@ -28,13 +28,30 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
 
-    <h1 class="govuk-heading-l">
+
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    There is no OASys record for Terry Midhurst.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+    <!-- <h1 class="govuk-heading-l">
       No OASys record for Terry Midhurst
-    </h1>
+    </h1> -->
+    <p class="govuk-body">
+      There is no information to import for Terry Midhurst's risk to self section because there is no Layer 3 OASys record.
+    </p>
 
     <p class="govuk-body">
-      There is no Layer 3 OASys record to import for this section.
+      Leave the application and update OASys before trying again, or complete the section manually.
     </p>
+
+
 
 
     <!-- <p class="govuk-body">
@@ -63,11 +80,11 @@
       html: html
     }) }} -->
 
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
 
     <form action="" method="post" novalidate>
 
-      {{ govukRadios({
+      <!-- {{ govukRadios({
         name: "oasys-prepopulate",
         fieldset: {
           legend: {
@@ -86,14 +103,14 @@
             text: "No, I will create a Layer 3 OASys for Terry Midhurst and try again"
           }
         ]
-      }) }}
+      }) }} -->
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Continue"
+          text: "Complete section manually"
         }) }}
 
-        <!-- <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a> -->
+        <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
       </div>
       
     </form>
