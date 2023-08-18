@@ -82,74 +82,81 @@
       <form class="form clear-both" action="" method="post">
 
         <!------------------------ User entered ------------------------>
-        <div class="govuk-summary-card">
+        {% if data['co-offence-title'] and data['co-offence-summary'] %}
+          <div class="govuk-summary-card">
 
-          <div class="govuk-summary-card__title-wrapper" style="background-color: transparent;">
-            
-            <h2 class="govuk-summary-card__title">
-              {{ data['co-offence-title'] }}
-            </h2>
+            <div class="govuk-summary-card__title-wrapper">
+              
+              <h2 class="govuk-summary-card__title">
+                {{ data['co-offence-title'] }}
+              </h2>
 
-            <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="">
-                  Change<span class="govuk-visually-hidden"> details of current offence note</span>
-                </a>
-              </li>
+              <ul class="govuk-summary-card__actions">
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden"> details of current offence note</span>
+                  </a>
+                </li>
 
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="">
-                  Remove<span class="govuk-visually-hidden"> current offence note</span>
-                </a>
-              </li>
-            </ul>
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="">
+                    Remove<span class="govuk-visually-hidden"> current offence note</span>
+                  </a>
+                </li>
+              </ul>
 
-          </div>
-
-          <div class="govuk-summary-card__content">
-            <p class="govuk-body">{{ data['co-offence-summary'] }}</p>
-
-            <!-- <h3 class="govuk-body govuk-!-font-weight-bold">This is a serious offence:</h3> -->
-            <div class="govuk-warning-text govuk-!-margin-bottom-2">
-              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-              <strong class="govuk-warning-text__text">
-                <span class="govuk-warning-text__assistive">Warning</span>
-                This is a serious offence (domestic abuse, stalking or harassment)              
-              </strong>
             </div>
 
-            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  View serious offence details
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                {{ data['co-serious-details'] }}
-              </div>
-            </details>
+            <div class="govuk-summary-card__content">
+              <p class="govuk-body">{{ data['co-offence-summary'] }}</p>
 
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  View outstanding charges
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                {{ data['co-outstanding-charges'] }}
-              </div>
-            </details>
-          
+              {% if data['co-serious-details'] %}
+                <div class="govuk-warning-text govuk-!-margin-bottom-2">
+                  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                  <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    This is a serious offence (domestic abuse, stalking or harassment)              
+                  </strong>
+                </div>
+
+                <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      View serious offence details
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <p class="govuk-body">{{ data['co-serious-details'] }}</p>
+                  </div>
+                </details>
+              {% endif %}
+
+              {% if data['co-outstanding-charges'] %}
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      View outstanding charges
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <p class="govuk-body">{{ data['co-outstanding-charges'] }}</p>
+                  </div>
+                </details>
+                {% endif %}
+            
+            </div>
           </div>
-        </div>
+        {% else %}
+          <h2 class="govuk-heading-m">There are no current offences to show.</h2>
+        {% endif %}
 
         <hr class="govuk-section-break govuk-section-break--l">
 
-        <!-- {{ govukButton({
+        {{ govukButton({
           text: "Add a current offence",
           classes: "govuk-button--secondary",
           href: "co-add-manual"
-        }) }} -->
+        }) }}
 
         <div class="govuk-button-group">
 
