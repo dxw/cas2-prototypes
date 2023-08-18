@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your feedback will help us to improve it.'
+  }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    There is no OASys record for Terry Midhurst.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+    <!-- <h1 class="govuk-heading-l">
+      No OASys record for Terry Midhurst
+    </h1> -->
+    <p class="govuk-body">
+      There is no information to import for Terry Midhurst's Risk of Serious Harm (RoSH) section because there is no Layer 3 OASys record.
+    </p>
+
+    <p class="govuk-body">
+      Leave the application and update OASys before trying again, or complete the section manually.
+    </p>
+
+
+
+
+    <!-- <p class="govuk-body">
+      Information from an OASys record can be automatically added to help answer some of the following questions.
+    </p>
+
+    <p class="govuk-body">
+      Text that comes from the OASys can be edited. It's important to remove any sensitive information such as names and addresses.
+    </p>
+
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %} -->
+<!-- 
+    {% set html %}
+      <h2 class="govuk-notification-banner__heading govuk-!-font-size-24">
+        Terry Midhurst does not have a Layer 3 OASys
+      </h2>
+      <p class="govuk-body">
+        A Layer 3 OASys is not available for this applicant.
+      </p>
+      <p class="govuk-body">
+        Either continue to answer questions within this section manually, or create a Layer 3 OAsys for the applicant and try again.
+      </p>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+      html: html
+    }) }} -->
+
+    <!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
+
+    <form action="" method="post" novalidate>
+
+      <!-- {{ govukRadios({
+        name: "oasys-prepopulate",
+        fieldset: {
+          legend: {
+            text: "Would you like to continue and answer each question manually?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes, I would like to continue without pre-populated answers from OASys"
+          },
+          {
+            value: "no",
+            text: "No, I will create a Layer 3 OASys for Terry Midhurst and try again"
+          }
+        ]
+      }) }} -->
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Complete section manually"
+        }) }}
+
+        <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+      </div>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
