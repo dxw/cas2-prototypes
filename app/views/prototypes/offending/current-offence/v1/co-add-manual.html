@@ -26,6 +26,7 @@
                 </h1>
               </legend>
 
+              <!-- Offence title -->
               <div class="govuk-form-group">
                 <label class="govuk-label govuk-label--m" for="co-offence-title">
                   Offence title
@@ -33,6 +34,23 @@
                 <input class="govuk-input" id="address-line-1" name="co-offence-title" type="text" autocomplete="address-line1">
               </div>
 
+              <!-- Offence date -->
+              {{ govukDateInput({
+                id: "offence-date",
+                value: data['offence-date'],
+                namePrefix: "offence-date",
+                fieldset: {
+                  legend: {
+                    text: "When did they commit this offence?",
+                    classes: "govuk-label--m"
+                  }
+                },
+                hint: {
+                    text: "For example, 27 3 2007"
+                }
+              }) }}
+
+              <!-- Offence details -->
               <div class="govuk-form-group">
                 <label class="govuk-label govuk-label--m" for="co-offence-summary">
                   Briefly summarise the offence
@@ -43,6 +61,7 @@
                 <textarea class="govuk-textarea" id="more-detail" name="co-offence-summary" rows="5" aria-describedby="more-detail-hint"></textarea>
               </div>
 
+              <!-- Outstanding charges -->
               <div class="govuk-form-group">
                 <label class="govuk-label govuk-label--m" for="co-outstanding-charges">
                   Details of any outstanding charges
@@ -50,6 +69,7 @@
                 <textarea class="govuk-textarea" id="more-detail" name="co-outstanding-charges" rows="5" aria-describedby="more-detail-hint"></textarea>
               </div>
 
+              <!-- Is it serious? -->
               <div class="govuk-form-group">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                   <h2 class="govuk-fieldset__heading">
@@ -63,6 +83,8 @@
                       Yes
                     </label>
                   </div>
+
+                  <!-- Provide seriousness details -->
                   <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-threat">
                     <div class="govuk-form-group">
                       <label class="govuk-label govuk-label--s" for="co-serious-details">
@@ -109,9 +131,9 @@
                     </label>
                   </div>
                 </div>
-              </div>
-              -->
+              </div> -->
             </fieldset>
+
           </div>
           <div class="govuk-button-group">
             <button class="govuk-button" data-module="govuk-button">
