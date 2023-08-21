@@ -34,7 +34,7 @@
 
       <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
       <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Risk factors for Terry Midhurst</h1>
-      <a href="risk-summary" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">View Terry Midhurst's RoSH risk summary</a>
+      <a href="risk-summary" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">View Terry Midhurst's RoSH summary</a>
 
     </div>
   </div>
@@ -48,7 +48,7 @@
         label: 'Side navigation',
         items: [
           {
-            text: 'About the risk',
+            text: 'Risk to others',
             href: 'rosh-about.html'
           },
           {
@@ -57,8 +57,8 @@
             active: true
           },
           {
-            text: 'Risk circumstances',
-            href: 'rosh-circumstances.html'
+            text: 'Reducing risk',
+            href: 'reducing-risk.html'
           },
           {
             text: 'Risk management arrangements',
@@ -73,7 +73,7 @@
             href: 'rosh-prison-note-x2.html'
           },
           {
-            text: 'Additional information',
+            text: 'Additional risk information',
             href: 'rosh-additional-info.html'
           }
         ]
@@ -89,6 +89,24 @@
         <div class="oasys-update govuk-!-margin-bottom-6">
           <p class="govuk-!-margin-bottom-1">Imported from OASys on<strong> 26 January 2023</strong>, last updated on<strong> 09 January 2023</strong></p>
         </div>
+
+         <!---------------------------- Circumstances increasing risk ---------------------------->
+         {{ govukTextarea({
+          name: "oasys-textarea",
+          id: "oasys-textarea",
+          classes: "oasys-textarea",
+          disabled: true,
+          rows: "10",
+          value: "As previous. Drug use, need to obtain money for drugs at all costs, feeling he has been wronged in some way, lack of consideration of consequences, impulsive behaviour. Previously 1. if in a pub with mates and feels he or mates are threatened or 2. may be an increased risk if drinking.",
+          label: {
+            text: "What circumstances are likely to increase risk?",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          }
+        }) }}
+
+        <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
+        <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
 
         <!---------------------------- Greatest risk ---------------------------->
         {{ govukTextarea({
@@ -110,6 +128,8 @@
 
         <a href="#" id="edit-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text">Edit text</a>
         <a href="#" id="revert-text" class="govuk-link govuk-body govuk-!-text-align-right link-edit-text govuk-!-display-none">Revert to original OASys</a>
+
+        
 
         <!-- {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
