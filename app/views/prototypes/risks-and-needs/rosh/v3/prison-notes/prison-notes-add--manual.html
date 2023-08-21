@@ -18,25 +18,25 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <span class="govuk-caption-m">Risk of Serious Harm for Terry Midhurst</span>
-      <h1 class="govuk-heading-l">Add a behaviour note</h1>
-      <p class="govuk-body">Guidance about where this information can be found ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Types of information could include:</p>
+      <!-- <span class="govuk-caption-m">Risk of Serious Harm for Terry Midhurst</span> -->
+      <h1 class="govuk-heading-l">Add a behaviour note for Terry Midhurst</h1>
+      <p class="govuk-body">Behaviour notes can be prison notes, or P-Nomis alerts. The CAS-2 referral team uses behaviour notes to assess any risks and other factors to consider how suitable an applicant is for a placement.</p>
+      <p class="govuk-body">Important notes to include could be:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>issues with dual working (working with a specific gender of staff)</li>
-        <li>issues being managed by a specific gender of staff</li>
+        <li>issues with working or being managed by a specific gender of staff</li>
         <li>inappropriate comments or lewd touching</li>
-        <li>enhanced prisoner stuff whatever that is</li>
+        <li>any enhanced level incentives the applicant has</li>
       </ul>
 
       {{ govukDetails({
         summaryText: "A good example of a behaviour note",
         classes: "govuk-!-margin-bottom-2",
-        text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+        text: "They have a history of making inappropriate comments to female staff."
       }) }}
 
       {{ govukDetails({
-        summaryText: "A poor example of a behaviour note",
-        text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+        summaryText: "A bad example of a behaviour note",
+        text: "They were being difficult and did not want to talk."
       }) }}
 
       <hr class="govuk-section-break govuk-section-break--s">
@@ -60,11 +60,11 @@
 
         {{ govukInput({
           label: {
-            text: "When did this incident occur?",
+            text: "When did the behaviour or event happen?",
             classes: "govuk-label--m"
           },
           hint: {
-            text: "Approximate dates are ok. For example, 17 December"
+            text: "This can be an approximate date. For example, 17 December 2022"
           },
           classes: "govuk-!-width-one-third",
           id: "prison-note-start-date",
@@ -113,7 +113,7 @@
           name: "prison-note-detail",
           rows: "10",
           label: {
-            text: "Describe the prison case note",
+            text: "Describe the behaviour",
             classes: "govuk-label--m",
             isPageHeading: false
           },
