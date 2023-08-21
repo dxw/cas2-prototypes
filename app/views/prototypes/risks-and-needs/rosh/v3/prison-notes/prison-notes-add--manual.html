@@ -20,24 +20,25 @@
 
       <!-- <span class="govuk-caption-m">Risk of Serious Harm for Terry Midhurst</span> -->
       <h1 class="govuk-heading-l">Add a behaviour note for Terry Midhurst</h1>
-      <p class="govuk-body">Behaviour notes can be prison notes, or P-Nomis alerts. The CAS-2 referral team uses behaviour notes to assess any risks and other factors to consider how suitable an applicant is for a placement.</p>
+      <p class="govuk-body">Behaviour notes can be prison notes, or P-Nomis alerts.</p>
       <p class="govuk-body">Important notes to include could be:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>issues with working or being managed by a specific gender of staff</li>
         <li>inappropriate comments or lewd touching</li>
         <li>any enhanced level incentives the applicant has</li>
+        <li>protective factors, such as positive relationships, employment and goals</li>
       </ul>
 
       {{ govukDetails({
-        summaryText: "A good example of a behaviour note",
+        summaryText: "What protective factors are",
         classes: "govuk-!-margin-bottom-2",
-        text: "They have a history of making inappropriate comments to female staff."
+        text: "Protective factors can counteract negative influences. Individual protective factors include education, employment, leisure activities, goals and ambitions. Community and family protective factors include receiving professional support and having positive (prosocial) relationships."
       }) }}
 
-      {{ govukDetails({
-        summaryText: "A bad example of a behaviour note",
-        text: "They were being difficult and did not want to talk."
-      }) }}
+      <!-- {{ govukDetails({
+        summaryText: "Bad behaviour note examples",
+        text: "Avoid vague descriptions such as 'they were difficult' and describing minor events such as an argument with a member of staff."
+      }) }} -->
 
       <hr class="govuk-section-break govuk-section-break--s">
 
@@ -58,9 +59,94 @@
           }
         }) }} -->
 
-        {{ govukInput({
+ <!---------------------------- Risk management arrangements ---------------------------->
+ {% set yesHtml %}
+
+ {{ govukInput({
+  label: {
+    text: "Date of incident",
+    classes: "govuk-label--s"
+  },
+  hint: {
+    text: "This can be an approximate date. For example, 17 December"
+  },
+  classes: "govuk-!-width-one-third",
+  id: "prison-note-start-date",
+  name: "prison-note-start-date"
+}) }}
+
+{{ govukSelect({
+  id: "prison-note-referring-institution",
+  name: "prison-note-referring-institution",
+  label: {
+    text: "Referring institution",
+    classes: "govuk-label--s"
+  },
+    hint: {
+    text: "Where the applicant was based at the time the incident occured"
+  },
+  items: [
+    {
+      value: "choose",
+      text: "Choose location",
+      selected: true
+    },
+    {
+      value: "HMPPS Leeds",
+      text: "HMPPS Leeds"
+    },
+    {
+      value: "HMPPS Sheffield",
+      text: "HMPPS Sheffield"
+    },
+    {
+      value: "HMPPS London",
+      text: "HMPPS London"
+    }
+  ]
+}) }}
+ 
+ <!-- {{ govukTextarea({
+   name: "incident-date",
+   id: "incident-date",
+   label: {
+     text: "When did the incident happen?",
+     classes: "govuk-label--s",
+    
+     isPageHeading: false
+   }
+ }) }} -->
+
+
+{% endset -%}
+
+        {{ govukRadios({
+          name: "behaviour-notes-radio",
+          fieldset: {
+            legend: {
+              text: "Is the behaviour note related to a prison note (P-Nomis alert)?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: yesHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+          ]
+          }) }}
+
+        <!-- {{ govukInput({
           label: {
-            text: "When did the behaviour or event happen?",
+            text: "Date of event or behaviour",
             classes: "govuk-label--m"
           },
           hint: {
@@ -69,10 +155,10 @@
           classes: "govuk-!-width-one-third",
           id: "prison-note-start-date",
           name: "prison-note-start-date"
-        }) }}
+        }) }} -->
 
         <!------------------------ Referring institution ------------------------>
-        {% from "govuk/components/select/macro.njk" import govukSelect %}
+        <!-- {% from "govuk/components/select/macro.njk" import govukSelect %}
 
         {{ govukSelect({
           id: "prison-note-referring-institution",
@@ -103,7 +189,7 @@
               text: "HMPPS London"
             }
           ]
-        }) }}
+        }) }} -->
 
         <!------------------------ Details ------------------------>
         {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
@@ -116,11 +202,14 @@
             text: "Describe the behaviour",
             classes: "govuk-label--m",
             isPageHeading: false
-          },
+          }
+        }) }}
+
+          <!-- },
           hint: {
             text: "Guidance about the level of detail to include"
           }
-        }) }}
+        }) }} -->
 
         <div class="moj-button-action">
           {{ govukButton({
