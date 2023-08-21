@@ -40,9 +40,9 @@
 
               <!-- Offence date -->
               {{ govukDateInput({
-                id: "offence-date",
-                value: data['offence-date'],
-                namePrefix: "offence-date",
+                id: "co-offence-date",
+                value: data['co-offence-date'],
+                namePrefix: "co-offence-date",
                 fieldset: {
                   legend: {
                     text: "When did they commit this offence?",
@@ -68,15 +68,42 @@
                 }
               }) }}
 
-              <!-- Outstanding charges -->
-              {{ govukTextarea({
-                name: "co-outstanding-charges",
-                id: "co-outstanding-charges",
-                label: {
-                  text: "Details of any outstanding charges",
-                  classes: "govuk-label--m",
-                  isPageHeading: false
-                }
+              <!-- Outstanding charges details -->
+              {% set outstandingHTML %}
+                {{ govukTextarea({
+                  name: "co-outstanding-charges-details",
+                  id: "co-outstanding-charges-details",
+                  label: {
+                    text: "Details of any outstanding charges",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                  }
+                }) }}
+              {% endset -%}
+              
+              <!-- Outstanding charges question -->
+              {{ govukRadios({
+                name: "co-outstanding-charges-question",
+                fieldset: {
+                  legend: {
+                    text: "Are they any outstanding charges?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                items: [
+                  {
+                    value: "Yes",
+                    text: "Yes",
+                    conditional: {
+                      html: outstandingHTML
+                    }
+                  },
+                  {
+                    value: "No",
+                    text: "No"
+                  }
+                ]
               }) }}
 
               <!-- Provide seriousness details -->

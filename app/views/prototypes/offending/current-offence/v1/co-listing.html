@@ -88,7 +88,7 @@
             <div class="govuk-summary-card__title-wrapper">
               
               <h2 class="govuk-summary-card__title">
-                {{ data['co-offence-title'] }}
+                {{ data['co-offence-title'] }} - <span class="govuk-!-font-weight-regular">{{ data | isoDateFromDateInput("co-offence-date") | govukDate }}</span>
               </h2>
 
               <ul class="govuk-summary-card__actions">
@@ -131,7 +131,7 @@
                 </details>
               {% endif %}
 
-              {% if data['co-outstanding-charges'] %}
+              {% if data['co-outstanding-charges-details'] %}
                 <details class="govuk-details" data-module="govuk-details">
                   <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
@@ -139,10 +139,10 @@
                     </span>
                   </summary>
                   <div class="govuk-details__text">
-                    <p class="govuk-body">{{ data['co-outstanding-charges'] }}</p>
+                    <p class="govuk-body">{{ data['co-outstanding-charges-details'] }}</p>
                   </div>
                 </details>
-                {% endif %}
+              {% endif %}
             
             </div>
           </div>
