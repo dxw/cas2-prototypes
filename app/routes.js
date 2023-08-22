@@ -193,13 +193,13 @@ router.post('/prototypes/eligibility-checker/eligibility-flat', function(request
 })
 
 // Offending history routing
-router.post('/prototypes/offending-history/v1/oh-q1', function(request, response) {
+router.post('/prototypes/offending/offending-history/v1/first-time', function(request, response) {
 
   var previousAddressAnswer = request.session.data['previous-convictions']
   if (previousAddressAnswer == "yes"){
-      response.redirect("/prototypes/offending-history/v1/oh-listing")
+    response.redirect("/prototypes/offending/offending-history/v1/oh-add-manual")
   } else {
-      response.redirect("/prototypes/tasklists/tasklist")
+    response.redirect("/prototypes/offending/offending-history/v1/no-history")
   }
 })
 
