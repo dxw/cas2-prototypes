@@ -45,24 +45,24 @@
       <form class="form" action="../rosh-prison-note-x3" method="post">
 
         <!------------------------ Start date ------------------------>
-        <!-- {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
         {{ govukDateInput({
           id: "prison-note-date",
           namePrefix: "prison-note-date",
           fieldset: {
             legend: {
-              text: "When did this incident occur?",
+              text: "When does the behaviour note relate to?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           }
-        }) }} -->
+        }) }}
 
  <!---------------------------- Risk management arrangements ---------------------------->
  {% set yesHtml %}
 
- {{ govukInput({
+ <!-- {{ govukInput({
   label: {
     text: "Date of incident",
     classes: "govuk-label--s"
@@ -73,7 +73,7 @@
   classes: "govuk-!-width-one-third",
   id: "prison-note-start-date",
   name: "prison-note-start-date"
-}) }}
+}) }} -->
 
 {{ govukSelect({
   id: "prison-note-referring-institution",
@@ -124,7 +124,7 @@
           name: "behaviour-notes-radio",
           fieldset: {
             legend: {
-              text: "Is the behaviour note related to a prison note (P-Nomis alert)?",
+              text: "Is the behaviour note related to a P-Nomis alert?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
