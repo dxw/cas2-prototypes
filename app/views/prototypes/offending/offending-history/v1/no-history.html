@@ -33,7 +33,7 @@
 
 {% set html %}
   <p class="govuk-notification-banner__heading">
-    No OASys record available to import for Terry Midhurst.
+    Terry Midhurst has no previous offence history
   </p>
 {% endset %}
 
@@ -44,17 +44,14 @@
       No OASys record for Terry Midhurst
     </h1> -->
     <p class="govuk-body">
-        No information can be imported for the Risk of Serious Harm (RoSH) section because Terry Midhurst does not have a Layer 3 OASys completed in the last 6 months. 
+      Terry has no previous offence history. Content here?
     </p>
 
-    <p class="govuk-body">To continue, you can choose to:</p>
+    <!-- <p class="govuk-body">To continue, you can choose to:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>update OASys before trying again (recommended)</li>
       <li>complete the section manually</li>
-    </ul>
-
-
-
+    </ul> -->
 
     <!-- <p class="govuk-body">
       Information from an OASys record can be automatically added to help answer some of the following questions.
@@ -107,12 +104,19 @@
         ]
       }) }} -->
 
-      <div class="govuk-button-group">
+      <div class="govuk-button-group govuk-!-margin-top-5">
+          
         {{ govukButton({
-          text: "Complete section manually"
+          text: "Save and complete",
+          href: "../../../tasklists/tasklist"
         }) }}
 
-        <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+        {{ govukButton({
+          text: "Add offence history",
+          href: "oh-add-manual",
+          classes: "govuk-button--secondary"
+        }) }}
+
       </div>
       
     </form>
