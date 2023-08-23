@@ -1,0 +1,180 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "Beta"
+      },
+      html: 'This is a new service – your feedback will help us to improve it.'
+    }) }}
+  </div>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form action="/prototypes/area/gang-affliation" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Enter details of excluded area
+                </h1>
+              </legend>
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h2 class="govuk-fieldset__heading">
+                      Where is Terry Midhurst excluded from?
+                    </h2>
+                  </legend>
+                  <div id="contact-hint" class="govuk-hint">
+                    Select one option.
+                  </div>
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                      <label class="govuk-label govuk-radios__label" for="contact">
+                        Town or city
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                      <div class="govuk-form-group">
+                        <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email">
+                      </div>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                      <label class="govuk-label govuk-radios__label" for="contact-2">
+                        Address
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                      {% from "govuk/components/input/macro.njk" import govukInput %}
+                      {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+                      {% call govukFieldset({
+
+                      }) %}
+
+                        {{ govukInput({
+                          label: {
+                            text: 'Address line 1'
+                          },
+                          id: "address-line-1",
+                          name: "address-line-1",
+                          autocomplete: "address-line1"
+                        }) }}
+
+                        {{ govukInput({
+                          label: {
+                            text: 'Address line 2 (optional)'
+                          },
+                          id: "address-line-2",
+                          name: "address-line-2",
+                          autocomplete: "address-line2"
+                        }) }}
+
+                        {{ govukInput({
+                          label: {
+                            text: "Town or city"
+                          },
+                          classes: "govuk-!-width-two-thirds",
+                          id: "address-town",
+                          name: "address-town",
+                          autocomplete: "address-level2"
+                        }) }}
+
+                        {{ govukInput({
+                          label: {
+                            text: "County (optional)"
+                          },
+                          classes: "govuk-!-width-two-thirds",
+                          id: "address-county",
+                          name: "address-county"
+                        }) }}
+
+                        {{ govukInput({
+                          label: {
+                            text: "Postcode"
+                          },
+                          classes: "govuk-input--width-10",
+                          id: "address-postcode",
+                          name: "address-postcode",
+                          autocomplete: "postal-code"
+                        }) }}
+
+                      {% endcall %}
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="govuk-form-group">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h2 class="govuk-fieldset__heading">
+                    How far must Terry Midhurst stay awary from this place?
+                  </h2>
+                </legend>
+                <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+                  <div class="govuk-input__suffix" aria-hidden="true">km</div>
+                </div>
+              </div>
+
+              <!-- Offence date -->
+              {{ govukDateInput({
+                id: "co-offence-date",
+                value: data['co-offence-date'],
+                namePrefix: "co-offence-date",
+                fieldset: {
+                  legend: {
+                    text: "End date for exclusion or injuction",
+                    classes: "govuk-label--m"
+                  }
+                },
+                hint: {
+                    text: "For example, 27 3 2027"
+                }
+              }) }}
+
+            </fieldset>
+
+          </div>
+
+          <div class="govuk-button-group">
+
+            {{ govukButton({
+              text: "Save and continue"
+            }) }}
+
+            {{ govukButton({
+              text: "Add another excluded area",
+              classes: "govuk-button--secondary"
+            }) }}
+            
+          </div>
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
