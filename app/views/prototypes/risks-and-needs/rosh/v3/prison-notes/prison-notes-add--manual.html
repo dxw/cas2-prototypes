@@ -40,85 +40,78 @@
         text: "Avoid vague descriptions such as 'they were difficult' and describing minor events such as an argument with a member of staff."
       }) }} -->
 
-      <hr class="govuk-section-break govuk-section-break--s">
+      <hr class="govuk-section-break govuk-section-break--m">
 
-      <form class="form" action="../rosh-prison-note-x3" method="post">
+      <form class="form" action="../behaviour-notes-x1" method="post">
 
-        <!------------------------ Start date ------------------------>
+        <!------------------------ P-Nomis alert creation date ------------------------>
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-        {{ govukDateInput({
-          id: "prison-note-date",
-          namePrefix: "prison-note-date",
-          fieldset: {
-            legend: {
-              text: "When does the behaviour note relate to?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
+        {% set dateHTML %}
+
+          {{ govukDateInput({
+            id: "prison-note-date",
+            namePrefix: "prison-note-date",
+            hint: {
+              text: "For example, 17 December 2022"
+            },
+            fieldset: {
+              legend: {
+                text: "When was the P-Nomis alert created?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
             }
+          }) }}
+
+        {% endset -%}
+
+        <!---------------------------- Referring institution ---------------------------->
+        <!-- {% set yesHtml %} -->
+
+        <!-- {{ govukSelect({
+          id: "prison-note-referring-institution",
+          name: "prison-note-referring-institution",
+          label: {
+            text: "Referring institution (Optional)",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "Where the applicant was based at the time the incident occured"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose location",
+              selected: true
+            },
+            {
+              value: "HMPPS Leeds",
+              text: "HMPPS Leeds"
+            },
+            {
+              value: "HMPPS Sheffield",
+              text: "HMPPS Sheffield"
+            },
+            {
+              value: "HMPPS London",
+              text: "HMPPS London"
+            }
+          ]
+        }) }} -->
+        
+        <!-- {{ govukTextarea({
+          name: "incident-date",
+          id: "incident-date",
+          label: {
+            text: "When did the incident happen?",
+            classes: "govuk-label--s",
+            
+            isPageHeading: false
           }
-        }) }}
+        }) }} -->
 
- <!---------------------------- Risk management arrangements ---------------------------->
- {% set yesHtml %}
-
- <!-- {{ govukInput({
-  label: {
-    text: "Date of incident",
-    classes: "govuk-label--s"
-  },
-  hint: {
-    text: "This can be an approximate date. For example, 17 December"
-  },
-  classes: "govuk-!-width-one-third",
-  id: "prison-note-start-date",
-  name: "prison-note-start-date"
-}) }} -->
-
-{{ govukSelect({
-  id: "prison-note-referring-institution",
-  name: "prison-note-referring-institution",
-  label: {
-    text: "Referring institution",
-    classes: "govuk-label--s"
-  },
-    hint: {
-    text: "Where the applicant was based at the time the incident occured"
-  },
-  items: [
-    {
-      value: "choose",
-      text: "Choose location",
-      selected: true
-    },
-    {
-      value: "HMPPS Leeds",
-      text: "HMPPS Leeds"
-    },
-    {
-      value: "HMPPS Sheffield",
-      text: "HMPPS Sheffield"
-    },
-    {
-      value: "HMPPS London",
-      text: "HMPPS London"
-    }
-  ]
-}) }}
- 
- <!-- {{ govukTextarea({
-   name: "incident-date",
-   id: "incident-date",
-   label: {
-     text: "When did the incident happen?",
-     classes: "govuk-label--s",
-    
-     isPageHeading: false
-   }
- }) }} -->
-
-
-{% endset -%}
+        <!-- {% endset -%} -->
 
         {{ govukRadios({
           name: "behaviour-notes-radio",
@@ -134,7 +127,7 @@
             value: "yes",
             text: "Yes",
             conditional: {
-              html: yesHtml
+              html: dateHTML
             }
           },
           {
@@ -142,7 +135,7 @@
             text: "No"
           }
           ]
-          }) }}
+        }) }}
 
         <!-- {{ govukInput({
           label: {
