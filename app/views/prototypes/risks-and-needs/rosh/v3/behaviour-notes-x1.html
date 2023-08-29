@@ -112,7 +112,7 @@
                   Created: 
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['prison-note-start-date'] }}
+                  {{ data | isoDateFromDateInput("prison-note-date") | govukDate }}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
