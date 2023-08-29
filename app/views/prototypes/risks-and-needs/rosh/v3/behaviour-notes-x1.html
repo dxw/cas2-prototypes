@@ -92,8 +92,9 @@
         <div class="govuk-summary-card prison-info">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              {% if data | isoDateFromDateInput("prison-note-date") %} 
+              {% if data['behaviour-notes-radio'] == 'yes' %}
                 {{ data | isoDateFromDateInput("prison-note-date") | govukDate }}
+              {% else %}
               {% endif %}
             </h2>
             <ul class="govuk-summary-card__actions">
