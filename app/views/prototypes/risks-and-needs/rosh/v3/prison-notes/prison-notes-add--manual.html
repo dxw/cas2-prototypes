@@ -44,25 +44,32 @@
 
       <form class="form" action="../behaviour-notes-x1" method="post">
 
-        <!------------------------ Start date ------------------------>
+        <!------------------------ P-Nomis alert creation date ------------------------>
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-        {{ govukDateInput({
-          id: "prison-note-date",
-          namePrefix: "prison-note-date",
-          fieldset: {
-            legend: {
-              text: "When does the behaviour note relate to?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          }
-        }) }}
+        {% set dateHTML %}
 
-        <!---------------------------- Risk management arrangements ---------------------------->
+          {{ govukDateInput({
+            id: "prison-note-date",
+            namePrefix: "prison-note-date",
+            hint: {
+              text: "For example, 17 December 2022"
+            },
+            fieldset: {
+              legend: {
+                text: "When was the P-Nomis alert created?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            }
+          }) }}
+
+        {% endset -%}
+
+        <!---------------------------- Referring institution ---------------------------->
         <!-- {% set yesHtml %} -->
 
-        {{ govukSelect({
+        <!-- {{ govukSelect({
           id: "prison-note-referring-institution",
           name: "prison-note-referring-institution",
           label: {
@@ -91,7 +98,7 @@
               text: "HMPPS London"
             }
           ]
-        }) }}
+        }) }} -->
         
         <!-- {{ govukTextarea({
           name: "incident-date",
@@ -104,10 +111,9 @@
           }
         }) }} -->
 
-
         <!-- {% endset -%} -->
 
-        <!-- {{ govukRadios({
+        {{ govukRadios({
           name: "behaviour-notes-radio",
           fieldset: {
             legend: {
@@ -121,7 +127,7 @@
             value: "yes",
             text: "Yes",
             conditional: {
-              html: yesHtml
+              html: dateHTML
             }
           },
           {
@@ -129,7 +135,7 @@
             text: "No"
           }
           ]
-        }) }} -->
+        }) }}
 
         <!-- {{ govukInput({
           label: {

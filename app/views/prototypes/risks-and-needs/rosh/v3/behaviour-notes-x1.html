@@ -91,7 +91,11 @@
         <!------------------------ User entered ------------------------>
         <div class="govuk-summary-card prison-info">
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">{{ data['prison-note-referring-institution'] }}</h2>
+            <h2 class="govuk-summary-card__title">
+              {% if data | isoDateFromDateInput("prison-note-date") %} 
+                {{ data | isoDateFromDateInput("prison-note-date") | govukDate }}
+              {% endif %}
+            </h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link" href="#">
@@ -107,14 +111,14 @@
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
+              <!-- <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Created: 
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{ data | isoDateFromDateInput("prison-note-date") | govukDate }}
                 </dd>
-              </div>
+              </div> -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Details:
