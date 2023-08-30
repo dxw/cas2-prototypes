@@ -6,7 +6,7 @@
 {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Checklist
 {% endblock %}
 
  {% block beforeContent %}
@@ -36,7 +36,7 @@
       <form class="form" action="" method="post">
 
         <!-- <span class="govuk-caption-m">CAS-2 application for Terry Midhurst</span> -->
-        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Check information needed from Terry Midhurst</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Check information needed from applicant</h1>
 
         <p class="govuk-body">Use this checklist to get answers from Terry Midhurst for their CAS-2 application.</p>
 
@@ -44,7 +44,7 @@
           You do not need to include this checklist in the application. The checklist is for your reference only.
         </div>
 
-        <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        <a href="/public/images/checklist.pdf" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" download>
         Download printable checklist
         </a>
   
@@ -63,12 +63,6 @@
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
-                <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
-                  Ask how the applicant will fund their CAS-2 placement
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
                 <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
                   Ask for the applicant’s NI number
@@ -78,6 +72,12 @@
                 <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
                 <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
                   Ask which ID documents the applicant has
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                  Ask how the applicant will fund their CAS-2 placement
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
