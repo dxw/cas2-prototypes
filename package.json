@@ -11,7 +11,7 @@
     "@x-govuk/govuk-prototype-filters": "1.0.1",
     "govuk-frontend": "4.7.0",
     "govuk-prototype-kit": "13.13.0",
-    "jquery": "3.7.0",
+    "jquery": "3.7.1",
     "notifications-node-client": "7.0.3"
   }
 }
