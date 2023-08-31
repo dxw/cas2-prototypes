@@ -203,6 +203,16 @@ router.post('/prototypes/offending/offending-history/v1/first-time', function(re
   }
 })
 
+router.post('/prototypes/offending/offending-history/v2/first-time', function(request, response) {
+
+  var previousAddressAnswer = request.session.data['previous-convictions']
+  if (previousAddressAnswer == "yes"){
+    response.redirect("/prototypes/offending/offending-history/v2/oh-add-manual")
+  } else {
+    response.redirect("/prototypes/offending/offending-history/v2/no-history")
+  }
+})
+
 // Offending prototype routing
 router.post('/prototypes/offending/v1/first-time', function(request, response) {
 
