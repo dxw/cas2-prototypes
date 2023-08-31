@@ -88,7 +88,7 @@
         <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Risk management arrangements</h2> -->
 
         <!---------------------------- Risk management arrangements ---------------------------->
-        {% set yesHtml %}
+        <!-- {% set yesHtml %}
 
           {{ govukTextarea({
             name: "risk-management-type",
@@ -147,7 +147,109 @@
           text: "No"
         }
         ]
-        }) }}
+        }) }} -->
+
+         <!-- <h2 class="govuk-heading-m">Prison behaviour notes</h2> -->
+         <!-- <p class="govuk-body">Risk management arrangements are for managing an applicant's risk of serious harm and risk of reoffending.</p> -->
+
+         <p class="govuk-body">You should check with Terry Midhurst's Community Probation Practitioner (CPP), also known as Community Offender Manager (COM), for up-to-date risk management arrangements.</p>
+
+         <p class="govuk-body">You can also check the 'Risk Management Plan' section in OASys.</p>
+
+         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+         <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Is Terry Midhurst subject to any of these multi-agency risk management arrangements upon release?
+              </h1>
+            </legend>
+            <div id="contact-hint" class="govuk-hint">
+              Select all that apply
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="contact" name="contact" type="checkbox" value="email" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-checkboxes__label" for="contact">
+                  Multi-Agency Public Protection Arrangements (MAPPA)
+                </label>
+                
+              </div>
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    {{ govukTextarea({
+                    name: "mappa-details",
+                    id: "mappa-details",
+                    rows: '8',
+                    label: {
+                      text: "Provide MAPPA details",
+                      classes: "govuk-label--s",
+                      isPageHeading: false
+                    },
+                    hint: {
+                      text: "Specify whether the MAPPA is Category 2 or Category 3."
+                    }
+                  }) }}
+        
+        
+                </div>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone" data-aria-controls="conditional-contact-2">
+                <label class="govuk-label govuk-checkboxes__label" for="contact-2">
+                  Multi-Agency Risk Assessment Conference (MARAC)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-2">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-phone">
+                
+                    {{ govukTextarea({
+                      name: "marac-details",
+                      id: "marac-details",
+                      rows: '8',
+                      label: {
+                        text: "Provide MARAC details",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      }
+                    }) }}
+                </div>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text message" data-aria-controls="conditional-contact-3">
+                <label class="govuk-label govuk-checkboxes__label" for="contact-3">
+                  Integrated Offender Management (IOM)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-3">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-text">
+                    {{ govukTextarea({
+                      name: "iom-details",
+                      id: "iom-details",
+                      rows: '8',
+                      label: {
+                        text: "Provide IOM details",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      }
+                    }) }}
+                  </div>
+                </div>
+              </div>
+                    <div class="govuk-checkboxes__divider">or</div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="countries-5" name="countries" type="checkbox" value="none" data-behaviour="exclusive">
+                      <label class="govuk-label govuk-checkboxes__label" for="countries-5">
+                        No, Terry Midhurst does not have risk management arrangements
+                        </label>
+                </div>
+          </fieldset>
+        </div>
+
 
         <div class="govuk-button-group">
 
