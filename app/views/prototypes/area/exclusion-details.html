@@ -35,9 +35,94 @@
 
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Enter details of exclusion area
+                  Enter details of exclusion zone
                 </h1>
               </legend>
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                      Reason for exclusion zone
+                    </h1>
+                  </legend>
+                  <div id="contact-hint" class="govuk-hint">
+                    Select one option.
+                  </div>
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact" name="exclusion-reason" type="radio" value="Domestic abuse" data-aria-controls="conditional-contact-1">
+                      <label class="govuk-label govuk-radios__label" for="contact">
+                        Domestic abuse
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-1">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="order-by-email">
+                           Provide the victim(s) full name so we can avoid placing Terry Midhurst near them.
+                        </label>
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                      </div>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact-2" name="exclusion-reason" type="radio" value="Stalking" data-aria-controls="conditional-contact-2">
+                      <label class="govuk-label govuk-radios__label" for="contact-2">
+                        Stalking
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="order-by-email">
+                           Provide the victim(s) full name so we can avoid placing Terry Midhurst near them.
+                        </label>
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                      </div>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact-3" name="exclusion-reason" type="radio" value="Harassment" data-aria-controls="conditional-contact-3">
+                      <label class="govuk-label govuk-radios__label" for="contact-3">
+                        Harassment
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="order-by-email">
+                           Provide the victim(s) full name so we can avoid placing Terry Midhurst near them.
+                        </label>
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                      </div>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact-3" name="exclusion-reason" type="radio" value="Gang affiliations" data-aria-controls="conditional-contact-4">
+                      <label class="govuk-label govuk-radios__label" for="contact-3">
+                        Gang affiliations
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-4">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="order-by-email">
+                           Provide details to ensure a safe placement is made
+                        </label>
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                      </div>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact-3" name="exclusion-reason" type="radio" value="Other reason" data-aria-controls="conditional-contact-5">
+                      <label class="govuk-label govuk-radios__label" for="contact-3">
+                        Other reason
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-5">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="order-by-email">
+                           Provide details to ensure a safe placement is made
+                        </label>
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
 
               <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
@@ -51,23 +136,23 @@
                   </div> -->
                   <div class="govuk-radios" data-module="govuk-radios">
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                      <input class="govuk-radios__input" id="location" name="location" type="radio" value="email" data-aria-controls="conditional-location-1">
                       <label class="govuk-label govuk-radios__label" for="contact">
                         Town or city
                       </label>
                     </div>
-                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-location-1">
                       <div class="govuk-form-group">
                         <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email">
                       </div>
                     </div>
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                      <input class="govuk-radios__input" id="location-2" name="location" type="radio" value="phone" data-aria-controls="conditional-location-2">
                       <label class="govuk-label govuk-radios__label" for="contact-2">
                         Address
                       </label>
                     </div>
-                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-location-2">
                       {% from "govuk/components/input/macro.njk" import govukInput %}
                       {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
@@ -134,7 +219,7 @@
                     How far must Terry Midhurst stay away from the exclusion area?
                   </h2>
                 </legend>
-                <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+                <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="distance" type="text" spellcheck="false">
                   <div class="govuk-input__suffix" aria-hidden="true">km</div>
                 </div>
               </div>
