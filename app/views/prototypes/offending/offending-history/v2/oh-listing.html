@@ -91,7 +91,11 @@
         {% elif data['offence-category'] == 'Domestic abuse' %}
           {% set tagColour = "--purple" %}
         {% elif data['offence-category'] == 'Hate crime' %}
-          {% set tagColour = "govuk-tag--turquoise" %}
+          {% set tagColour = "--turquoise" %}
+        {% elif data['offence-category'] == 'Drugs' %}
+          {% set tagColour = "--brown" %}
+        {% elif data['offence-category'] == 'Other' %}
+          {% set tagColour = "--grey" %}
         {% endif %}
         
         {% if data['offence-title'] and data['offence-category'] and data['offence-details'] and data | isoDateFromDateInput("sentence-date") %}
