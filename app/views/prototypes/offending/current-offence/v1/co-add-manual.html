@@ -35,16 +35,21 @@
 
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Enter details of Terry Midhurst's current offence
+                  Add Terry Midhurst's current offence details
                 </h1>
               </legend>
+
+              <hr class="govuk-section-break govuk-section-break--m">
 
               <!-- Offence title -->
               {{ govukInput({
                 label: {
-                  text: "Offence title",
+                  text: "Offence title and number",
                   classes: "govuk-label--m",
                   isPageHeading: false
+                },
+                hint: {
+                    text: "For example, 'Stalking (08000)'"
                 },
                 id: "co-offence-title",
                 name: "co-offence-title"
@@ -57,7 +62,7 @@
                 namePrefix: "co-offence-date",
                 fieldset: {
                   legend: {
-                    text: "When did they commit this offence?",
+                    text: "When did they commit the offence?",
                     classes: "govuk-label--m"
                   }
                 },
@@ -76,7 +81,7 @@
                   isPageHeading: false
                 },
                 hint: {
-                  text: "Where and when did the offence take place? How did they do it? Are there any known victims?"
+                  text: "Where and when did the offence take place? How did they do it? Are there any known victims? Do not include sensitive information, such as names and addresses."
                 }
               }) }}
 
@@ -98,7 +103,7 @@
                 name: "co-outstanding-charges-question",
                 fieldset: {
                   legend: {
-                    text: "Are they any outstanding charges?",
+                    text: "Are there any outstanding charges?",
                     isPageHeading: false,
                     classes: "govuk-fieldset__legend--m"
                   }
