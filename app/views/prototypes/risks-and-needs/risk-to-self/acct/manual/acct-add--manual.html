@@ -18,13 +18,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <!-- <span class="govuk-caption-m">Risk to self for Terry Midhurst</span> -->
       <h1 class="govuk-heading-l">Add an ACCT entry for Terry Midhurst</h1>
-      <p class="govuk-body-l">An Assessment, Care in Custody and Teamwork (ACCT) is a tailored plan to support someone in prison at risk of self harm or suicide.</p>
+      <p class="govuk-body">An Assessment, Care in Custody and Teamwork (ACCT) is a tailored plan to support someone in prison at risk of self harm or suicide.</p>
 
-      <hr class="govuk-section-break govuk-section-break--s">
+      <hr class="govuk-section-break govuk-section-break--m">
 
-      <form class="form" action="../v3-manual/acct-x3" method="post">
+      <form class="form" action="../../v4/acct" method="post">
 
         <!------------------------ Start date ------------------------>
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
@@ -32,6 +31,9 @@
         {{ govukDateInput({
           id: "acct-start-date",
           namePrefix: "acct-start-date",
+          hint: {
+            text: "For example, 22 4 2023"
+          },
           fieldset: {
             legend: {
               text: "When was the ACCT created?",
@@ -42,16 +44,47 @@
         }) }}
 
         <!------------------------ End date ------------------------>
-        {{ govukDateInput({
-          id: "acct-end-date",
-          namePrefix: "acct-end-date",
+        {% set acctEndDateHTML %}
+
+          {{ govukDateInput({
+            id: "acct-end-date",
+            namePrefix: "acct-end-date",
+            hint: {
+              text: "For example, 22 4 2023"
+            },
+            fieldset: {
+              legend: {
+                text: "When was the ACCT closed?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "acct-end-radio",
           fieldset: {
             legend: {
-              text: "When did the ACCT expire?",
+              text: "Is the ACCT ongoing?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
+          },
+          items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No",
+            conditional: {
+              html: acctEndDateHTML
+            }
           }
+          ]
         }) }}
 
         <!------------------------ Referring institution ------------------------>
@@ -110,7 +143,7 @@
         </div>
 
         {{ govukButton({
-          text: "Save and add ACCT"
+          text: "Save and add ACCT note"
         }) }}
 
       </form>
