@@ -33,7 +33,14 @@
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Offence history for Terry Midhurst</h1>
-      <p class="govuk-body">Something here explaining to list the applicant's previous offences, where they are both serious and unspent.</p>
+
+      <p class="govuk-body">
+        Provide <b>all of Terry Midhurst's serious and unspent</b> offences.
+      </p>
+
+      <p class="govuk-body">
+        The CAS-2 referral team needs this information to assess risk and make sure people are placed safely.
+      </p>
       
       {{ govukButton({
         text: "Add a previous offence",
@@ -150,7 +157,7 @@
         {{ govukSummaryList({
           card: {
             title: {
-              text: "Additional offence (08000)"
+              text: "Stalking (08000)"
             },
             classes: "prison-info",
             actions: {
@@ -190,7 +197,7 @@
                 text: "Offence details:"
               },
               value: {
-                html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                html: "Terry Midhurst was convicted of stalking a former partner. He loitered outside their workplace, appeared uninvited at their home and attempted to contact them via phonecalls and texts."
               }
             }
           ]
@@ -200,7 +207,57 @@
         {{ govukSummaryList({
           card: {
             title: {
-              text: "Additional offence (08000)"
+              text: "Harassment (07000)"
+            },
+            classes: "prison-info",
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "offence"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Category"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--blue'>Stalking or harassment</strong>"
+              }
+            },
+            {
+              key: {
+                text: "Offence date:"
+              },
+              value: {
+                html: "25 January 2023"
+              }
+            },
+            {
+              key: {
+                text: "Offence details:"
+              },
+              value: {
+                html: "Terry harassed a former colleague by sending them abusive text messages and turning up at their home."
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ Arson ------------------------>
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Weapon possession (09000)"
             },
             classes: "prison-info",
             actions: {
@@ -232,7 +289,7 @@
                 text: "Offence date:"
               },
               value: {
-                html: "12 April 2023"
+                html: "25 November 2022"
               }
             },
             {
@@ -240,57 +297,7 @@
                 text: "Offence details:"
               },
               value: {
-                html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-              }
-            }
-          ]
-        }) }}
-
-        <!------------------------ Arson ------------------------>
-        {{ govukSummaryList({
-          card: {
-            title: {
-              text: "Additional offence (08000)"
-            },
-            classes: "prison-info",
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Remove",
-                  visuallyHiddenText: "offence"
-                },
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "offence"
-                }
-              ]
-            }
-          },
-          rows: [
-            {
-              key: {
-                text: "Category"
-              },
-              value: {
-                html: "<strong class='govuk-tag govuk-tag--yellow'>Arson</strong>"
-              }
-            },
-            {
-              key: {
-                text: "Offence date:"
-              },
-              value: {
-                html: "12 April 2023"
-              }
-            },
-            {
-              key: {
-                text: "Offence details:"
-              },
-              value: {
-                html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                html: "Terry threatened a former employer with a kitchen knife at their home after being made redundant."
               }
             }
           ]
@@ -300,7 +307,7 @@
         {{ govukSummaryList({
           card: {
             title: {
-              text: "Additional offence (08000)"
+              text: "Actual Bodily Harm (ABH) (68000)"
             },
             classes: "prison-info",
             actions: {
@@ -332,7 +339,7 @@
                 text: "Offence date:"
               },
               value: {
-                html: "12 April 2023"
+                html: "04 March 2021"
               }
             },
             {
@@ -340,7 +347,7 @@
                 text: "Offence details:"
               },
               value: {
-                html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                html: "Terry caused actual bodily harm to an unknown male in a pub while intoxicated. He had argued with the victim."
               }
             }
           ]
@@ -350,7 +357,7 @@
         {{ govukSummaryList({
           card: {
             title: {
-              text: "Additional offence (08000)"
+              text: "Domestic abuse (03000)"
             },
             classes: "prison-info",
             actions: {
@@ -390,7 +397,7 @@
                 text: "Offence details:"
               },
               value: {
-                html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                html: "Terry physically and emotionally abused an intimate partner."
               }
             }
           ]
@@ -400,7 +407,7 @@
         {{ govukSummaryList({
           card: {
             title: {
-              text: "Additional offence (08000)"
+              text: "Hate crime (08000)"
             },
             classes: "prison-info",
             actions: {
@@ -440,7 +447,7 @@
                 text: "Offence details:"
               },
               value: {
-                html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                html: "Terry subjected a local religious group to verbal abuse and incitement to hatred via Facebook posts."
               }
             }
           ]
