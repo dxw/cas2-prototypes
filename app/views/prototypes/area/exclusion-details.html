@@ -134,24 +134,29 @@
                   <!-- <div id="contact-hint" class="govuk-hint">
                     Select one option.
                   </div> -->
+
                   <div class="govuk-radios" data-module="govuk-radios">
+
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="location" name="town-city" type="radio" value="email" data-aria-controls="conditional-location-1">
-                      <label class="govuk-label govuk-radios__label" for="contact">
+                      <input class="govuk-radios__input" id="town-city" name="exclusion-option" type="radio" value="Town or city" data-aria-controls="conditional-location-1">
+                      <label class="govuk-label govuk-radios__label" for="town-city">
                         Town or city
                       </label>
                     </div>
+
                     <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-location-1">
                       <div class="govuk-form-group">
                         <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email">
                       </div>
                     </div>
+
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="location-2" name="location" type="radio" value="phone" data-aria-controls="conditional-location-2">
-                      <label class="govuk-label govuk-radios__label" for="contact-2">
+                      <input class="govuk-radios__input" id="address" name="exclusion-option" type="radio" value="Adress" data-aria-controls="conditional-location-2">
+                      <label class="govuk-label govuk-radios__label" for="address">
                         Address
                       </label>
                     </div>
+
                     <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-location-2">
                       {% from "govuk/components/input/macro.njk" import govukInput %}
                       {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
