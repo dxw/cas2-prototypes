@@ -77,7 +77,7 @@
                 Reason details
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['more-detail'] }}
+                {{ data['reason-details'] }}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">
@@ -90,7 +90,12 @@
                 Location
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['location'] }}
+                {{ data['town-city'] }}
+                {{ data['address-line-1'] }}
+                {{ data['address-line-2'] }}
+                {{ data['address-town'] }}
+                {{ data['address-county'] }}
+                {{ data['address-postcode'] }}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">
@@ -103,7 +108,7 @@
                 Distance
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['family'] }}km
+                {{ data['distance'] }}km
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">
@@ -116,7 +121,7 @@
                 End date
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['family'] }}
+                {{ data['end-date'] }}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">
