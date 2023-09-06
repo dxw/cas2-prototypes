@@ -286,93 +286,28 @@
 
         </div>
 
-        <!------------------------ Previous example 5 ------------------------>
-        <div class="govuk-summary-card">
+        {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Current offence title here 5
-            </h2>
-
-            <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="">
-                  Change<span class="govuk-visually-hidden"> details of current offence</span>
-                </a>
-              </li>
-
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="">
-                  Remove<span class="govuk-visually-hidden"> current offence note</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="govuk-summary-card__content">
-            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Offence date: </span>DATE HERE</p>
-            <p class="govuk-body">Few lines summary of details</p>
-
-              <details class="govuk-details" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    View outstanding charges
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <p class="govuk-body">Outstanding charges example details</p>
-                </div>
-              </details>
-          </div>
-
-        </div>
-
-        <!------------------------ Previous example 6 ------------------------>
-        <div class="govuk-summary-card">
-
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Current offence title here 6
-            </h2>
-
-            <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="">
-                  Change<span class="govuk-visually-hidden"> details of current offence</span>
-                </a>
-              </li>
-
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="">
-                  Remove<span class="govuk-visually-hidden"> current offence note</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="govuk-summary-card__content">
-            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Offence date: </span>DATE HERE</p>
-            <p class="govuk-body">Few lines summary of details</p>
-
-              <details class="govuk-details" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    View outstanding charges
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <p class="govuk-body">Outstanding charges example details</p>
-                </div>
-              </details>
-          </div>
-
-        </div>
-
-
-
-
-
-
+        {{ govukPagination({
+          next: {
+            href: "#"
+          },
+          items: [
+            {
+              number: 1,
+              current: true,
+              href: "#"
+            },
+            {
+              number: 2,
+              href: "#"
+            },
+            {
+              number: 3,
+              href: "#"
+            }
+          ]
+        }) }}
 
         <hr class="govuk-section-break govuk-section-break--l">
 
