@@ -1,0 +1,461 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Offence history for Terry Midhurst</h1>
+
+      <!-- <p class="govuk-body">
+        Provide <b>all of Terry Midhurst's serious and unspent</b> offences.
+      </p> -->
+
+      <!-- <p class="govuk-body">
+        The CAS-2 referral team needs this information to assess risk and make sure people are placed safely.
+      </p> -->
+
+      <p class="govuk-body">You should include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>serious offences from the last 10 years</li>
+        <li>non-serious offences from the last 5 years</li>
+        <li>information related to sharing accommodation</li>
+        <li>information related to a pattern of behaviour</li>
+      </ul>
+      
+      {{ govukButton({
+        text: "Add a previous offence",
+        classes: "govuk-button--secondary",
+        href: "oh-add-manual"
+      }) }}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <div class="float-right">
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "sort",
+          name: "sort",
+          label: {
+            html: "<span class='govuk-!-margin-right-1 govuk-!-font-weight-bold'>Sort by:</span>",
+            classes: "govuk-!-display-inline"
+          },
+          items: [
+            {
+              value: "offence",
+              text: "Offence type"
+            },
+            {
+              value: "updated",
+              text: "Most recent",
+              selected: true
+            },
+            {
+              value: "alphabet",
+              text: "Alphabet"
+            }
+          ]
+        }) }}
+      </div>
+
+      <form class="form clear-both" action="" method="post">
+        
+        <!------------------------ User entered ------------------------> 
+        {% set tagColour = 'test' %}
+        {% if data['offence-category'] == 'Stalking or Harassment' %}
+          {% set tagColour = "--blue" %}
+        {% elif data['offence-category'] == 'Weapons or Firearms' %}
+          {% set tagColour = "--red" %}
+        {% elif data['offence-category'] == 'Arson' %}
+          {% set tagColour = "--yellow" %}
+        {% elif data['offence-category'] == 'Violence' %}
+          {% set tagColour = "--pink" %}
+        {% elif data['offence-category'] == 'Domestic abuse' %}
+          {% set tagColour = "--purple" %}
+        {% elif data['offence-category'] == 'Hate crime' %}
+          {% set tagColour = "--turquoise" %}
+        {% elif data['offence-category'] == 'Drugs' %}
+          {% set tagColour = "--brown" %}
+        {% elif data['offence-category'] == 'Other' %}
+          {% set tagColour = "--grey" %}
+        {% endif %}
+        
+        {% if data['offence-title'] and data['offence-category'] and data['offence-details'] and data | isoDateFromDateInput("sentence-date") %}
+        <div class="govuk-summary-card prison-info">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">{{ data['offence-title'] }}</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                  Remove<span class="govuk-visually-hidden"> offence</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> offence</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Category
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag{{ tagColour }}">
+                    {{ data['offence-category'] }}
+                  </strong>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  <strong>Offence date:</strong>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data | isoDateFromDateInput("sentence-date") | govukDate }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  <strong>Offence details:</strong>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['offence-details'] }}.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        {% endif %}
+        
+        <!------------------------ Violence ------------------------>
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Actual Bodily Harm (ABH) (68000)"
+            },
+            classes: "prison-info",
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "offence"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Category"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--pink'>Violence</strong>"
+              }
+            },
+            {
+              key: {
+                text: "Offence date:"
+              },
+              value: {
+                html: "04 March 2021"
+              }
+            },
+            {
+              key: {
+                text: "Offence details:"
+              },
+              value: {
+                html: "Terry caused actual bodily harm to an unknown male in a pub while intoxicated. He had argued with the victim."
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ Domestic abuse ------------------------>
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Domestic abuse (03000)"
+            },
+            classes: "prison-info",
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "offence"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Category"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--purple'>Domestic abuse</strong>"
+              }
+            },
+            {
+              key: {
+                text: "Offence date:"
+              },
+              value: {
+                html: "12 April 2023"
+              }
+            },
+            {
+              key: {
+                text: "Offence details:"
+              },
+              value: {
+                html: "Terry physically and emotionally abused an intimate partner."
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ Hate crime ------------------------>
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Hate crime (08000)"
+            },
+            classes: "prison-info",
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "offence"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Category"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--turquoise'>Hate crime</strong>"
+              }
+            },
+            {
+              key: {
+                text: "Offence date:"
+              },
+              value: {
+                html: "12 April 2023"
+              }
+            },
+            {
+              key: {
+                text: "Offence details:"
+              },
+              value: {
+                html: "Terry subjected a local religious group to verbal abuse and incitement to hatred via Facebook posts."
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ Drugs ------------------------>
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Drugs (08000)"
+            },
+            classes: "prison-info",
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "offence"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Category"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--brown'>Drugs</strong>"
+              }
+            },
+            {
+              key: {
+                text: "Offence date:"
+              },
+              value: {
+                html: "12 April 2023"
+              }
+            },
+            {
+              key: {
+                text: "Offence details:"
+              },
+              value: {
+                html: "Terry has taken lots of drugs."
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ Other ------------------------>
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Other (08000)"
+            },
+            classes: "prison-info",
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "offence"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Category"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--grey'>Other</strong>"
+              }
+            },
+            {
+              key: {
+                text: "Offence date:"
+              },
+              value: {
+                html: "12 April 2023"
+              }
+            },
+            {
+              key: {
+                text: "Offence details:"
+              },
+              value: {
+                html: "Terry has taken lots of drugs."
+              }
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+        {{ govukPagination({
+          next: {
+            href: "#"
+          },
+          items: [
+            {
+              number: 1,
+              current: true,
+              href: "#"
+            },
+            {
+              number: 2,
+              href: "#"
+            },
+            {
+              number: 3,
+              href: "#"
+            }
+          ]
+        }) }}
+
+
+        <hr class="govuk-section-break govuk-section-break--l">
+
+        {# {{ govukButton({
+          text: "Add a previous offence",
+          classes: "govuk-button--secondary"
+        }) }} #}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "section-complete"
+          }) }}
+  
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
