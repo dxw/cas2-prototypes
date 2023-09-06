@@ -1,0 +1,315 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "Beta"
+      },
+      html: 'This is a new service – your feedback will help us to improve it.'
+    }) }}
+  </div>
+</div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Current offences for Terry Midhurst</h1>
+      <p class="govuk-body">Something here explaining to list the applicant's current offences.</p>
+      
+      {{ govukButton({
+        text: "Add a current offence",
+        classes: "govuk-button--secondary",
+        href: "co-add-manual"
+      }) }}
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <!-- <hr class="govuk-section-break govuk-section-break--s"> -->
+
+      <div class="float-right">
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "sort",
+          name: "sort",
+          label: {
+            html: "<span class='govuk-!-margin-right-1 govuk-!-font-weight-bold'>Sort by:</span>",
+            classes: "govuk-!-display-inline"
+          },
+          items: [
+            {
+              value: "offence",
+              text: "Offence type"
+            },
+            {
+              value: "updated",
+              text: "Most recent",
+              selected: true
+            },
+            {
+              value: "alphabet",
+              text: "Alphabet"
+            }
+          ]
+        }) }}
+      </div>
+
+      <form class="form clear-both" action="" method="post">
+
+        <!------------------------ Previous example 0 ------------------------>
+        <div class="govuk-summary-card">
+
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Current offence title here 0
+            </h2>
+
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of current offence</span>
+                </a>
+              </li>
+
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> current offence note</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Offence date: </span>DATE HERE</p>
+            <p class="govuk-body">Few lines summary of details</p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    View outstanding charges
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Outstanding charges example details</p>
+                </div>
+              </details>
+          </div>
+
+        </div>
+
+        <!------------------------ Previous example 1 ------------------------>
+        <div class="govuk-summary-card">
+
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Current offence title here 1
+            </h2>
+
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of current offence</span>
+                </a>
+              </li>
+
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> current offence note</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Offence date: </span>DATE HERE</p>
+            <p class="govuk-body">Few lines summary of details</p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    View outstanding charges
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Outstanding charges example details</p>
+                </div>
+              </details>
+          </div>
+
+        </div>
+
+        <!------------------------ Previous example 2 ------------------------>
+        <div class="govuk-summary-card">
+
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Current offence title here 2
+            </h2>
+
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of current offence</span>
+                </a>
+              </li>
+
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> current offence note</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Offence date: </span>DATE HERE</p>
+            <p class="govuk-body">Few lines summary of details</p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    View outstanding charges
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Outstanding charges example details</p>
+                </div>
+              </details>
+          </div>
+
+        </div>
+
+        <!------------------------ Previous example 3 ------------------------>
+        <div class="govuk-summary-card">
+
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Current offence title here 3
+            </h2>
+
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of current offence</span>
+                </a>
+              </li>
+
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> current offence note</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Offence date: </span>DATE HERE</p>
+            <p class="govuk-body">Few lines summary of details</p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    View outstanding charges
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Outstanding charges example details</p>
+                </div>
+              </details>
+          </div>
+
+        </div>
+
+        <!------------------------ Previous example 4 ------------------------>
+        <div class="govuk-summary-card">
+
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Current offence title here 4
+            </h2>
+
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> details of current offence</span>
+                </a>
+              </li>
+
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> current offence note</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Offence date: </span>DATE HERE</p>
+            <p class="govuk-body">Few lines summary of details</p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    View outstanding charges
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Outstanding charges example details</p>
+                </div>
+              </details>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <hr class="govuk-section-break govuk-section-break--l">
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and complete",
+            href: "../../../tasklists/tasklist"
+          }) }}
+  
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
