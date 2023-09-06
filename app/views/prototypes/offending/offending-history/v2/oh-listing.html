@@ -461,6 +461,106 @@
           ]
         }) }}
 
+        <!------------------------ Drugs ------------------------>
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Drugs (08000)"
+            },
+            classes: "prison-info",
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "offence"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Category"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--brown'>Drugs</strong>"
+              }
+            },
+            {
+              key: {
+                text: "Offence date:"
+              },
+              value: {
+                html: "12 April 2023"
+              }
+            },
+            {
+              key: {
+                text: "Offence details:"
+              },
+              value: {
+                html: "Terry has taken lots of drugs."
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ Other ------------------------>
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Other (08000)"
+            },
+            classes: "prison-info",
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "offence"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "offence"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Category"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--grey'>Other</strong>"
+              }
+            },
+            {
+              key: {
+                text: "Offence date:"
+              },
+              value: {
+                html: "12 April 2023"
+              }
+            },
+            {
+              key: {
+                text: "Offence details:"
+              },
+              value: {
+                html: "Terry has taken lots of drugs."
+              }
+            }
+          ]
+        }) }}
+
         <hr class="govuk-section-break govuk-section-break--l">
 
         {{ govukButton({

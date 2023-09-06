@@ -206,13 +206,13 @@
     }
 }
 
-.oh-card--brown .govuk-summary-card__title-wrapper {
-    background-color: #bfe3e0;
+// .oh-card--brown .govuk-summary-card__title-wrapper {
+//     background-color: #bfe3e0;
+// }
 
-    .govuk-tag--brown {
-        background: #b58840;
-        color: $govuk-text-colour;
-    }
+.govuk-tag--brown {
+    background: #eec98c;
+    color: $govuk-text-colour;
 }
 
 .oh-card--grey .govuk-summary-card__title-wrapper {
