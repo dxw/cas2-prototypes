@@ -56,9 +56,8 @@
               }) }}
 
               <!-- Offence date -->
-              {{ govukDateInput({
+              <!-- {{ govukDateInput({
                 id: "co-offence-date",
-                value: data['co-offence-date'],
                 namePrefix: "co-offence-date",
                 fieldset: {
                   legend: {
@@ -69,6 +68,20 @@
                 hint: {
                     text: "For example, 27 3 2007"
                 }
+              }) }} -->
+
+              {{ govukInput({
+                label: {
+                  text: "Sentence length",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                hint: {
+                    text: "For example, '2 Years 6 Months'"
+                },
+                id: "co-offence-length",
+                name: "co-offence-length",
+                classes: "govuk-input--width-10"
               }) }}
 
               <!-- Offence details -->

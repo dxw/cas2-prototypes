@@ -108,7 +108,9 @@
             </div>
 
             <div class="govuk-summary-card__content">
-              <p class="govuk-body"><span class="govuk-!-font-weight-bold">Offending date: </span>{{ data | isoDateFromDateInput("co-offence-date") | govukDate }}</p>
+              <!-- <p class="govuk-body"><span class="govuk-!-font-weight-bold">Sentence length: </span>{{ data | isoDateFromDateInput("co-offence-date") | govukDate }}</p> -->
+              <p class="govuk-body"><span class="govuk-!-font-weight-bold">Sentence length: </span>{{ data['co-offence-length'] }}</p>
+
               <p class="govuk-body">{{ data['co-offence-summary'] }}</p>
 
               <!-- {% if data['co-serious-details'] %}
