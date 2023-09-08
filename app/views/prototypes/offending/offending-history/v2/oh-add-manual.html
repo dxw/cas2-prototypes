@@ -29,7 +29,6 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>serious offences from the last 10 years</li>
         <li>non-serious offences from the last 5 years</li>
-        <li>information related to sharing accommodation</li>
         <li>information related to a pattern of behaviour</li>
       </ul>
 
@@ -153,15 +152,18 @@
           name: "offence-details",
           rows: "10",
           label: {
-            text: "Offence details",
+            text: "Provide a summary of the offence",
             classes: "govuk-label--m",
             isPageHeading: false
           },
           hint: {
-            html: "<ul class='govuk-list govuk-list--bullet'>
-              <li>Include general location (not full addresses)</li>
-              <li>damage or injury caused, weapon type and motivations for the offence</li>
-              <li>For violent offences, include the relationship to the victim.</li>
+            html: "<ul class='govuk-list govuk-list--bullet'> Include:
+              <li>where it happened (excluding addresses)</li>
+              <li>when it happened</li>
+              <li>damage or injury caused</li>
+              <li>weapon type</li>
+              <li>motivations for the offence</li>
+              <li>if a violent offence, the relationship to the victim</li>
               </ul>"
           }
         }) }}

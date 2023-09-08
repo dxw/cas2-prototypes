@@ -39,7 +39,7 @@
                 </h1>
               </legend>
 
-              <hr class="govuk-section-break govuk-section-break--m">
+              <p class="govuk-body">Add one offence at a time. For example, you should record 3 sexual harassment offences as 3 separate offences.</p>
 
               <!-- Offence title -->
               {{ govukInput({
@@ -56,8 +56,9 @@
               }) }}
 
               <!-- Offence date -->
-              <!-- {{ govukDateInput({
+              {{ govukDateInput({
                 id: "co-offence-date",
+                value: data['co-offence-date'],
                 namePrefix: "co-offence-date",
                 fieldset: {
                   legend: {
@@ -68,20 +69,6 @@
                 hint: {
                     text: "For example, 27 3 2007"
                 }
-              }) }} -->
-
-              {{ govukInput({
-                label: {
-                  text: "Sentence length",
-                  classes: "govuk-label--m",
-                  isPageHeading: false
-                },
-                hint: {
-                    text: "For example, '2 Years 6 Months'"
-                },
-                id: "co-offence-length",
-                name: "co-offence-length",
-                classes: "govuk-input--width-10"
               }) }}
 
               <!-- Offence details -->
@@ -89,12 +76,19 @@
                 name: "co-offence-summary",
                 id: "co-offence-summary",
                 label: {
-                  text: "Briefly summarise the offence",
+                  text: "Provide a summary of the offence",
                   classes: "govuk-label--m",
                   isPageHeading: false
                 },
                 hint: {
-                  text: "Where and when did the offence take place? How did they do it? Are there any known victims? Do not include sensitive information, such as names and addresses."
+                  html: "<ul class='govuk-list govuk-list--bullet'> Include:
+                    <li>where it happened (excluding addresses)</li>
+                    <li>when it happened</li>
+                    <li>damage or injury caused</li>
+                    <li>weapon type</li>
+                    <li>motivations for the offence</li>
+                    <li>if a violent offence, the relationship to the victim</li>
+                    </ul>"
                 }
               }) }}
 
