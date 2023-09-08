@@ -146,6 +146,21 @@
           }
         }) }}
 
+        <!------------------------ Sentence length ------------------------>
+        {{ govukInput({
+          id: "sentence-length",
+          value: data['sentence-length'],
+          name: "sentence-length",
+          classes: "govuk-input--width-10",
+          label: {
+            text: "How long were they sentenced for?",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "For example, 6 months"
+          }
+        }) }}
+
         <!------------------------ Details about the offence ------------------------>
         {{ govukTextarea({
           id: "offence-details",
