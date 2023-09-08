@@ -29,11 +29,20 @@
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-xl">
-        Apply for a Short-Term Accommodation placement
+        Apply for Short-Term Accommodation (CAS-2)
       </h1>
 
-      <p class="govuk-body">Use this service to apply for a placement in a Short-Term Accommodation placement on behalf of a person who'll be on Home Detention Curfew (HDC) licence.</p>
-      <p class="govuk-body"> You can leave and return to your application at any time. Your progress will be saved.</p>
+      <p class="govuk-body">
+        Use this service to apply for a Short-Term Accommodation placement on behalf of an applicant on Home Detention Curfew (HDC) licence.
+      </p>
+
+      <p class="govuk-body">
+        You can save your progress and return to your application at any time.
+      </p>
+
+      <div class="govuk-inset-text">
+        For prison bail applicants, you need to complete the paper form.
+      </div>
     
       {{ govukButton({
         text: "Start now",
@@ -46,17 +55,28 @@
       <h2 class="govuk-heading-m">Before you start</h2>
       <h3 class="govuk-heading-s">You need:</h3>
         <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-          <li>the person's CRN </li>
-          <li>an up to date OASys – we'll use this to pre-fill some of your application</li>
-          <li>to speak with the applicant and conduct an offline interview directly with them</li>
+          <li>consent from the applicant</li>
+          <li>the applicant's CRN</li>
+          <li>a Layer 3 OASys for the applicant, which has been updated in the last 6 months.</li>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                What to do if OASys is not up to date
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              We recommend updating the applicant's OASys before starting so information can be imported to help you answer some sections. It's also important that information shared in the application is consistent with OASys. <br></br>If you cannot update OASys, you can complete the sections manually.
+            </div>
+          </details>
         </ul>
 
-      <h3 class="govuk-heading-s">You need to know:</h3>
+      <!-- <h3 class="govuk-heading-s">You need to know:</h3>
       <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
         <li>eligibility requirements - you'll need to demonstrate that an applicant can meet the Short-Term Accommodation placement eligibility criteria</li>
         <li>factors that will have an impact on the location, type of placement, and room required </li>
         <li>how you'll prepare for move on after the Short-Term Accommodation placement</li>
-      </ul>
+      </ul> -->
   
     </div>
 
