@@ -36,46 +36,45 @@
 
       {{ govukInput({
         label: {
-          text: "Full name",
-          classes: "govuk-label--m"
+          text: "Full name"
         },
         id: "com-full-name",
         name: "com-full-name",
         autocomplete: "name",
+        classes: "govuk-!-width-two-thirds",
         spellcheck: false
       }) }}
 
       {{ govukInput({
         label: {
-          text: "Probation region",
-          classes: "govuk-label--m"
+          text: "Probation region"
         },
         id: "com-probation-region",
+        classes: "govuk-!-width-two-thirds",
         name: "com-probation-region"
       }) }}
 
       {{ govukInput({
         label: {
-          text: "Contact number",
-          classes: "govuk-label--m"
-        },
-        id: "com-telephone-number",
-        name: "com-telephone-number",
-        type: "tel",
-        autocomplete: "tel",
-        classes: "govuk-input--width-20"
-      }) }}
-
-      {{ govukInput({
-        label: {
-          text: "Contact email address",
-          classes: "govuk-label--m"
+          text: "Contact email address"
         },
         id: "email",
         name: "email",
         type: "email",
         autocomplete: "email",
+        classes: "govuk-!-width-two-thirds",
         spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Contact number"
+        },
+        id: "com-telephone-number",
+        name: "com-telephone-number",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-input--width-10"
       }) }}
 
 
