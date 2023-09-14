@@ -33,7 +33,7 @@
     <div class="govuk-grid-column-full">
 
       <!-- <span class="govuk-caption-m">RoSH for Terry Midhurst</span> -->
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Additional risk information for Terry Midhurst</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Incentive level (IEP) for Terry Midhurst</h1>
       <a href="risk-summary" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">View Terry Midhurst's RoSH summary</a>
 
     </div>
@@ -65,7 +65,8 @@
           },
           {
             text: 'Incentive level',
-            href: 'rosh-incentives.html'
+            href: 'rosh-incentives.html',
+            active: true
           },
           {
             text: 'Cell share information',
@@ -77,8 +78,7 @@
           },
           {
             text: 'Additional risk information',
-            href: 'rosh-additional-info.html',
-            active: true
+            href: 'rosh-additional-info.html'
           }
         ]
       }) }}
@@ -89,70 +89,58 @@
 
       <form class="form" action="" method="post">
 
-        <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Additional information</h2>
-        <div class="oasys-update govuk-!-margin-bottom-6">
-          <p class="govuk-!-margin-bottom-1">Imported from OASys <strong> 26th January 2023 </strong>, last updated <strong> 09 January 2023</strong></p>
-        </div> -->
-
-        <!---------------------------- Additional information ---------------------------->
-        {% set riskAdditionalHTML %}
-
-          {{ govukTextarea({
-            name: "risk-implications",
-            id: "risk-implications",
-            label: {
-              text: "Additional information",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-        
-        {% endset -%}
-
+        <!---------------------------- Incentive level question ---------------------------->
         {{ govukRadios({
-          name: "risk-additional-info-radio",
+          name: "risk-cell-share-radio",
           fieldset: {
             legend: {
-              text: "Is there any other risk information for Terry Midhurst?",
+              text: "What incentive level is Terry Midhurst on?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
-          items: [
-          {
-            value: "yes",
-            text: "Yes",
-            conditional: {
-              html: riskAdditionalHTML
-            }
-          },
-          {
-            value: "no",
-            text: "No"
-          }
-          ],
           hint: {
-            text: "Record any additional information about their risk to others."
-          }
+            text: "Incentive level is the same as IEP here?"
+          },
+          items: [
+            {
+              value: "Basic",
+              text: "Basic",
+              hint: {
+                text: "Explanation of Basic"
+              }
+            },
+            {
+              value: "Standard",
+              text: "Standard",
+              hint: {
+                text: "Explanation of Standard"
+              }
+            },
+            {
+              value: "Enhanced",
+              text: "Enhanced",
+              hint: {
+                text: "Explanation of Enhanced"
+              }
+            }
+          ]
         }) }}
 
         <div class="govuk-button-group">
 
           {{ govukButton({
-            id: "button-save-and-continue",
             text: "Save and continue",
-            href: "#",
-            disabled: false
+            href: "behaviour-notes.html"
           }) }}
-
+  
           <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
-
-        </div> 
+  
+        </div>
 
       </form>
 
     </div>
-    
   </div>
 
 {% endblock %}
