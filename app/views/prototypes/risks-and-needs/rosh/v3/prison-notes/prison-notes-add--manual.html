@@ -20,12 +20,18 @@
 
       <!-- <span class="govuk-caption-m">Risk of Serious Harm for Terry Midhurst</span> -->
       <h1 class="govuk-heading-l">Add a behaviour note for Terry Midhurst</h1>
-      <p class="govuk-body">Behaviour notes can be prison notes, or P-Nomis alerts.</p>
-      <p class="govuk-body">Important notes to include could be:</p>
+      <p class="govuk-body">
+        Behaviour notes are positive or negative notes about an applicant's behaviour.
+      </p>
+      <p class="govuk-body">
+        You should share behaviour notes from the last year, or over any period of time if they show a pattern of behaviour. Add one behaviour note at a time.
+      </p>
+      <p class="govuk-body">Examples of behaviour notes could be:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>issues with working or being managed by a specific gender of staff</li>
-        <li>inappropriate comments or lewd touching</li>
-        <li>any enhanced level incentives the applicant has</li>
+        <li>inappropriate comments or behaviour</li>
+        <li>P-Nomis alerts</li>
+        <!-- <li>any enhanced level incentives the applicant has</li> -->
         <li>protective factors, such as positive relationships, employment and goals</li>
       </ul>
 
@@ -34,6 +40,8 @@
         classes: "govuk-!-margin-bottom-2",
         text: "Protective factors can counteract negative influences. Individual protective factors include education, employment, leisure activities, goals and ambitions. Community and family protective factors include receiving professional support and having positive (prosocial) relationships."
       }) }}
+
+    
 
       <!-- {{ govukDetails({
         summaryText: "Bad behaviour note examples",
@@ -45,7 +53,7 @@
       <form class="form" action="../behaviour-notes-x1" method="post">
 
         <!------------------------ P-Nomis alert creation date ------------------------>
-        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+        <!-- {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
         {% set dateHTML %}
 
@@ -64,7 +72,7 @@
             }
           }) }}
 
-        {% endset -%}
+        {% endset -%} -->
 
         <!---------------------------- Referring institution ---------------------------->
         <!-- {% set yesHtml %} -->
@@ -112,7 +120,7 @@
         }) }} -->
 
         <!-- {% endset -%} -->
-
+<!-- 
         {{ govukRadios({
           name: "behaviour-notes-radio",
           fieldset: {
@@ -135,7 +143,7 @@
             text: "No"
           }
           ]
-        }) }}
+        }) }} -->
 
         <!-- {{ govukInput({
           label: {
@@ -195,6 +203,9 @@
             text: "Describe the behaviour",
             classes: "govuk-label--m",
             isPageHeading: false
+          },
+          hint: {
+            text: "If it's related to a specific incident, include when it happened."
           }
         }) }}
 
