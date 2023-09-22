@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['immigration'] == 'No' %}
+
+        {{ govukPanel({
+          titleText: "Not eligible",
+          html: "Only people with the right immigration status are use this service"
+        }) }}
+
+      {% endif %}
+
+      {% if data['age'] == 'Under18' %}
+
+        {{ govukPanel({
+          titleText: "Not eligible",
+          html: "Someone must be over 18 to be to use this service"
+        }) }}
+
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['BrokenHDC'] == 'Yes' OR data['SentenceLength'] == '4yearsPlus' OR data['SexualOffences'] == 'Yes' OR data['RiskLevel'] == 'HighVeryHigh'  %}
+
+        {{ govukPanel({
+          titleText: "CAS1",
+          html: "Accomodation for people at high to very high risk of harm"
+        }) }}
+
+      {% endif %}
+
+      {% if data['BrokenHDC'] == 'No' AND data['SentenceLength'] == 'Under4Years' AND data['SexualOffences'] == 'No' AND data['RiskLevel'] == 'LowMedium' AND data['HomelessnessRisk'] == 'No' %}
+
+        {{ govukPanel({
+          titleText: "CAS2",
+          html: "Accomodation for people at low to medium risk of harm"
+        }) }}
+
+      {% endif %}
+
+      {% if data['BrokenHDC'] == 'No' AND data['SentenceLength'] == 'Under4Years' AND data['SexualOffences'] == 'No' AND data['RiskLevel'] == 'LowMedium' AND data['HomelessnessRisk'] == 'YES' %}
+
+        {{ govukPanel({
+          titleText: "CAS2",
+          html: "Accomodation for people at immediate risk of homelessness"
+        }) }}
+
+      {% endif %}
+
+
+    </div>
+  </div>
+
+{% endblock %}
