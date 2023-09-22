@@ -9,6 +9,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <!-- CAS1 👇 -->
       {% if data['BrokenHDC'] == 'Yes' OR data['SentenceLength'] == '4yearsPlus' OR data['SexualOffences'] == 'Yes' OR data['RiskLevel'] == 'HighVeryHigh'  %}
 
         {{ govukPanel({
@@ -18,6 +19,7 @@
 
       {% endif %}
 
+      <!-- CAS2 👇 -->
       {% if data['BrokenHDC'] == 'No' AND data['SentenceLength'] == 'Under4Years' AND data['SexualOffences'] == 'No' AND data['RiskLevel'] == 'LowMedium' AND data['HomelessnessRisk'] == 'No' %}
 
         {{ govukPanel({
@@ -27,6 +29,7 @@
 
       {% endif %}
 
+      <!-- CAS3 👇 -->
       {% if data['BrokenHDC'] == 'No' AND data['SentenceLength'] == 'Under4Years' AND data['SexualOffences'] == 'No' AND data['RiskLevel'] == 'LowMedium' AND data['HomelessnessRisk'] == 'YES' %}
 
         {{ govukPanel({
