@@ -245,3 +245,25 @@ router.post('/prototypes/funding-ni-id/id-docs', function(request, response) {
       response.redirect("/prototypes/funding-ni-id/national-insurance")
   }
 })
+
+// Immigration question / eligibility
+router.post('/prototypes/route-to-correct-service/age', function(request, response) {
+
+    var immigration = request.session.data['immigration']
+    if (immigration == "No"){
+        response.redirect("/prototypes/route-to-correct-service/ineligible")
+    } else {
+        response.redirect("/prototypes/route-to-correct-service/age")
+    }
+})
+
+// Age question / eligibility
+router.post('/prototypes/route-to-correct-service/homelessness', function(request, response) {
+
+    var age = request.session.data['age']
+    if (age == "Under18"){
+        response.redirect("/prototypes/route-to-correct-service/ineligible")
+    } else {
+        response.redirect("/prototypes/route-to-correct-service/homelessness")
+    }
+})
