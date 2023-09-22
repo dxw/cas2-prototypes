@@ -58,6 +58,77 @@
 
       </form>
 
+      <br><br>
+
+      <h2 class="govuk-heading-m">Your answers</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Immigration status
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['immigration'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/immigration">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            18 or over
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['age'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/age">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Risk of homelessness
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['HomelessnessRisk'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/homelessness">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Broken a past Home Detention Order
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['BrokenHDC'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/home-detention-curfew">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Prison sentence length
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['SentenceLength'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/sentence-length">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
     </div>
   </div>
 

@@ -7,39 +7,160 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds"> 
+
+      <h1 class="govuk-heading-l">Based on your answers</h1>
+
+      <p>Based on your answers, you may be eligible for the following</p>
 
       <!-- CAS1 👇 -->
-      {% if data['BrokenHDC'] == 'Yes' OR data['SentenceLength'] == '4yearsPlus' OR data['SexualOffences'] == 'Yes' OR data['RiskLevel'] == 'HighVeryHigh'  %}
+      {% if data['BrokenHDC'] == 'Yes' or data['SentenceLength'] == '4yearsPlus' or data['SexualOffences'] == 'Yes' or data['RiskLevel'] == 'HighVeryHigh'  %}
 
-        {{ govukPanel({
-          titleText: "CAS1",
-          html: "Accomodation for people at high to very high risk of harm"
-        }) }}
+        <div class="govuk-panel govuk-panel--confirmation" style="text-align: left; background: #ffffff; border-top: 5px solid #1d70b8; border-left: 1px solid #b1b4b6; border-right: 1px solid #b1b4b6; border-bottom: 1px solid #b1b4b6">
+          <h1 class="govuk-heading-m" style="text-align: left;">
+            Approved Premises Service (CAS-1)
+          </h1>
+          <p>Accomodation for people at high to very high risk of harm</p>
+          <p class="govuk-body" style="margin-bottom: 0px;">
+            <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold">
+              Apply for this service
+            </a>
+          </p>
+        </div>
 
       {% endif %}
 
       <!-- CAS2 👇 -->
-      {% if data['BrokenHDC'] == 'No' AND data['SentenceLength'] == 'Under4Years' AND data['SexualOffences'] == 'No' AND data['RiskLevel'] == 'LowMedium' AND data['HomelessnessRisk'] == 'No' %}
+      {% if data['HomelessnessRisk'] == 'No' and data['BrokenHDC'] == 'No' and data['SentenceLength'] == 'Under4Years' and data['SexualOffences'] == 'No' and data['RiskLevel'] == 'LowMedium' %}
 
-        {{ govukPanel({
-          titleText: "CAS2",
-          html: "Accomodation for people at low to medium risk of harm"
-        }) }}
+        <div class="govuk-panel govuk-panel--confirmation" style="text-align: left; background: #ffffff; border-top: 5px solid #1d70b8; border-left: 1px solid #b1b4b6; border-right: 1px solid #b1b4b6; border-bottom: 1px solid #b1b4b6">
+          <h1 class="govuk-heading-m" style="text-align: left;">
+            Short-Term Accommodation (CAS-2)
+          </h1>
+          <p>Accomodation for people at low to medium risk of harm</p>
+          <p class="govuk-body" style="margin-bottom: 0px;">
+            <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold">
+              Apply for this service
+            </a>
+          </p>
+        </div>
 
       {% endif %}
 
       <!-- CAS3 👇 -->
-      {% if data['BrokenHDC'] == 'No' AND data['SentenceLength'] == 'Under4Years' AND data['SexualOffences'] == 'No' AND data['RiskLevel'] == 'LowMedium' AND data['HomelessnessRisk'] == 'YES' %}
+      {% if data['HomelessnessRisk'] == 'Yes' and data['BrokenHDC'] == 'No' and data['SentenceLength'] == 'Under4Years' and data['SexualOffences'] == 'No' and data['RiskLevel'] == 'LowMedium' %}
 
-        {{ govukPanel({
-          titleText: "CAS2",
-          html: "Accomodation for people at immediate risk of homelessness"
-        }) }}
+        <div class="govuk-panel govuk-panel--confirmation" style="text-align: left; background: #ffffff; border-top: 5px solid #1d70b8; border-left: 1px solid #b1b4b6; border-right: 1px solid #b1b4b6; border-bottom: 1px solid #b1b4b6">
+          <h1 class="govuk-heading-m" style="text-align: left;">
+            Transitional Accommodation (CAS-3)
+          </h1>
+          <p>Accomodation for people at immediate risk of homelessness</p>
+          <p class="govuk-body" style="margin-bottom: 0px;">
+            <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold">
+              Apply for this service
+            </a>
+          </p>
+        </div>
 
       {% endif %}
 
+      <br><br>
 
+      <h2 class="govuk-heading-m">Your answers</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Immigration status
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['immigration'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/immigration">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            18 or over
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['age'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/age">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Risk of homelessness
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['HomelessnessRisk'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/homelessness">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Broken a past Home Detention Order
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['BrokenHDC'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/home-detention-curfew">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Prison sentence length
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['SentenceLength'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/sentence-length">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Charges, cautions or convictions under the Sexual Offences Act 2003 
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['SexualOffences'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/sexual-offences">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Risk of harm
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['RiskLevel'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/prototypes/route-to-correct-service/risk">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+ 
     </div>
   </div>
 
