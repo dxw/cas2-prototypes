@@ -6,16 +6,37 @@
   Task list template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% set contactInformation %}
+  <ul class="govuk-list">
+    <li>Telephone: <a href="#" class="govuk-link">0300 555 0264</a> or, <a href="#" class="govuk-link">0742 343 4032</a></li>
+    <li>Monday to Friday, 8am to 6pm (except public holidays)</li>
+    <li>Saturday, 8am to 1pm</li>
+  </ul>
+  <ul class="govuk-list">
+    <li>Email: <a class="govuk-link" href="#">referrals@nacrocas2.org.uk</a></li>
+  </ul>
+{% endset %}
+
 {% block beforeContent %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+
       {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
       {{ govukPhaseBanner({
         tag: {
           text: "Beta"
         },
-        html: 'This is a new service – your feedback will help us to improve it.'
+        html: 'This is a new service – your feedback will help us to improve it.<br>'
       }) }}
+    
+      {{ govukDetails({
+        classes: "govuk-!-margin-top-3",
+        summaryText: "If you need help completing this form",
+        html: contactInformation
+      }) }}
+
     </div>
   </div>
 
