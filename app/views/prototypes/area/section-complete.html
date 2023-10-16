@@ -4,11 +4,15 @@
   Section complete - area section
 {% endblock %}
 
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukBackLink({
-  text: "Back to task list",
-  href: "/prototypes/tasklists/tasklist"
-}) }}
+    text: "Back to task list",
+    href: "/prototypes/tasklists/tasklist"
+  }) }}
 {% endblock %}
 
 {% block content %}

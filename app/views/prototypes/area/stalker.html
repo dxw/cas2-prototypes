@@ -4,6 +4,10 @@
   abuse, stalking and harassment - area section
 {% endblock %}
 
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukBackLink({
   text: "Back",
