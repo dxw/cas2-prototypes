@@ -6,6 +6,10 @@
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukBackLink({
   text: "Back",
