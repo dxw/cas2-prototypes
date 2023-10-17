@@ -12,7 +12,7 @@
   {% include "components/other/new-header.html" %}
 {% endblock %}
 
- {% block beforeContent %}
+{% block beforeContent %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
@@ -35,12 +35,7 @@
 
   <div class="govuk-grid-row govuk-!-margin-bottom-8">
     <div class="govuk-grid-column-full">
-
-      <!-- <span class="govuk-caption-m">Health needs for Terry Midhurst</span> -->
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Substance misuse needs for Terry Midhurst</h1>
-      <!-- <p class="govuk-body-l">Enter information gathered from health teams in the relevant sections.</p> -->
-      <a href="health-guidance" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19">Who to contact for health care information</a>
-
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">First preferred area for Terry Midhurst</h1>
     </div>
   </div>
 
@@ -53,33 +48,25 @@
         label: 'Side navigation',
         items: [
           {
-            text: 'Substance misuse',
-            href: 'health-needs-substance.html',
+            text: 'First preferred area',
+            href: 'area-first-preference.html',
             active: true
           },
           {
-            text: 'Physical health',
-            href: 'health-needs-physical.html'
+            text: 'Second preferred area',
+            href: 'area-second-preference.html'
           }, 
           {
-            text: 'Mental health',
-            href: 'health-needs-mental.html'
+            text: 'Exclusion zones',
+            href: 'area-exclusion-zones.html'
           }, 
           {
-            text: 'Communication and language needs',
-            href: 'health-needs-communication.html'
+            text: 'Gang affiliations',
+            href: 'area-gang-affiliations.html'
           }, 
           {
-            text: 'Learning difficulties and neurodiversity',
-            href: 'health-needs-learning.html'
-          }, 
-          {
-            text: 'Brain injury',
-            href: 'health-needs-brain-injury.html'
-          },
-          {
-            text: 'Other health',
-            href: 'health-needs-other.html'
+            text: 'Family accommodation',
+            href: 'area-family-accommodation.html'
           }
         ]
       }) }}

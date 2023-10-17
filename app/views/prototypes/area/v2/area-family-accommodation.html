@@ -1,0 +1,127 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Family accommodation for Terry Midhurst</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'First preferred area',
+            href: 'area-first-preference.html'
+          },
+          {
+            text: 'Second preferred area',
+            href: 'area-second-preference.html'
+          }, 
+          {
+            text: 'Exclusion zones',
+            href: 'area-exclusion-zones.html'
+          }, 
+          {
+            text: 'Gang affiliations',
+            href: 'area-gang-affiliations.html'
+          }, 
+          {
+            text: 'Family accommodation',
+            href: 'area-family-accommodation.html',
+            active: true
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <!---------------------------- Family ---------------------------->
+        {{ govukRadios({
+          name: "risk-cell-share-radio",
+          fieldset: {
+            legend: {
+              text: "Do they want to apply to live with their children in a family property?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Hint text if we need it. Do we need to explain a bit about what's involved in a family property?"
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              hint: "Complete the family property form (paper) with the applicant."
+            },
+            {
+              value: "No",
+              text: "No"
+            },
+            {
+              value: "Terry does not have children",
+              text: "Terry does not have children"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "area-first-preference"
+          }) }}
+
+          <a href="../../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+        </div> 
+
+      </form>
+
+    </div>
+    
+  </div>
+
+{% endblock %}
