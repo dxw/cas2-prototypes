@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Town and city preferences
+  1st preference - area section
 {% endblock %}
 
 {% block header %}
@@ -20,11 +20,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-        <h1 class="govuk-heading-l">Which CAS-2 areas does Terry Midhurst want to request?</h1>
+        <span class="govuk-caption-l">Choice of 1 of 2</span>
+        <h1 class="govuk-heading-l">What is Terry Midhurst's first preference of where to live?</h1>
 
         <p class="govuk-body">An applicant can request an area because they have a local connection or it is close to their approved probation office.</p>
 
-        <p class="govuk-body">Accommodation staff will use this information to help match applicants to the most suitable available area.</p>        
+        <p class="govuk-body">Accommodation staff will use this information to help match applicants to the most suitable available rooms.</p>
+
+        <!--        
 
         {% from "govuk/components/details/macro.njk" import govukDetails %}
 
@@ -40,15 +43,9 @@
           iconFallbackText: "Warning"
         }) }}
 
-        <form action="/prototypes/area/section-complete" method="post" novalidate>
+        -->
 
-          <!-- 1st choice town or city -->
-          <div class="govuk-summary-card">
-            <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">First requested area</h2>
-            </div>
-            <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list">
+        <form action="/prototypes/area/v1/second-preference" method="post" novalidate>
 
                   <!-- towns and cities -->
                   <div class="govuk-form-group">
@@ -90,28 +87,39 @@
                           </label>
                         </div>
                         <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="reason-one-3" name="reason-one" type="radio" value="Terry has secured full or part-time work in the area" data-aria-controls="conditional-reason-one-3">
+                          <label class="govuk-label govuk-radios__label" for="reason-one-3">
+                            Terry has secured full or part-time work in the area
+                          </label>
+                        </div>
+                        <!-- <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="reason-one-4" name="reason-one" type="radio" value="Terry has secured full or part-time work in the area" data-aria-controls="conditional-reason-one-4">
                           <label class="govuk-label govuk-radios__label" for="reason-one-4">
                             Terry has a special reason to live in the area. For example, to receive specialist healthcare
                           </label>
-                        </div>
+                        </div> -->
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="reason-one-5" name="reason-one" type="radio" value="Terry has secured full or part-time work in the area" data-aria-controls="conditional-reason-one-5">
                           <label class="govuk-label govuk-radios__label" for="reason-one-5">
                             The area is close to Terry's allocated probation office
                           </label>
                         </div>
+
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="reason-one-6" name="reason-one" type="radio" value="Terry has secured full or part-time work in the area" data-aria-controls="conditional-reason-one-6">
                           <label class="govuk-label govuk-radios__label" for="reason-one-6">
-                            Terry has different reason to live there
+                            Terry has different reason to live there. 
                           </label>
+                          <div id="contact-hint" class="govuk-hint govuk-radios__hint">
+                            For example, to receive specialist healthcare.
+                          </div> 
                         </div>
+
                         <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-reason-one-6">
                           <div class="govuk-form-group">
                             <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="100">
                               <label class="govuk-label" for="reason-one-by-text">
-                                Can you provide more detail
+                                Can you provide more detail?
                               </label>
                               <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="3" aria-describedby="with-hint-info with-hint-hint"></textarea>
                               <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
@@ -124,95 +132,7 @@
                     </fieldset>
                   </div>
 
-              </dl>
-            </div>
-          </div>
 
-          <!-- 2nd choice town or city -->
-          <div class="govuk-summary-card">
-            <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">Second requested area</h2>
-            </div>
-            <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list">
-
-                  <!-- towns and cities -->
-                  <div class="govuk-form-group">
-                    <label class="govuk-label govuk-!-font-weight-bold" for="address-town">
-                      Select a town or city
-                    </label>
-                    <select class="govuk-select govuk-input--width-20" name="town-city-two" id="choose-country">
-                      {% include "components/area/select-options.html" %}
-                    </select>
-                  </div>
-
-                  <!-- reason -->
-                  <div class="govuk-form-group">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                      <h1 class="govuk-fieldset__heading">
-                        Reason
-                      </h1>
-                    </legend>
-                    <div id="contact-hint" class="govuk-hint">
-                      Select one option.
-                    </div>
-                    <div class="govuk-radios" data-module="govuk-radios">
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="reason-two" name="reason-two" type="radio" value="Terry lived in the area for six out of the last 12 months before prison or three out of the last five years" data-aria-controls="conditional-reason-two">
-                        <label class="govuk-label govuk-radios__label" for="reason-two">
-                          Terry lived in the area in the 6 out of the 12 months before prison
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="reason-two-2" name="reason-two" type="radio" value="Immediate family (parents, children, siblings) has lived in the area for at least five years" data-aria-controls="conditional-reason-two-2">
-                        <label class="govuk-label govuk-radios__label" for="reason-two-2">
-                          Terry lived in the area in the area in the 3 out of the last 5 years
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="reason-two-3" name="reason-two" type="radio" value="Terry has secured full or part-time work in the area" data-aria-controls="conditional-reason-two-3">
-                        <label class="govuk-label govuk-radios__label" for="reason-two-3">
-                          Terry's parents, children or siblings have lived in the area for at least 5 years
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="reason-two-4" name="reason-two" type="radio" value="Terry has secured full or part-time work in the area" data-aria-controls="conditional-reason-two-4">
-                        <label class="govuk-label govuk-radios__label" for="reason-two-4">
-                          Terry has a special reason to live in the area. For example, to receive specialist healthcare
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="reason-two-5" name="reason-two" type="radio" value="Terry has secured full or part-time work in the area" data-aria-controls="conditional-reason-two-5">
-                        <label class="govuk-label govuk-radios__label" for="reason-two-5">
-                          The area is close to Terry's allocated probation office
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="reason-two-6" name="reason-two" type="radio" value="Terry has secured full or part-time work in the area" data-aria-controls="conditional-reason-two-6">
-                        <label class="govuk-label govuk-radios__label" for="reason-two-6">
-                          Terry has different reason to live there
-                        </label>
-                      </div>
-                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-reason-two-6">
-                        <div class="govuk-form-group">
-                          <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="100">
-                            <label class="govuk-label" for="reason-two-by-text">
-                              Can you provide more detail
-                            </label>
-                            <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="3" aria-describedby="with-hint-info with-hint-hint"></textarea>
-                            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
-                              You can enter up to 100 characters
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
-
-              </dl>
-            </div>
-          </div>
 
           <div class="govuk-button-group">
 

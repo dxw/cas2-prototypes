@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Gang affliation - area section
+  abuse, stalking and harassment - area section
 {% endblock %}
 
 {% block header %}
@@ -20,12 +20,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form action="/prototypes/area/exclusion-details" method="post" novalidate>
+        <form action="/prototypes/area/v1/gang-affliation" method="post" novalidate>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Does Terry have any gang affiliations or involved in gang-related activity?
+                  Do any of Terry Midhurst's offences relate to domestic abuse, stalking or harassment?
                 </h1>
               </legend>
               <!-- <div id="contact-hint" class="govuk-hint">
@@ -41,7 +41,7 @@
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
                   <div class="govuk-form-group">
                       <label class="govuk-label" for="order-by-email">
-                         Provide details to ensure a safe placement is made
+                         Provide the victim(s) full name so we can avoid placing Terry Midhurst near them.
                       </label>
                       <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
                   </div>
