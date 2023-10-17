@@ -1,0 +1,287 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">Add an exclusion zone for Terry Midhurst</h1>
+      <p class="govuk-body">Could a one-liner go here, briefly touching on what an exclusion zone is.</p>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <form class="form" action="area-exclusion-zones.html" method="post">
+
+        <!------------------------ Type of exclusion ------------------------>
+        
+        <!------ Set town/city ------>
+        {% set areaTownCityHTML %}
+          {{ govukInput({
+            label: {
+              text: "Name of the town or city"
+            },
+            classes: "govuk-input--width-20",
+            id: "area-exclusion-type-towncity",
+            name: "area-exclusion-type-towncity"
+          }) }}
+        {% endset -%}
+
+        <!------ Set address ------>
+        {% set areaAddressHTML %}
+
+          {% call govukFieldset({
+            legend: {
+              text: "What is the address?",
+              classes: "govuk-fieldset__legend--s",
+              isPageHeading: false
+            }
+          }) %}
+
+            {{ govukInput({
+              label: {
+                text: "Address line 1"
+              },
+              id: "area-exclusion-address-line-1",
+              name: "area-exclusion-addressLine1",
+              autocomplete: "address-line1"
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Address line 2 (optional)"
+              },
+              id: "area-exclusion-address-line-2",
+              name: "area-exclusion-addressLine2",
+              autocomplete: "address-line2"
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Town or city"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "area-exclusion-address-town",
+              name: "area-exclusion-addressTown",
+              autocomplete: "address-level2"
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "County (optional)"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "area-exclusion-address-county",
+              name: "area-exclusion-addressCounty"
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Postcode"
+              },
+              classes: "govuk-input--width-10",
+              id: "area-exclusion-address-postcode",
+              name: "area-exclusion-addressPostcode",
+              autocomplete: "postal-code"
+            }) }}
+
+          {% endcall %}
+        {% endset -%}
+
+        <!------ Set area upload ------>
+        {% set areaAreaHTML %}
+          {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+          {{ govukFileUpload({
+            id: "area-exclusion-file-upload-1",
+            name: "area-exclusion-fileUpload1",
+            label: {
+              text: "Upload a file",
+              hint: "This could be a JPG, JPEG or PNG file of an exclusion area."
+            }
+          }) }}
+        {% endset -%}
+
+        <!------ Radios ------>
+        {{ govukRadios({
+          name: "area-exclusion-zones-type",
+          fieldset: {
+            legend: {
+              text: "What is Terry Midhurst excluded from?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select one option"
+          },
+          items: [
+            {
+              value: "Town or city",
+              text: "Town or city",
+              conditional: {
+                html: areaTownCityHTML
+              }
+            },
+            {
+              value: "Address",
+              text: "Address",
+              conditional: {
+                html: areaAddressHTML
+              }
+            },
+            {
+              value: "Area",
+              text: "Area",
+              conditional: {
+                html: areaAreaHTML
+              }
+            }
+          ]
+        }) }}
+
+        <!------------------------ End date ------------------------>
+        {% set areaEndDateHTML %}
+
+          {{ govukDateInput({
+            id: "area-exclusion-end-date",
+            namePrefix: "area-exclusion-end-date",
+            hint: {
+              text: "For example, 22 4 2023"
+            },
+            fieldset: {
+              legend: {
+                text: "Exclusion end date",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "area-exclusion-end",
+          fieldset: {
+            legend: {
+              text: "Does the exclusion have an end date?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: areaEndDateHTML
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+          ]
+        }) }}
+
+        <!------------------------ Reason ------------------------>
+        {{ govukRadios({
+          name: "area-exclusion-zones-reason",
+          fieldset: {
+            legend: {
+              text: "Reason for the exclusion zone",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select one option"
+          },
+          items: [
+            {
+              value: "Domestic abuse",
+              text: "Domestic abuse"
+            },
+            {
+              value: "Stalking",
+              text: "Stalking"
+            },
+            {
+              value: "Harassment",
+              text: "Harassment"
+            },
+            {
+              value: "Other reason",
+              text: "Other reason"
+            }
+          ]
+        }) }}
+
+        <!------------------------ Details ------------------------>
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          id: "area-exclusion-zones-detail",
+          name: "area-exclusion-zones-detail",
+          rows: "5",
+          label: {
+            text: "Provide details about the exclusion zone",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Provide the victim(s) full name so we can avoid placing Terry Midhurst near them."
+          }
+        }) }}  
+
+        
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and add exclusion zone"
+          }) }}
+
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Save and add another',
+              classes: 'govuk-button--secondary moj-add-another__add-button'
+            }) }}
+          </div>
+        </div>     
+
+        <a class="govuk-body govuk-link" href="#">Cancel</a>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
