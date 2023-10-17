@@ -89,10 +89,10 @@
           {% if areaExclusionType == "Town or city" %}
             {{ data['area-exclusion-type-towncity'] }}
           {% elseif areaExclusionType == "Address" %}
-            {{ data['area-exclusion-addressLine1'] }}
-            {{ data['area-exclusion-addressLine2'] }}
-            {{ data['area-exclusion-addressTown'] }}
-            {{ data['area-exclusion-addressCounty'] }}
+            {{ data['area-exclusion-addressLine1'] }},
+            {{ data['area-exclusion-addressLine2'] }},
+            {{ data['area-exclusion-addressTown'] }},
+            {{ data['area-exclusion-addressCounty'] }},
             {{ data['area-exclusion-addressPostcode'] }}
           {% elseif areaExclusionType == "Area" %}
             {{ data['area-exclusion-fileUpload1'] }}
@@ -117,7 +117,7 @@
         {% endset %}
 
         {% if areaExclusionType and areaExclusionTypeDetail and areaExclusionReason and areaExclusionDetail %}
-          <div class="govuk-summary-card prison-info">
+          <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
               <h2 class="govuk-summary-card__title">
                 {% if areaExclusionEndDate %}
@@ -159,7 +159,7 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Zone:
+                    Address or zone:
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ areaExclusionTypeDetail }}
