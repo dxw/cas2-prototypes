@@ -9,15 +9,15 @@
 {% endblock %}
 
 {% block beforeContent %}
-    <div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: "Beta"
-    },
-    html: 'This is a new service – your feedback will help us to improve it.'
-  }) }}
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "Beta"
+      },
+      html: 'This is a new service – your feedback will help us to improve it.'
+    }) }}
     </div>
   </div>
 
@@ -32,176 +32,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <!-- <span class="govuk-caption-m">Health needs for Terry Midhurst</span> -->
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Request health information for Terry Midhurst</h1>
-
-      <!-- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"> -->
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Area preferences and exclusion zones for Terry Midhurst</h1>
 
       <p class="govuk-body">
-        To complete this section, you’ll need to enter health information about the applicant.
+        To complete this section, it could be good to include some guidance here about who the referrer/POM needs to speak to, to get this information.
       </p>
 
       <p class="govuk-body">
-        Typically, this <strong>could</strong> involve speaking to the following people:
+        For example, going to the COM for areas or looking at nDelius/DPS for gang information (if this is accurate).
       </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Healthcare team</li>
-        <li>Substance/Drugs team</li>
-        <li>Substance mis-use agency</li>
-        <li>Mental Health team</li>
-        <li>Adult social care</li>
-        <li>Nelson Trust</li>
-      </ul>
-
-      <h2 class="govuk-heading-m">Getting in touch</h2>
-      <p class="govuk-body">
-        <strong>We strongly suggest you get in touch with the relevant health teams and officers now.</strong>
-      </p>
-
-      <p class="govuk-body">
-        Select the following links to get supporting text that you can copy into emails or use as a script, to save yourself time.
-      </p>
-
-      <!-- Introduction -->
-      <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Introduce yourself to a team/officer
-          </span>
-        </summary>
-        
-        <div class="govuk-details__text padded-box">
-          <div class="govuk-!-margin-bottom-5">
-
-            <p class="govuk-body">
-              Hello,
-            </p>
-
-            <p class="govuk-body">
-              My name is {Name}, a {Role} working at the {Location}.
-            </p>
-
-            <p class="govuk-body">
-              I am currently supporting {Applicant name} with an application for Short-Term Accommodation (CAS-2) and require some healthcare information that you can help me with.
-            </p>
-
-            <p class="govuk-body">
-              {Applicant} has given their consent for me to reach out to you on {Consent obtained date}. Please let me know if you need to see evidence of this consent before sharing information with me.
-            </p>
-
-            <p class="govuk-body">
-              If possible, it would be much appreciated if you could respond back with the following details:
-            </p>
-
-          </div>
-
-          {{ govukButton({
-            text: "Copy text",
-            classes: "govuk-button--secondary button--copy-text"
-          }) }}
-          
-        </div>
-
-      </details>
-
-      <!-- Questions for GP -->
-      <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Ask questions about the applicant’s health
-          </span>
-        </summary>
-        
-        <div class="govuk-details__text padded-box">
-          <div class="govuk-!-margin-bottom-5">
-
-            <ol class="govuk-list govuk-list--number">
-              <li>
-                Do they have any physical health needs? Please describe them and the level of severity.
-              </li>
-
-              <li>
-                Are they currently receiving any medical treatment for their physical health needs? If so, please describe it.
-              </li>
-
-              <li>
-                Are they currently taking any medication for their physical health needs? If so, please provide details.
-              </li>
-
-              <li>
-                Can they climb stairs?
-              </li>
-
-              <li>
-                Can they live independently?
-              </li>
-
-              <li>
-                What support is required?
-              </li>
-            </ol>
-
-          </div>
-
-          {{ govukButton({
-            text: "Copy text",
-            classes: "govuk-button--secondary button--copy-text"
-          }) }}
-          
-        </div>
-
-      </details>
-
-      <!-- Drugs and alcohol -->
-      <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Ask questions about drug and alcohol needs
-          </span>
-        </summary>
-        
-        <div class="govuk-details__text padded-box">
-          <div class="govuk-!-margin-bottom-5">
-
-            <p class="govuk-body">
-              The applicant has indicated that they are engaged with support for a drug or alcohol need.
-            </p>
-
-            <ol class="govuk-list govuk-list--number">
-              <li>
-                What substance(s) did/do they take?
-              </li>
-
-              <li>
-                How often do they take it, by what method, and how much?
-              </li>
-
-              <li>
-                Are they engaged with a drug and alcohol service? Please name it.
-              </li>
-
-              <li>
-                Are they prescribed a substitute medication for their substance? Please name it.
-              </li>
-            </ol>
-
-          </div>
-
-          {{ govukButton({
-            text: "Copy text",
-            classes: "govuk-button--secondary button--copy-text"
-          }) }}
-          
-        </div>
-
-      </details>
 
       <form action="" method="post" novalidate>
 
         {{ govukButton({
           text: "Continue",
-          href: "health-needs-substance.html"
+          href: "area-first-preference.html"
         }) }}
 
       </form>
