@@ -32,7 +32,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-column-full">
 
       <form class="form" action="../application-overview" method="post">
 
@@ -42,7 +42,7 @@
           name: "nacro-application-status-detail",
           fieldset: {
             legend: {
-              text: "What is the status of this application?",
+              text: "But why?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -52,21 +52,21 @@
               value: "Place offered",
               text: "Place offered",
               hint: {
-                text: "The application has been reviewed and a placement has been offered."
+                text: "The application was successful and a placement was offered."
               }
             },
             {
               value: "Declined",
               text: "Declined",
               hint: {
-                text: "The application has been reviewed and an offer was not made."
+                text: "The application was unsuccessful and a placement was not offered."
               }
             },
             {
               value: "Waitlist",
               text: "Waitlist",
               hint: {
-                text: "The application was successfull but there is no availability."
+                text: "The application was successful but there is currently no suitable placement available."
               }
             }
           ]

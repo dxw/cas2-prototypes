@@ -32,7 +32,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-column-full">
 
       <form class="form" action="../application-overview" method="post">
 
@@ -42,7 +42,7 @@
           name: "nacro-application-status-detail",
           fieldset: {
             legend: {
-              text: "What is the status of this application?",
+              text: "But why?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -59,7 +59,7 @@
               value: "No response",
               text: "No response",
               hint: {
-                text: "A request for further information was made, but no response was recieved."
+                text: "The referrer did not provide further information, so the application could not be assessed."
               }
             }
           ]

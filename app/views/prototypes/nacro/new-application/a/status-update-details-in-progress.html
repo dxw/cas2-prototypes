@@ -32,7 +32,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-column-full">
 
       <form class="form" action="../application-overview" method="post">
 
@@ -42,7 +42,7 @@
           name: "nacro-application-status-detail",
           fieldset: {
             legend: {
-              text: "What is the status of this application?",
+              text: "But why?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -52,21 +52,21 @@
               value: "Awaiting review",
               text: "Awaiting review",
               hint: {
-                text: "The application is being reviewed by an assessor from NACRO."
+                text: "The application is ready for a review by an assessor."
               }
             },
             {
               value: "Awaiting further information",
               text: "Awaiting further information",
               hint: {
-                text: "The application requires further information from the referrer before it can be fully assessed."
+                text: "The application is incomplete and the assessor needs further information."
               }
             },
             {
               value: "In assessment",
               text: "In assessment",
               hint: {
-                text: "The application is currently being assessed by NACRO."
+                text: "The application is complete and is currently being assessed."
               }
             }
           ]

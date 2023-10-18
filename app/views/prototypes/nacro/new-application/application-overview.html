@@ -30,11 +30,7 @@
 
     <div class="govuk-grid-column-full">
 
-      <!-- Applicant name -->
-      <!-- <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
-        Terry Midhurst
-      </h1> -->
-
+      <!-- Applicant name and header actions -->
       {% from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions %}
 
       {{ mojPageHeaderActions({
@@ -69,47 +65,42 @@
       {% set statusTagDetail = data['nacro-application-status-detail'] %}
 
       {% if statusTagDetail == "Withdrawn" %}
-        {% set statusTagDetail = "The application was withdrawn by the referrer." %}
+        {% set statusTagDetail = "Withdrawn - The application was withdrawn by the referrer." %}
       {% elseif statusTagDetail == "No response" %}
-        {% set statusTagDetail = "A request for further information was made, but no response was recieved." %}
+        {% set statusTagDetail = "No response - The referrer did not provide further information, so the application could not be assessed." %}
       {% elseif statusTagDetail == "Place offered" %}
-        {% set statusTagDetail = "The application has been reviewed and a placement has been offered." %}
+        {% set statusTagDetail = "Place offered - The application was successful and a placement was offered." %}
       {% elseif statusTagDetail == "Declined" %}
-        {% set statusTagDetail = "The application has been reviewed and an offer was not made." %}
+        {% set statusTagDetail = "Declined - The application was unsuccessful and a placement was not offered." %}
       {% elseif statusTagDetail == "Waitlist" %}
-        {% set statusTagDetail = "The application was successfull but there is no availability." %}
+        {% set statusTagDetail = "Waitlist - The application was successful but there is currently no suitable placement available." %}
       {% elseif statusTagDetail == "Awaiting review" %}
-        {% set statusTagDetail = "The application is being reviewed by an assessor from NACRO." %}
+        {% set statusTagDetail = "Awaiting review - The application is ready for a review by an assessor." %}
       {% elseif statusTagDetail == "Awaiting further information" %}
-        {% set statusTagDetail = "The application requires further information from the referrer before it can be fully assessed." %}
+        {% set statusTagDetail = "Awaiting further information - The application is incomplete and the assessor needs further information." %}
       {% elseif statusTagDetail == "In assessment" %}
-        {% set statusTagDetail = "The application is currently being assessed by NACRO." %}
+        {% set statusTagDetail = "In assessment - The application is complete and is currently being assessed." %}
       {% endif %}
 
       <!-- Status tag -->
-      <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
-        {{ statusTag }}
-      </strong>
+      {% if statusTag %}
+        <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
+          {{ statusTag }}
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--in-progress govuk-tag--big govuk-!-margin-bottom-3">
+          In progress
+        </strong>
+      {% endif %}
 
       <!-- Status explainer -->
-      <p class="govuk-body">{{ statusTagDetail }}</p>
+      {% if statusTagDetail %}
+        <p class="govuk-body">{{ statusTagDetail }}</p>
+      {% else %}
+        <p class="govuk-body">The application is being reviewed by an assessor from NACRO.</p>
+      {% endif %}
 
-      <!-- Actions -->
-      <!-- <div class="govuk-button-group govuk-!-margin-top-5">
-
-        {{ govukButton({
-          text: "View submitted application",
-          href: "submission-confirmed"
-        }) }}
-
-        {{ govukButton({
-          text: "Return to applications dashboard",
-          href: "../multiple-applications/dashboard-1",
-          classes: "govuk-button--secondary"
-        }) }}
-
-      </div> -->
-
+      <!-- View submitted apps -->
       {{ govukButton({
         text: "View submitted application",
         href: "submitted-application",
@@ -124,36 +115,67 @@
         Status history
       </h2>
 
-      {%- from "moj/components/timeline/macro.njk" import mojTimeline -%}
+      <div class="moj-timeline">
 
-      {{ mojTimeline({
-        items: [
-          {
-            label: {
-              text: "Application opened"
-            },
-            datetime: {
-              timestamp: "2023-10-14T14:01:00.000Z",
-              type: "datetime"
-            },
-            byline: {
-              text: "Alex Edwards"
-            }
-          },
-          {
-            label: {
-              text: "Application submitted"
-            },
-            datetime: {
-              timestamp: "2023-10-12T14:01:00.000Z",
-              type: "datetime"
-            },
-            byline: {
-              text: "Chanel Diep"
-            }
-          }
-        ]
-      }) }}
+        <!-- Timeline item 3 -->
+        {% if statusTag %}
+          <div class="moj-timeline__item">
+            <div class="moj-timeline__header">
+              <h2 class="moj-timeline__title">Status updated: {{ statusTag }}</h2>
+              <p class="moj-timeline__byline">by Alex Edwards</p>
+            </div>
+        
+            <p class="moj-timeline__date">
+              <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
+            </p>
+          </div>
+        {% endif %}
+        
+        <!-- Timeline item 2 -->
+        <div class="moj-timeline__item">
+          <div class="moj-timeline__header">
+            <h2 class="moj-timeline__title">Application opened</h2>
+            <p class="moj-timeline__byline">by Alex Edwards</p>
+          </div>
+      
+          <p class="moj-timeline__date">
+            <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
+          </p>
+        </div> 
+
+        <!-- Timeline item 1 -->
+        <div class="moj-timeline__item">
+          <div class="moj-timeline__header">
+            <h2 class="moj-timeline__title">Application submitted</h2>
+            <p class="moj-timeline__byline">by Chanel Diep</p>
+          </div>
+      
+          <p class="moj-timeline__date">
+            <time datetime="2019-06-14T14:01:00.000Z">12 June 2019 at 2:01pm</time>
+          </p>
+        </div> 
+
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
 
