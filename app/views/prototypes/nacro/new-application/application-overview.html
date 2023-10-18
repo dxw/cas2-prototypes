@@ -40,13 +40,12 @@
       {{ mojPageHeaderActions({
         classes: 'govuk-!-margin-bottom-6',
         heading: {
-          text: 'Terry Midhurst',
-          class: 'govuk-!-margin-bottom-0'
+          text: 'Terry Midhurst'
         },
         items: [{
           text: 'Update status',
           classes: 'govuk-button--secondary',
-          href: "#"
+          href: "a/status-update"
         }, {
           text: 'Return to applications dashboard',
           classes: 'govuk-button--secondary',
@@ -54,15 +53,46 @@
         }]
       }) }}
 
+      <!-- Set the status tag from the first question asked -->
+      {% set statusTag = data['nacro-application-status'] %}
+
+      <!-- Set the status tag colour based on the status chosen -->
+      {% if statusTag == "In progress" %}
+        {% set statusTagColour = "--in-progress" %}
+      {% elseif statusTag == "Assessment complete" %}
+        {% set statusTagColour = "--assessment-complete" %}
+      {% elseif statusTag == "Abandoned" %}
+        {% set statusTagColour = "--abandoned" %}
+      {% endif %}
+
+      <!-- Set the status tag detail based on the status chosen -->
+      {% set statusTagDetail = data['nacro-application-status-detail'] %}
+
+      {% if statusTagDetail == "Withdrawn" %}
+        {% set statusTagDetail = "The application was withdrawn by the referrer." %}
+      {% elseif statusTagDetail == "No response" %}
+        {% set statusTagDetail = "A request for further information was made, but no response was recieved." %}
+      {% elseif statusTagDetail == "Place offered" %}
+        {% set statusTagDetail = "The application has been reviewed and a placement has been offered." %}
+      {% elseif statusTagDetail == "Declined" %}
+        {% set statusTagDetail = "The application has been reviewed and an offer was not made." %}
+      {% elseif statusTagDetail == "Waitlist" %}
+        {% set statusTagDetail = "The application was successfull but there is no availability." %}
+      {% elseif statusTagDetail == "Awaiting review" %}
+        {% set statusTagDetail = "The application is being reviewed by an assessor from NACRO." %}
+      {% elseif statusTagDetail == "Awaiting further information" %}
+        {% set statusTagDetail = "The application requires further information from the referrer before it can be fully assessed." %}
+      {% elseif statusTagDetail == "In assessment" %}
+        {% set statusTagDetail = "The application is currently being assessed by NACRO." %}
+      {% endif %}
+
       <!-- Status tag -->
-      {%- from "govuk/components/tag/macro.njk" import govukTag -%}
-      {{ govukTag({
-        text: "In progress",
-        classes: "govuk-tag--big govuk-tag--yellow govuk-!-margin-bottom-3"
-      }) }}
+      <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
+        {{ statusTag }}
+      </strong>
 
       <!-- Status explainer -->
-      <p class="govuk-body">This application is currently <strong>awaiting review</strong>.</p>
+      <p class="govuk-body">{{ statusTagDetail }}</p>
 
       <!-- Actions -->
       <!-- <div class="govuk-button-group govuk-!-margin-top-5">

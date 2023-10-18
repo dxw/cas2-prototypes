@@ -230,7 +230,17 @@
     font-size: 1.15rem;
 }
 
-.govuk-tag--yellow {
+.govuk-tag--in-progress {
     background: govuk-colour("yellow");
     color: $govuk-text-colour;
+}
+
+.govuk-tag--assessment-complete {
+    background: #b0d7f9;
+    color: $govuk-text-colour;
+}
+
+.govuk-tag--abandoned {
+    background:  govuk-colour("black");
+    color:  govuk-colour("white");
 }
