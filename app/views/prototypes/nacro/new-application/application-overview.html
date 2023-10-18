@@ -30,13 +30,18 @@
 
     <div class="govuk-grid-column-full">
 
-      <!-- Applicant name and header actions -->
+      <!-- Applicant name -->
+      <!-- <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+        Terry Midhurst
+      </h1> -->
+
       {% from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions %}
 
       {{ mojPageHeaderActions({
         classes: 'govuk-!-margin-bottom-6',
         heading: {
-          text: 'Terry Midhurst'
+          text: 'Terry Midhurst',
+          class: 'govuk-!-margin-bottom-0'
         },
         items: [{
           text: 'Update status',
@@ -156,26 +161,6 @@
         </div> 
 
       </div>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
 
