@@ -268,16 +268,16 @@ router.post('/prototypes/route-to-correct-service/homelessness', function(reques
     }
 })
 
-// NACRO - New application - a
-router.post('/prototypes/nacro/new-application/a/status-update', function(request, response) {
+// NACRO - New application journey
+router.post('/prototypes/nacro/new-application-journey/a/status-update', function(request, response) {
 
   var status = request.session.data['nacro-application-status']
   if (status == "In progress"){
-      response.redirect("/prototypes/nacro/new-application/a/status-update-details-in-progress")
+      response.redirect("/prototypes/nacro/new-application-journey/a/status-update-details-in-progress")
   } else if (status == "Assessment complete") {
-      response.redirect("/prototypes/nacro/new-application/a/status-update-details-assessment-complete")
+      response.redirect("/prototypes/nacro/new-application-journey/a/status-update-details-assessment-complete")
   } else if (status == "Abandoned") {
-      response.redirect("/prototypes/nacro/new-application/a/status-update-details-abandoned")
+      response.redirect("/prototypes/nacro/new-application-journey/a/status-update-details-abandoned")
   }
 })
 
