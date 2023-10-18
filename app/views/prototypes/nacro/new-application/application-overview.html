@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+{% from "components/widgets/macro.njk" import widgets %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <!-- Applicant name -->
+      <!-- <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+        Terry Midhurst
+      </h1> -->
+
+      {% from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions %}
+
+      {{ mojPageHeaderActions({
+        classes: 'govuk-!-margin-bottom-6',
+        heading: {
+          text: 'Terry Midhurst',
+          class: 'govuk-!-margin-bottom-0'
+        },
+        items: [{
+          text: 'Update status',
+          classes: 'govuk-button--secondary',
+          href: "#"
+        }, {
+          text: 'Return to applications dashboard',
+          classes: 'govuk-button--secondary',
+          href: "#"
+        }]
+      }) }}
+
+      <!-- Status tag -->
+      {%- from "govuk/components/tag/macro.njk" import govukTag -%}
+      {{ govukTag({
+        text: "In progress",
+        classes: "govuk-tag--big govuk-tag--yellow govuk-!-margin-bottom-3"
+      }) }}
+
+      <!-- Status explainer -->
+      <p class="govuk-body">This application is currently <strong>awaiting review</strong>.</p>
+
+      <!-- Actions -->
+      <!-- <div class="govuk-button-group govuk-!-margin-top-5">
+
+        {{ govukButton({
+          text: "View submitted application",
+          href: "submission-confirmed"
+        }) }}
+
+        {{ govukButton({
+          text: "Return to applications dashboard",
+          href: "../multiple-applications/dashboard-1",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </div> -->
+
+      {{ govukButton({
+        text: "View submitted application",
+        href: "submitted-application",
+        classes: "govuk-!-margin-top-3"
+      }) }}
+
+      <!-- Spacer -->
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-2">
+      
+      <!-- History starts -->
+      <h2 class="govuk-heading-l">
+        Status history
+      </h2>
+
+      {%- from "moj/components/timeline/macro.njk" import mojTimeline -%}
+
+      {{ mojTimeline({
+        items: [
+          {
+            label: {
+              text: "Application opened"
+            },
+            datetime: {
+              timestamp: "2023-10-14T14:01:00.000Z",
+              type: "datetime"
+            },
+            byline: {
+              text: "Alex Edwards"
+            }
+          },
+          {
+            label: {
+              text: "Application submitted"
+            },
+            datetime: {
+              timestamp: "2023-10-12T14:01:00.000Z",
+              type: "datetime"
+            },
+            byline: {
+              text: "Chanel Diep"
+            }
+          }
+        ]
+      }) }}
+
+    </div>
+
+  </div>
+
+{% endblock %}

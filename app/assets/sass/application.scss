@@ -223,3 +223,14 @@
         color: $govuk-text-colour;
     }
 }
+
+// -------- NACRO
+
+.govuk-tag--big {
+    font-size: 1.15rem;
+}
+
+.govuk-tag--yellow {
+    background: govuk-colour("yellow");
+    color: $govuk-text-colour;
+}
