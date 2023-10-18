@@ -120,30 +120,46 @@
           <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
               <h2 class="govuk-summary-card__title">
-                {% if areaExclusionEndDate %}
-                  {{ areaExclusionEndDate }}
-                {% else %}
-                  {{ Ongoing }}
-                {% endif %}
+                Exclusion zone 1
               </h2>
               <ul class="govuk-summary-card__actions">
                 <li class="govuk-summary-card__action">
                   <a class="govuk-link" href="#">
-                    Remove<span class="govuk-visually-hidden"> exclusion zone</span>
+                    Remove<span class="govuk-visually-hidden"> exclusion</span>
                   </a>
                 </li>
                 <li class="govuk-summary-card__action">
                   <a class="govuk-link" href="#">
-                    Change<span class="govuk-visually-hidden"> exclusion zone</span>
+                    Change<span class="govuk-visually-hidden"> exclusion</span>
                   </a>
                 </li>
               </ul>
             </div>
             <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list">
+              <dl class="govuk-summary-list prison-info">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Type:
+                    Address or zone:
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ areaExclusionTypeDetail }}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    End date:
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if areaExclusionEndDate %}
+                      {{ areaExclusionEndDate }}
+                    {% else %}
+                      {{ Ongoing }}
+                    {% endif %}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Reason:
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ areaExclusionReason }}
@@ -155,14 +171,6 @@
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ areaExclusionDetail }}
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Address or zone:
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ areaExclusionTypeDetail }}
                   </dd>
                 </div>
               </dl>

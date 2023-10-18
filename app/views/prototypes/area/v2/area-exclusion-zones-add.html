@@ -41,57 +41,6 @@
 
       <form class="form" action="area-exclusion-zones" method="post">
 
-        <!------------------------ Reason ------------------------>
-        {{ govukRadios({
-          name: "area-exclusion-zones-reason",
-          fieldset: {
-            legend: {
-              text: "Reason for the exclusion zone",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "Select one option"
-          },
-          items: [
-            {
-              value: "Domestic abuse",
-              text: "Domestic abuse"
-            },
-            {
-              value: "Stalking",
-              text: "Stalking"
-            },
-            {
-              value: "Harassment",
-              text: "Harassment"
-            },
-            {
-              value: "Other reason",
-              text: "Other reason"
-            }
-          ]
-        }) }}
-
-        <!------------------------ Details ------------------------>
-        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-        {{ govukTextarea({
-          id: "area-exclusion-zones-detail",
-          name: "area-exclusion-zones-detail",
-          rows: "5",
-          label: {
-            text: "Provide details about the exclusion zone",
-            classes: "govuk-label--m",
-            isPageHeading: false
-          },
-          hint: {
-            text: "Provide the victim(s) full name so we can avoid placing Terry Midhurst near them."
-          }
-        }) }} 
-
-
         <!------------------------ Type of exclusion ------------------------>
         
         <!------ Set town/city ------>
@@ -175,8 +124,10 @@
             id: "area-exclusion-file-upload-1",
             name: "area-exclusion-fileUpload1",
             label: {
-              text: "Upload a file",
-              hint: "This could be a JPG, JPEG or PNG file of an exclusion area."
+              text: "Upload a file"
+            },
+            hint: {
+              text: "This could be a JPG, JPEG or PNG file of an exclusion area."
             }
           }) }}
         {% endset -%}
@@ -261,6 +212,56 @@
             text: "No"
           }
           ]
+        }) }} 
+
+        <!------------------------ Reason ------------------------>
+        {{ govukRadios({
+          name: "area-exclusion-zones-reason",
+          fieldset: {
+            legend: {
+              text: "Reason for the exclusion",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select one option"
+          },
+          items: [
+            {
+              value: "Domestic abuse",
+              text: "Domestic abuse"
+            },
+            {
+              value: "Stalking",
+              text: "Stalking"
+            },
+            {
+              value: "Harassment",
+              text: "Harassment"
+            },
+            {
+              value: "Other reason",
+              text: "Other reason"
+            }
+          ]
+        }) }}
+
+        <!------------------------ Details ------------------------>
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          id: "area-exclusion-zones-detail",
+          name: "area-exclusion-zones-detail",
+          rows: "5",
+          label: {
+            text: "Provide details about the exclusion",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Provide the victim(s) full name so we can avoid placing Terry Midhurst near them."
+          }
         }) }} 
 
         <div class="govuk-button-group">
