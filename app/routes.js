@@ -281,3 +281,16 @@ router.post('/prototypes/nacro/new-application-journey/a/status-update', functio
   }
 })
 
+// NACRO - Application reminder journey
+router.post('/prototypes/nacro/update-prompt-journey/a/status-update', function(request, response) {
+
+  var status = request.session.data['nacro-application-status']
+  if (status == "In progress"){
+      response.redirect("/prototypes/nacro/update-prompt-journey/a/status-update-details-in-progress")
+  } else if (status == "Assessment complete") {
+      response.redirect("/prototypes/nacro/update-prompt-journey/a/status-update-details-assessment-complete")
+  } else if (status == "Abandoned") {
+      response.redirect("/prototypes/nacro/update-prompt-journey/a/status-update-details-abandoned")
+  }
+})
+
