@@ -104,7 +104,7 @@
             name: "area-preference-reason-explainer",
             id: "area-preference-reason-explainer",
             label: {
-              text: "Can you provide more detail?",
+              text: "Explain why Terry wants to live there",
               classes: "govuk-label--s",
               isPageHeading: false
             }
@@ -143,9 +143,11 @@
               text: "The area is close to Terry's allocated probation office"
             },
             {
-              value: "Terry has different reason to live there.",
-              text: "Terry has different reason to live there.",
-              hint: "For example, to recieve specialist healthcare.",
+              value: "Terry has different reason to live there",
+              text: "Terry has different reason to live there"
+              ,
+              hint: 
+              {text: "For example, to receive specialist healthcare"},
               conditional: {
                 html: preferenceReasoningHTML
               }
