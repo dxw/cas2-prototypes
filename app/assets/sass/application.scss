@@ -244,3 +244,33 @@
     background:  govuk-colour("black");
     color:  govuk-colour("white");
 }
+
+
+// -------- Footer things
+
+.govuk-footer {
+    padding-bottom: 8rem;
+}
+
+.sticky-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 2em 0;
+    background-color: govuk-colour("light-grey");
+    border-top: 1px solid govuk-colour("mid-grey");
+ }
+
+ .sticky-footer--flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+ }
+
+//  .sticky-footer--item {
+//     h2, p {
+//         color: inherit;
+//     }
+//  }

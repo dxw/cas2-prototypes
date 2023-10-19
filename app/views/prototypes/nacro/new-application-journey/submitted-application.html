@@ -29,7 +29,6 @@
 {% endblock %}
 
 {% block content %}
-
 <form action="" method="post" novalidate>
 
   <div class="govuk-grid-row">
@@ -1350,4 +1349,27 @@
   </div>
 
 </form>
+{% endblock %}
+
+{% block bodyEnd %}
+  <div class="sticky-footer">
+    <div class="govuk-width-container">
+      <div class="sticky-footer--flex">
+        
+        <div class="sticky-footer--item">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Don't forget to update the application status</h2>
+          <p class="govuk-body govuk-!-margin-bottom-0">Do we need a one liner to explain why?</p>
+        </div>
+
+        <div class="sticky-footer--item">
+          {{ govukButton({
+            text: "Update application status",
+            classes: "govuk-!-margin-bottom-0 ",
+            href: "a/status-update"
+          }) }}
+        </div>
+
+      </div>
+    </div>
+  </div>
 {% endblock %}
