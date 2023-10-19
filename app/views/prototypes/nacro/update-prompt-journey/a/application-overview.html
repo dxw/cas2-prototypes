@@ -1,0 +1,164 @@
+{% extends "layouts/main.html" %}
+
+{% from "components/widgets/macro.njk" import widgets %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <!-- Applicant name and header actions -->
+      {% from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions %}
+
+      {{ mojPageHeaderActions({
+        classes: 'govuk-!-margin-bottom-6',
+        heading: {
+          text: 'Terry Midhurst'
+        },
+        items: [{
+          text: 'Update status',
+          classes: 'govuk-button--secondary',
+          href: "status-update"
+        }, {
+          text: 'Return to applications dashboard',
+          classes: 'govuk-button--secondary',
+          href: "applications-dashboard"
+        }]
+      }) }}
+
+      <!-- Set the status tag from the first question asked -->
+      {% set statusTag = data['nacro-application-status'] %}
+
+      <!-- Set the status tag colour based on the status chosen -->
+      {% if statusTag == "In progress" %}
+        {% set statusTagColour = "--in-progress" %}
+      {% elseif statusTag == "Assessment complete" %}
+        {% set statusTagColour = "--assessment-complete" %}
+      {% elseif statusTag == "Abandoned" %}
+        {% set statusTagColour = "--abandoned" %}
+      {% endif %}
+
+      <!-- Set the status tag detail based on the status chosen -->
+      {% set statusTagDetail = data['nacro-application-status-detail'] %}
+
+      {% if statusTagDetail == "Withdrawn" %}
+        {% set statusTagDetailExplainer = "The application was withdrawn by the referrer." %}
+      {% elseif statusTagDetail == "No response" %}
+        {% set statusTagDetailExplainer = "The referrer did not provide further information, so the application could not be assessed." %}
+      {% elseif statusTagDetail == "Place offered" %}
+        {% set statusTagDetailExplainer = "The application was successful and a placement was offered." %}
+      {% elseif statusTagDetail == "Declined" %}
+        {% set statusTagDetailExplainer = "The application was unsuccessful and a placement was not offered." %}
+      {% elseif statusTagDetail == "Waitlist" %}
+        {% set statusTagDetailExplainer = "The application was successful but there is currently no suitable placement available." %}
+      {% elseif statusTagDetail == "Awaiting review" %}
+        {% set statusTagDetailExplainer = "The application is ready for a review by an assessor." %}
+      {% elseif statusTagDetail == "Needs further information" %}
+        {% set statusTagDetailExplainer = "The application is incomplete and the assessor needs further information." %}
+      {% elseif statusTagDetail == "In assessment" %}
+        {% set statusTagDetailExplainer = "The application is complete and is currently being assessed." %}
+      {% endif %}
+
+      <!-- Status tag -->
+      {% if statusTagDetail %}
+        <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
+          {{ statusTagDetail }}
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--new govuk-tag--big govuk-!-margin-bottom-3">
+          New
+        </strong>
+      {% endif %}
+
+      <!-- Status explainer -->
+      {% if statusTagDetailExplainer %}
+        <p class="govuk-body">{{ statusTagDetailExplainer }}</p>
+      {% else %}
+        <p class="govuk-body">This application is new.</p>
+      {% endif %}
+
+      <!-- View submitted apps -->
+      {{ govukButton({
+        text: "View submitted application",
+        href: "../submitted-application",
+        classes: "govuk-!-margin-top-3"
+      }) }}
+
+      <!-- Spacer -->
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-2">
+      
+      <!-- History starts -->
+      <h2 class="govuk-heading-l">
+        Status history
+      </h2>
+
+      <div class="moj-timeline">
+
+        <!-- Timeline item 3 -->
+        {% if statusTag %}
+          <div class="moj-timeline__item">
+            <div class="moj-timeline__header">
+              <h2 class="moj-timeline__title">Status updated: {{ statusTag }}</h2>
+              <p class="moj-timeline__byline">by Alex Edwards</p>
+            </div>
+        
+            <p class="moj-timeline__date">
+              <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
+            </p>
+          </div>
+        {% endif %}
+        
+        <!-- Timeline item 2 -->
+        <div class="moj-timeline__item">
+          <div class="moj-timeline__header">
+            <h2 class="moj-timeline__title">Application opened</h2>
+            <p class="moj-timeline__byline">by Alex Edwards</p>
+          </div>
+      
+          <p class="moj-timeline__date">
+            <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
+          </p>
+        </div> 
+
+        <!-- Timeline item 1 -->
+        <div class="moj-timeline__item">
+          <div class="moj-timeline__header">
+            <h2 class="moj-timeline__title">Application submitted</h2>
+            <p class="moj-timeline__byline">by Chanel Diep</p>
+          </div>
+      
+          <p class="moj-timeline__date">
+            <time datetime="2019-06-14T14:01:00.000Z">12 June 2019 at 2:01pm</time>
+          </p>
+        </div> 
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -20,6 +20,11 @@
       }) }}
     </div>
   </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -55,7 +60,7 @@
 
         {{ govukButton({
           text: "Sign in",
-          href: "application-overview"
+          href: "status-update"
         }) }}
 
       </form>

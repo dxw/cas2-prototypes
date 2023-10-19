@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% from "components/widgets/macro.njk" import widgets %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form class="form" action="application-overview" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "nacro-application-status-detail",
+          fieldset: {
+            legend: {
+              text: "But why?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Withdrawn",
+              text: "Withdrawn",
+              hint: {
+                text: "The application was withdrawn by the referrer."
+              }
+            },
+            {
+              value: "No response",
+              text: "No response",
+              hint: {
+                text: "The referrer did not provide further information, so the application could not be assessed."
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and update status",
+          href: ""
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
