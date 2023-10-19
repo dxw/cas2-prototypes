@@ -45,7 +45,7 @@
         }, {
           text: 'Return to applications dashboard',
           classes: 'govuk-button--secondary',
-          href: "#"
+          href: "applications-dashboard"
         }]
       }) }}
 
@@ -76,8 +76,8 @@
         {% set statusTagDetail = "Waitlist - The application was successful but there is currently no suitable placement available." %}
       {% elseif statusTagDetail == "Awaiting review" %}
         {% set statusTagDetail = "Awaiting review - The application is ready for a review by an assessor." %}
-      {% elseif statusTagDetail == "Awaiting further information" %}
-        {% set statusTagDetail = "Awaiting further information - The application is incomplete and the assessor needs further information." %}
+      {% elseif statusTagDetail == "Needs further information" %}
+        {% set statusTagDetail = "Needs further information - The application is incomplete and the assessor needs further information." %}
       {% elseif statusTagDetail == "In assessment" %}
         {% set statusTagDetail = "In assessment - The application is complete and is currently being assessed." %}
       {% endif %}

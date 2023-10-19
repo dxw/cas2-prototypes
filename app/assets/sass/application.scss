@@ -230,6 +230,11 @@
     font-size: 1.15rem;
 }
 
+.govuk-tag--new {
+    background: govuk-colour("pink");
+    color:  govuk-colour("white");
+}
+
 .govuk-tag--in-progress {
     background: govuk-colour("yellow");
     color: $govuk-text-colour;
