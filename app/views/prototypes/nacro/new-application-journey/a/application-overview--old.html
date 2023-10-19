@@ -65,39 +65,39 @@
       {% set statusTagDetail = data['nacro-application-status-detail'] %}
 
       {% if statusTagDetail == "Withdrawn" %}
-        {% set statusTagDetailExplainer = "The application was withdrawn by the referrer." %}
+        {% set statusTagDetail = "Withdrawn - The application was withdrawn by the referrer." %}
       {% elseif statusTagDetail == "No response" %}
-        {% set statusTagDetailExplainer = "The referrer did not provide further information, so the application could not be assessed." %}
+        {% set statusTagDetail = "No response - The referrer did not provide further information, so the application could not be assessed." %}
       {% elseif statusTagDetail == "Place offered" %}
-        {% set statusTagDetailExplainer = "The application was successful and a placement was offered." %}
+        {% set statusTagDetail = "Place offered - The application was successful and a placement was offered." %}
       {% elseif statusTagDetail == "Declined" %}
-        {% set statusTagDetailExplainer = "The application was unsuccessful and a placement was not offered." %}
+        {% set statusTagDetail = "Declined - The application was unsuccessful and a placement was not offered." %}
       {% elseif statusTagDetail == "Waitlist" %}
-        {% set statusTagDetailExplainer = "The application was successful but there is currently no suitable placement available." %}
+        {% set statusTagDetail = "Waitlist - The application was successful but there is currently no suitable placement available." %}
       {% elseif statusTagDetail == "Awaiting review" %}
-        {% set statusTagDetailExplainer = "The application is ready for a review by an assessor." %}
+        {% set statusTagDetail = "Awaiting review - The application is ready for a review by an assessor." %}
       {% elseif statusTagDetail == "Needs further information" %}
-        {% set statusTagDetailExplainer = "The application is incomplete and the assessor needs further information." %}
+        {% set statusTagDetail = "Needs further information - The application is incomplete and the assessor needs further information." %}
       {% elseif statusTagDetail == "In assessment" %}
-        {% set statusTagDetailExplainer = "The application is complete and is currently being assessed." %}
+        {% set statusTagDetail = "In assessment - The application is complete and is currently being assessed." %}
       {% endif %}
 
       <!-- Status tag -->
-      {% if statusTagDetail %}
+      {% if statusTag %}
         <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
-          {{ statusTagDetail }}
+          {{ statusTag }}
         </strong>
       {% else %}
-        <strong class="govuk-tag govuk-tag--new govuk-tag--big govuk-!-margin-bottom-3">
-          New
+        <strong class="govuk-tag govuk-tag--in-progress govuk-tag--big govuk-!-margin-bottom-3">
+          In progress
         </strong>
       {% endif %}
 
       <!-- Status explainer -->
-      {% if statusTagDetailExplainer %}
-        <p class="govuk-body">{{ statusTagDetailExplainer }}</p>
+      {% if statusTagDetail %}
+        <p class="govuk-body">{{ statusTagDetail }}</p>
       {% else %}
-        <p class="govuk-body">This application is new.</p>
+        <p class="govuk-body">The application is being reviewed by an assessor from NACRO.</p>
       {% endif %}
 
       <!-- View submitted apps -->
