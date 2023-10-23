@@ -1,0 +1,1324 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<form action="" method="post" novalidate>
+
+  <div class="govuk-grid-row">
+
+    <!---------------------- Title and actions ---------------------->
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        Application answers
+      </h1>
+
+      <p class="govuk-body-l">This page contains answers submitted as part of a CAS-2 application. Alternatively, you can download a PDF verison of this page.</p>
+
+      <div class="govuk-button-group govuk-!-margin-bottom-0">
+        {{ govukButton({
+          text: "Download as a PDF",
+          href: "#"
+        }) }}
+
+        {{ govukButton({
+          text: "Update application status",
+          classes: 'govuk-button--secondary',
+          href: "a/status-update.html"
+        }) }}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <!---------------------- Application summary ---------------------->
+      <h2 class="govuk-heading-l">
+        Application summary
+      </h2>
+
+      <ul class="govuk-list govuk-list--spaced">
+        <li><strong>Applicant name:</strong> Terry Midhurst</li>
+        <li><strong>Referrer name:</strong> Alex Edwards</li>
+        <li><strong>Referring institution:</strong> HM Prison Pentonville</li> 
+        <li><strong>Contact email address:</strong> <a class="govuk-link" href="mailto:aedwards3@hmppentonville.gov.uk">aedwards3@hmppentonville.gov.uk</a></li>
+        <li><strong>Contact number: </strong><a class="govuk-link" href="tel:01234567891">01234567891</a></li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <!---------------------- Before you apply ---------------------->
+      <!-- Section title -->
+      <h2 class="govuk-heading-l">Before you apply</h2>
+
+      <!-- Task Check applicant details -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Check applicant details</h2>
+        </div>
+
+        <div class="govuk-summary-card__content">
+          <!-- Full name -->
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Full name
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Terry Midhurst
+              </dd>
+            </div>
+          </dl>
+
+          <!-- DoB -->
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Date of birth
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                03/10/1984
+              </dd>
+            </div>
+          </dl> 
+
+          <!-- Nationality -->
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Nationality
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                British
+              </dd>
+            </div>
+          </dl> 
+
+          <!-- Immigration -->
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Immigration status
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                N/A
+              </dd>
+            </div>
+          </dl> 
+
+          <!-- Sex -->
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Sex
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Male
+              </dd>
+            </div>
+          </dl> 
+
+          <!-- Prison number -->
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Prison number
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                ADSF4532
+              </dd>
+            </div>
+          </dl> 
+
+          <!-- PNC number -->
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                PNC number
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                349785/34646
+              </dd>
+            </div>
+          </dl> 
+
+          <!-- NDelius CRN number -->
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                NDelius CRN number
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                TM57D2
+              </dd>
+            </div>
+          </dl> 
+          
+        </div>
+      </div>
+
+      <!-- Task Check eligibility for CAS-2-->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Check eligibility for CAS-2</h2>
+        </div>
+
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes, I confirm Terry Midhurst is eligible
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden"> Is Ben Davies eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+          </dl> 
+        </div>
+      </div>
+
+      <!-- Task Check information needed -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Check information needed from Terry Midhurst</h2>
+        </div>
+
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Have you got all the information you need from the applicant?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden"> Is Ben Davies eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+          </dl> 
+        </div>
+      </div>
+
+      <!-- Task Check consent -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Check Terry Midhurst is eligible for Short-Term Accommodation (CAS-2)</h2>
+        </div>
+
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Have you got all the information you need from the applicant?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+          </dl> 
+        </div>
+      </div>
+
+      <!-- Section title -->
+      <h2 class="govuk-heading-l">About Terry Midhurst</h2>
+
+      <!-- Task Add personal information -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Add personal information</h2>
+        </div>
+
+        <div class="govuk-summary-card__content">
+          
+          <!-- Mobile phone -->
+          <dl class="govuk-summary-list govuk-summary-list--border">
+            <!-- Mobile phone -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Does Terry Midhurst have a working mobile phone?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What is their mobile number? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What is their mobile number?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                01234567891
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Is their mobile a smart phone? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Is their mobile a smart phone?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+          </dl> 
+
+          <!-- Pregnancy -->
+          <dl class="govuk-summary-list govuk-summary-list--border">
+            <!-- Is Terry Midhurst pregnant? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Is Terry Midhurst pregnant?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- When is their due date? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                When is their due date?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                January 2023
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+          </dl> 
+
+          <!-- Support worker -->
+          <dl class="govuk-summary-list">
+            <!-- Does Terry Midhurst have a gender preference for their support worker? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Does Terry Midhurst have a gender preference for their support worker?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What is their preference? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What is their preference?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Female
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+        </div>
+      </div>
+
+      <!-- Task Add address history -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Add address history</h2>
+        </div>
+
+        <!-- Address before custody -->
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">            
+            <!-- Address before custody -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Did Terry Midhurst have an address before entering custody?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                No
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- How long did Terry Midhurst have no fixed address for? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                How long did Terry Midhurst have no fixed address for?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                6 Years
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+            
+            <!-- Actual address -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What was Terry Midhurst's last known permanent address?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                12 House<br>
+                13 Street<br>
+                Township<br>
+                West countyshire<br>
+                LS12 45YU
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+          </dl> 
+        </div>
+      
+      </div>
+
+      <!-- Task Add equality and diversity monitoring information -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Add equality and diversity monitoring information</h2>
+        </div>
+
+        <!-- Address before custody -->
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">            
+            <!-- Does Terry Midhurst want to answer the equality questions? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Does Terry Midhurst want to answer the equality questions?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Do they have a disability? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Do they have a disability?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+            
+            <!-- What type of disability? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What type of disability?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Sensory impairment<br>
+                Physical impairment
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What is their sex? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What is their sex?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Female
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Is the gender they identify with the same as the sex registered at birth? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Is the gender they identify with the same as the sex registered at birth?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Which of the following best describes their sexual orientation? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Which of the following best describes their sexual orientation?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Heterosexual or straight
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What is their ethnic group? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What is their ethnic group?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Mixed or multiple ethnic groups
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Which of the following best describes their mixed or multiple ethnic groups background? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Which of the following best describes their mixed or multiple ethnic groups background?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                White and Black Caribbean
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What is their religion? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What is their religion?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Sikh
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Are they a military veteran? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Are they a military veteran?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Is the applicant a care leaver? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Is the applicant a care leaver?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Do they have parental or carer responsibilities? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Do they have parental or carer responsibilities?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What is their legal marital or registered civil partnership status? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What is their legal marital or registered civil partnership status?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Separated, but still legally in a civil partnership
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl> 
+        </div>
+      
+      </div>
+
+      <!-- Section title -->
+      <h2 class="govuk-heading-l">Area, funding and ID</h2>
+
+      <!-- Task Add exclusion zones and preferred areas -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Add exclusion zones and preferred areas</h2>
+        </div>
+
+        <!-- Address before custody -->
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">            
+            <!-- First preferred area for Terry Midhurst -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                First preferred area for Terry Midhurst
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Leeds
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Reason for preference -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Reason for preference
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Terry lived in the area in the 6 out of the 12 months before prison
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Second preferred area for Terry Midhurst -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Second preferred area for Terry Midhurst
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                London
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Reason for preference -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Reason for preference
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Terry lived in the area in the area in the 3 out of the last 5 years
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+            
+            <!-- Exclusion zone 1 -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Exclusion zone 1
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Luton<br>
+                Ending 24 January 2023<br>
+                Harassment<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Exclusion zone 2 -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Exclusion zone 2
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                12 Street, 45 Town, Stockport, LS452JS<br>
+                Domestic abuse<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Exclusion zone 3 -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Exclusion zone 3
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                terry-midhurst-exclusion-zones.jpg<br>
+                Ending 5 March 2023<br>
+                Harassment<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Does Terry Midhurst have any gang affiliations -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Does Terry Midhurst have any gang affiliations?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What is the name of the gang? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What is the name of the gang?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Luton bad boys
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Where do they operate? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Where do they operate?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                In and around Luton, at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Name any known rival gangs and where they operate (optional) -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Name any known rival gangs and where they operate (optional)
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Other luton bad people, also based in and around Luton.
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Do they want to apply to live with their children in a family property? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Do they want to apply to live with their children in a family property?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+           
+          </dl> 
+        </div>
+      
+      </div>
+
+      <!-- Task Confirm funding and ID -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Confirm funding and ID</h2>
+        </div>
+
+        <!-- How will Terry Midhurst pay for their accommodation and service charge? -->
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">            
+            <!-- How will Terry Midhurst pay for their accommodation and service charge? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                How will Terry Midhurst pay for their accommodation and service charge?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Benefits
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What identification documentation (ID) does Terry Midhurst have? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What identification documentation (ID) does Terry Midhurst have?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Passport<br>
+                Birth certificate<br>
+                Bank, building society or Post Office card account statements
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+            
+            <!-- What is Terry Midhurst's National Insurance number? (Optional) -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What is Terry Midhurst's National Insurance number? (Optional)
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                NI45645GDSD
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+          </dl> 
+        </div>
+      
+      </div>
+
+      <!-- Section title -->
+      <h2 class="govuk-heading-l">Risks and needs</h2>
+
+      <!-- Task Add health needs -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Add health needs</h2>
+        </div>
+
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">            
+            <!-- Do they take any illegal substances? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Do they take any illegal substances?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What substances do they take? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What substances do they take?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Cocaine, heroin, MDMA
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+            
+            <!-- How often do they take these substances, by what method, and how much? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                How often do they take these substances, by what method, and how much?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Most days, additional is taken on nights out (mostly Friday nights)
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Are they engaged with a drug and alcohol service? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Are they engaged with a drug and alcohol service?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Name the drug and alcohol service -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Name the drug and alcohol service
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Bridge, Leeds
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Do they require any substitute medication for misused substances? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Do they require any substitute medication for misused substances?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- What substitute medication do they take? -->
+            <div class="govuk-summary-list__row">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                What substitute medication do they take?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Mephedrone
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Do they have any physical health needs? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Do they have any physical health needs?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+            <!-- Do they have any physical health needs? -->
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+              <!-- Question -->
+              <dt class="govuk-summary-list__key">
+                Do they have any physical health needs?
+              </dt>
+              <!-- Answer -->
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <!-- Change link -->
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">
+                  Change
+                  <span class="govuk-visually-hidden">Is Terry Midhurst eligible for Short-Term Accommodation (CAS-2)?</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl> 
+        </div>
+      
+      </div>
+
+</form>
+{% endblock %}
+
+<!---------------------- Sticky footer ---------------------->
+{% block bodyEnd %}
+  <div class="sticky-footer">
+    <div class="govuk-width-container">
+      <div class="sticky-footer--flex">
+        
+        <div class="sticky-footer--item">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Don't forget to update the application status</h2>
+          <p class="govuk-body govuk-!-margin-bottom-0">Do we need a one liner to explain why?</p>
+        </div>
+
+        <div class="sticky-footer--item">
+          {{ govukButton({
+            text: "Update application status",
+            classes: "govuk-!-margin-bottom-0 ",
+            href: "a/status-update"
+          }) }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
