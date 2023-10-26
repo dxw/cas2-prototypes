@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">Add an exclusion zone for Terry Midhurst</h1>
+      <p class="govuk-body">You must include all of Terry Midhurst's exclusion zones from licence conditions, restraining orders and injunctions.</p> 
+          
+        <p class="govuk-body">Check with Terry Midhurst's Community Probation Practitioner (CPP), also known as Community Offender Manager (COM), for exclusion zone details.</p>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <form class="form" action="area-exclusion-zones" method="post">
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          id: "area-exclusion-zones-detail",
+          name: "area-exclusion-zones-detail",
+          rows: "5",
+          label: {
+            text: "Provide details about the exclusion zone",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          hint: {
+            html: 
+            "<p class='govuk-hint'>Include details such as:</p>
+            <ul class='govuk-list govuk-list--bullet govuk-hint'>
+              <li>the area the applicant is excluded from</li>
+              <li>the end date (if applicable) of the exclusion</li>
+              <li>the reason for the exclusion (e.g. domestic abuse)</li>
+              <li>the victim(s) full name so we can avoid placing the applicant near them</li>
+              </ul>"
+          }
+        }) }} 
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and add exclusion zone"
+          }) }}
+
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Save and add another',
+              classes: 'govuk-button--secondary moj-add-another__add-button'
+            }) }}
+          </div>
+        </div>     
+
+        <a class="govuk-body govuk-link" href="area-exclusion-zones.html">Cancel</a>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

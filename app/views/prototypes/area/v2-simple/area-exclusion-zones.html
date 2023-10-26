@@ -1,0 +1,156 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-8">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Exclusion zones for Terry Midhurst</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+          {
+            text: 'First preferred area',
+            href: 'area-first-preference.html'
+          },
+          {
+            text: 'Second preferred area',
+            href: 'area-second-preference.html'
+          }, 
+          {
+            text: 'Exclusion zones',
+            href: 'area-exclusion-zones.html',
+            active: true
+          }, 
+          {
+            text: 'Gang affiliations',
+            href: 'area-gang-affiliations.html'
+          }, 
+          {
+            text: 'Family accommodation',
+            href: 'area-family-accommodation.html'
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <p class="govuk-body">Exclusion zones are specific areas a person must not enter.</p>
+          
+          <p class="govuk-body">You must include all of Terry Midhurst's exclusion zones from licence conditions, restraining orders and injunctions.</p> 
+          
+        <p class="govuk-body">Check with Terry Midhurst's Community Probation Practitioner (CPP), also known as Community Offender Manager (COM), for exclusion zone details.</p>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <!-- Set the exclusion detail as a variable -->
+        {% set areaExclusionTypeDetail = data['area-exclusion-zones-detail'] %}
+
+        {% set areaExclusionDetail %}
+          {{ data['area-exclusion-zones-detail'] }}
+        {% endset %}
+
+        <!-- Single exclusion zone -->
+        {% if areaExclusionDetail %}
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Exclusion zone 1
+              </h2>
+              <ul class="govuk-summary-card__actions">
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="#">
+                    Remove<span class="govuk-visually-hidden"> exclusion</span>
+                  </a>
+                </li>
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> exclusion</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list prison-info">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Details
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ areaExclusionTypeDetail }}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        {% else %}
+          <p class="govuk-body govuk-!-font-weight-bold">No exclusion zones have been added.</p>
+        {% endif %}
+
+        {{ govukButton({
+          text: "Add an exclusion zone",
+          classes: "govuk-button--secondary",
+          href: "area-exclusion-zones-add.html"
+        }) }}
+
+        <br>
+
+        <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "area-gang-affiliations.html"
+          }) }}
+  
+          <a href="../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
