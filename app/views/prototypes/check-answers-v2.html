@@ -37,7 +37,7 @@
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
-        Check your answers
+        Check your answers before sending your application
       </h1>
 
       <p class="govuk-body-l">Read through this page and check that the information provided for each answer is accurate.</p>
@@ -2763,8 +2763,41 @@
 
           </dl> 
         </div>
+
+        
       
       </div>
+
+      {{ govukCheckboxes({
+        fieldset: {
+          legend: {
+            text: "Confirm and send your application",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            id: "check-answers-confirm",
+            text: "I confirm the information provided is complete, accurate and up to date."
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit application",
+          class: "govuk-button--disabled",
+          id: "button-check-answers-confirm",
+          disabled: true
+        }) }}
+
+        {{ govukButton({
+          text: "Return to tasklist",
+          href: "tasklists/tasklist-complete",
+          classes: "govuk-button--secondary"
+        }) }}
 
 </form>
 {% endblock %}
