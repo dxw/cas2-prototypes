@@ -102,7 +102,7 @@ router.get('/scores', function (req, res) {
 
 // The URL here needs to match the URL of the page that the user is on
 // when they type in their email address
-router.post('/prototypes/check-answers', function (req, res) {
+router.post('/prototypes/check-answers/check-answers-v2', function (req, res) {
 
   notify.sendEmail(
     // this long string is the template ID, copy it from the template
@@ -116,7 +116,7 @@ router.post('/prototypes/check-answers', function (req, res) {
 
   // This is the URL the users will be redirected to once the email
   // has been sent
-  res.redirect('/prototypes/submission-confirmed');
+  res.redirect('/prototypes/check-answers/submission-confirmed');
 });
 
 // Consent routing
