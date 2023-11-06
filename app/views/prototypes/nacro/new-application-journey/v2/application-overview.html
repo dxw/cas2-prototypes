@@ -31,7 +31,7 @@
     <div class="govuk-grid-column-full">
 
       <!-- Applicant name and header actions -->
-      {% from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions %}
+      <!-- {% from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions %}
 
       {{ mojPageHeaderActions({
         classes: 'govuk-!-margin-bottom-6',
@@ -47,7 +47,9 @@
           classes: 'govuk-button--secondary',
           href: "applications-dashboard"
         }]
-      }) }}
+      }) }} -->
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Terry Midhurst</h1>
 
       <!-- Set the status tag from the first question asked -->
       {% set statusTag = data['nacro-application-status'] %}
@@ -100,12 +102,20 @@
         <p class="govuk-body">This application was submitted on <strong>12 June 2023</strong>.</p>
       {% endif %}
 
-      <!-- View submitted apps -->
-      {{ govukButton({
-        text: "View submitted application",
-        href: "../submitted-application-v2",
-        classes: "govuk-!-margin-top-3"
-      }) }}
+      <div class="govuk-button-group govuk-!-margin-top-3">
+        <!-- View submitted apps -->
+        {{ govukButton({
+          text: "View submitted application",
+          href: "submitted-application-v2"
+        }) }}
+
+        <!-- Update status -->
+        {{ govukButton({
+          text: "Update application status",
+          href: "submitted-application-v2",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
 
       <!-- Spacer -->
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-2">
