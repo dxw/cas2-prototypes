@@ -34,13 +34,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form class="form" action="" method="post">
+      <form class="form" action="application-overview" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "nacro-application-status",
-          value: data['nacro-application-status'],
+          name: "nacro-application-status-single",
+          value: data['nacro-application-status-single'],
           fieldset: {
             legend: {
               text: "What is the status of Terry Midhurst's application?",
@@ -50,6 +50,7 @@
           },
           items: [
             {
+              value: "Received",
               text: "Received",
               hint: {
                 text: "The application has been recieved and is yet to be processed."
@@ -108,8 +109,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Save and continue",
-          href: "application-overview"
+          text: "Save and continue"
         }) }}
 
       </form>

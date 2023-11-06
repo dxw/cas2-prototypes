@@ -30,64 +30,45 @@
 
     <div class="govuk-grid-column-full">
 
-      <!-- Applicant name and header actions -->
-      <!-- {% from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions %}
-
-      {{ mojPageHeaderActions({
-        classes: 'govuk-!-margin-bottom-6',
-        heading: {
-          text: 'Terry Midhurst'
-        },
-        items: [{
-          text: 'Update status',
-          classes: 'govuk-button--secondary',
-          href: "status-update"
-        }, {
-          text: 'Return to applications dashboard',
-          classes: 'govuk-button--secondary',
-          href: "applications-dashboard"
-        }]
-      }) }} -->
-
+      <!-- Applicant name -->
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Terry Midhurst</h1>
 
       <!-- Set the status tag from the first question asked -->
-      {% set statusTag = data['nacro-application-status'] %}
+      {% set statusTag = data['nacro-application-status-single'] %}
+      {{ statusTag }}
 
       <!-- Set the status tag colour based on the status chosen -->
-      {% if statusTag == "In progress" %}
-        {% set statusTagColour = "--in-progress" %}
-      {% elseif statusTag == "Assessment complete" %}
-        {% set statusTagColour = "--assessment-complete" %}
-      {% elseif statusTag == "Abandoned" %}
-        {% set statusTagColour = "--abandoned" %}
+      {% if statusTag == 'Received' or statusTag == 'More information requested' or statusTag == 'Awaiting decision' or statusTag == 'Incomplete' %}
+        {% set statusTagColour = '--in-progress' %}
+      {% elseif statusTag == 'Place offered' or statusTag == 'On waitlist' or statusTag == 'No place offered' %}
+        {% set statusTagColour = '--assessment-complete' %}
+      {% elseif statusTag == 'Withdrawn' %}
+        {% set statusTagColour = '--abandoned' %}
       {% endif %}
 
       <!-- Set the status tag detail based on the status chosen -->
-      {% set statusTagDetail = data['nacro-application-status-detail'] %}
-
-      {% if statusTagDetail == "Withdrawn" %}
-        {% set statusTagDetailExplainer = "The application was withdrawn by the referrer." %}
-      {% elseif statusTagDetail == "No response" %}
-        {% set statusTagDetailExplainer = "The referrer did not provide further information, so the application could not be assessed." %}
-      {% elseif statusTagDetail == "Place offered" %}
-        {% set statusTagDetailExplainer = "The application was successful and a placement was offered." %}
-      {% elseif statusTagDetail == "Declined" %}
-        {% set statusTagDetailExplainer = "The application was unsuccessful and a placement was not offered." %}
-      {% elseif statusTagDetail == "Waitlist" %}
-        {% set statusTagDetailExplainer = "The application was successful but there is currently no suitable placement available." %}
-      {% elseif statusTagDetail == "Awaiting review" %}
-        {% set statusTagDetailExplainer = "The application is ready for a review by an assessor." %}
-      {% elseif statusTagDetail == "Needs further information" %}
-        {% set statusTagDetailExplainer = "The application is incomplete and the assessor needs further information." %}
-      {% elseif statusTagDetail == "In assessment" %}
-        {% set statusTagDetailExplainer = "The application is complete and is currently being assessed." %}
+      {% if statusTag == 'Received' %}
+        {% set statusTagDetailExplainer = 'The application has been recieved and is yet to be processed.' %}
+      {% elseif statusTag == 'More information requested' %}
+        {% set statusTagDetailExplainer = 'More information about the application has been requested from the POM (Prison Officer Manager).        ' %}
+      {% elseif statusTag == 'Awaiting decision' %}
+        {% set statusTagDetailExplainer = 'All information has been recieved and the application is awaiting assessment.' %}
+      {% elseif statusTag == 'Place offered' %}
+        {% set statusTagDetailExplainer = 'A place has been offered which has been sent by email.' %}
+      {% elseif statusTag == 'On waitlist' %}
+        {% set statusTagDetailExplainer = 'Unsure about hint text here, Chanel to work magic.' %}
+      {% elseif statusTag == 'No place offered' %}
+        {% set statusTagDetailExplainer = 'No place was offered which has been confirmed by email.' %}
+      {% elseif statusTag == 'Incomplete' %}
+        {% set statusTagDetailExplainer = 'More information was requested, but not provided. The application remains incomplete.' %}
+      {% elseif statusTag == 'Withdrawn' %}
+        {% set statusTagDetailExplainer = 'The application was withdrawn by the referrer, or MoJ staff.' %}
       {% endif %}
 
       <!-- Status tag -->
-      {% if statusTagDetail %}
+      {% if statusTag %}
         <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
-          {{ statusTagDetail }}
+          {{ statusTag }}
         </strong>
       {% else %}
         <strong class="govuk-tag govuk-tag--new govuk-tag--big govuk-!-margin-bottom-3">
@@ -131,13 +112,15 @@
         {% if statusTag %}
           <div class="moj-timeline__item">
             <div class="moj-timeline__header">
-              <h2 class="moj-timeline__title">Status updated: {{ statusTag }}</h2>
-              <p class="moj-timeline__byline">by Alex Edwards</p>
+              <h2 class="moj-timeline__title">{{ statusTag }}</h2>
+              <p class="moj-timeline__byline"> by Alex Edwards</p><br>
             </div>
-        
+
             <p class="moj-timeline__date">
-              <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
+              <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 16:01pm</time>
             </p>
+
+            <div class="moj-timeline__description">{{ statusTagDetailExplainer }}</div>
           </div>
         {% endif %}
         
@@ -145,25 +128,29 @@
         <div class="moj-timeline__item">
           <div class="moj-timeline__header">
             <h2 class="moj-timeline__title">Application opened</h2>
-            <p class="moj-timeline__byline">by Alex Edwards</p>
+            <p class="moj-timeline__byline"> by Alex Edwards</p><br>
           </div>
-      
+
           <p class="moj-timeline__date">
             <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
           </p>
-        </div> 
+
+          <div class="moj-timeline__description">The application was opened for the first time.</div>
+        </div>
 
         <!-- Timeline item 1 -->
         <div class="moj-timeline__item">
           <div class="moj-timeline__header">
             <h2 class="moj-timeline__title">Application submitted</h2>
-            <p class="moj-timeline__byline">by Chanel Diep</p>
+            <p class="moj-timeline__byline"> by Chanel Diep</p><br>
           </div>
-      
+
           <p class="moj-timeline__date">
-            <time datetime="2019-06-14T14:01:00.000Z">12 June 2019 at 2:01pm</time>
+            <time datetime="2019-06-14T14:01:00.000Z">13 June 2019 at 2:01pm</time>
           </p>
-        </div> 
+
+          <div class="moj-timeline__description">The application was submitted.</div>
+        </div>
 
       </div>
 
