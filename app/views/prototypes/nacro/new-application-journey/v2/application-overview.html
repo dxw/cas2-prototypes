@@ -35,7 +35,6 @@
 
       <!-- Set the status tag from the first question asked -->
       {% set statusTag = data['nacro-application-status-single'] %}
-      {{ statusTag }}
 
       <!-- Set the status tag colour based on the status chosen -->
       {% if statusTag == 'Received' or statusTag == 'More information requested' or statusTag == 'Awaiting decision' or statusTag == 'Incomplete' %}
