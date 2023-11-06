@@ -32,7 +32,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-three-quarters">
 
       <form class="form" action="" method="post">
 
@@ -40,6 +40,7 @@
 
         {{ govukRadios({
           name: "nacro-application-status",
+          value: data['nacro-application-status'],
           fieldset: {
             legend: {
               text: "What is the status of Terry Midhurst's application?",
@@ -49,23 +50,66 @@
           },
           items: [
             {
-              value: "In progress",
-              text: "In progress"
+              text: "Received",
+              hint: {
+                text: "The application has been recieved and is yet to be processed."
+              }
             },
             {
-              value: "Assessment complete",
-              text: "Assessment complete"
+              value: "More information requested",
+              text: "More information requested",
+              hint: {
+                text: "More information about the application has been requested from the POM (Prison Officer Manager)."
+              }
             },
             {
-              value: "Abandoned",
-              text: "Abandoned"
+              value: "Awaiting decision",
+              text: "Awaiting decision",
+              hint: {
+                text: "All information has been recieved and the application is awaiting assessment."
+              }
+            },
+            {
+              value: "Place offered",
+              text: "Place offered",
+              hint: {
+                text: "A place has been offered which has been sent by email."
+              }
+            },
+            {
+              value: "On waitlist",
+              text: "On waitlist",
+              hint: {
+                text: "Unsure about hint text here, Chanel to work magic."
+              }
+            },
+            {
+              value: "No place offered",
+              text: "No place offered",
+              hint: {
+                text: "No place was offered which has been confirmed by email."
+              }
+            },
+            {
+              value: "Incomplete",
+              text: "Incomplete",
+              hint: {
+                text: "More information was requested, but not provided. The application remains incomplete."
+              }
+            },
+            {
+              value: "Withdrawn",
+              text: "Withdrawn",
+              hint: {
+                text: "The application was withdrawn by the referrer, or MoJ staff."
+              }
             }
           ]
         }) }}
 
         {{ govukButton({
           text: "Save and continue",
-          href: ""
+          href: "application-overview"
         }) }}
 
       </form>
