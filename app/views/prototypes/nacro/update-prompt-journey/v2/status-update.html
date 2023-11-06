@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% from "components/widgets/macro.njk" import widgets %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="application-overview" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "nacro-application-status-single",
+          value: data['nacro-application-status-single'],
+          fieldset: {
+            legend: {
+              text: "What is the status of Terry Midhurst's application?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Received",
+              text: "Received",
+              hint: {
+                text: "The application has been recieved and is yet to be processed."
+              }
+            },
+            {
+              value: "More information requested",
+              text: "More information requested",
+              hint: {
+                text: "More information about the application has been requested from the POM (Prison Officer Manager)."
+              }
+            },
+            {
+              value: "Awaiting decision",
+              text: "Awaiting decision",
+              hint: {
+                text: "All information has been recieved and the application is awaiting assessment."
+              }
+            },
+            {
+              value: "Place offered",
+              text: "Place offered",
+              hint: {
+                text: "A place has been offered which has been sent by email."
+              }
+            },
+            {
+              value: "On waitlist",
+              text: "On waitlist",
+              hint: {
+                text: "Unsure about hint text here, Chanel to work magic."
+              }
+            },
+            {
+              value: "No place offered",
+              text: "No place offered",
+              hint: {
+                text: "No place was offered which has been confirmed by email."
+              }
+            },
+            {
+              value: "Incomplete",
+              text: "Incomplete",
+              hint: {
+                text: "More information was requested, but not provided. The application remains incomplete."
+              }
+            },
+            {
+              value: "Withdrawn",
+              text: "Withdrawn",
+              hint: {
+                text: "The application was withdrawn by the referrer, or MoJ staff."
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
