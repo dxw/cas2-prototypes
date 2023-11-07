@@ -97,19 +97,17 @@
       <!-- Timeline item 3 -->
       {% if statusTag %}
         <div class="moj-timeline__item">
-          <div class="status-latest">
-            <div class="moj-timeline__header">
-              <span class="govuk-body govuk-!-margin-bottom-2 govuk-!-display-inline-block">Latest</span><br>
-              <h2 class="moj-timeline__title">{{ statusTag }}</h2>
-              <p class="moj-timeline__byline"> by Alex Edwards</p><br>
-            </div>
-
-            <p class="moj-timeline__date">
-              <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 16:01pm</time>
-            </p>
-
-            <div class="moj-timeline__description">{{ statusTagDetailExplainer }}</div>
+          <div class="moj-timeline__header">
+            <span class="govuk-body govuk-!-margin-bottom-2 govuk-!-display-inline-block govuk-!-font-size-16 govuk-!-font-weight-bold" style="background: #ffdd00; padding: .25rem .5rem;">Latest activity</span><br>
+            <h2 class="moj-timeline__title">{{ statusTag }}</h2>
+            <p class="moj-timeline__byline"> by Alex Edwards</p><br>
           </div>
+
+          <p class="moj-timeline__date">
+            <time datetime="2019-06-14T14:01:00.000Z">Just now</time>
+          </p>
+
+          <div class="moj-timeline__description">{{ statusTagDetailExplainer }}</div>
         </div>
       {% endif %}
         
