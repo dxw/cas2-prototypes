@@ -36,6 +36,20 @@
 
       <form class="form" action="application-overview" method="post">
 
+      <!-- Set the status tag -->
+      {% set statusTag = data['nacro-application-status-single'] %}
+
+      <!-- Set the status tag colour based on the status chosen -->
+      {% set statusTagColour = '--assessment-complete' %}
+
+      <!-- Status tag -->
+      <div class="status-box govuk-!-margin-bottom-5">
+        <p class="govuk-!-display-inline">Current status: </p> 
+        <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big">
+          {% if statusTag %}{{ statusTag }}{% else %}Recieved{% endif %}
+        </strong>
+      </div>
+
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
@@ -49,13 +63,6 @@
             }
           },
           items: [
-            {
-              value: "Received",
-              text: "Received",
-              hint: {
-                text: "The application has been recieved and is yet to be processed."
-              }
-            },
             {
               value: "More information requested",
               text: "More information requested",

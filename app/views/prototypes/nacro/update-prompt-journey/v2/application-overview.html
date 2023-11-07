@@ -36,19 +36,11 @@
       <!-- Set the status tag from the first question asked -->
       {% set statusTag = data['nacro-application-status-single'] %}
 
-      <!-- Set the status tag colour based on the status chosen -->
-      {% if statusTag == 'Received' or statusTag == 'More information requested' or statusTag == 'Awaiting decision' or statusTag == 'Incomplete' %}
-        {% set statusTagColour = '--in-progress' %}
-      {% elseif statusTag == 'Place offered' or statusTag == 'On waitlist' or statusTag == 'No place offered' %}
-        {% set statusTagColour = '--assessment-complete' %}
-      {% elseif statusTag == 'Withdrawn' %}
-        {% set statusTagColour = '--abandoned' %}
-      {% endif %}
+      <!-- Set the status tag colour -->
+      {% set statusTagColour = '--assessment-complete' %}
 
       <!-- Set the status tag detail based on the status chosen -->
-      {% if statusTag == 'Received' %}
-        {% set statusTagDetailExplainer = 'The application has been recieved and is yet to be processed.' %}
-      {% elseif statusTag == 'More information requested' %}
+      {% if statusTag == 'More information requested' %}
         {% set statusTagDetailExplainer = 'More information about the application has been requested from the POM (Prison Officer Manager).        ' %}
       {% elseif statusTag == 'Awaiting decision' %}
         {% set statusTagDetailExplainer = 'All information has been recieved and the application is awaiting assessment.' %}
@@ -65,15 +57,10 @@
       {% endif %}
 
       <!-- Status tag -->
-      {% if statusTag %}
-        <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
-          {{ statusTag }}
-        </strong>
-      {% else %}
-        <strong class="govuk-tag govuk-tag--new govuk-tag--big govuk-!-margin-bottom-3">
-          New
-        </strong>
-      {% endif %}
+      <p class="govuk-!-display-inline">Current status: </p> 
+      <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
+        {% if statusTag %}{{ statusTag }}{% else %}Recieved{% endif %}
+      </strong>
 
       <!-- Status explainer -->
       {% if statusTagDetailExplainer %}
@@ -107,10 +94,12 @@
 
       <div class="moj-timeline">
 
-        <!-- Timeline item 3 -->
-        {% if statusTag %}
-          <div class="moj-timeline__item">
+      <!-- Timeline item 3 -->
+      {% if statusTag %}
+        <div class="moj-timeline__item">
+          <div class="status-latest">
             <div class="moj-timeline__header">
+              <span class="govuk-body govuk-!-margin-bottom-2 govuk-!-display-inline-block">Latest</span><br>
               <h2 class="moj-timeline__title">{{ statusTag }}</h2>
               <p class="moj-timeline__byline"> by Alex Edwards</p><br>
             </div>
@@ -121,12 +110,13 @@
 
             <div class="moj-timeline__description">{{ statusTagDetailExplainer }}</div>
           </div>
-        {% endif %}
+        </div>
+      {% endif %}
         
         <!-- Timeline item 2 -->
         <div class="moj-timeline__item">
           <div class="moj-timeline__header">
-            <h2 class="moj-timeline__title">Application opened</h2>
+            <h2 class="moj-timeline__title">More information requested</h2>
             <p class="moj-timeline__byline"> by Alex Edwards</p><br>
           </div>
 
@@ -134,7 +124,7 @@
             <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
           </p>
 
-          <div class="moj-timeline__description">The application was opened for the first time.</div>
+          <div class="moj-timeline__description">More information about the application has been requested from the POM (Prison Officer Manager).</div>
         </div>
 
         <!-- Timeline item 1 -->
@@ -148,7 +138,7 @@
             <time datetime="2019-06-14T14:01:00.000Z">13 June 2019 at 2:01pm</time>
           </p>
 
-          <div class="moj-timeline__description">The application was submitted.</div>
+          <div class="moj-timeline__description">The application was recieved by an assessor.</div>
         </div>
 
       </div>
