@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+
+{% from "components/widgets/macro.njk" import widgets %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service – your feedback will help us to improve it.'
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <!-- Applicant name -->
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Terry Midhurst</h1>
+
+      <!-- Set the status tag from the first question asked -->
+      {% set statusTag = data['nacro-application-status-single'] %}
+
+      <!-- Set the status tag colour -->
+      {% set statusTagColour = '--assessment-complete' %}
+
+      <!-- Set the status tag detail based on the status chosen -->
+      {% if statusTag == 'More information requested' %}
+        {% set statusTagDetailExplainer = 'More information about the application has been requested from the POM (Prison Officer Manager).        ' %}
+      {% elseif statusTag == 'Awaiting decision' %}
+        {% set statusTagDetailExplainer = 'All information has been recieved and the application is awaiting assessment.' %}
+      {% elseif statusTag == 'Place offered' %}
+        {% set statusTagDetailExplainer = 'A place has been offered which has been sent by email.' %}
+      {% elseif statusTag == 'On waitlist' %}
+        {% set statusTagDetailExplainer = 'Unsure about hint text here, Chanel to work magic.' %}
+      {% elseif statusTag == 'No place offered' %}
+        {% set statusTagDetailExplainer = 'No place was offered which has been confirmed by email.' %}
+      {% elseif statusTag == 'Incomplete' %}
+        {% set statusTagDetailExplainer = 'More information was requested, but not provided. The application remains incomplete.' %}
+      {% elseif statusTag == 'Withdrawn' %}
+        {% set statusTagDetailExplainer = 'The application was withdrawn by the referrer, or MoJ staff.' %}
+      {% endif %}
+
+      <!-- Status tag -->
+      <p class="govuk-!-display-inline">Current status: </p> 
+      <strong class="govuk-tag govuk-tag{{ statusTagColour }} govuk-tag--big govuk-!-margin-bottom-3">
+        More information requested
+      </strong>
+
+      <!-- Status explainer -->
+      {% if statusTagDetailExplainer %}
+        <p class="govuk-body">More information about the application has been requested from the POM (Prison Officer Manager).</p>
+      {% else %}
+        <p class="govuk-body">This application was submitted on <strong>12 June 2023</strong>.</p>
+      {% endif %}
+
+      <div class="govuk-button-group govuk-!-margin-top-3">
+        <!-- View submitted apps -->
+        {{ govukButton({
+          text: "View submitted application",
+          href: "submitted-application-v2"
+        }) }}
+
+        <!-- Update status -->
+        {{ govukButton({
+          text: "Update application status",
+          href: "status-update",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+      <!-- Spacer -->
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-2">
+      
+      <!-- History starts -->
+      <h2 class="govuk-heading-l">
+        Status history
+      </h2>
+
+      <div class="moj-timeline">
+
+      <!-- Timeline item 3 -->
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <span class="govuk-body govuk-!-margin-bottom-2 govuk-!-display-inline-block govuk-!-font-size-16 govuk-!-font-weight-bold" style="background: #ffdd00; padding: .25rem .5rem;">Latest</span><br>
+          <h2 class="moj-timeline__title">More information requested</h2>
+          <p class="moj-timeline__byline"> by Alex Edwards</p><br>
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 16:01pm</time>
+        </p>
+
+        <div class="moj-timeline__description">More information about the application has been requested from the POM (Prison Officer Manager).</div>
+      </div>
+ 
+        <!-- Timeline item 2 -->
+        <div class="moj-timeline__item">
+          <div class="moj-timeline__header">
+            <h2 class="moj-timeline__title">More information requested</h2>
+            <p class="moj-timeline__byline"> by Alex Edwards</p><br>
+          </div>
+
+          <p class="moj-timeline__date">
+            <time datetime="2019-06-14T14:01:00.000Z">14 June 2019 at 2:01pm</time>
+          </p>
+
+          <div class="moj-timeline__description">More information about the application has been requested from the POM (Prison Officer Manager).</div>
+        </div>
+
+        <!-- Timeline item 1 -->
+        <div class="moj-timeline__item">
+          <div class="moj-timeline__header">
+            <h2 class="moj-timeline__title">Application submitted</h2>
+            <p class="moj-timeline__byline"> by Chanel Diep</p><br>
+          </div>
+
+          <p class="moj-timeline__date">
+            <time datetime="2019-06-14T14:01:00.000Z">13 June 2019 at 2:01pm</time>
+          </p>
+
+          <div class="moj-timeline__description">The application was recieved by an assessor.</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
