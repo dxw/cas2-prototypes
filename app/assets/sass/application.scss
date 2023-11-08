@@ -250,6 +250,17 @@
     color:  govuk-colour("white");
 }
 
+.status-box {
+    display: inline-block;
+    padding: .75rem;
+    border: 1px solid govuk-colour("dark-grey");
+}
+
+.status-latest {
+    background: #f0f0f0;
+    padding: 1em;
+}
+
 
 // -------- Footer things
 
@@ -278,15 +289,18 @@
     border-bottom: 1px solid #b1b4b6 !important;
 } 
 
-// -------- Nacro views
+// -------- CYA / Submitted Apps
 
-.status-box {
+.sticky-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+.app-back-to-top__icon {
     display: inline-block;
-    padding: .75rem;
-    border: 1px solid govuk-colour("dark-grey");
-}
-
-.status-latest {
-    background: #f0f0f0;
-    padding: 1em;
-}
+    width: .8em;
+    height: 1em;
+    margin-top: -(govuk-spacing(1));
+    margin-right: govuk-spacing(2);
+    vertical-align: middle;
+  }
