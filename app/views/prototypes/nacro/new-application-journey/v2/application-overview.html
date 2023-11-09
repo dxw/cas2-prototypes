@@ -41,19 +41,19 @@
 
       <!-- Set the status tag detail based on the status chosen -->
       {% if statusTag == 'More information requested' %}
-        {% set statusTagDetailExplainer = 'More information about the application has been requested from the POM (Prison Officer Manager).        ' %}
+        {% set statusTagDetailExplainer = 'The prison offender manager (POM) must provide information requested for the application to progress.' %}
       {% elseif statusTag == 'Awaiting decision' %}
-        {% set statusTagDetailExplainer = 'All information has been recieved and the application is awaiting assessment.' %}
+        {% set statusTagDetailExplainer = 'The CAS-2 team has the information they need and will make a decision.' %}
       {% elseif statusTag == 'Place offered' %}
-        {% set statusTagDetailExplainer = 'A place has been offered which has been sent by email.' %}
+        {% set statusTagDetailExplainer = 'The applicant has been offered a place for Short-Term Accommodation (CAS-2).' %}
       {% elseif statusTag == 'On waitlist' %}
-        {% set statusTagDetailExplainer = 'Unsure about hint text here, Chanel to work magic.' %}
-      {% elseif statusTag == 'No place offered' %}
-        {% set statusTagDetailExplainer = 'No place was offered which has been confirmed by email.' %}
+        {% set statusTagDetailExplainer = 'The applicant has been added to the waitlist for Short-Term Accommodation (CAS-2).' %}
+      {% elseif statusTag == 'Could not be placed' %}
+        {% set statusTagDetailExplainer = 'The applicant could not be placed in Short-Term Accommodation (CAS-2).' %}
       {% elseif statusTag == 'Incomplete' %}
-        {% set statusTagDetailExplainer = 'More information was requested, but not provided. The application remains incomplete.' %}
+        {% set statusTagDetailExplainer = 'The application could not progress because the prison offender manager (POM) did not provide the requested information.' %}
       {% elseif statusTag == 'Withdrawn' %}
-        {% set statusTagDetailExplainer = 'The application was withdrawn by the referrer, or MoJ staff.' %}
+        {% set statusTagDetailExplainer = 'The prison offender manager (POM) withdrew the application.' %}
       {% endif %}
 
       <!-- Status tag -->
@@ -114,7 +114,7 @@
         <!-- Timeline item 1 -->
         <div class="moj-timeline__item">
           <div class="moj-timeline__header">
-            <h2 class="moj-timeline__title">Application submitted</h2>
+            <h2 class="moj-timeline__title">Application received</h2>
             <p class="moj-timeline__byline"> by Chanel Diep</p><br>
           </div>
 
@@ -122,7 +122,7 @@
             <time datetime="2019-06-14T14:01:00.000Z">13 June 2019 at 2:01pm</time>
           </p>
 
-          <div class="moj-timeline__description">The application was recieved by an assessor.</div>
+          <div class="moj-timeline__description">The submitted application has been received and is awaiting review.</div>
         </div>
 
       </div>
