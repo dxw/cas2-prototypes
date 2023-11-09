@@ -32,79 +32,85 @@
 <form action="" method="post" novalidate >
 
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        
+      <div class="govuk-panel govuk-panel--submitted-app govuk-!-margin-bottom-7">
+      
+        <!-- Status tag -->
+        <div class="status-box govuk-!-margin-bottom-5" style="background-color: #fff; color: #0b0c0c;">
+          <p class="govuk-!-display-inline">Current status: </p> 
+          <strong class="govuk-tag govuk-tag--assessment-complete govuk-tag--big">
+            More information requested
+          </strong>
+        </div>
+    
+        <h1 class="govuk-panel__title govuk-!-margin-bottom-3">
+          Terry Midhurst's application
+        </h1>
+        
+        <ul class="govuk-list govuk-list--spaced" style="color: white;">
+          <li><strong>Referrer name:</strong> Alex Edwards</li>
+          <li><strong>Referring institution:</strong> HM Prison Pentonville</li> 
+          <li><strong>Contact email address:</strong> <a class="govuk-link" href="mailto:aedwards3@hmppentonville.gov.uk" style="color: white;">aedwards3@hmppentonville.gov.uk</a></li>
+          <li><strong>Contact number: </strong><a class="govuk-link" href="tel:01234567891" style="color: white;">01234567891</a></li>
+        </ul>
+        
+        <div class="govuk-button-group govuk-!-margin-bottom-0">
+          <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" style="background-color: #0b0c0c; color: #ffffff;     box-shadow: 0 2px 0 #505a5f;">
+            Update application status
+          </button>
+          <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" style="background-color: #f3f2f1; color: #0b0c0c; box-shadow: 0 2px 0 #505a5f; border-color: #0b0c0c !important;">
+            Download as a PDF
+          </button>
+        </div>
 
-    <!---------------------- Title and actions ---------------------->
-    <div class="govuk-grid-column-three-quarters">
-
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-5" id="top">
-        Application answers
-      </h1>
-
-      <p class="govuk-body-m">This page contains answers submitted as part of a CAS-2 application. Alternatively, you can download a PDF verison of this page.</p>
-
-      <div class="govuk-button-group govuk-!-margin-bottom-0">
-        {{ govukButton({
-          text: "Download as a PDF",
-          href: "#"
-        }) }}
-
-        {{ govukButton({
-          text: "Update application status",
-          classes: 'govuk-button--secondary',
-          href: "a/status-update.html"
-        }) }}
       </div>
 
     </div>
-
-    <div class="govuk-grid-column-full">
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-    </div>
-
   </div>
 
   <div class="govuk-grid-row">
 
-    <!-- Quick links sticky sidebar -->
-    <div class="govuk-grid-column-one-third sticky-sidebar">
+    <!-- Contents sticky sidebar -->
+    <div class="govuk-grid-column-one-quarter sticky-sidebar">
 
-      <h3 class="govuk-heading-m">Quick links</h3>
+      <h3 class="govuk-body-s ">Contents</h3>
         
-      <ul class="govuk-list govuk-list--spaced govuk-!-padding-right-2">
-        <li>
+      <ul class="govuk-list govuk-list--spaced">
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#personal-information">Personal information</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#address-history">Address history</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#equality-diversity">Equality and diversity monitoring</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#area">Exclusion zones and preferred areas</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#funding-id">Funding and ID</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#health">Health needs</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#rts">Risk to self information</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#rosh">Risk of serious harm information</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#current-offence">Current offences</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#offence-history">Offending history</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <a class="govuk-link govuk-link--no-visited-state" href="#hdc">HDC licence and CPP details</a>
         </li>
-        <li>
+        <li class="govuk-!-font-size-16">
           <div class="app-back-to-top app-back-to-top--hidden" data-module="app-back-to-top">
             <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
               {#-
@@ -123,31 +129,16 @@
     </div>
 
     <!-- Application answers -->
-    <div class="govuk-grid-column-two-thirds">
-
-      <!---------------------- Application summary ---------------------->
-      <h2 class="govuk-heading-m">
-        Application summary
-      </h2>
-
-      <ul class="govuk-list govuk-list--spaced">
-        <li><strong>Applicant name:</strong> Terry Midhurst</li>
-        <li><strong>Referrer name:</strong> Alex Edwards</li>
-        <li><strong>Referring institution:</strong> HM Prison Pentonville</li> 
-        <li><strong>Contact email address:</strong> <a class="govuk-link" href="mailto:aedwards3@hmppentonville.gov.uk">aedwards3@hmppentonville.gov.uk</a></li>
-        <li><strong>Contact number: </strong><a class="govuk-link" href="tel:01234567891">01234567891</a></li>
-      </ul>
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="govuk-grid-column-three-quarters">
 
       <!---------------------- Before you apply ---------------------->
       <!-- Section title -->
       <h2 class="govuk-heading-m">Before you apply</h2>
 
-      <!-- Task Check applicant details -->
+      <!-- Task Applicant details -->
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Check applicant details</h2>
+          <h2 class="govuk-summary-card__title">Applicant details</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -266,10 +257,10 @@
         </div>
       </div>
 
-      <!-- Task Check eligibility for CAS-2-->
+      <!-- Task Eligibility for CAS-2-->
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Check eligibility for CAS-2</h2>
+          <h2 class="govuk-summary-card__title">Eligibility for CAS-2</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -315,7 +306,7 @@
       <!-- Task Check consent -->
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Check Terry Midhurst is eligible for Short-Term Accommodation (CAS-2)</h2>
+          <h2 class="govuk-summary-card__title">Confirm consent to share informationCOMPLETED</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -323,7 +314,7 @@
             <div class="govuk-summary-list__row">
               <!-- Question -->
               <dt class="govuk-summary-list__key">
-                Have you got all the information you need from the applicant?
+                Has Terry Midhurst given their consent to apply for CAS-2?
               </dt>
               <!-- Answer -->
               <dd class="govuk-summary-list__value">
@@ -338,10 +329,10 @@
       <!-- Section title -->
       <h2 class="govuk-heading-m">About Terry Midhurst</h2>
 
-      <!-- Task Add personal information -->
+      <!-- Task Personal information -->
       <div class="govuk-summary-card" id="personal-information">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add personal information</h2>
+          <h2 class="govuk-summary-card__title">Personal information</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -449,10 +440,10 @@
         </div>
       </div>
 
-      <!-- Task Add address history -->
+      <!-- Task Address history -->
       <div class="govuk-summary-card" id="address-history">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add address history</h2>
+          <h2 class="govuk-summary-card__title">Address history</h2>
         </div>
 
         <!-- Address before custody -->
@@ -505,10 +496,10 @@
       
       </div>
 
-      <!-- Task Add equality and diversity monitoring information -->
+      <!-- Task Equality and diversity monitoring information -->
       <div class="govuk-summary-card" id="equality-diversity">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add equality and diversity monitoring information</h2>
+          <h2 class="govuk-summary-card__title">Equality and diversity monitoring information</h2>
         </div>
 
         <!-- Address before custody -->
@@ -692,10 +683,10 @@
       <!-- Section title -->
       <h2 class="govuk-heading-m">Area, funding and ID</h2>
 
-      <!-- Task Add exclusion zones and preferred areas -->
+      <!-- Task Exclusion zones and preferred areas -->
       <div class="govuk-summary-card" id="area">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add exclusion zones and preferred areas</h2>
+          <h2 class="govuk-summary-card__title">Exclusion zones and preferred areas</h2>
         </div>
 
         <!-- Address before custody -->
@@ -870,10 +861,10 @@
       
       </div>
 
-      <!-- Task Confirm funding and ID -->
+      <!-- Task Funding and ID -->
       <div class="govuk-summary-card" id="funding-id">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Confirm funding and ID</h2>
+          <h2 class="govuk-summary-card__title">Funding and ID</h2>
         </div>
 
         <!-- How will Terry Midhurst pay for their accommodation and service charge? -->
@@ -927,10 +918,10 @@
       <!-- Section title -->
       <h2 class="govuk-heading-m">Risks and needs</h2>
 
-      <!-- Task Add health needs -->
+      <!-- Task Health needs -->
       <div class="govuk-summary-card" id="health">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add health needs</h2>
+          <h2 class="govuk-summary-card__title">Health needs</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -1629,10 +1620,10 @@
       
       </div>
       
-      <!-- Task Add risk to self information -->
+      <!-- Task Risk to self information -->
       <div class="govuk-summary-card" id="rts">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add risk to self information</h2>
+          <h2 class="govuk-summary-card__title">Risk to self information</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -1776,10 +1767,10 @@
       
       </div>
 
-      <!-- Task Add risk of serious harm information -->
+      <!-- Task Risk of serious harm information -->
       <div class="govuk-summary-card" id="rosh">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add risk of serious harm information</h2>
+          <h2 class="govuk-summary-card__title">Risk of serious harm information</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -2068,10 +2059,10 @@
       <!-- Section title -->
       <h2 class="govuk-heading-m">Offence and licence information</h2>
 
-      <!-- Task Add current offences -->
+      <!-- Task Current offences -->
       <div class="govuk-summary-card" id="current-offence">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add current offences</h2>
+          <h2 class="govuk-summary-card__title">Current offences</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -2115,10 +2106,10 @@
       
       </div>
 
-      <!-- Task Add offending history -->
+      <!-- Task Offending history -->
       <div class="govuk-summary-card" id="offence-history">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add offending history</h2>
+          <h2 class="govuk-summary-card__title">Offending history</h2>
         </div>
 
         <div class="govuk-summary-card__content">
@@ -2175,10 +2166,10 @@
       
       </div>
 
-      <!-- Task Add HDC licence and CPP details -->
+      <!-- Task HDC licence and CPP details -->
       <div class="govuk-summary-card" id="hdc">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Add HDC licence and CPP details</h2>
+          <h2 class="govuk-summary-card__title">HDC licence and CPP details</h2>
         </div>
 
         <div class="govuk-summary-card__content">

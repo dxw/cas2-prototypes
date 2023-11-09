@@ -303,4 +303,11 @@
     margin-top: -(govuk-spacing(1));
     margin-right: govuk-spacing(2);
     vertical-align: middle;
-  }
+}
+
+.govuk-panel--submitted-app {
+    text-align: left;
+    background: $govuk-brand-colour;
+    color: white;
+}
+  
