@@ -98,63 +98,26 @@
         </div>
 
         <!---------------------------- Preference reasoning ---------------------------->
-        {% set preferenceReasoningHTML %}
-
-          {{ govukTextarea({
-            name: "area-preference-reason-explainer",
-            id: "area-preference-reason-explainer",
-            label: {
-              text: "Explain why Terry wants to live there",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
-          }) }}
-        
-        {% endset -%}
-
-        {{ govukRadios({
+        {{ govukTextarea({
           name: "area-preference-reason",
-          fieldset: {
-            legend: {
-              text: "Reason for preference",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
+          id: "area-preference-reason",
+          label: {
+            text: "Reason for preference",
+            classes: "govuk-label--m",
+            isPageHeading: false
           },
-          items: [
-            {
-              value: "Terry lived in the area in the 6 out of the 12 months before prison",
-              text: "Terry lived in the area in the 6 out of the 12 months before prison"
-            },
-            {
-              value: "Terry lived in the area in the area in the 3 out of the last 5 years",
-              text: "Terry lived in the area in the area in the 3 out of the last 5 years"
-            },
-            {
-              value: "Terry's parents, children or siblings have lived in the area for at least 5 years",
-              text: "Terry's parents, children or siblings have lived in the area for at least 5 years"
-            },
-            {
-              value: "Terry has secured full or part-time work in the area",
-              text: "Terry has secured full or part-time work in the area"
-            },
-            {
-              value: "The area is close to Terry's allocated probation office",
-              text: "The area is close to Terry's allocated probation office"
-            },
-            {
-              value: "Terry has different reason to live there",
-              text: "Terry has different reason to live there"
-              ,
-              hint: 
-              {text: "For example, to receive specialist healthcare"},
-              conditional: {
-                html: preferenceReasoningHTML
-              }
-            }
-          ],
           hint: {
-            html: "<p class='govuk-hint'>An applicant can request an area because they have a local connection or it is close to their approved probation office.</p><p class='govuk-hint'>Select one.</p>"
+            html: 
+            "<p class='govuk-hint'>An applicant can request an area because they have a local connection or it is close to their approved probation office.</p>
+            <p class='govuk-hint'>Examples of reasons could be:</p>
+            <ul class='govuk-list govuk-list--bullet govuk-hint'>
+              <li>they lived in the area in the 6 out of the 12 months before prison</li>
+              <li>they lived in the area in the area in the 3 out of the last 5 years</li>
+              <li>their parents, children or siblings have lived in the area for at least 5 years</li>
+              <li>they have secured full or part-time work in the area</li>
+              <li>the area is close to Terry's allocated probation office</li>
+              <li>they require specialist healthcare</li>
+              </ul>"
           }
         }) }}
 
