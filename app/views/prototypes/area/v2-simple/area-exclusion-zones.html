@@ -89,57 +89,54 @@
 
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-        <!-- Set the exclusion detail as a variable -->
-        {% set areaExclusionTypeDetail = data['area-exclusion-zones-detail'] %}
+        <!-- Exclusion zone -->
+        {% set exclusionZoneDetail %}
 
-        {% set areaExclusionDetail %}
-          {{ data['area-exclusion-zones-detail'] }}
-        {% endset %}
+          {{ govukTextarea({
+            name: "exclusion-zone-detail",
+            id: "exclusion-zone-detail",
+            label: {
+              text: "Provide details about the exclusion zone",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            },
+            hint: {
+              html: 
+              "<p class='govuk-hint'>Include details such as:</p>
+              <ul class='govuk-list govuk-list--bullet govuk-hint'>
+                <li>the area the applicant is excluded from</li>
+                <li>the end date (if applicable) of the exclusion</li>
+                <li>the reason for the exclusion (e.g. domestic abuse)</li>
+                <li>the victim(s) full name so we can avoid placing the applicant near them</li>
+                </ul>"
+            }
+          }) }}
 
-        <!-- Single exclusion zone -->
-        {% if areaExclusionDetail %}
-          <div class="govuk-summary-card">
-            <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">
-                Exclusion zone 1
-              </h2>
-              <ul class="govuk-summary-card__actions">
-                <li class="govuk-summary-card__action">
-                  <a class="govuk-link" href="#">
-                    Remove<span class="govuk-visually-hidden"> exclusion</span>
-                  </a>
-                </li>
-                <li class="govuk-summary-card__action">
-                  <a class="govuk-link" href="#">
-                    Change<span class="govuk-visually-hidden"> exclusion</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list prison-info">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Details
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ areaExclusionTypeDetail }}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        {% else %}
-          <p class="govuk-body govuk-!-font-weight-bold">No exclusion zones have been added.</p>
-        {% endif %}
+        {% endset -%}
 
-        {{ govukButton({
-          text: "Add an exclusion zone",
-          classes: "govuk-button--secondary",
-          href: "area-exclusion-zones-add.html"
+        {{ govukRadios({
+        name: "exclusion-zone-question",
+        fieldset: {
+          legend: {
+            text: "Does Terry Midhurst have any exclusion zones?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: exclusionZoneDetail
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
         }) }}
-
-        <br>
 
         <div class="govuk-button-group">
 
