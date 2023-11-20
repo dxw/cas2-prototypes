@@ -1,0 +1,325 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  CAS2 Prototypes
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-column-full-column">
+      <h1 class="govuk-heading-xl">
+        Short-Term Accommodation (CAS-2) Prototypes
+      </h1>
+
+      <p class="govuk-body-l">An initial page linking to various prototypes created for the MoJ <strong>Community Accommodation Service - Tier 2</strong> project.</p>
+
+      <h2 class="govuk-heading-l">Current for MvP</h2> 
+
+      <p class="">The section contains a list of <strong>current</strong>, latest work.</p>
+
+      <p class="">Alternatively, you can begin the prototype from the start.</p>
+
+      {{ govukButton({
+        text: "Start full prototype",
+        href: "prototypes/sign-in/sign-in-1.html"
+      }) }}
+
+      <h3 class="govuk-heading-m">Sign in screen</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/sign-in/sign-in-1.html">Sign in to service v1</a> (Last updated 02-08-23)</li>
+      </ul>
+      
+      <h3 class="govuk-heading-m">Multiple applications</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/multiple-applications/dashboard-1.html">Dashboard 1 (Static)</a> (Last updated 26-06-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Start page</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/start.html">Start page</a> (Last updated 08-09-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Add an applicant</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/add-an-applicant/search-applicant--male.html">Search for an applicant (Male)</a> (Last updated 27-07-23)</li>
+        <li><a href="prototypes/add-an-applicant/search-applicant--female.html">Search for an applicant (Female)</a> (Last updated 27-07-23)</li>
+        <li><a href="prototypes/add-an-applicant/duplicate-application/duplicate-application.html">Duplicate application found</a> (Last updated 29-06-23)</li>
+        <li><a href="prototypes/add-an-applicant/no-applicant-found/no-applicant-found.html">No applicant found</a> (Last updated 11-07-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Eligibility</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/eligibility-checker/eligibility-flat.html">Flat eligibility guidance</a> (Last updated 28-09-23)</li>
+        <li><a href="prototypes/eligibility-checker/eligibility-success.html">Eligibility success</a> (Last updated 27-07-23)</li>
+        <li><a href="prototypes/eligibility-checker/eligibility-fail.html">Ineligible</a> (Last updated 27-07-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Task lists</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/tasklists/tasklist-without-required-tasks.html">Task list with incomplete required tasks</a> (Last updated 12-09-23)</li>
+        <li><a href="prototypes/tasklists/tasklist.html">Task list in progress</a> (Last updated 12-09-23)</li>
+        <li><a href="prototypes/tasklists/tasklist-before-check-answers.html">Task list before check answers</a> (Last updated 12-09-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Consent</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/consent/all-in-one.html">All in one</a> (Last updated 11-08-23)</li>
+        <li><a href="prototypes/consent/consent-given.html">Consent success</a> (Last updated 11-08-23)</li>
+        <li><a href="prototypes/consent/consent-refused.html">Consent refused</a> (Last updated 11-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Check information from applicant</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/checklist/web">Checklist on web</a> (Last updated 29-08-23)</li>
+        <li><a href="https://miro.com/app/board/uXjVMv_qJcE=/?moveToWidget=3458764561354679158&cot=14">Printable checklist</a> (Last updated 14-08-23)</li>
+      </ul>  
+
+      <h3 class="govuk-heading-m">Add applicant information</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/add-applicant-information/male/aai-extra-question-1.html">Extra question (Male path)</a> (Last updated 31-08-23)</li>
+        <li><a href="prototypes/add-applicant-information/female/aai-extra-question-1">Extra question (Female path)</a> (Last updated 31-08-23)</li>
+      </ul>  
+
+      <h3 class="govuk-heading-m">Area exclusions and preferences</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/area/v2-simple/area-first-preference.html">Add areas exclusions and preferences (Simple exclusion zone)</a> (Last updated 20-11-23)</li>
+      </ul>  
+      
+      <h3 class="govuk-heading-m">Address history</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/address-history/address-history-manual-v2-1.html">Add a previous address (Manually, full journey)</a> (Last updated 10-07-23)</li>
+      </ul>  
+    
+      <h3 class="govuk-heading-m">Equality and diversity</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/equality-diversity/equality-diversity-opt-in.html">Equality and diversity</a> (Last updated 26-10-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Offending history</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/offending/offending-history/v2/first-time.html">V2 Full prototype</a> (Last updated 08-09-23)</li>
+        <li><a href="prototypes/offending/offending-history/v2/oh-listing.html">Full listing page only</a> (Last updated 08-09-23)</li>
+        <li><a href="prototypes/offending/offending-history/v2/oh-listing-with-pagination.html">Full listing page with pagination</a> (Last updated 08-09-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Current offence</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/offending/current-offence/v1/co-add-manual.html">V1 Full prototype</a> (Last updated 08-09-23)</li>
+        <li><a href="prototypes/offending/current-offence/v1/co-listing-multiple.html">Full listing page only</a> (Last updated 08-09-23)</li>
+        <li><a href="prototypes/offending/current-offence/v1/co-listing-with-pagination.html">Full listing page with pagination</a> (Last updated 08-09-23)</li>       
+      </ul>
+
+      <h3 class="govuk-heading-m">Funding / NI / ID</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/funding-ni-id/funding.html" styling="background:yellow;">V1 Full prototype <strong>work in progress</strong></a> (Last updated 14-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">HDC licence details</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/hdc-details/hdc-dates.html">Add HDC licence details</a> (Last updated 31-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Risk of self harm (RoSH)</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/risks-and-needs/rosh/v3/oasys-info">Risk of serious harm (RoSH) v3</a> (Last updated 26-10-23)</li>
+        <li><a href="prototypes/risks-and-needs/rosh/v3/rosh-oasys-not-available.html">OASys not available</a> (Last updated 21-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Risk to self</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/risks-and-needs/risk-to-self/v4/oasys-info-2.html">Risk to self v4 full prototype</a> (Last updated 04-09-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Health needs</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/risks-and-needs/health-needs/v4/health-guidance">Health needs v4 full prototype</a> (Last updated 31-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/experimentation/save-confirmation-popup">Save confirmation pop-up</a> (Last updated 28-06-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Check answers</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/check-answers/check-answers-v2.html">Check answers v2</a> (Last updated 30-10-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Routing to correct service</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/route-to-correct-service/immigration.html">Check which community accommodation service to use</a> (Last updated 22-09-23)</li>
+      </ul>      
+
+      <h3 class="govuk-heading-m">Nacro emails</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/nacro/emails/new-application-email.html">New application for review email</a> (Last updated 18-10-23)</li>
+        <li><a href="prototypes/nacro/emails/update-prompt-email.html">Status update required email</a> (Last updated 18-10-23)</li>
+      </ul>   
+
+      <h3 class="govuk-heading-m">Nacro journey</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/nacro/new-application-journey/v2/new-application-email.html">New application from email</a> (Last updated 06-11-23)</li>
+        <li><a href="prototypes/nacro/update-prompt-journey/v2/update-prompt-email.html">Update prompt from email</a> (Last updated 06-11-23)</li>
+        <li><a href="prototypes/submitted-application/submitted-application-v2.html">Submitted application v2</a> (Last updated 24-10-23)</li>
+        <li><a href="prototypes/submitted-application/submitted-application-v3a.html">Submitted application v3a</a> (Last updated 08-11-23)</li>
+        <li><a href="prototypes/submitted-application/submitted-application-v3b.html">Submitted application v3b</a> (Last updated 09-11-23)</li>
+        <li><a href="prototypes/submitted-application/submitted-application-v3c.html">Submitted application v3c</a> (Last updated 09-11-23)</li>
+        <li><a href="prototypes/submitted-application/submitted-application-v4.html">Submitted application v4</a> (Last updated 09-11-23)</li>
+      </ul> 
+      
+      <h3 class="govuk-heading-m">Application overview experiments</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/nacro/application-overview-experiments/application-overview-1.html">Experiment 1 showing latest entry to the timeline</a> (Last updated 07-11-23)</li>
+        <li><a href="prototypes/nacro/application-overview-experiments/application-overview-2.html">Experiment 2 showing latest entry to the timeline</a> (Last updated 07-11-23)</li>
+      </ul>   
+
+
+
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+
+      <h2 class="govuk-heading-l">Archive</h2>
+
+      <p class="">The section contains a list of <strong>old</strong> work, OR work that was created and subsequently descoped:</p>
+
+      <h3 class="govuk-heading-m">Multiple applications</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/multiple-applications/dashboard-2.html">Dashboard 2 (Sortable)</a> (Last updated 26-06-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Add an applicant</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/add-an-applicant/manual/add-applicant-1.html">Add an applicant (Manual entry)</a> (Last updated 29-06-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Tasklist dashboard experiments</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/tasklists/experimentation/tasklist">Task list - plain</a></li>
+        <li><a href="prototypes/tasklists/experimentation/tasklist-overview-vertical-with-image.html">Task list - overview, vertical, with image</a></li>
+        <li><a href="prototypes/tasklists/experimentation/tasklist-overview-vertical-without-image.html">Task list - overview, vertical, without image</a></li>
+        <li><a href="prototypes/tasklists/experimentation/tasklist-with-banner.html">Task list - with banner</a></li>
+        <li><a href="prototypes/tasklists/tasklist-complete.html">Task list ready for submission</a> (Last updated 12-09-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Consent</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/consent/verbal-consent-1.html">Capturing verbal consent</a> (Last updated 06-06-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Address history</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/address-history/address-history-manual-v1.html">Add a previous address (Manually)</a> (Last updated 10-07-23)</li>
+      </ul> 
+
+      <h3 class="govuk-heading-m">Current offence</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/offending/current-offence/first-time.html">Initial question</a> (Last updated 11-08-23)</li>
+        <li><a href="prototypes/offending/current-offence/list-offences.html">Listing</a> (Last updated 11-08-23)</li>
+        <li><a href="prototypes/offending/current-offence/section-complete.html">Section complete</a> (Last updated 11-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Offending history</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/offending/offending-history/v1/oh-q1.html"><strong>Currently broken, in progress </strong>Full prototype</a> (Last updated 11-08-23)</li>
+        <li><a href="prototypes/offending/offending-history/experiments/oh-listing--solid-color.html">Listing page - solid colour coding</a> (Last updated 11-08-23)</li>
+        <li><a href="prototypes/offending/offending-history/experiments/oh-listing--white.html">Listing page - lighter touch colour coding</a> (Last updated 11-08-23)</li>
+        <li><a href="prototypes/offending/offending-history/experiments/oh-listing--click-for-details.html">Listing page - clickable details</a> (Last updated 11-08-23)</li>
+        <li><a href="prototypes/offending/offending-history/v1/first-time.html">V1 Full prototype</a> (Last updated 31-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Offending history / Current offence merged</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/offending/v1-merged-old/first-time.html">Full prototype</a> (Last updated 11-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Risk experiments</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/risk-experiments/risk-oasys-editable-radio">Risk question pattern (using radio buttons)</a></li>
+        <li><a href="prototypes/risk-experiments/risk-oasys-editable-check">Risk question pattern (text link and checkbox)</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-m">ROSH</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/risks-and-needs/rosh/v1/oasys-info">Risk of Serious Harm (RoSH) v1</a> (Last updated 26-06-23)</li>
+        <li><a href="prototypes/risks-and-needs/rosh/v2/oasys-info">Risk of Serious Harm (RoSH) v2</a> (Last updated 1-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Health needs</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/risks-and-needs/health-needs/v1/health-needs-communication">Health needs v1</a> (Last updated 19-05-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/v2-horizontal-nav/health-needs-communication">Health needs v2 with horizontal sub-nav</a> (Last updated 15-06-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/v2-vertical-nav/health-needs-communication">Health needs v2 with vertical sub-nav</a> (Last updated 15-06-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/v3/health-guidance">Health needs v3 smaller subsections</a> (Last updated 19-06-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/v3/health-guidance">Health needs v3 full prototype</a> (Last updated 21-06-23)</li>
+        <!-- <li><a href="prototypes/risks-and-needs/health-needs/experiments/draft-tags/draft-tags-substance">All questions with basic DRAFT tags</a> (Last updated 21-06-23)</li> -->
+        <li><a href="prototypes/risks-and-needs/health-needs/experimentation/coloured-tags-complete-communication.html">Identify <strong>completed</strong> subsections within sidebar</a> (Last updated 21-06-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/experimentation/coloured-tags-incomplete-communication.html">Identify <strong>incomplete</strong> subsections within sidebar</a> (Last updated 21-06-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/experimentation/structured-data-1.html">Easy way to remove <strong>all</strong> questions</a> (Last updated 04-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/experimentation/structured-data-2.html">Easy way to remove <strong>individual</strong> questions</a> (Last updated 04-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/experimentation/structured-data-3.html">Easy way to remove answer <strong>specific</strong> questions</a> (Last updated 05-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/health-needs/experimentation/sidebar-right-communication">Sidebar to the right</a> (Last updated 21-06-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Risk to self</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/risks-and-needs/risk-to-self/v1/oasys-info">Risk to self v1</a> (Last updated 26-06-23)</li>
+        <li><a href="prototypes/risks-and-needs/risk-to-self/v2/oasys-info">Risk to self v2</a> (Last updated 05-07-23) - Note: Prototype functionality slightly off</li>
+        <li><a href="prototypes/risks-and-needs/risk-to-self/v2/suicide-no-concerns.html">No concerns example (v2)</a> (Last updated 05-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/risk-to-self/oasys-not-found">OASys not found</a> (Last updated 05-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/risk-to-self/v3-auto/oasys-info-2.html">Pre-populated journey</a> (Last updated 17-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/risk-to-self/prison-notes/prison-notes-add-auto--selected.html">Change selected Prison notes</a> (Last updated 17-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/risk-to-self/v3-manual/vulnerability.html">Manual journey (no pre-population)</a> (Last updated 17-07-23)</li>
+        <li><a href="prototypes/risks-and-needs/risk-to-self/v4/oasys-not-available.html">OASys not available</a> (Last updated 21-08-23)</li>
+        <li><a href="prototypes/risks-and-needs/risk-to-self/acct/acct-add-auto--selected.html">Change selected ACCTs</a> (Last updated 17-07-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Prison Information</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/risks-and-needs/prison-information/prison-case-notes">Prison case notes</a> (Last updated 22-05-23)</li>
+        <li style="background:yellow;"><p class="">This is now split between Risk to Self and ROSH <strong>13/07/2023</strong></p></li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Area exclusions and preferences</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/area/v1/exclusions.html">Add areas exclusions and preferences</a> (Last updated 1-09-23)</li>
+        <li><a href="prototypes/area/v2/area-first-preference.html">Add areas exclusions and preferences</a> (Last updated 17-10-23)</li>
+      </ul> 
+      
+      <h3 class="govuk-heading-m">Check answers / Review applications</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/review-applications/sign-in.html">Check answers v1</a> (Last updated 07-08-23)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Nacro journey</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/nacro/new-application-journey/v1/new-application-email.html">New application from email</a> (Last updated 19-10-23)</li>
+        <li><a href="prototypes/nacro/update-prompt-journey/v1/update-prompt-email.html">Update prompt from email</a> (Last updated 19-10-23)</li>
+        <li><a href="prototypes/nacro/all-apps-dashboard-journey/v1/sign-in.html">See all applications</a> (Last updated 19-10-23)</li>
+      </ul>   
+
+      <h3 class="govuk-heading-m">Other</h3>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li><a href="prototypes/eligibility-checker/eligibility-start">Eligibility checker</a> (Last updated 01-06-23)</li>
+        <li><a href="prototypes/prelude-tasklist/search-referrer">Prelude to task list dashboard</a> (Last updated 22-05-23)</li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l">Other information</h2>
+
+      <p>Additional links to project artifacts.</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="https://docs.google.com/presentation/d/108czvzn8AHrawH5gAKZimL5e98ikr140/edit?usp=share_link&ouid=100294621552212942595&rtpof=true&sd=true">Discovery Deck</a>
+        </li>
+        <li>
+          <a href="https://github.com/dxw/cas2-prototypes">Github repo (For prototypes)</a>
+        </li>
+      </ul>
+    </div>
+
+{% endblock %}
