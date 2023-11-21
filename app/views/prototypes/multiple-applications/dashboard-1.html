@@ -15,10 +15,12 @@
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink({
-  text: "Back",
-  href: "/index"
-}) }}
+  {% include "components/help/help-v1.html" %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/index"
+  }) }}
 {% endblock %}
 
 {% block content %}
