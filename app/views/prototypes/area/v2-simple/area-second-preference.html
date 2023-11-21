@@ -91,11 +91,11 @@
         <!-- Towns and cities -->
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m govuk-!-font-weight-bold" for="address-town">
-            Search for a town or city
+            Preferred area
           </label>
-          <!-- <div id="" class="govuk-hint">
-            Some sort of hint to help explain this is a preferred town or city, rather than exact area?
-          </div> -->
+          <div id="" class="govuk-hint">
+            Specify a town, city or region
+          </div>
           <select class="govuk-select govuk-input--width-20" name="town-city-one" id="choose-country">
             {% include "components/area/select-options.html" %}
           </select>
@@ -112,7 +112,7 @@
           },
           hint: {
             html: 
-            "<p class='govuk-hint'>Include the type of local connection the applicant has with the area.</p>"
+            "<p class='govuk-hint'>Include the type of local connection the applicant has with the area</p>"
           }
           
     
