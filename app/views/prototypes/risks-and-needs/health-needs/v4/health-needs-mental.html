@@ -231,6 +231,114 @@
         ]
         }) }}
 
+
+
+
+
+
+
+
+        <!---------------------------- EXPERIMENT ---------------------------->
+        {% set mentalNeedsExperimentYes %}
+
+          {{ govukTextarea({
+            name: "health-mental-needs",
+            id: "health-mental-needs",
+            label: {
+              text: "Provide any relevant medication notes (optional)",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            },
+            hint: {
+              text: "For example, storage requirements"
+            }
+          }) }}
+
+        {% endset -%}
+
+        {% set mentalNeedsExperimentNo %}
+
+          {{ govukTextarea({
+            name: "health-mental-needs",
+            id: "health-mental-needs",
+            label: {
+              text: "Describe the issues they have with taking their medication",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "health-mental-needs",
+            id: "health-mental-needs",
+            label: {
+              text: "Provide any relevant medication notes (optional)",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            },
+            hint: {
+              text: "For example, storage requirements"
+            }
+          }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "health-mental-needs-radio-experiment",
+          fieldset: {
+            legend: {
+              text: "Can they manage their own mental health medication on release?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: mentalNeedsExperimentYes
+              }
+            },
+            {
+              value: "no",
+              text: "No",
+              conditional: {
+                html: mentalNeedsExperimentNo
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "They do not take medication for their mental health.",
+              text: "They do not take medication for their mental health."
+            }
+          ]
+        }) }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="govuk-button-group">
 
           {{ govukButton({
