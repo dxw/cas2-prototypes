@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "components/help/help-v1.html" %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/index"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <form action="" method="post" validate>
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Referrer declaration</h1>
+
+      <p class="govuk-body">Confirm that you have understood and agree to the following:</p>
+
+      {{ govukInsetText({
+        text: "To the best of my knowledge, the information provided in this referral is accurate and, where required, it has been verified by all relevant prison departments."
+      }) }}
+
+      {{ govukRadios({
+        name: "referrer-declaration",
+        value: data['referrer-declaration'],
+        classes: "govuk-radios--inline",
+        fieldset: {
+          legend: {
+            text: "Does the referrer agree to the above statement?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+          value: "no",
+          text: "No"
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group govuk-!-margin-top-7">
+
+        {{ govukButton({
+          text: "Save and complete",
+          href: "../tasklists/tasklist"
+        }) }}
+
+        <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
