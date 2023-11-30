@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "components/help/help-v1.html" %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/index"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <form action="" method="post" validate>
+
+      <!-- {{ govukInput({
+        label: {
+          text: "What is the referrer's full name?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "referrer-confirm-name",
+        name: "referrerConfirmName"
+      }) }} -->
+
+      <h1 class="govuk-heading-l">Confirm your details</h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Alex Edwards"
+            }
+          },
+          {
+            key: {
+              text: "Contact email address"
+            },
+            value: {
+              html: "a.edwards@justice.gov.uk"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukWarningText({
+        text: "If any of these details are wrong, please update nDelius.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <div class="govuk-button-group govuk-!-margin-top-7">
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          href: "job-title"
+        }) }}
+
+        <a href="../../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
