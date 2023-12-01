@@ -102,7 +102,7 @@ router.get('/scores', function (req, res) {
 
 // The URL here needs to match the URL of the page that the user is on
 // when they type in their email address
-router.post('/prototypes/check-answers/check-answers-v2', function (req, res) {
+router.post('/prototypes/check-answers/check-answers-v3', function (req, res) {
 
   notify.sendEmail(
     // this long string is the template ID, copy it from the template
