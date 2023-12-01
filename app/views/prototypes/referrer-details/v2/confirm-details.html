@@ -36,6 +36,11 @@
       }) }} -->
 
       <h1 class="govuk-heading-l">Confirm your details</h1>
+      <div id="event-name-hint" class="govuk-hint">
+        The details of the person completing the application
+      </div>
+    
+      </div>
 
       {{ govukSummaryList({
         rows: [
@@ -49,7 +54,7 @@
           },
           {
             key: {
-              text: "Contact email address"
+              text: "Email address"
             },
             value: {
               html: "a.edwards@justice.gov.uk"
@@ -59,7 +64,7 @@
       }) }}
 
       {{ govukWarningText({
-        text: "If any of these details are wrong, please update nDelius.",
+        text: "If any of these details are wrong, update nDelius.",
         iconFallbackText: "Warning"
       }) }}
 
