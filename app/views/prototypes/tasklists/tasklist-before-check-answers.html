@@ -32,7 +32,7 @@
 
       <div class="govuk-!-margin-bottom-4">
         <p class="govuk-body govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Applicant:</span> Terry Midhurst</p>
-        <p class="govuk-body govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Institution:</span> HM Prison Pentonville</p>
+        <p class="govuk-body govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Prison:</span> HM Prison Pentonville</p>
         <p class="govuk-body govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Referrer:</span> Alex Edwards</p>
         <!-- <a class="govuk-!-font-size-19" href="#">Change referrer</a> -->
       </div>
@@ -95,6 +95,15 @@
               <span class="govuk-prototype-kit-task-list__task-name">
                 <a class="govuk-link--no-visited-state" href="../eligibility-checker/eligibility-success.html" aria-describedby="read-declaration-status">
                   Confirm eligibility
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
+            </li>
+
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="../referrer-details/v2/confirm-details.html" aria-describedby="read-declaration-status">
+                  Add your details
                 </a>
               </span>
               <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
@@ -235,42 +244,6 @@
               </span>
               <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
             </li>
-
-            <!-- <li class="govuk-prototype-kit-task-list__item">
-              <span class="govuk-prototype-kit-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="../offending/offending-history/v2/first-time.html" aria-describedby="read-declaration-status">
-                  Add offending history
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag">Completed</strong>
-            </li>
-
-            <li class="govuk-prototype-kit-task-list__item">
-              <span class="govuk-prototype-kit-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="../offending/current-offence/v1/co-add-manual.html" aria-describedby="read-declaration-status">
-                  Add current offences
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag">Completed</strong>
-            </li> -->
-
-            <!-- <li class="govuk-prototype-kit-task-list__item">
-              <span class="govuk-prototype-kit-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="../risks-and-needs/prison-information/prison-case-notes" aria-describedby="read-declaration-status">
-                  Select relevant prison information
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
-            </li> -->
-
-            <!-- <li class="govuk-prototype-kit-task-list__item">
-              <span class="govuk-prototype-kit-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="#" aria-describedby="read-declaration-status">
-                  Enter gang affiliations
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="read-declaration-status">Completed</strong>
-            </li> -->
             
           </ul>
 
@@ -316,8 +289,6 @@
 
       </ol>
 
-      <!-- <hr class="govuk-section-break govuk-section-break--s "> -->
-
       <ol class="govuk-prototype-kit-task-list">
 
         <li>
@@ -352,50 +323,15 @@
 
       <form action="" method="post" novalidate>
 
-        <div class="govuk-button-group">
-
-          <!-- {{ govukButton({
-            text: "Submit application",
-            href: "submission-confirmed",
-            disabled: true
-          }) }} -->
-
-          {{ govukButton({
-            text: "Return to applications dashboard",
-            href: "../multiple-applications/dashboard-1",
-            classes: "govuk-button--secondary"
-          }) }}
-
-        </div>
+        {{ govukButton({
+          text: "Return to applications dashboard",
+          href: "../multiple-applications/dashboard-1",
+          classes: "govuk-button--secondary"
+        }) }}
 
       </form>
 
     </div>
-
-    <!-- Sidebar -->
-    <!-- <div class="govuk-grid-column-one-third govuk-!-padding-left-8">
-
-      <h3 class="govuk-heading-m">Recent activity</h3>
-      <ul class="govuk-list">
-
-        <li>
-          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">17/01/2023 12:32pm</h4>
-          <p class="govuk-body" style="color: #505a5f;">Sally Fish made updates to "Enter health needs"</p>
-        </li>
-
-        <li>
-          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">15/01/2023 09:12am</h4>
-          <p class="govuk-body" style="color: #505a5f;">Jack Chop made updates to "Add preferred CAS-2 area"</p>
-        </li>
-
-        <li>
-          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">15/01/2023 15:22pm</h4>
-          <p class="govuk-body" style="color: #505a5f;">Jack Chop made updates to "Obtain applicant consent"</p>
-        </li>
-
-      </ul>
-
-    </div> -->
 
   </div>
 
