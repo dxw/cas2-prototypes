@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: 'This is a new service. <a href="#" target="_blank">Complete our feedback form</a> or <a href="#">email us</a> to report a bug.'
+      }) }}
+
+    </div>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/index"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<form action="" method="post" novalidate >
+
+  <div class="govuk-grid-row">
+    <!---------------------- Title and actions ---------------------->
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-5" id="top">
+        Application answers
+      </h1>
+
+      <p class="govuk-body-m">This page contains answers submitted as part of a CAS-2 application. Alternatively, you can download a PDF verison of this page.</p>
+
+      <div class="govuk-button-group govuk-!-margin-bottom-0">
+        {{ govukButton({
+          text: "Save as a PDF",
+          href: "#"
+        }) }}
+
+        {{ govukButton({
+          text: "Update application status",
+          classes: "govuk-button--secondary",
+          href: "status-update.html"
+        }) }}
+      </div>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+
+    <!---------------------- Application summary ---------------------->
+    <div class="govuk-grid-column-three-quarters">
+      <h2 class="govuk-heading-m">
+        Application summary
+      </h2>
+
+      <ul class="govuk-list govuk-list--spaced">
+        <li><strong>Applicant name:</strong> Tanya Midhurst</li>
+        <li><strong>Prison number:</strong> HM Prison Pentonville</li> 
+        <li><strong>Prison:</strong> HMPPS Leeds</li> 
+        <li><strong>Referrer name:</strong> Alex Edwards</li>
+        <li><strong>Contact email address:</strong> <a class="govuk-link" href="mailto:aedwards3@hmppentonville.gov.uk">aedwards3@hmppentonville.gov.uk</a></li>
+        <li><strong>Contact number: </strong><a class="govuk-link" href="tel:01234567891">01234567891</a></li>
+      </ul>
+    </div>
+
+    <div class="govuk-grid-column-full">
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      {% include "components/answers/fake-answers-static.html" %}
+    </div>
+
+  </div>
+
+</form>
+{% endblock %}
