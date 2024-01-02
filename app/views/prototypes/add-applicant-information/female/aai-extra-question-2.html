@@ -24,7 +24,7 @@
 
     <form action="" method="post" validate>
 
-      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {# {% from "govuk/components/input/macro.njk" import govukInput %}
 
       {{ govukInput({
         label: {
@@ -38,7 +38,69 @@
         classes: "govuk-!-width-one-third",
         id: "immigration-status",
         name: "immigrationStatus"
-      }) }}
+      }) }} #}
+
+      {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "immigration-status",
+  name: "immigrationStatus",
+  label: {
+          text: "What is Angela Midhurst's immigration status?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+  hint: {
+    text: "Select their immigration status"
+  },
+  items: [
+    {
+      value: "select",
+      text: "Select immigration status",
+      selected: true
+    },
+    {
+      value: "UKcitizen",
+      text: "UK citizen"
+    },
+    {
+      value: "leavetoremain",
+      text: "Leave to remain"
+    },
+    {
+      value: "indefiniteleaveremain",
+      text: "Indefinite leave to remain"
+    },
+    {
+      value: "discretionaryleaveremain",
+      text: "Discretionary leave to remain"
+    },
+    {
+      value: "EEAnational",
+      text: "EEA national"
+    },
+    {
+      value: "asylumseeker",
+      text: "Asylum seeker awaiting decision"
+    },
+    {
+      value: "spouseorpartner",
+      text: "Spouse or partner sponsorship"
+    },
+    {
+      value: "workvisa",
+      text: "Work visa"
+    },
+    {
+      value: "studyvisa",
+      text: "Study visa"
+    },
+    {
+      value: "notknown",
+      text: "Not known"
+    }
+  ]
+}) }}
 
       {{ govukButton({
         text: "Save and continue",
