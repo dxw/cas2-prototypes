@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "components/other/new-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "components/help/help-v1.html" %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/index"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <form class="form" action="" method="post">
+
+        <!-- <span class="govuk-caption-m">CAS-2 application for Terry Midhurst</span> -->
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Confirm Terry Midhurst's consent to apply for Short-Term Accommodation (CAS-2)</h1>
+
+        <!-- <p class="govuk-body-l">Please read the following script out loud to Terry Midhurst in full:</p> -->
+
+        <p class="govuk-body">You need verbal consent from Terry Midhurst to send an application for Short-Term Accommodation (CAS-2) on their behalf.</p>
+
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-3">
+
+
+
+          <div class="govuk-button-group">
+
+            {{ govukButton({
+              text: "Save and continue"
+            }) }}
+  
+            <a href="../tasklists/tasklist" class="govuk-link govuk-link--no-visited-state">Back to tasklist</a>
+  
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
